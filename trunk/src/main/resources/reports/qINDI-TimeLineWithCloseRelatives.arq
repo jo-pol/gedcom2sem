@@ -1,0 +1,82 @@
+###############################################
+#
+# timeline with siblings, parents and spouses
+#
+# replace the value for the famID
+# or launch from a family context
+#
+# at least the quick rules are required
+#
+# see also comments on GIVN/SURN
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT DISTINCT 
+  (str(?alive) as ?central_person_alive_at_event)
+  (str(?age)   as ?age_of_central_person_at_event)
+  (fn:substring(str(?eventDate),0,10) as ?date)
+  (?eventType as ?event)
+  ?name
+{
+  ### for which individual do you want the close relatives?
+
+  LET (?indiID := '%s')
+
+  ### select data that is allways available
+
+  ?indi 
+   p:id ?indiID;
+   p:BIRT [p:DATE [rdfs:label ?birthDate]];
+   p:DEAT [p:DATE [rdfs:label ?deathDate]].
+  {?indi                              p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "born").}UNION
+  {?indi                              p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "died").}UNION
+  {?indi r:parent  ?parent.   ?parent p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "parent born").}UNION
+  {?indi r:parent  ?parent.   ?parent p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "parent died").}UNION
+  {?indi r:child   ?child.     ?child p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "child born").}UNION
+  {?indi r:child   ?child.     ?child p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "child died").}UNION
+  {?indi r:sibling ?sibling. ?sibling p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "sibling born").}UNION
+  {?indi r:sibling ?sibling. ?sibling p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "sibling died").}UNION
+  {?indi r:spouse  ?spouse.   ?spouse p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "spouse born").}UNION
+  {?indi r:spouse  ?spouse.   ?spouse p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "spouse died").}UNION
+  {?indi r:spouse  ?spouse.   ?spouse p:NAME [rdfs:label ?name]. 
+                 ?indi p:FAMS ?fam. ?spouse p:FAMS ?fam. ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "married").}UNION
+  {?indi r:child  ?child. ?child p:FAMS ?fam; p:NAME [rdfs:label ?name]. 
+                                                         ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "child married").}UNION
+  {?indi r:sibling  ?sibling. ?sibling p:FAMS ?fam; p:NAME [rdfs:label ?name]. 
+                                                         ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "sibling married").}
+
+  ### computations
+
+  LET(?eventYear := fn:substring(str(?eventDate),1,4))
+  LET(?birthYear := fn:substring(str(?birthDate),1,4))
+  LET(?deathYear := fn:substring(str(?deathDate),1,4))
+  LET(?age := xsd:int(?eventYear) - xsd:int(?birthYear))
+  LET(?alive := ?birthYear <= ?eventYear && ?eventYear <= ?deathYear)
+
+
+  ### switch of if you don't store GIVN and SURN separately
+  FILTER( fn:contains(?name,'/') )
+}
+ORDER BY ?eventDate

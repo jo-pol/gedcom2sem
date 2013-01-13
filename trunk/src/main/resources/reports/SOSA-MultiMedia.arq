@@ -1,0 +1,150 @@
+###############################################
+#
+# Multi media objects of ancestors
+#
+# shows a line per
+#   INDI:OBJE:FILE 
+#   INDI:*:OBJE:FILE 
+#   INDI:*:OBJE:NOTE 
+#   INDI:FAMS:*:OBJE:FILE 
+#   INDI:FAMS:*:OBJE:NOTE
+# * = BIRT/BAPM/MARR/DIV/DEAT/BURI
+# notes only if starting with "http://" or "https://" 
+# MARR/DIV only for males
+#
+# _SOSA properties must have been generated before conversion.
+#       Method 1 sorts properly:
+#       1) View - lists and reports - tool box
+#              choose tool to run: generation of sosa numbers
+#       2) Tools - gedcom - regenerate sosa numbers
+#       
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT DISTINCT
+  (str(?id) as ?ID)
+  ?sosa
+  ?name 
+  ?event
+  ( fn:substring(str(?date),0,4) as ?year)
+  ?file
+{
+  ### shared by all the union parts
+
+  ?indi p:id    ?id; 
+     p:NAME  [rdfs:label ?name];
+     p:_SOSA [rdfs:label ?sosa].   
+
+  ### just ancestors, not their decendants
+  
+  FILTER ( ! fn:contains(?sosa,"-") )
+
+  ### INDI:OBJE:FILE 
+  {
+    ?indi p:OBJE ?object. 
+    ?object p:FILE [rdfs:label ?file].
+    LET (?event := '-')
+  } UNION {
+
+    ### INDI:*:OBJE:FILE
+
+    ?indi ?eventType ?e.
+    LET ( ?event := fn:substring(str(?eventType),54,60) )
+    FILTER( ?event="BIRT" || ?event="DEAT"
+         || ?event="BAPM" || ?event="BURI"
+          )
+    OPTIONAL {
+      ?e p:DATE [rdfs:label ?date]. 
+    }
+    OPTIONAL {
+      ?e p:OBJE ?object. 
+      ?object p:FILE [rdfs:label ?file].
+    }
+  } UNION {
+
+    ### INDI:FAMS:*:OBJE:FILE
+
+    ?indi p:FAMS ?fams;
+          p:SEX  [rdfs:label ?sex].
+    FILTER( ?sex="M" )
+
+    ?fams ?eventType ?e.
+    LET ( ?event := fn:substring(str(?eventType),54,60) )
+    FILTER( ?event="MARR" || ?event="DIV" )
+
+    OPTIONAL {
+      ?e p:DATE [rdfs:label ?date]. 
+    }
+    OPTIONAL {
+      ?e p:OBJE ?object. 
+      ?object p:FILE [rdfs:label ?file].
+    }
+  } UNION {
+
+    ### INDI:*:OBJE:NOTE
+    ?indi ?eventType ?e.
+    LET ( ?event := fn:substring(str(?eventType),54,160) )
+    FILTER( ?event="BIRT" || ?event="DEAT"
+         || ?event="BAPM" || ?event="BURI"
+          )
+
+    OPTIONAL {
+      ?e p:DATE [rdfs:label ?date]. 
+    }
+    OPTIONAL {
+      ?e p:NOTE [rdfs:label ?note].
+      FILTER( fn:starts-with(?note,"http://")
+           || fn:starts-with(?note,"https://")
+            )
+      LET (?file := fn:substring(?note,0,80) )
+    }
+  } UNION {
+
+    ### INDI:FAMS:*:OBJE:NOTE
+
+    ?indi p:FAMS ?fams;
+          p:SEX [rdfs:label ?sex].
+    FILTER( ?sex="M" )
+
+    ?fams ?eventType ?e.
+    LET ( ?event := fn:substring(str(?eventType),54,160) )
+    FILTER( ?event="MARR" || ?event="DIV" )
+
+    OPTIONAL {
+      ?e p:DATE [rdfs:label ?date]. 
+    }
+    OPTIONAL {
+      ?e p:NOTE [rdfs:label ?note].
+      FILTER( fn:starts-with(?note,"http://")
+           || fn:starts-with(?note,"https://") 
+            )
+      LET (?file := fn:substring(?note,0,80) )
+    }
+  }
+  ### prevent duplicates in case GIVN and SURN are stored separately
+
+  FILTER( fn:contains(?name,'/')  )
+}
+ORDER BY ?sosa ?date ?event

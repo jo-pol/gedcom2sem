@@ -1,0 +1,96 @@
+###############################################
+#
+# timeline with all ex- and later spouses with their children
+#
+# replace the value for the famID
+# or launch from a family context
+#
+# no rules required (but it won't harm)
+#
+# BUG: couples without children don't appear
+#      see also comments on GIVN/SURN
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT DISTINCT 
+
+  (?name1 as ?parent_1)
+  (?name2 as ?parent_2)
+  (?nameChild as ?sibling)
+  (fn:substring(str(?dateBirth),0,10) as ?born)
+  (fn:substring(str(?dateDeath),0,10) as ?died)
+  ?age
+  ?nameSpouse
+  (fn:substring(str(?spouseBirth),0,10) as ?spouse_born)
+  (fn:substring(str(?spouseDeath),0,10) as ?spouse_died)
+
+{
+  ### select the central family
+
+  LET (?famID := '%s')
+
+  ### select data that is allways available
+
+  ?fam1  p:id   ?famID;
+         p:WIFE ?wife.
+  ?indi1 p:FAMS ?fam1,
+                ?fam2.
+  ?indi2 p:FAMS ?fam2.
+  ?fam2  p:CHIL ?child.
+
+  ### select data that might not be available
+
+  OPTIONAL { ?child p:BIRT [p:DATE [rdfs:label ?dateBirth]] }
+  OPTIONAL { ?child p:DEAT [p:DATE [rdfs:label ?dateDeath]] }
+  OPTIONAL { ?indi1 p:NAME [rdfs:label ?name1] }
+  OPTIONAL { ?indi2 p:NAME [rdfs:label ?name2] }
+  OPTIONAL { ?child r:spouse ?spouse. 
+             ?spouse p:NAME [rdfs:label ?nameSpouse].
+             OPTIONAL { ?spouse p:BIRT [p:DATE [rdfs:label ?spouseBirth]] }
+             OPTIONAL { ?spouse p:DEAT [p:DATE [rdfs:label ?spouseDeath]] }
+           }
+
+  ### not sure this works if you don't store GIVN and SURN separately
+  OPTIONAL { ?child p:NAME [p:GIVN [rdfs:label ?nameChild]] }
+  OPTIONAL { ?child p:NAME [p:first ?nameChild] }
+
+  ### computations
+
+  LET (?yearDeath := fn:substring(str(?dateDeath),0,4))
+  LET (?yearBirth := fn:substring(str(?dateBirth),0,4))
+  LET (?age := xsd:int(?yearDeath) - xsd:int(?yearBirth ))
+
+  ### required filter
+
+  FILTER( ?indi1 != ?indi2 && ?indi2 != ?wife )
+
+  ### switch of if you don't store GIVN and SURN separately
+  FILTER( (fn:contains(?name1,'/') || !bound(?name1))
+       && (fn:contains(?name2,'/') || !bound(?name2))
+       && (fn:contains(?nameSpouse,'/') || !bound(?nameSpouse))  
+        )
+
+} 
+ ORDER BY ?dateBirth

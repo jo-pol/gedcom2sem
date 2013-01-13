@@ -1,0 +1,193 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+# mapped to
+@prefix daml:    <http://www.daml.org/2001/01/gedcom/gedcom#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix rel:     <http://purl.org/vocab/relationship/> .
+
+# changing these prefixes requires to change the converter
+@prefix t: <http://genj.sourceforge.net/rdf/gedcom/type/>.
+@prefix p: <http://genj.sourceforge.net/rdf/gedcom/predicate/>.
+@prefix r: <http://genj.sourceforge.net/rdf/gedcom/rule/>.
+
+<http://www.ancestris.org/rdf/gedcom/> a owl:Ontology ;
+      rdfs:title "RDF representation of GEDCOM 5.5 (Genealogical Data Communication)" ;
+      owl:versionInfo "under development";
+      rdfs:comment """
+  Describes the classes and properties resulting from a GEDCOM converted on a 1:1 basis to RDF.
+  The GEDCOM tags are used as property names and class names. Without the usual camelCase conventions,
+  different name spaces are used to distinguish between properties and classes.
+
+  The approach raises at least the following  conflict:
+  
+  p:TITL a p:attribute; rdfs:range p:TITL; owl:equivalentProperty daml:title.
+  t:TITL a t:Attribute.
+  
+  p:TITL a rdfs:Property; rdfs:domain t:OBJE ; rdfs:range rdfs:literal.
+
+  Mapped to: gedcom.daml,v 1.15 2002/09/06 15:38:18 mdean
+  
+  see also http://johngoodwin225.wordpress.com/2009/11/04/genealogy-and-linked-data-revisited/
+  using 
+        http://vocab.org/relationship/.html
+        http://vocab.org/bio/0.1/.html
+  and http://johngoodwin225.wordpress.com/2010/06/16/some-quick-linked-data-hacks/
+  """ .
+
+t:Entity  a owl:Class.
+t:FamIndi rdfs:subclassOf t:Entity.
+t:INDI    rdfs:subclassOf t:FamIndi; owl:equivalentClass daml:Individual, foaf:Person.
+t:FAM     rdfs:subclassOf t:FamIndi; owl:equivalentClass daml:Family.
+t:NOTE    rdfs:subclassOf t:Entity.
+t:OBJE    rdfs:subclassOf t:Entity; rdfs:comment "encapsulates multimedia".
+t:REPO    rdfs:subclassOf t:Entity; rdfs:comment "repository".
+t:SOUR    rdfs:subclassOf t:Entity; rdfs:comment "source".
+t:SUBM    rdfs:subclassOf t:Entity; rdfs:comment "submitter".
+
+p:NOTE a rdfs:Property; rdfs:domain t:Entity; rdfs:range t:NOTE.
+p:OBJE a rdfs:Property; rdfs:domain t:Entity; rdfs:range t:OBJE.
+p:FAMC a rdfs:Property; rdfs:domain p:INDI  ; rdfs:range t:FAM; owl:equivalentProperty daml:childIn.
+p:FAMS a rdfs:Property; rdfs:domain p:INDI  ; rdfs:range t:FAM; owl:equivalentProperty daml:spouseIn.
+p:HUSB a rdfs:Property; rdfs:domain p:FAM   ; rdfs:range t:INDI; rdfs:comment "spouse of the family, usually male".
+p:WIFE a rdfs:Property; rdfs:domain p:FAM   ; rdfs:range t:INDI; rdfs:comment "spouse of the family, usually female".
+p:CHIL a rdfs:Property; rdfs:domain p:FAM   ; rdfs:range t:INDI.
+
+p:InferredProperty a rdfs:Property.
+# see query.rules in ReportRdf.properties; see also http://www.agfa.com/w3c/euler/gedcom-relations.n3
+r:spouse     rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty; owl:equivalentProperty rel:spouseOf.
+r:parent     rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty; owl:equivalentProperty rel:childOf.
+r:descendant rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty; owl:equivalentProperty rel:ancestorOf.
+r:ancestor   rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty; owl:equivalentProperty rel:descendantOf.
+r:child      rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty; owl:equivalentProperty rel:parentOf.
+r:daughter   rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty.
+r:son        rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty.
+r:sibling    rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty; owl:equivalentProperty rel:siblingOf.
+r:sister     rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty.
+r:brother    rdfs:domain p:INDI; rdfs:range p:INDI; rdfs:subPropertyOf r:InferredProperty.
+
+p:PLAC a rdfs:Property; rdfs:domain t:Event; rdfs:range t:PLAC; owl:equivalentProperty daml:place.
+p:DATE a rdfs:Property; rdfs:domain t:Event; rdfs:range t:DATE; owl:equivalentProperty daml:date.
+p:SEX  a rdfs:Property; rdfs:domain t:INDI ; rdfs:range t:SEX ; owl:equivalentProperty daml:sex.
+p:NAME a rdfs:Property; rdfs:domain t:INDI ; rdfs:range t:NAME; owl:equivalentProperty daml:name     , foaf:name.
+p:SURN a rdfs:Property; rdfs:domain t:NAME ; rdfs:range t:SURN; owl:equivalentProperty daml:surname.
+p:GIVN a rdfs:Property; rdfs:domain t:NAME ; rdfs:range t:GIVN; owl:equivalentProperty daml:givenName, foaf:givenName.
+p:NPFX a rdfs:Property; rdfs:domain t:NAME ; rdfs:range t:NPFX.
+p:NICK a rdfs:Property; rdfs:domain t:NAME ; rdfs:range t:NICK.
+p:SPFX a rdfs:Property; rdfs:domain t:NAME ; rdfs:range t:SPFX.
+p:NSFX a rdfs:Property; rdfs:domain t:NAME ; rdfs:range t:NSFX.
+t:SEX  a owl:Class; rdfs:comment "possible values: M/F".
+t:SURN a owl:Class.
+t:GIVN a owl:Class.
+t:NPFX a owl:Class.
+t:NICK a owl:Class.
+t:SPFX a owl:Class.
+t:NSPX a owl:Class.
+
+t:Event           a owl:Class;                owl:equivalentClass    daml:eventClass.
+p:event           a rdfs:Property;            owl:equivalentProperty daml:eventProperty.
+t:FamilyEvent     rdfs:subClassOf    t:Event; owl:equivalentClass    daml:FamilyEvent.
+p:familyEvent     rdfs:subPropertyOf p:event; owl:equivalentProperty daml:familyEventProperty;
+                  rdfs:domain        p:FAM.
+t:IndividualEvent rdfs:subClassOf    t:Event; owl:equivalentClass    daml:IndividualEvent.
+p:individualEvent rdfs:subPropertyOf p:event; owl:equivalentProperty daml:individualEventProperty;
+                  rdfs:domain        p:INDI.
+t:Attribute       rdfs:subClassOf    t:Event.
+p:attribute       rdfs:subPropertyOf p:event;
+                  rdfs:domain        p:INDI.
+t:EVEN            rdfs:subClassOf    t:Event.
+p:EVEN            rdfs:subPropertyOf p:event;
+                  rdfs:domain        t:FamIndi;
+                  rdfs:range         p:EVEN.
+
+p:BIRT a p:individualEvent; rdfs:range p:BIRT; owl:equivalentProperty daml:birth.
+t:BIRT a t:IndividualEvent;                    owl:equivalentClass    daml:Birth.
+p:CHR  a p:individualEvent; rdfs:range p:CHR.
+t:CHR  a t:IndividualEvent.
+p:DEAT a p:individualEvent; rdfs:range p:DEAT; owl:equivalentProperty daml:death.
+t:DEAT a t:IndividualEvent;                    owl:equivalentClass    daml:Death.
+p:BURI a p:individualEvent; rdfs:range p:BURI.
+t:BURI a t:IndividualEvent.
+p:CREM a p:individualEvent; rdfs:range p:CREM.
+t:CREM a t:IndividualEvent.
+p:ADOP a p:individualEvent; rdfs:range p:ADOP.
+t:ADOP a t:IndividualEvent.
+p:BAPM a p:individualEvent; rdfs:range p:BAPM.
+t:BAPM a t:IndividualEvent.
+p:BARM a p:individualEvent; rdfs:range p:BARM.
+t:BARM a t:IndividualEvent.
+p:BASM a p:individualEvent; rdfs:range p:BASM.
+t:BASM a t:IndividualEvent.
+p:BLES a p:individualEvent; rdfs:range p:BLES.
+t:BLES a t:IndividualEvent.
+p:CHRA a p:individualEvent; rdfs:range p:CHRA.
+t:CHRA a t:IndividualEvent.
+p:CONF a p:individualEvent; rdfs:range p:CONF.
+t:CONF a t:IndividualEvent.
+p:FCOM a p:individualEvent; rdfs:range p:FCOM.
+t:FCOM a t:IndividualEvent.
+p:ORDN a p:individualEvent; rdfs:range p:ORDN.
+t:ORDN a t:IndividualEvent.
+p:NATU a p:individualEvent; rdfs:range p:NATU.
+t:NATU a t:IndividualEvent.
+p:EMIG a p:individualEvent; rdfs:range p:EMIG.
+t:EMIG a t:IndividualEvent.
+p:IMMI a p:individualEvent; rdfs:range p:IMMI.
+t:IMMI a t:IndividualEvent.
+p:CENS a p:individualEvent; rdfs:range p:CENS.
+t:CENS a t:IndividualEvent.
+p:PROB a p:individualEvent; rdfs:range p:PROB.
+t:PROB a t:IndividualEvent.
+p:WILL a p:individualEvent; rdfs:range p:WILL.
+t:WILL a t:IndividualEvent.
+p:GRAD a p:individualEvent; rdfs:range p:GRAD.
+t:GRAD a t:IndividualEvent.
+p:RETI a p:individualEvent; rdfs:range p:RETI.
+t:RETI a t:IndividualEvent.
+
+p:ANUL a p:familyEvent; rdfs:range p:ANUL.
+t:ANUL a t:FamilyEvent.
+p:CENS a p:familyEvent; rdfs:range p:CENS.
+t:CENS a t:FamilyEvent.
+p:DIV  a p:familyEvent; rdfs:range p:DIV;  owl:equivalentProperty daml:divorce.
+t:DIV  a t:FamilyEvent;                    owl:equivalentClass    daml:Divorce.
+p:DIVF a p:familyEvent; rdfs:range p:DIVF.
+t:DIVF a t:FamilyEvent.
+p:ENGA a p:familyEvent; rdfs:range p:ENGA.
+t:ENGA a t:FamilyEvent.
+p:MARR a p:familyEvent; rdfs:range p:MARR; owl:equivalentProperty daml:marriage.
+t:MARR a t:FamilyEvent;                    owl:equivalentClass    daml:Marriage.
+p:MARB a p:familyEvent; rdfs:range p:MARB.
+t:MARB a t:FamilyEvent.
+p:MARC a p:familyEvent; rdfs:range p:MARC.
+t:MARC a t:FamilyEvent.
+p:MARL a p:familyEvent; rdfs:range p:MARL.
+t:MARL a t:FamilyEvent.
+p:MARS a p:familyEvent; rdfs:range p:MARS.
+t:MARS a t:FamilyEvent.
+
+p:CAST a p:attribute; rdfs:range p:CAST.
+t:CAST a t:Attribute.
+p:DSCR a p:attribute; rdfs:range p:DSCR.
+t:DSCR a t:Attribute.
+p:EDUC a p:attribute; rdfs:range p:EDUC.
+t:EDUC a t:Attribute.
+p:IDNO a p:attribute; rdfs:range p:IDNO.
+t:IDNO a t:Attribute.
+p:NATI a p:attribute; rdfs:range p:NATI.
+t:NATI a t:Attribute.
+p:NCHI a p:attribute; rdfs:range p:NCHI.
+t:NCHI a t:Attribute.
+p:NMR  a p:attribute; rdfs:range p:NMR.
+t:NMR  a t:Attribute.
+p:OCCU a p:attribute; rdfs:range p:OCCU.
+t:OCCU a t:Attribute.
+p:PROP a p:attribute; rdfs:range p:PROP.
+t:PROP a t:Attribute.
+p:RELI a p:attribute; rdfs:range p:RELI.
+t:RELI a t:Attribute.
+p:RESI a p:attribute; rdfs:range p:RESI.
+t:RESI a t:Attribute.
+p:SSN  a p:attribute; rdfs:range p:SSN.
+t:SSN  a t:Attribute.
