@@ -1,0 +1,138 @@
+###############################################
+#
+# Migration lines.
+#
+# Prerequisites:
+#   Create (almost empty) records for unknown dads.
+#   Generate _TREETOP and _SOSAN with report "tool box".
+#   Apply the slow rules.
+#
+# Customisation for KML processing:
+#   The first 4 columns are used to construct
+#   the KML layout: don't change them.
+#   Any column can be used for place holders in an
+#   HTML template injected per person into the KML file:
+#   for example: <p><a href={11}>{1}</a> {6}</p>
+#   for a linked sosa-number followed by a name. 
+#
+# Note:
+#   A person appears two times with the same sosa-nr 
+#   if grandchildren by different spouses marry.
+#   Other cousin mariages cause the grandparents 
+#   appear with different sosa numbers.
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT DISTINCT
+  (?sosa_top  as ?branche) # {0} A
+  (?sosa_indi as ?sosa)    # {1} B
+  ?lat                     # {2} C
+  ?long                    # {3} D
+  ?isTop                   # {4} E
+  ?place                   # {5} F
+  (?nameIndi  as ?name)    # {6} G
+  (fn:substring(str(?dateMarried),1,4) as ?year_married)
+  ?placeMarried            # {8} I
+  ?placeBirth              # {9} J
+  ?placeDeath              #{10} K
+  (str(?indi) as ?url)     #{11} L
+{
+ ### the persons between the root and top
+ {
+   ?root p:_SOSAN   [rdfs:label "00000001"];
+         r:ancestor ?indi.
+   ?top  p:_TREETOP [a t:_TREETOP];
+         p:_SOSAN   [rdfs:label ?sosa_top ].
+   ?indi p:_SOSAN   [rdfs:label ?sosa_indi];
+         r:ancestor ?top.
+
+   #### whatever you want to show about the INDI
+   OPTIONAL { ?indi          p:NAME [rdfs:label ?nameIndi  ] }
+   OPTIONAL { ?indi p:DEAT [ p:DATE [rdfs:label ?dateDeath ]]}
+   OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
+   OPTIONAL { ?indi p:DEAT [ p:PLAC [rdfs:label ?placeDeath]]}
+   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]}
+   OPTIONAL {
+       ?indi  p:FAMS ?fam.
+
+       #### avoid remarriages: both parents must be in the pedigree
+       ?fam  p:HUSB [p:_SOSAN [rdfs:label ?sosaHusb]];
+             p:WIFE [p:_SOSAN [rdfs:label ?sosaWife]].
+
+       #### whatever you want to show about the FAM
+       OPTIONAL { ?fam p:MARR [p:DATE [rdfs:label ?dateMarried ]]}
+
+       OPTIONAL { ?fam p:MARR [p:PLAC [rdfs:label ?placeMarried]].
+                  ### match with downloaded data
+                  OPTIONAL { ?link     rdfs:label ?placeMarried;
+                                       rdfs:isDefinedBy ?gn. 
+                             OPTIONAL {?gn wgs84_pos:lat  ?lat;
+                                           wgs84_pos:long ?long}.
+                             OPTIONAL {?gn gn:name ?place.}
+                           }
+                }
+   }
+   #### rather don't generate sosa numbers for siblings
+   FILTER( ! fn:contains(?sosa_indi,'+') )
+   FILTER( ! fn:contains(?sosa_indi,'-') )
+
+   ### switch of if you don't store GIVN and SURN separately
+   FILTER( fn:contains(?nameIndi,'/') )
+ }
+ UNION ### we also want the top indi's 
+ {
+   ?indi p:_TREETOP [a t:_TREETOP];
+         p:_SOSAN   [rdfs:label ?sosa_top ];
+         p:_SOSAN   [rdfs:label ?sosa_indi].
+
+   #### whatever you want to show about the INDI
+   OPTIONAL { ?indi          p:NAME [rdfs:label ?nameIndi  ] }
+   OPTIONAL { ?indi p:DEAT [ p:DATE [rdfs:label ?dateDeath ]]}
+   OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
+   OPTIONAL { ?indi p:DEAT [ p:PLAC [rdfs:label ?placeDeath]]}
+   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]}
+   OPTIONAL {
+       ?indi  p:FAMS ?fam.
+
+       #### whatever you want to show about the FAM
+       OPTIONAL { ?fam p:MARR [p:DATE [rdfs:label ?dateMarried ]]}
+
+       OPTIONAL { ?fam p:MARR [p:PLAC [rdfs:label ?placeMarried]]
+                  ### match with downloaded data
+                  OPTIONAL { ?link     rdfs:label ?placeMarried;
+                                       rdfs:isDefinedBy ?gn. 
+                             OPTIONAL {?gn wgs84_pos:lat  ?lat;
+                                           wgs84_pos:long ?long}.
+                             OPTIONAL {?gn gn:name ?place.}
+                           }
+                }
+   }
+   #### visual emphasis on the end of the branches 
+   LET (?isTop:='top')
+
+   #### switch of if you don't store GIVN and SURN separately
+   FILTER( fn:contains(?nameIndi,'/') )
+ }
+} order by ?sosa_top ?sosa_indi

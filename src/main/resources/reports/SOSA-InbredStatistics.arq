@@ -1,0 +1,90 @@
+###############################################
+#
+# Effects of inbreed on the sosa numbers of the tree tops.
+#
+# _SOSA properties must have been generated before conversion.
+#       In case of inbred multiple properies are expected
+#       not multiple numers in a single property.
+#       Use: View - lists and reports - tool box - choose tool to run: 
+#                                           generation of sosa numbers
+#       Not: Tools - gedcom - regenerate sosa numbers
+#
+# Puzzled about interpreting the numbers.
+# For example:
+#     diff = 8 = 2^3 : the 3rd generation married in the family
+# But what happens when different generations marry?
+# Must be more complex.
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT DISTINCT
+
+  #?small
+  #?large
+  ?smallest_sosa
+  ?largest_sosa
+  (str(?nr_of_sosa) as ?sosa_count)
+  (str(?diff) as ?difference)
+  ?ID
+  ?name
+
+  # no bit-wise & opererator available
+  #(fn:string-length(?large&(?large-1)) as ?smallest_generation)
+  #(fn:string-length(?small&(?small-1)) as ?smallest_generation)
+{
+  {
+    ### a nested query allows to sort the agregates
+    SELECT
+      (MIN(?sosa)   as ?smallest_sosa)
+      (MAX(?sosa)   as ?largest_sosa)
+      (COUNT(?sosa) as ?nr_of_sosa)
+      (str(?id)     as ?ID)
+      ?name
+    {
+      ### the needed data
+  
+      ?a p:id       ?id; 
+         p:_SOSA    [rdfs:label ?sosa];
+         p:NAME     [rdfs:label ?name].
+    
+      ### is it a treetop?
+
+      OPTIONAL { ?a p:FAMC ?fam }
+      FILTER ( ! bound(?fam) )
+
+      ### prevent duplicates in case GIVN and SURN are stored separately
+  
+      FILTER( ( fn:contains(?name,'/') || ! bound(?name) ) )
+    } 
+    # group on selected items that are not agregated
+    GROUP BY ?id ?name
+  }
+  LET (?diff := xsd:int(?largest_sosa) - xsd:int(?smallest_sosa) )
+
+  # get rid of the leading zeroes
+  LET (?small := xsd:int(?smallest_sosa)*1)
+  LET (?large := xsd:int(?smallest_sosa)*1)
+}
+ORDER BY DESC(?nr_of_sosa) ?smallest_sosa

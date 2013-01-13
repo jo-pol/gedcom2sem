@@ -1,0 +1,75 @@
+#########################################################################
+#
+# potential (junior) classmates that achieved a military rank
+#
+# needs both of
+# - the converted gedcom
+# - the end result of the semi-automated download for GeoNames and DbPedia 
+#
+#########################################################################
+
+### from external data
+PREFIX dbo:          <http://dbpedia.org/ontology/>
+PREFIX dbr:          <http://dbpedia.org/resource/>
+PREFIX dbp:          <http://dbpedia.org/property/>
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+SELECT DISTINCT 
+  ?placeLiteral
+  ?name
+  (str(xsd:date(?birthDate)) as ?birth_date_1)
+  (?dbpName                  as ?potential_classmate)
+  (str(?dbpDate)             as ?birth_date_2)
+{
+  ### our person from the gedcom
+  _:indi p:BIRT [p:DATE [rdfs:label ?birthDate]
+                ;p:PLAC [rdfs:label ?placeLiteral]
+                ];
+         p:NAME [rdfs:label ?name].
+
+  ### remove duplicates when GIVN and SURN are stored seperately
+  FILTER ( fn:contains(?name,"/") )
+
+  ### just places, no countries!
+  FILTER ( ! fn:starts-with(?placeLiteral,", ,") ) 
+
+  ### match our person with downloaded data
+  ?link
+       rdfs:label   ?placeLiteral;
+       rdfs:seeAlso ?dbp.
+
+  ### prepare for date evaluation
+  LET( ?year := xsd:int ( fn:substring(str(?birthDate), 1, 4) ))
+  LET( ?min  := xsd:date( fn:concat   (str(?year-1),"-01-01") ))
+  LET( ?max  := xsd:date( fn:concat   (str(?year+2),"-01-01") ))
+
+  ### so far our own data, go explore the web 
+  SERVICE <http://dbpedia.org/sparql>
+  { 
+     # for big cities we need some restriction
+     # before applying the (expensive) filter
+     ?classmate dbp:rank       _:rank.
+
+     # match with potential classmates
+     ?classmate dbo:birthPlace ?dbp;
+                foaf:name      ?dbpName;
+                dbo:birthDate  ?dbpDate.
+     FILTER( ?dbpDate >= ?min && ?dbpDate < ?max )
+  }
+}
+ORDER BY ?name

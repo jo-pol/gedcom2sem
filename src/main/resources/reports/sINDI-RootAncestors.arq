@@ -1,0 +1,58 @@
+###############################################
+#
+# Ancestors without ancestors, like _TREETOP
+# an exercise embedded in other queries
+#
+# replace the value for idOfRootIndi
+# or launch from a INDI context
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT 
+  (str(?id) as ?ID)
+  ?name
+{
+  ### for which individual do you want the report?
+
+  LET (?idOfRootIndi := '%s')
+
+  ### the neded data
+
+  ?indi p:id ?idOfRootIndi; 
+        r:ancestor ?a. 
+
+  ?a p:id ?id; 
+     p:NAME [rdfs:label ?name]. 
+
+  ### does the ancestor have ancestors?  
+
+  OPTIONAL {?a r:ancestor ?a2}
+  FILTER (!bound(?a2))
+
+  ### prevent duplicates in case GIVN and SURN are stored separately
+
+  FILTER( fn:contains(?name,'/')  )
+
+} 

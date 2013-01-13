@@ -1,0 +1,4439 @@
+0 HEAD
+1 SOUR ANCESTRIS
+2 VERS 0.7.0.3290
+2 NAME Ancestris
+2 CORP Ancestris Team
+3 ADDR http://www.ancestris.org
+1 DEST ANY
+1 DATE 13 JAN 2013
+2 TIME 14:26:49
+1 SUBM @B1@
+1 FILE kennedy.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM Lineage-Linked
+1 CHAR UTF-8
+1 LANG English
+1 PLAC
+2 FORM Hamlet, City, , Zip_Code, County, State, Country
+0 @S2@ SOUR
+1 TITL @R5@
+0 @S3@ SOUR
+1 TITL @R181@
+0 @S4@ SOUR
+1 TITL @R182@
+0 @S5@ SOUR
+1 TITL @R193@
+0 @S6@ SOUR
+1 TITL @R203@
+0 @S7@ SOUR
+1 TITL @R5@
+1 TEXT p. 219, MVR 630:21 
+0 @S8@ SOUR Arlington National Cemetery 
+0 @S9@ SOUR Assassinated 
+0 @S10@ SOUR
+1 TITL @R5@
+1 TEXT p. 221, MVR 212 [Amended Rec]:45 
+0 @S11@ SOUR Author of "The Fitzgeralds and the Kennedys" 
+0 @S12@ SOUR Author of "The American Ancestry of John Fitzgerald Kennedy" 
+0 @S13@ SOUR
+1 TITL @R213@
+0 @S14@ SOUR
+1 TITL @R5@
+1 TEXT p. 218, Holyhood Cemetery 
+0 @S15@ SOUR
+1 TITL @R5@
+1 TEXT p. 218, Most Holy Redeemer Church, Baptisms v. 4, p. 102 
+0 @S16@ SOUR
+1 TITL @R5@
+1 TEXT p. 218, MVR 1969:5:217 
+0 @S18@ SOUR
+1 TITL @R215@
+1 TEXT p. 146 
+0 @S19@ SOUR
+1 TITL @R5@
+1 TEXT p. 219, St. Coletta's School 
+0 @S20@ SOUR
+1 TITL @R5@
+1 TEXT p. 219 
+0 @S21@ SOUR
+1 TITL @R5@
+1 TEXT p. 219, MVR 1920:14:221 
+0 @S22@ SOUR
+1 TITL @R5@
+1 TEXT p. 220 
+0 @S23@ SOUR
+1 TITL @R5@
+1 TEXT p. 220, MVR 1921:13:160 
+0 @S24@ SOUR
+1 TITL @R5@
+1 TEXT p. 220, MVR 1924:14:230 
+0 @S25@ SOUR
+1 TITL @R5@
+1 TEXT p. 220, MVR 1925:15:51 
+0 @S26@ SOUR
+1 TITL @R5@
+1 TEXT p. 220, MVR 1928:1:62 
+0 @S27@ SOUR
+1 TITL @R27@
+0 @S28@ SOUR
+1 TITL @R5@
+1 TEXT p. 221 
+0 @S29@ SOUR
+1 TITL @R5@
+1 TEXT p. 221 
+0 @S30@ SOUR
+1 TITL @R5@
+1 TEXT p. 212, naturalization information 
+0 @S31@ SOUR
+1 TITL @R5@
+1 TEXT p. 212, Suffolk County Probate 
+0 @S32@ SOUR
+1 TITL @R5@
+1 TEXT p. 213, Cambridge Catholic Cem (Archives of Archdio. of Boston) 
+0 @S33@ SOUR
+1 TITL @R5@
+1 TEXT p. 211, MVR 120:80; of consumption 
+0 @S34@ SOUR
+1 TITL @R5@
+1 TEXT p. 211 
+0 @S35@ SOUR
+1 TITL @R5@
+1 TEXT p. 213, Holy Cross Cemetery 
+0 @S36@ SOUR
+1 TITL @R5@
+1 TEXT p. 211, MVR 393:427 
+0 @S37@ SOUR
+1 TITL @R5@
+1 TEXT p. 213, church records, vol. 1, p. 92, Archdiocese of Boston 
+0 @S38@ SOUR
+1 TITL @R5@
+1 TEXT p. 213, MVR 1926:1:171 
+0 @S39@ SOUR
+1 TITL @R5@
+1 TEXT p. 213, MVR 53:93 
+0 @S40@ SOUR
+1 TITL @R5@
+1 TEXT p. 214, Holy Cross Cemetery 
+0 @S41@ SOUR
+1 TITL @R5@
+1 TEXT p. 214, St. Nicholas Church, Church Rec v. 2, p. 35 
+0 @S42@ SOUR
+1 TITL @R5@
+1 TEXT p. 214, MVR 1926:71:279 
+0 @S43@ SOUR
+1 TITL @R5@
+1 TEXT p. 214, baptismal records 
+0 @S44@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, Cambridge Catholic Cemetery, Burials 1852-1866 
+0 @S45@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, St. Nicholas Church, Church Rec, v. 2, p. 75 
+0 @S46@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, MVR 95:69, cholera infantum 
+0 @S47@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, church records 
+0 @S48@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, Holy Cross Cemetery 
+0 @S49@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, St. Nicholas Church, Church Rec, v. 2, p. 140 
+0 @S50@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, MVR 1929:64:275 
+0 @S51@ SOUR
+1 TITL @R5@
+1 TEXT p. 215, MVR 92:86, church records give 18 Jul 
+0 @S52@ SOUR
+1 TITL @R5@
+1 TEXT p. 216, Holy Cross Cemetery 
+0 @S53@ SOUR
+1 TITL @R5@
+1 TEXT p. 216, Most Holy Redeemer Church, Church Rec 2:226 
+0 @S54@ SOUR
+1 TITL @R5@
+1 TEXT p. 216, MVR 1929:1:414 
+0 @S55@ SOUR
+1 TITL @R5@
+1 TEXT p. 216, MVR 116:14 
+0 @S56@ SOUR
+1 TITL @R215@
+0 @S57@ SOUR
+1 TITL @R213@
+1 TEXT p. 748, St. Joseph's Cemetery 
+0 @S58@ SOUR
+1 TITL @R213@
+1 TEXT p. 6, St. Stephen's Church Baptisms, AAB 
+0 @S59@ SOUR
+1 TITL @R213@
+1 TEXT p. 747 
+0 @S60@ SOUR
+1 TITL @R213@
+1 TEXT p. 1 
+0 @S61@ SOUR
+1 TITL @R213@ @R215@
+1 TEXT p. 81; p. 146 
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:49:55
+0 @S62@ SOUR Authors of JF Kennedy and JL Bouvier Ancestry 
+0 @S63@ SOUR Complied original material for COMMSOFT's "Kennedy Family History" 
+0 @S64@ SOUR
+1 TITL @R5@
+1 TEXT p. 221, St. Mary's Church, by Archbishop Richard Cushing 
+0 @S65@ SOUR
+1 TITL @R213@
+1 TEXT p. 89, St. Bernards's Catholic Church 
+0 @S66@ SOUR
+1 TITL @R213@
+1 TEXT p. 60, Holy Cross Cemetery 
+0 @S67@ SOUR
+1 TITL @R213@
+1 TEXT p. 59, MVR Death Rec Vol. 231, p. 59 
+0 @S68@ SOUR
+1 TITL @R213@
+1 TEXT p. 13 
+0 @S69@ SOUR
+1 TITL @R213@
+1 TEXT Frontpiece 
+0 @S70@ SOUR
+1 TITL @R213@
+1 TEXT p. 88 
+0 @S72@ SOUR
+1 TITL @R5@ @R213@
+1 TEXT p. 218, MVR 387:222, 
+2 CONT this is a test 
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:50:09
+0 @R1@ INDI
+1 NAME Joseph Patrick /Kennedy/
+1 _SOSAN 00004
+1 SEX M
+1 OBJE
+2 TITL Joseph KENNEDY
+2 FILE photos/Joseph_Patrick_Kennedy.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S13@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 14:58:13
+1 BIRT
+2 DATE 6 SEP 1888
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S72@
+3 QUAY 2
+1 DEAT
+2 DATE 18 NOV 1969
+2 PLAC , Hyannis Port, , , Barnstable Co, MA, USA
+2 SOUR @S16@
+3 QUAY 2
+1 CHR
+2 DATE 9 SEP 1888
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S15@
+3 QUAY 2
+1 BURI
+2 DATE AFT 18 NOV 1969
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+2 SOUR @S14@
+3 QUAY 2
+1 OCCU Ambassador
+1 REFN KENNJP88
+1 FAMS @F0@
+1 FAMC @F33@
+1 NOTE zyxBorn in 1888, the grandson of an Irish immigrant, Joseph Patrick
+2 CONT Kennedy had an enormous drive to acquire both fame and fortune.  His
+2 CONT often cited goal was to be a millionaire by the age of 35.  Within a
+2 CONT year and a half of graduating from Harvard College, he had progressed
+2 CONT from bank clerk through bank  examiner to bank president and was on
+2 CONT his way.  Publicity from being the youngest U. S. bank president
+2 CONT opened doors to other opportunities. Soon his financial enterprises
+2 CONT embraced real estate, the stock market and motion pictures.  Kennedy's
+2 CONT accumulated wealth by 1929 enabled him to establish one million dollar
+2 CONT trust funds for each of his children.  In the 1930's he began to put
+2 CONT his intelligence, personality and money into politics.  His
+2 CONT involvement in Roosevelt's inner circle during the presidential
+2 CONT campaign led him to believe he would receive a cabinet post. Although
+2 CONT that never materialized, he was chosen to head the newly created
+2 CONT Securities and Exchange Commission, the regulatory body set up to
+2 CONT govern the financial community.  Later, he headed the Maritime
+2 CONT Commission. However, his most famous appointment was that of
+2 CONT ambassador to the Court of Saint James.  He served from 1937 until
+2 CONT 1940 when he retired from public service and returned to the business
+2 CONT world. In 1961 he suffered a debilitating stroke followed by relapses
+2 CONT and heart attacks that left him virtually incapacitated until his
+2 CONT death in 1969.
+0 @R2@ INDI
+1 NAME Rose Elizabeth /Fitzgerald/
+1 _SOSAN 00005
+1 SEX F
+1 OBJE
+2 TITL Rose KENNEDY et son fils John
+2 FILE photos/Rose-kennedy.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S13@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:01:54
+1 BIRT
+2 DATE 22 JUL 1890
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S18@
+3 QUAY 2
+1 DEAT
+2 DATE 22 JAN 1995
+2 PLAC , Hyannis, , , , MA, USA
+1 RESI
+2 PLAC , Hyannis Port, , , Barnstable Co, MA, USA
+1 REFN FITZRE90
+1 FAMS @F0@
+1 FAMC @F48@
+0 @R3@ INDI
+1 NAME Joseph Patrick /Kennedy/ Jr.
+1 _SOSAN 00002+
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:50:19
+1 BIRT
+2 DATE 25 JUL 1915
+2 PLAC , Hull, , , Plymouth Co, MA, USA
+2 SOUR @S7@
+3 QUAY 2
+1 DEAT
+2 DATE 12 AUG 1944
+2 PLAC , the air, , , Suffolk, , England
+1 OCCU Lieutenant
+1 REFN KENNJP15
+1 FAMC @F0@
+1 NOTE Joseph Patrick Kennedy, Jr. was the eldest and favorite son of Joseph
+2 CONT Kennedy. Always considered the strongest and the bravest, he was
+2 CONT extremely competitive and seemed to feel the keenest competition with
+2 CONT Jack.  His tendency for heroism and daring made him enter into some
+2 CONT life threatening activities such as swimming the freezing and swift
+2 CONT McClound River or taking a first time bobsled ride down a run on which
+2 CONT experienced bobsledders had lost their lives.  During World War II, he
+2 CONT enlisted in the Navy, eager to fly and see action. Completing his tour
+2 CONT of duty in 1944, he was packed to go home when he volunteered for a
+2 CONT top-secret and dangerous mission without learning any of the details.
+2 CONT Half an hour after take-off his plane exploded in mid-air.
+0 @R4@ INDI
+1 NAME John Fitzgerald /Kennedy/
+1 _SOSAN 00002
+1 SEX M
+1 OBJE
+2 TITL John Fitzgerald KENNEDY
+2 FILE photos/John-kennedy.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S13@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:15:50
+1 BIRT
+2 DATE 29 MAY 1917
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+2 SOUR @S10@
+3 QUAY 2
+1 DEAT
+2 DATE 22 NOV 1963
+2 PLAC , Dallas, , , Dallas Co, TX, USA
+2 SOUR @S9@
+3 QUAY 2
+2 OBJE
+3 TITL Consequences of the assassination of John KENNEDY
+3 FILE documents/Herald-Tribune.jpg
+4 FORM jpg
+3 NOTE
+1 BURI
+2 DATE 25 NOV 1963
+2 PLAC , Arlington, , 22209, Arlington Co, VA, USA
+2 SOUR @S8@
+3 QUAY 2
+1 OCCU US President #35
+1 REFN KENNJF17
+1 FAMC @F0@
+1 FAMS @F8@
+1 NOTE John F. Kennedy's charismatic personality was evident from early
+2 CONT childhood, as was his competitiveness.  His love of books and history,
+2 CONT capacity for introspection and curiosity about ideas developed largely
+2 CONT from the many hours he spent in bed with illnesses, starting with a
+2 CONT particularly virulent attack of scarlet fever when he was two and
+2 CONT one-half years old.  Although he was often absent from school and
+2 CONT illness forced him to drop out of a preparatory school and later,
+2 CONT Princeton University, he graduated cum laude from Harvard University
+2 CONT in 1940.
+1 NOTE  With the 1944 death of his brother Joe, the family's political
+2 CONT ambitions transferred to Jack.  His road to the White House began with
+2 CONT his election to Congress in 1946.  Three terms there and he was ready
+2 CONT to wrest a Senate seat from the popular Republican Henry Cabot Lodge,
+2 CONT Jr.
+1 NOTE  Jack's foray into presidential politics started with his narrow
+2 CONT defeat for nomination to be the vice presidential candidate on the
+2 CONT 1956 ticket with Adlai Stevenson, Jr.  In 1960 he sought and won the
+2 CONT presidential nomination and subsequently, the election.  When he took
+2 CONT his oath of office on the old family Bible that had belonged to the
+2 CONT first Fitzgerald to come to America, he was affirming the immigrant
+2 CONT belief in America.
+1 NOTE  On November, 22, 1963, John F. Kennedy was assassinated by Lee Harvey
+2 CONT Oswald in Dallas, Texas.
+0 @R5@ TITL "The Kennedys of Massachusetts," NEHGR
+1 CHAN
+2 DATE 10 MAR 1988
+1 AUTH @R210@
+1 PUBL (Boston, MA: NEHGS)
+1 SERS CXXXIX, July 1985, pp. 211-224
+1 ABBR "Kennedys," NEHGR
+1 REPO @R185@
+0 @R6@ INDI
+1 NAME Rosemary (Rose Marie) /Kennedy/
+1 _SOSAN 00002-
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:46:17
+1 BIRT
+2 DATE 20 FEB 1920
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 RESI
+2 PLAC , Jefferson, , , Jefferson Co, WI, USA
+2 SOUR @S19@
+3 QUAY 2
+1 REFN KENNRM20
+1 FAMC @F0@
+0 @R7@ INDI
+1 NAME Kathleen "Kick" /Kennedy/
+1 _SOSAN 00002-
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:47:20
+1 BIRT
+2 DATE 20 FEB 1920
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+2 SOUR @S21@
+3 QUAY 2
+1 DEAT
+2 DATE 13 MAY 1948
+2 PLAC , Ste-Bauzille, , , , Ardeche, France
+2 SOUR @S20@
+3 QUAY 1
+1 BURI
+2 DATE AFT 13 MAY 1948
+2 PLAC , Chatsworth, , , , , England
+2 SOUR @S20@
+3 QUAY 1
+1 REFN KENNKA20
+1 FAMC @F0@
+1 FAMS @F69@
+1 NOTE Kathleen Kennedy was considered the most lively and vivacious of the
+2 CONT Kennedy sisters.  Nicknamed "Kick" by her father, the name seemed to
+2 CONT reflect her love of life.  While in England during her father's time
+2 CONT as Ambassador, she fell in love with William Cavendish, the Marquess
+2 CONT of Hartington.  Though her family strongly opposed, they were married
+2 CONT in 1944.  Only her brother Joe attended from her side of the family.
+2 CONT Kick's new husband was killed just 5 weeks later.  After she began
+2 CONT dating again she met Peter Fitzwilliam, another aristocratic
+2 CONT Protestant. Because he was already married they kept their affair
+2 CONT secret.  In May of 1948 they decided to fly to Cannes for a long
+2 CONT weekend.  They ignored the pilot's warning that the weather was bad
+2 CONT and they should cancel their trip.  While flying over the Rhone
+2 CONT valley, a storm pushed the small plane into the side of a mountain,
+2 CONT killing all aboard.
+0 @R8@ INDI
+1 NAME Eunice Mary /Kennedy/
+1 _SOSAN 00002-
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:45:41
+1 BIRT
+2 DATE 10 JUL 1921
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+2 SOUR @S23@
+3 QUAY 2
+1 RESI
+2 PLAC , Washington, , , , DC, USA
+2 SOUR @S22@
+3 QUAY 1
+1 REFN KENNEM21
+1 FAMC @F0@
+1 FAMS @F1@
+0 @R9@ INDI
+1 NAME Robert Sargent /Shriver/ Jr.
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:46:00
+1 BIRT
+2 DATE 9 NOV 1915
+2 PLAC , Westminster, , , Carroll Co, MD, USA
+1 RESI
+2 PLAC , Washington, , , , DC, USA
+1 OCCU Politics
+1 REFN SHRIRS15
+1 FAMS @F1@
+0 @R10@ INDI
+1 NAME Patricia /Kennedy/
+1 _SOSAN 00002-
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:41:20
+1 BIRT
+2 DATE 6 MAY 1924
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+2 SOUR @S24@
+3 QUAY 2
+1 RESI
+2 PLAC , New York City, , , , NY, USA
+2 SOUR @S22@
+3 QUAY 1
+1 REFN KENNPA24
+1 FAMC @F0@
+1 FAMS @F2@
+0 @R11@ INDI
+1 NAME Peter /Lawford/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:39:33
+1 BIRT
+2 DATE 7 SEP 1923
+2 PLAC , London, , , , , England
+1 DEAT
+2 DATE 24 DEC 1984
+2 PLAC , Los Angeles, , , Los Angeles Co, CA, USA
+1 OCCU actor
+1 REFN LAWFPE23
+1 FAMS @F2@
+0 @R12@ INDI
+1 NAME Robert Francis /Kennedy/
+1 _SOSAN 00002-
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:49:07
+1 BIRT
+2 DATE 20 NOV 1925
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+2 SOUR @S25@
+3 QUAY 2
+1 DEAT
+2 DATE 6 JUN 1968
+2 PLAC , Los Angeles, , , Los Angeles Co, CA, USA
+2 SOUR @S9@
+3 QUAY 3
+1 BURI
+2 DATE AFT 6 JUN 1968
+2 PLAC , Arlington, , 22209, Arlington Co, VA, USA
+2 SOUR @S8@
+3 QUAY 3
+1 OCCU US Senator
+1 REFN KENNRF25
+1 FAMC @F0@
+1 FAMS @F9@
+1 NOTE Robert F. Kennedy was intense and introverted with a black-and-white
+2 CONT philosophy of life. Things, ideas and people were either good or evil
+2 CONT and his purpose was to expiate the evil.  Very religious, at one point
+2 CONT he considered entering the priesthood. After graduation from Harvard
+2 CONT University and the University of Virginia Law School, he worked for
+2 CONT McCarthy's subcommittee on internal security and then for the
+2 CONT committee of inquiry into racketeering and corruption in the labor
+2 CONT movement.  Based on these hearings he wrote his book on union
+2 CONT corruption, The Enemy Within. Bobby played an instrumental part in
+2 CONT Jack's presidential election, and was subsequently appointed Attorney
+2 CONT General despite adverse public reaction.  He presided over the
+2 CONT Department of Justice for 44 months, gaining respect as he dealt
+2 CONT firmly with civil rights and labor issues. After JFK's assassination
+2 CONT Bobby became the head of the Kennedy clan and the inheritor of the
+2 CONT Kennedy legacy.  Elected to the Senate from New York in 1964, he used
+2 CONT that office to gear up for a 1968 presidential bid.  He became the
+2 CONT champion of the dispossessed and tried to forge a coalition of the
+2 CONT young, the poor, blacks and intellectuals.  He was well on his way to
+2 CONT the nomination when he was assassinated by Sirhan Bishara Sirhan June
+2 CONT 5, 1968.
+0 @R13@ INDI
+1 NAME Jean Ann /Kennedy/
+1 _SOSAN 00002-
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:38:56
+1 BIRT
+2 DATE 20 FEB 1928
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S26@
+3 QUAY 2
+1 REFN KENNJA28
+1 FAMC @F0@
+1 FAMS @F6@
+0 @R14@ INDI
+1 NAME Edward Moore /Kennedy/
+1 _SOSAN 00002-
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:39:25
+1 BIRT
+2 DATE 22 FEB 1932
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S22@
+3 QUAY 1
+1 RESI
+2 DATE 1988
+2 PLAC , Washington, , , , DC, USA
+1 OCCU US Senator
+1 REFN KENNEM32
+1 FAMC @F0@
+1 FAMS @F7@
+1 NOTE Edward M. Kennedy is the only surviving Kennedy brother.  Following
+2 CONT family tradition, he graduated from Harvard University.  After
+2 CONT receiving a law degree from the University of Virginia, he worked on
+2 CONT JFK's campaign. In 1962, at age 30, he won the Massachussets Senate
+2 CONT seat once held by JFK.  With one brother the President and the other
+2 CONT the Attorney General, Teddy's political future seemed assured. After
+2 CONT Bobby's assassination in 1968, Teddy became a substitute father to
+2 CONT Bobby's children and the focal point of the Kennedy family:  the one
+2 CONT to carry on the political legacy.  The 1969 Chappaquidick Island
+2 CONT incident, resulting in the death of Mary Jo Kopechne, ended his
+2 CONT presidential possibilities for the 1972 election.  He is currently
+2 CONT (1988) a U. S. Senator from Massachusetts.
+0 @R15@ INDI
+1 NAME Virginia Joan /Bennett/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:37:25
+1 BIRT
+2 DATE 9 SEP 1936
+2 PLAC , Riverdale, , , Unk Co, NY, USA
+1 REFN BENNVJ36
+1 FAMS @F7@
+1 FAMC @F67@
+0 @R16@ INDI
+1 NAME Christopher Kennedy /Lawford/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:38:14
+1 BIRT
+2 DATE 29 MAR 1955
+2 PLAC , Santa Monica, , , Los Angeles Co, CA, USA
+1 OCCU actor
+1 REFN LAWFCK55
+1 FAMC @F2@
+1 FAMS @F3@
+1 NOTE Disowned by parents in 1961.
+0 @R17@ INDI
+1 NAME Sydney Maleia /Lawford/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:37:03
+1 BIRT
+2 DATE 25 AUG 1956
+2 PLAC , Santa Monica, , , Los Angeles Co, CA, USA
+1 RESI
+2 PLAC , Baltimore, , , Baltimore Co, MD, USA
+1 REFN LAWFSM56
+1 FAMC @F2@
+1 FAMS @F4@
+0 @R18@ INDI
+1 NAME Victoria Francis /Lawford/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:37:16
+1 BIRT
+2 DATE 4 NOV 1958
+2 PLAC , Santa Monica, , , Los Angeles Co, CA, USA
+1 OCCU public-service
+1 REFN LAWFVF58
+1 FAMC @F2@
+0 @R19@ INDI
+1 NAME Robin Elizabeth /Lawford/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:36:51
+1 BIRT
+2 DATE 2 JUL 1961
+2 PLAC , Santa Monica, , , Los Angeles Co, CA, USA
+1 REFN LAWFRE61
+1 FAMC @F2@
+0 @R20@ INDI
+1 NAME Jean Edith /Olsson/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:52
+1 BIRT
+2 DATE 24 JAN 1955
+2 PLAC , Seoul, , , , , Korea
+1 REFN OLSSJE55
+1 FAMS @F3@
+0 @R21@ INDI
+1 NAME James Peter /McKelvey/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:48
+1 BIRT
+2 DATE 4 APR 1955
+2 PLAC , Pittsburgh, , , Allegheny Co, PA, USA
+1 REFN MCKEJP55
+1 FAMS @F4@
+0 @R22@ INDI
+1 NAME Robert Sargent /Shriver/ III
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:44
+1 BIRT
+2 DATE 28 APR 1954
+2 PLAC , Chicago, , , Cook Co, IL, USA
+1 REFN SHRIRS54
+1 FAMC @F1@
+0 @R23@ INDI
+1 NAME Maria Owings /Shriver/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:37
+1 BIRT
+2 DATE 6 NOV 1955
+2 PLAC , Chicago, , , Cook Co, IL, USA
+1 RESI
+2 PLAC , Santa Monica, , , Los Angeles Co, CA, USA
+1 OCCU Broadcasting
+1 REFN SHRIMO55
+1 FAMC @F1@
+1 FAMS @F5@
+0 @R24@ INDI
+1 NAME Timothy Perry /Shriver/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:29
+1 BIRT
+2 DATE 29 AUG 1959
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN SHRITP59
+1 FAMC @F1@
+1 NOTE Disappeared from the family in 1899 and never heard from again.
+0 @R25@ INDI
+1 NAME Mark Kennedy /Shriver/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:25
+1 BIRT
+2 DATE 17 FEB 1964
+2 PLAC , Washington, , , , DC, USA
+1 REFN SHRIMK64
+1 FAMC @F1@
+0 @R26@ INDI
+1 NAME Anthony Paul /Shriver/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:21
+1 BIRT
+2 DATE 20 JUL 1965
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN SHRIAP65
+1 FAMC @F1@
+0 @R27@ TITL "A Hyannis Hitching," People Weekly
+1 CHAN
+2 DATE 10 MAR 1988
+1 PUBL (Chicago, IL: Time-Life)
+1 SERS vol 25, no. 19, 12 May 1986, pp. 53-56
+1 ABBR "Hitching," WEEKLY
+1 REPO @R185@
+0 @R28@ INDI
+1 NAME Arnold /Shwarzenegger/
+1 SEX M
+1 SOUR @S27@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:32:01
+1 BIRT
+2 DATE ABT 1955
+1 OCCU Actor
+1 REFN SHWAAR55
+1 FAMS @F5@
+0 @R29@ INDI
+1 NAME Stephen Edward /Smith/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:56
+1 BIRT
+2 DATE 24 SEP 1927
+2 PLAC , Brooklyn, , , Kings Co, NY, USA
+1 REFN SMITSE27
+1 FAMS @F6@
+0 @R30@ INDI
+1 NAME Stephen Edward /Smith/ Jr.
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:32:07
+1 BIRT
+2 DATE 28 JUN 1957
+1 REFN SMITSE57
+1 FAMC @F6@
+0 @R31@ INDI
+1 NAME William Kennedy /Smith/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:35:20
+1 BIRT
+2 DATE 4 SEP 1960
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN SMITWK60
+1 FAMC @F6@
+0 @R32@ INDI
+1 NAME Amanda Mary /Smith/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:35:12
+1 BIRT
+2 DATE 30 APR 1967
+1 REFN SMITAM67
+1 FAMC @F6@
+0 @R33@ INDI
+1 NAME Kym Marie /Smith/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:35:30
+1 BIRT
+2 DATE 29 NOV 1972
+2 PLAC , , , , , , Vietnam
+1 REFN SMITKM72
+1 FAMC @F6@
+0 @R34@ INDI
+1 NAME Kara Ann /Kennedy/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:35:25
+1 BIRT
+2 DATE 27 FEB 1960
+2 PLAC , Bronxville, , , Westchester Co, NY, USA
+1 REFN KENNKA60
+1 FAMC @F7@
+0 @R35@ INDI
+1 NAME Edward Moore /Kennedy/ Jr.
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:32:23
+1 BIRT
+2 DATE 26 SEP 1961
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 RESI
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN KENNEM61
+1 FAMC @F7@
+0 @R36@ INDI
+1 NAME Patrick Joseph /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:32:14
+1 BIRT
+2 DATE 14 JUL 1967
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 OCCU student
+1 REFN KENNPJ67
+1 FAMC @F7@
+0 @R37@ INDI
+1 NAME Jacqueline Lee /Bouvier/
+1 _SOSAN 00003
+1 SEX F
+1 OBJE
+2 TITL Jacqueline BOUVIER
+2 FILE photos/jacqueline-bouvier.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S2@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 13:54:21
+1 BIRT
+2 DATE 28 JUL 1929
+2 PLAC , Southampton, , , Long Island, NY, USA
+2 SOUR @S28@
+3 QUAY 1
+1 OCCU Editor
+1 REFN BOUVJL29
+1 FAMS @F8@
+1 FAMC @F62@
+1 FAMS @F70@
+0 @R38@ INDI
+1 SEX F
+1 _SOSAN 00001+
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:34:51
+1 BIRT
+2 DATE 23 AUG 1956
+1 DEAT
+2 DATE 23 AUG 1956
+1 BURI
+2 DATE AFT 23 AUG 1956
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 REFN DAUGHT56
+1 FAMC @F8@
+0 @R39@ INDI
+1 NAME Caroline Bouvier /Kennedy/
+1 _SOSAN 00001+
+1 SEX F
+1 OBJE
+2 TITL Caroline KENNEDY
+2 FILE photos/caroline_kennedy.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S2@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 14:48:18
+1 BIRT
+2 DATE 27 NOV 1957
+2 PLAC , New York City, , , , NY, USA
+2 SOUR @S29@
+3 QUAY 2
+1 REFN KENNCB57
+1 DESI MEDIUM
+1 FAMC @F8@
+1 FAMS @F68@
+1 NOTE Caroline Lee Kennedy Schlossberg was only 3 years old when her father
+2 CONT was elected 35th President of the United States.  After his death in
+2 CONT 1963 her mother, Jacqueline Bouvier Kennedy, fiercely guarded her and
+2 CONT brother John's privacy to ensure as normal an upbringing as possible
+2 CONT away from continuous public scrutiny.
+1 NOTE  She attended the Brearly School in New York, Concord Academy and
+2 CONT Radcliffe College in Massachusetts as well as Sotheby's fine arts
+2 CONT training school in London. She is an accomplished horsewoman, poet,
+2 CONT painter and photographer.
+0 @R40@ INDI
+1 NAME John Fitzgerald /Kennedy/ Jr.
+1 _SOSAN 00001
+1 SEX M
+1 OBJE
+2 TITL John Fitzgerald KENNEDY Junior
+2 FILE photos/john-f.-kennedy-jr.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S2@
+1 CHAN
+2 DATE 13 JAN 2013
+3 TIME 13:26:41
+1 BIRT
+2 DATE 25 NOV 1960
+2 PLAC , Washington, , , , DC, USA
+2 SOUR @S28@
+3 QUAY 2
+1 DEAT
+2 DATE 16 JUL 1999
+2 PLAC , Martha's Vineyard, , , , MA, USA
+1 RESI
+2 PLAC , New York City, , , , NY, USA
+1 REFN KENNJF60
+1 DESI MEDIUM
+1 FAMC @F8@
+1 NOTE John Fitzgerald Kennedy, Jr. was born to a newly elected President of
+2 CONT the United States as an entire country waited in anticipation.  The
+2 CONT toddler who was known for playing "hide and seek" in the oval office
+2 CONT says he has no recollection of those years. It was John Jr.'s 3rd
+2 CONT birthday when he stood by his mother and sister and saluted his
+2 CONT father's flag-draped coffin.
+1 NOTE John attended Philips Academy and Boston College. He has an active
+2 CONT interest in the theater and appeared in school productions.  He made
+2 CONT his New York debut in August of 1985 in an invitation only production
+2 CONT of "Winners" where he played the male lead.
+0 @R41@ INDI
+1 NAME Patrick Bouvier /Kennedy/
+1 _SOSAN 00001-
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:26:44
+1 BIRT
+2 DATE 7 AUG 1963
+2 PLAC , Falmouth, , , Barnstable Co, MA, USA
+1 DEAT
+2 DATE 9 AUG 1963
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 REFN KENNPB63
+1 FAMC @F8@
+0 @R42@ INDI
+1 NAME Ethel /Skakel/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:27:34
+1 BIRT
+2 DATE 11 APR 1928
+2 PLAC , Chicago, , , Cook Co, IL, USA
+1 RESI
+2 PLAC , McLean, , , Fairfax Co, VA, USA
+1 REFN SKAKET28
+1 FAMS @F9@
+1 FAMC @F66@
+0 @R43@ INDI
+1 NAME Kathleen Hartington /Kennedy/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:27:24
+1 BIRT
+2 DATE 4 JUL 1951
+2 PLAC , Greenwich, , , Fairfield Co, CT, USA
+1 REFN KENNKH51
+1 FAMC @F9@
+1 FAMS @F10@
+1 NOTE Kathleen Hartington Kennedy Townsend is the oldest child of Robert and
+2 CONT Ethel Kennedy.  She is currently making a bid for the congressional
+2 CONT seat in her district in Maryland.  Her campaign stresses community
+2 CONT service.  She is an ardent feminist and social activist.  She is the
+2 CONT first Kennedy woman to continue the political legacy of her family.
+1 NOTE Kathleen is a graduate of Harvard University where she met her husband
+2 CONT David Lee Townsend, then a doctoral student in English and American
+2 CONT history there. After their marriage in 1973 they moved to New Mexico
+2 CONT where David taught classics and Kathleen attended Law School.  They
+2 CONT returned to Boston and both completed law degrees at Yale University.
+1 NOTE Kathleen has taught English to Navaho children and worked with Eskimos
+2 CONT in Alaska as well as campaigning for George McGovern's presidential
+2 CONT bid and as campaign director for her Uncle Ted's Senate race.
+0 @R44@ INDI
+1 NAME Joseph Patrick /Kennedy/ II
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:27:13
+1 BIRT
+2 DATE 24 SEP 1952
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 OCCU politics
+1 REFN KENNJP52
+1 FAMC @F9@
+1 FAMS @F11@
+0 @R45@ INDI
+1 NAME Robert Francis /Kennedy/ Jr.
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:27:03
+1 BIRT
+2 DATE 17 JAN 1954
+2 PLAC , Washington, , , , DC, USA
+1 OCCU Lawyer
+1 REFN KENNRF54
+1 FAMC @F9@
+1 FAMS @F12@
+0 @R46@ INDI
+1 NAME David Anthony /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:28:57
+1 BIRT
+2 DATE 15 JUN 1955
+2 PLAC , Washington, , , , DC, USA
+1 DEAT
+2 DATE 25 APR 1984
+2 PLAC , Palm Beach, , , Palm Beach Co, FL, USA
+1 BURI
+2 DATE AFT 25 APR 1984
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 REFN KENNDA55
+1 FAMC @F9@
+1 NOTE David Anthony Kennedy was 13 years old when he witnessed his father's
+2 CONT assassination while watching television in his hotel room.  He never
+2 CONT fully recovered from the shock and went from an introverted
+2 CONT adolescence to a troubled youth increasingly experimenting with drugs
+2 CONT and alcohol.  He was in and out of rehabilitation centers at least 5
+2 CONT times and was arrested for drunk driving twice.  It was after being
+2 CONT released from St. Mary's Rehabilitation Center and flying to Florida
+2 CONT for a family gathering that he was found dead in his hotel room of an
+2 CONT overdose of cocaine and Demerol.
+0 @R47@ INDI
+1 NAME Mary Courtney /Kennedy/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:28:33
+1 BIRT
+2 DATE 9 SEP 1956
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 RESI
+2 PLAC , , , , , NY, USA
+1 REFN KENNMC56
+1 FAMC @F9@
+1 FAMS @F13@
+1 NOTE Mary Courtney Kennedy Ruhe has been active in many youth projects.  It
+2 CONT was through her work at the Childrens Television Network that she met
+2 CONT her husband Jeffrey Ruhe, a sports producer.
+0 @R48@ INDI
+1 NAME Michael LeMoyne /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:28:18
+1 BIRT
+2 DATE 27 FEB 1958
+2 PLAC , Washington, , , , DC, USA
+1 OCCU VP-CEC
+1 REFN KENNML58
+1 FAMC @F9@
+1 FAMS @F14@
+1 NOTE Michael LeMoyne Kennedy is currently Vice-President of his brother
+2 CONT Joe's Citizens Energy Corporation and is doing fund-raising for his
+2 CONT campaign.  His wife Victoria's father is the well known sportscaster
+2 CONT and former running back for the Giants football team.  They met while
+2 CONT working as interns for Ted Kennedy.
+0 @R49@ INDI
+1 NAME Mary Kerry /Kennedy/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:28:09
+1 BIRT
+2 DATE 8 SEP 1959
+2 PLAC , Washington, , , , DC, USA
+1 REFN KENNMK59
+1 FAMC @F9@
+0 @R50@ INDI
+1 NAME Christopher George /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:29:14
+1 BIRT
+2 DATE 4 JUL 1963
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN KENNCG63
+1 FAMC @F9@
+0 @R51@ INDI
+1 NAME Matthew Maxwell Taylor /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:29:22
+1 BIRT
+2 DATE 9 JAN 1965
+2 PLAC , New York City, , , , NY, USA
+1 REFN KENNMM65
+1 FAMC @F9@
+0 @R52@ INDI
+1 NAME Douglas Harriman /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:29:32
+1 BIRT
+2 DATE 24 MAR 1967
+2 PLAC , Washington, , , , DC, USA
+1 OCCU student
+1 REFN KENNDH67
+1 FAMC @F9@
+0 @R53@ INDI
+1 NAME Rory Elizabeth Katherine /Kennedy/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:30:05
+1 BIRT
+2 DATE 12 DEC 1968
+2 PLAC , Washington, , , , DC, USA
+1 REFN KENNRE68
+1 FAMC @F9@
+0 @R54@ INDI
+1 NAME David Lee /Townsend/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:29:50
+1 BIRT
+2 DATE 17 NOV 1947
+2 PLAC , Baltimore, , , Baltimore Co, MD, USA
+1 REFN TOWNDL47
+1 FAMS @F10@
+0 @R55@ INDI
+1 NAME Meaghan Anne Kennedy /Townsend/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:30:55
+1 BIRT
+2 DATE 7 NOV 1977
+2 PLAC , Santa Fe, , , Santa Fe Co, NM, USA
+1 REFN TOWNMA77
+1 FAMC @F10@
+0 @R56@ INDI
+1 NAME Maeve Fahey Kennedy /Townsend/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:30:48
+1 BIRT
+2 DATE 1 NOV 1979
+2 PLAC , New Haven, , , New Haven Co, CT, USA
+1 REFN TOWNMF79
+1 FAMC @F10@
+0 @R57@ INDI
+1 NAME Rose Katherine Kennedy /Townsend/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:09
+1 BIRT
+2 DATE 17 DEC 1983
+2 PLAC , Weston, , , Middlesex Co, MA, USA
+1 REFN TOWNRK83
+1 FAMC @F10@
+0 @R58@ INDI
+1 NAME Sheila Brewster /Rauch/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:01
+1 BIRT
+2 DATE 22 MAR 1949
+2 PLAC , Bryn Mawr, , , Montgomery Co, PA, USA
+1 REFN RAUCSB49
+1 FAMS @F11@
+0 @R59@ INDI
+1 NAME Matthew Rauch /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:31:15
+1 BIRT
+2 DATE 4 OCT 1980
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN KENNMR80
+1 FAMC @F11@
+0 @R60@ INDI
+1 NAME Joseph Patrick /Kennedy/ III
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:53
+1 BIRT
+2 DATE 4 FEB 1980
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN KENNJP80
+1 FAMC @F11@
+0 @R61@ INDI
+1 NAME Emily Ruth /Black/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:42
+1 BIRT
+2 DATE 15 OCT 1957
+2 PLAC , Bedford, , , Lawrence Co, IN, USA
+1 REFN BLACER57
+1 FAMS @F12@
+0 @R62@ INDI
+1 NAME Robert Francis /Kennedy/ III
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:30
+1 BIRT
+2 DATE 2 SEP 1984
+2 PLAC , Mt. Kisco, , , Westchester Co, NY, USA
+1 REFN KENNRF84
+1 FAMC @F12@
+0 @R63@ INDI
+1 NAME Jeffrey Robert /Ruhe/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:14
+1 BIRT
+2 DATE 21 FEB 1952
+2 PLAC , La Porte, , , La Porte Co, IN, USA
+1 REFN RUHEJR52
+1 FAMS @F13@
+0 @R64@ INDI
+1 NAME Victoria Denise /Gifford/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:15:32
+1 BIRT
+2 DATE 20 FEB 1957
+2 PLAC , Bakersfield, , 93380, Kern Co, CA, USA
+1 REFN GIFFVD57
+1 FAMS @F14@
+0 @R65@ INDI
+1 NAME Michael LeMoyne /Kennedy/ Jr.
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:15:44
+1 BIRT
+2 DATE 9 JAN 1983
+2 PLAC , Charlottesvlle, , , Albemarle Co, VA, USA
+1 REFN KENNML83
+1 FAMC @F14@
+0 @R66@ INDI
+1 NAME Kyle Frances /Kennedy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:15:16
+1 BIRT
+2 DATE 6 JUL 1984
+2 PLAC , Washington, , , , DC, USA
+1 REFN KENNKF84
+1 FAMC @F14@
+0 @R67@ INDI
+1 NAME Patrick /Kennedy/
+1 _SOSAN 00032
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:15:23
+1 BIRT
+2 PLAC , , , , , , Ireland
+1 DEAT
+2 PLAC , , , , , , Ireland
+1 OCCU farmer
+1 REFN KENNPA
+1 ANCI HIGH
+1 FAMS @F15@
+0 @R68@ INDI
+1 NAME Mary Johanna /(-----)/
+1 _SOSAN 00033
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:13:45
+1 BIRT
+2 PLAC , , , , , , Ireland
+1 DEAT
+2 PLAC , , , , , , Ireland
+1 REFN KENNMJ
+1 FAMS @F15@
+0 @R69@ INDI
+1 NAME Patrick /Kennedy/
+1 _SOSAN 00016
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:15:08
+1 BIRT
+2 DATE ABT 1823
+2 PLAC , Dunganstown, , , Wexford Co, , Ireland
+2 SOUR @S34@
+3 QUAY 1
+1 DEAT
+2 DATE 22 NOV 1858
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S33@
+3 QUAY 2
+1 BURI
+2 DATE 23 NOV 1858
+2 PLAC , Cambridge, , , Middlesex Co, MA, USA
+2 SOUR @S32@
+3 QUAY 2
+1 PROB
+2 DATE 13 DEC 1858
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S31@
+3 QUAY 2
+1 IMMI
+2 DATE ABT 1847
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S30@
+3 QUAY 3
+1 OCCU cooper
+1 REFN KENNPA23
+1 ANCI HIGH
+1 FAMC @F15@
+1 FAMS @F17@
+1 NOTE Patrick Kennedy was the son of a prosperous farmer from County
+2 CONT Wexford, Ireland. He emmigrated to America at the age of 26 to improve
+2 CONT his fortunes. He left a country in the middle of a devastating famine
+2 CONT and arrived in an immigrant ghetto where thousands of his countrymen
+2 CONT had fled to escape near certain death.  On board he had met Bridget
+2 CONT Murphy, also from County Wexford and soon married her. He worked as a
+2 CONT cooper and died of consumption in 1858.  He only survived 9 years in
+2 CONT this country.
+0 @R70@ INDI
+1 NAME Richard /Murphy/
+1 _SOSAN 00034
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:21:57
+1 DEAT
+1 REFN MURPRI
+1 FAMS @F16@
+0 @R71@ INDI
+1 NAME Mary /(-----)/
+1 _SOSAN 00035
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:17:25
+1 DEAT
+1 REFN MURPMA
+1 FAMS @F16@
+0 @R72@ INDI
+1 NAME Bridget /Murphy/
+1 _SOSAN 00017
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:16:49
+1 BIRT
+2 DATE 1821
+2 PLAC , Dunganstown, , , Wexford Co, , Ireland
+2 SOUR @S34@
+3 QUAY 1
+1 DEAT
+2 DATE 20 DEC 1888
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S36@
+3 QUAY 2
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+2 SOUR @S35@
+3 QUAY 2
+1 IMMI
+2 DATE ABT 1847
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN MURPBR21
+1 ANCI HIGH
+1 FAMC @F16@
+1 FAMS @F17@
+0 @R73@ INDI
+1 NAME Mary L. /Kennedy/
+1 _SOSAN 00008+
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:21:39
+1 BIRT
+2 DATE 9 AUG 1851
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S39@
+3 QUAY 2
+1 DEAT
+2 DATE 7 MAR 1926
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S38@
+3 QUAY 2
+1 CHR
+2 DATE 10 AUG 1851
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S37@
+3 QUAY 2
+1 BURI
+2 DATE AFT 7 MAR 1926
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+2 SOUR @S35@
+3 QUAY 2
+1 OCCU skirtmaker
+1 REFN KENNML51
+1 FAMC @F17@
+1 FAMS @F19@
+0 @R74@ INDI
+1 NAME Joanna L. /Kennedy/
+1 _SOSAN 00008+
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:18:55
+1 BIRT
+2 DATE 27 NOV 1852
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S43@
+3 QUAY 2
+1 DEAT
+2 DATE 23 FEB 1926
+2 PLAC , Revere, , , Suffolk Co, MA, USA
+2 SOUR @S42@
+3 QUAY 2
+1 CHR
+2 DATE 4 DEC 1852
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S41@
+3 QUAY 2
+1 BURI
+2 DATE AFT 23 FEB 1926
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+2 SOUR @S40@
+3 QUAY 2
+1 REFN KENNJL52
+1 FAMC @F17@
+1 FAMS @F21@
+0 @R75@ INDI
+1 NAME John /Kennedy/
+1 _SOSAN 00008+
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:23:23
+1 BIRT
+2 DATE 4 JAN 1854
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S47@
+3 QUAY 1
+1 DEAT
+2 DATE 24 SEP 1855
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S46@
+3 QUAY 2
+1 CHR
+2 DATE 5 JAN 1854
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S45@
+3 QUAY 2
+1 BURI
+2 PLAC , Cambridge, , , Middlesex Co, MA, USA
+2 SOUR @S44@
+3 QUAY 2
+1 REFN KENNJO54
+1 FAMC @F17@
+0 @R76@ INDI
+1 NAME Margaret M. /Kennedy/
+1 _SOSAN 00008+
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:24:34
+1 BIRT
+2 DATE JUL 1855
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S51@
+3 QUAY 2
+1 DEAT
+2 DATE 2 APR 1929
+2 PLAC , Revere, , , Suffolk Co, MA, USA
+2 SOUR @S50@
+3 QUAY 2
+1 CHR
+2 DATE 22 JUL 1855
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S49@
+3 QUAY 2
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+2 SOUR @S48@
+3 QUAY 2
+1 REFN KENNMM55
+1 FAMC @F17@
+1 FAMS @F25@
+0 @R77@ INDI
+1 NAME Patrick Joseph /Kennedy/
+1 _SOSAN 00008
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:25:57
+1 BIRT
+2 DATE 14 JAN 1858
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S55@
+3 QUAY 2
+1 DEAT
+2 DATE 18 MAY 1929
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S54@
+3 QUAY 2
+1 CHR
+2 DATE 16 JAN 1858
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+2 SOUR @S53@
+3 QUAY 2
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+2 SOUR @S52@
+3 QUAY 2
+1 OCCU politician
+1 REFN KENNPJ58
+1 FAMC @F17@
+1 FAMS @F33@
+1 NOTE Patrick Joseph Kennedy was the first Kennedy to enter into politics
+2 CONT during an era of ward bosses that controlled the political machinery
+2 CONT of Boston.  In 1886 he was elected to the State Senate for his ward
+2 CONT and served three terms.  He married Mary Augusta Hickey, the daughter
+2 CONT of a prosperous businessman.
+0 @R78@ INDI
+1 NAME Philip /Kane/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:26:07
+1 BIRT
+2 DATE BEF 1858
+2 PLAC , , , , , , Ireland
+1 REFN KANEPH58
+1 FAMS @F18@
+0 @R79@ INDI
+1 NAME Margaret /Murphy/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:22:31
+1 BIRT
+2 DATE BEF 1858
+2 PLAC , , , , , , Ireland
+1 REFN MURPMA58
+1 FAMS @F18@
+0 @R80@ INDI
+1 NAME Lawrence M. /Kane/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:24
+1 BIRT
+2 DATE 29 NOV 1858
+2 PLAC , , , , Wexford Co, , Ireland
+1 DEAT
+2 DATE 19 JUL 1905
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 IMMI
+2 DATE 15 MAY 1876
+2 PLAC , New York City, , , , NY, USA
+1 OCCU laborer
+1 REFN KANELM58
+1 FAMC @F18@
+1 FAMS @F19@
+0 @R81@ INDI
+1 NAME Joseph Lawrence /Kane/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:02
+1 BIRT
+2 DATE 29 NOV 1883
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 19 MAR 1967
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 CHR
+2 DATE 2 DEC 1883
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 OCCU politician
+1 REFN KANEJL83
+1 FAMC @F19@
+0 @R82@ INDI
+1 NAME Mary Margaret /Kane/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:06:27
+1 BIRT
+2 DATE 25 AUG 1885
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 14 SEP 1885
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 30 AUG 1885
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 REFN KANEMM85
+1 FAMC @F19@
+0 @R83@ INDI
+1 NAME George Philip /Kane/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:05:19
+1 BIRT
+2 DATE 8 SEP 1888
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 6 JUL 1954
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 16 SEP 1888
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 OCCU sign painter
+1 REFN KANEGP88
+1 FAMC @F19@
+0 @R84@ INDI
+1 NAME Gertrude Margaret /Kane/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:58
+1 BIRT
+2 DATE 26 MAY 1890
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 14 JAN 1969
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 1 JUN 1890
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 REFN KANEGM90
+1 FAMC @F19@
+1 FAMS @F20@
+0 @R85@ INDI
+1 NAME Charles Everett /Metcalf/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:43
+1 BIRT
+2 DATE 1 NOV 1891
+2 PLAC , Chelsea, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 2 JUL 1955
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 OCCU shipwright
+1 REFN METCCE91
+1 FAMS @F20@
+0 @R86@ INDI
+1 NAME Frederick /Kane/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:07:54
+1 BIRT
+2 DATE 1892
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 15 OCT 1897
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 REFN KANEFR92
+1 FAMC @F19@
+0 @R87@ INDI
+1 NAME Humphrey Charles /Mahoney/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:08:32
+1 BIRT
+2 DATE 12 DEC 1847
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 25 AUG 1928
+2 PLAC , Saratoga Springs, , , Saratoga Co, NY, USA
+1 BURI
+2 DATE AFT 25 AUG 1928
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 OCCU custodian
+1 REFN MAHOHC47
+1 FAMS @F21@
+0 @R88@ INDI
+1 NAME Daniel /Mahoney/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:06:50
+1 BIRT
+2 DATE 14 OCT 1873
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 20 NOV 1875
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 19 OCT 1873
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Cambridge, , , Middlesex Co, MA, USA
+1 REFN MAHODA73
+1 FAMC @F21@
+0 @R89@ INDI
+1 NAME Mary E. /Mahoney/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:07:31
+1 BIRT
+2 DATE 18 OCT 1875
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 7 DEC 1875
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 20 OCT 1875
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Cambridge, , , Middlesex Co, MA, USA
+1 REFN MAHOME75
+1 FAMC @F21@
+0 @R90@ INDI
+1 NAME William Henry /Mahoney/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:08:48
+1 BIRT
+2 DATE 17 MAY 1878
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 10 MAY 1879
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 19 MAY 1878
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 REFN MAHOWH78
+1 FAMC @F21@
+0 @R91@ INDI
+1 NAME Frances Josephine /Mahoney/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:09:31
+1 BIRT
+2 DATE 2 MAR 1880
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 13 APR 1963
+2 PLAC , Lynn, , , Essex Co, MA, USA
+1 CHR
+2 DATE 7 MAR 1880
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 REFN MAHOFJ80
+1 FAMC @F21@
+1 FAMS @F22@
+0 @R92@ INDI
+1 NAME Louis Leo /Twomey/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:09:14
+1 BIRT
+2 DATE 12 DEC 1879
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 14 JAN 1965
+2 PLAC , Lynn, , , Essex Co, MA, USA
+1 OCCU custodian
+1 REFN TWOMLL79
+1 FAMS @F22@
+0 @R93@ INDI
+1 NAME Annie /Mahoney/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:10:32
+1 BIRT
+2 DATE 13 FEB 1883
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 7 MAY 1889
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 18 FEB 1883
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 DATE AFT 17 MAY 1889
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 REFN MAHOAN83
+1 FAMC @F21@
+0 @R94@ INDI
+1 NAME Henry Joseph /Mahoney/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:09:52
+1 BIRT
+2 DATE 15 OCT 1884
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 3 FEB 1961
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 CHR
+2 DATE 19 OCT 1884
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 OCCU custodian
+1 REFN MAHOHJ84
+1 FAMC @F21@
+1 FAMS @F23@
+0 @R95@ INDI
+1 NAME Gertrude /Mahoney/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:11:06
+1 BIRT
+2 DATE 7 OCT 1886
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 27 JUL 1887
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 10 OCT 1886
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 REFN MAHOGE86
+1 FAMC @F21@
+0 @R96@ INDI
+1 NAME Frederick Louis /Mahoney/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:10:48
+1 BIRT
+2 DATE 21 AUG 1890
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 26 OCT 1965
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 28 AUG 1890
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 OCCU school-submaster
+1 REFN MAHOFL90
+1 FAMC @F21@
+0 @R97@ INDI
+1 NAME Mary Elizabeth /Farley/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:11:20
+1 BIRT
+2 DATE 15 OCT 1884
+2 PLAC , McKeesport, , , Allegheny Co, PA, USA
+1 DEAT
+2 DATE 23 APR 1949
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN FARLME84
+1 FAMS @F23@
+0 @R98@ INDI
+1 NAME John Thomas /Caulfield/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:11:46
+1 BIRT
+2 DATE JAN 1861
+2 PLAC , Weymouth, , , Norfolk Co, MA, USA
+1 DEAT
+2 DATE 12 JUL 1937
+2 PLAC , Lynn, , , Essex Co, MA, USA
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 OCCU purchasing
+1 REFN CAULJT61
+1 FAMS @F24@
+1 FAMS @F25@
+0 @R99@ INDI
+1 NAME Mary Frances /Caulfield/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:02
+1 BIRT
+2 DATE 8 FEB 1884
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 14 JUN 1938
+2 PLAC , Revere, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 10 FEB 1884
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 REFN CAULMF84
+1 FAMC @F25@
+1 FAMS @F26@
+0 @R100@ INDI
+1 NAME Frederick /Caulfield/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:41:31
+1 BIRT
+2 DATE 20 JUN 1886
+2 PLAC , New York City, , , , NY, USA
+1 DEAT
+1 REFN CAULFR86
+1 FAMC @F25@
+0 @R101@ INDI
+1 NAME Edith M. /Caulfield/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:00
+1 BIRT
+2 DATE 8 APR 1888
+2 PLAC , New York City, , , , NY, USA
+1 DEAT
+2 DATE 6 APR 1943
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN CAULEM88
+1 FAMC @F25@
+1 FAMS @F27@
+0 @R102@ INDI
+1 NAME Henry R. /Caulfield/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:08
+1 BIRT
+2 DATE MAY 1889
+2 PLAC , New York City, , , , NY, USA
+1 DEAT
+2 DATE 27 APR 1925
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN CAULHR89
+1 FAMC @F25@
+0 @R103@ INDI
+1 NAME Florence J. /Caulfield/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:42:43
+1 BIRT
+2 DATE 19 NOV 1891
+2 PLAC , New York City, , , , NY, USA
+1 DEAT
+2 DATE 10 AUG 1892
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 REFN CAULFJ91
+1 FAMC @F25@
+0 @R104@ INDI
+1 NAME Elsie G. /Caulfield/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:42:52
+1 BIRT
+2 DATE OCT 1894
+2 PLAC , Bayonne, , , Hudson Co, NJ, USA
+1 DEAT
+2 DATE 8 FEB 1914
+2 PLAC , Revere, , , Suffolk Co, MA, USA
+1 REFN CAULEG94
+1 FAMC @F25@
+0 @R105@ INDI
+1 NAME Jeanette Dorothea /Caulfield/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:42:16
+1 BIRT
+2 DATE FEB 1896
+2 PLAC , Bayonne, , , Hudson Co, NJ, USA
+1 DEAT
+2 DATE 1 JUN 1953
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN CAULJD96
+1 FAMC @F25@
+1 FAMS @F28@
+0 @R106@ INDI
+1 NAME John Theodore /Caulfield/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:42:24
+1 BIRT
+2 DATE 3 JUN 1899
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 18 AUG 1966
+2 PLAC , Saugus, , , Essex Co, MA, USA
+1 REFN CAULJT99
+1 FAMC @F25@
+1 FAMS @F29@
+0 @R107@ INDI
+1 NAME Alexander G. /Crawford/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:41:58
+1 BIRT
+2 DATE ABT 1882
+2 PLAC , Liverpool, , , , , England
+1 IMMI
+2 DATE ABT 1887
+1 OCCU riveter
+1 REFN CRAWAG82
+1 FAMS @F26@
+0 @R108@ INDI
+1 NAME Julius /Baker/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:42:07
+1 BIRT
+2 DATE FEB 1891
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 2 DEC 1928
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 OCCU electric supply
+1 REFN BAKEJU91
+1 FAMS @F27@
+0 @R109@ INDI
+1 NAME Frank William /Finkfelt/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:41:47
+1 BIRT
+2 DATE 16 NOV 1894
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 3 FEB 1960
+2 PLAC , Revere, , , Suffolk Co, MA, USA
+1 REFN FINKFW94
+1 FAMS @F28@
+0 @R110@ INDI
+1 NAME Hazel Elizabeth /Baker/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:21
+1 BIRT
+2 DATE 29 NOV 1902
+2 PLAC , Lynn, , , Essex Co, MA, USA
+1 DEAT
+2 DATE 15 JUL 1968
+2 PLAC , Lynn, , , Essex Co, MA, USA
+1 REFN BAKEHE02
+1 FAMS @F29@
+0 @R111@ INDI
+1 NAME Patrick /Field/
+1 _SOSAN 00038
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:12
+1 REFN FIELPA
+1 FAMS @F30@
+0 @R112@ INDI
+1 NAME Mary /Sheehy/
+1 _SOSAN 00039
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:32
+1 REFN SHEEMA
+1 FAMS @F30@
+0 @R113@ INDI
+1 NAME Margaret M. /Field/
+1 _SOSAN 00019
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:29
+1 BIRT
+2 DATE ABT 1836
+1 DEAT
+2 DATE 5 JUN 1911
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN FIELMM36
+1 FAMC @F30@
+1 FAMS @F32@
+0 @R114@ INDI
+1 NAME Michael /Hickey/
+1 _SOSAN 00036
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:43
+1 DEAT
+1 REFN HICKMI
+1 FAMS @F31@
+0 @R115@ INDI
+1 NAME Catherine /Hassett/
+1 _SOSAN 00037
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:37
+1 DEAT
+1 REFN HASSCA
+1 FAMS @F31@
+0 @R116@ INDI
+1 NAME James /Hickey/
+1 _SOSAN 00018
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:44:06
+1 BIRT
+2 DATE 1836
+2 PLAC , Cork, , , Cork Co, Munster Province, Ireland
+1 DEAT
+2 DATE 22 NOV 1900
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN HICKJA36
+1 FAMC @F31@
+1 FAMS @F32@
+0 @R117@ INDI
+1 NAME Mary Augusta /Hickey/
+1 _SOSAN 00009
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:43:56
+1 BIRT
+2 DATE 6 DEC 1857
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 20 MAY 1923
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 REFN HICKMA57
+1 FAMC @F32@
+1 FAMS @F33@
+0 @R118@ INDI
+1 NAME Francis Benedict /Kennedy/
+1 _SOSAN 00004-
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:44:58
+1 BIRT
+2 DATE 11 MAR 1891
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 14 JUN 1892
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 CHR
+2 DATE 22 MAR 1891
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 REFN KENNFB91
+1 FAMC @F33@
+0 @R119@ INDI
+1 NAME Mary Loretta /Kennedy/
+1 _SOSAN 00004-
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:44:17
+1 BIRT
+2 DATE 6 AUG 1892
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 18 NOV 1972
+2 PLAC , Winfield, , , Du Page Co, IL, USA
+1 CHR
+2 DATE 18 AUG 1892
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 REFN KENNML92
+1 FAMC @F33@
+1 FAMS @F35@
+0 @R120@ INDI
+1 NAME Margaret Louise /Kennedy/
+1 _SOSAN 00004-
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:51:00
+1 BIRT
+2 DATE 22 OCT 1898
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 14 NOV 1974
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 CHR
+2 DATE 30 OCT 1898
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 REFN KENNML98
+1 FAMC @F33@
+1 FAMS @F38@
+0 @R121@ INDI
+1 NAME Michael John /Connelly/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:51:04
+1 REFN CONNMJ
+1 FAMS @F34@
+0 @R122@ INDI
+1 NAME Margaret Elizabeth /Driscoll/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:51:07
+1 REFN DRISME
+1 FAMS @F34@
+0 @R123@ INDI
+1 NAME George William /Connelly/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:51:48
+1 BIRT
+2 DATE 10 JUN 1898
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 29 AUG 1971
+2 PLAC , St. Augustine, , , St. Johns Co, FL, USA
+1 REFN CONNGW98
+1 FAMC @F34@
+1 FAMS @F35@
+0 @R124@ INDI
+1 NAME Mary Louise /Connelly/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:51:31
+1 BIRT
+2 DATE 21 OCT 1928
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 REFN CONNML28
+1 FAMC @F35@
+1 FAMS @F36@
+0 @R125@ INDI
+1 NAME Matthew James /McCarthy/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:51:21
+1 BIRT
+2 DATE 8 FEB 1926
+2 PLAC , Chicago, , , Cook Co, IL, USA
+1 RESI
+2 PLAC , St. Augustine, , , St. Johns Co, FL, USA
+1 REFN MCCAMJ26
+1 FAMS @F36@
+0 @R126@ INDI
+1 NAME Thomas Francis /Burke/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:51:09
+1 REFN BURKTF
+1 FAMS @F37@
+0 @R127@ INDI
+1 NAME Alicia Augusta /Mann/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:52:30
+1 REFN MANNAA
+1 FAMS @F37@
+0 @R128@ INDI
+1 NAME Charles Joseph /Burke/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:52:23
+1 BIRT
+2 DATE 23 AUG 1899
+2 PLAC , Medford, , , Middlesex Co, MA, USA
+1 DEAT
+2 DATE 5 APR 1967
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 REFN BURKCJ99
+1 FAMC @F37@
+1 FAMS @F38@
+0 @R129@ INDI
+1 NAME Margaret Louise /Burke/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:52:09
+1 BIRT
+2 DATE 2 APR 1926
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 RESI
+2 PLAC , Ann Arbor, , 48109, Washtenaw Co, MI, USA
+1 REFN BURKML26
+1 FAMC @F38@
+1 FAMS @F39@
+0 @R130@ INDI
+1 NAME Charles Joseph /Burke/ Jr.
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:54:25
+1 BIRT
+2 DATE 5 MAY 1928
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 RESI
+2 PLAC , Wellesley Hills, , , Norfolk Co, MA, USA
+1 REFN BURKCJ28
+1 FAMC @F38@
+1 FAMS @F40@
+0 @R131@ INDI
+1 NAME Thomas Francis /Burke/ II
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:54:36
+1 BIRT
+2 DATE 25 MAY 1933
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 RESI
+2 PLAC , Newton, , , Middlesex Co, MA, USA
+1 REFN BURKTF33
+1 FAMC @F38@
+1 FAMS @F41@
+0 @R132@ INDI
+1 NAME John Bernard /DeVine/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:54:05
+1 BIRT
+2 DATE 5 FEB 1920
+2 PLAC , Ann Arbor, , 48109, Washtenaw Co, MI, USA
+1 RESI
+2 PLAC , Ann Arbor, , 48109, Washtenaw Co, MI, USA
+1 REFN DEVIJB20
+1 FAMS @F39@
+0 @R133@ INDI
+1 NAME Claire /Colton/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:54:15
+1 BIRT
+2 DATE 11 NOV 1935
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+1 RESI
+2 PLAC , Wellesley Hills, , , Norfolk Co, MA, USA
+1 REFN COLTCL35
+1 FAMS @F40@
+0 @R134@ INDI
+1 NAME Gertrude Ann /Miller/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:55:13
+1 BIRT
+2 DATE 10 OCT 1936
+2 PLAC , Waltham, , , Middlesex Co, MA, USA
+1 RESI
+2 PLAC , Newton, , , Middlesex Co, MA, USA
+1 REFN MILLGA36
+1 FAMS @F41@
+0 @R135@ INDI
+1 NAME Michael /Fitzgerald/
+1 _SOSAN 00046+
+1 _SOSAN 00040
+1 SEX M
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:55:03
+1 DEAT
+1 REFN FITZMI
+1 FAMS @F43@
+1 FAMC @F72@
+0 @R136@ INDI
+1 NAME Thomas /Wilmouth/
+1 _SOSAN 00082
+1 SEX M
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:55:25
+1 REFN WILMTH
+1 ANCI HIGH
+1 FAMS @F42@
+0 @R137@ INDI
+1 NAME Bridget /(-----)/
+1 _SOSAN 00083
+1 SEX F
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:55:20
+1 DEAT
+1 REFN WILMBR
+1 ANCI HIGH
+1 FAMS @F42@
+0 @R138@ INDI
+1 NAME Ellen /Wilmouth/
+1 _SOSAN 00041
+1 SEX F
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:54:56
+1 BIRT
+2 DATE 1797
+1 DEAT
+2 DATE 16 NOV 1875
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN WILMEL97
+1 ANCI HIGH
+1 FAMC @F42@
+1 FAMS @F43@
+0 @R139@ INDI
+1 NAME Thomas /Fitzgerald/
+1 _SOSAN 00020
+1 SEX M
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:54:44
+1 DEAT
+2 DATE 19 MAY 1885
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 REFN FITZTH
+1 FAMC @F43@
+1 FAMS @F45@
+0 @R140@ INDI
+1 NAME Philip /Cox/
+1 _SOSAN 00042
+1 SEX M
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:57:27
+1 REFN COXPH
+1 ANCI HIGH
+1 FAMS @F44@
+0 @R141@ INDI
+1 NAME Mary /(-----)/
+1 _SOSAN 00043
+1 SEX F
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:55:27
+1 REFN COXMA
+1 FAMS @F44@
+0 @R142@ INDI
+1 NAME Rosanna /Cox/
+1 _SOSAN 00021
+1 SEX F
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:56:14
+1 BIRT
+2 DATE ABT 1836
+2 SOUR @S68@
+3 QUAY 1
+1 DEAT
+2 DATE 12 MAR 1879
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S67@
+3 QUAY 1
+1 BURI
+2 PLAC , Malden, , , Middlesex Co, MA, USA
+2 SOUR @S66@
+3 QUAY 2
+1 REFN COXRO
+1 ANCI HIGH
+1 FAMC @F44@
+1 FAMS @F45@
+0 @R143@ INDI
+1 NAME John Francis "Honey Fitz" /Fitzgerald/
+1 _SOSAN 00010
+1 SEX M
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:57:16
+1 BIRT
+2 DATE 11 FEB 1863
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S60@
+3 QUAY 1
+1 DEAT
+2 DATE 3 OCT 1950
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S59@
+3 QUAY 1
+1 BAPM
+2 DATE 12 FEB 1863
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+2 SOUR @S58@
+3 QUAY 1
+1 BURI
+2 DATE 5 OCT 1950
+2 PLAC , West Roxbury, , , Suffolk Co, MA, USA
+2 SOUR @S57@
+3 QUAY 2
+1 OCCU Boston Mayor
+1 REFN FITZJF63
+1 FAMC @F45@
+1 FAMS @F48@
+0 @R144@ INDI
+1 NAME John /Hannon/
+1 _SOSAN 00044
+1 SEX M
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:57:21
+1 REFN HANNJO
+1 FAMS @F46@
+0 @R145@ INDI
+1 NAME Ellen /Noonan/
+1 _SOSAN 00045
+1 SEX F
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:00:55
+1 BIRT
+2 DATE 1793
+1 DEAT
+2 DATE 28 NOV 1877
+2 PLAC , Town of Acton, , , Middlesex Co, MA, USA
+1 REFN NOONEL93
+1 FAMS @F46@
+0 @R146@ INDI
+1 NAME Michael /Hannon/
+1 _SOSAN 00022
+1 SEX M
+1 SOUR @S56@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:00:38
+1 BIRT
+2 DATE 30 SEP 1832
+1 DEAT
+2 DATE 1 FEB 1900
+2 PLAC , Town of Acton, , , Middlesex Co, MA, USA
+2 SOUR @S18@
+3 QUAY 1
+1 REFN HANNMI32
+1 FAMC @F46@
+1 FAMS @F47@
+0 @R147@ INDI
+1 NAME Mary Ann /Fitzgerald/
+1 _SOSAN 00023
+1 SEX F
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:00:22
+1 BIRT
+2 DATE ABT 1832
+1 DEAT
+1 REFN FITZMA54
+1 FAMS @F47@
+1 FAMC @F71@
+0 @R148@ INDI
+1 NAME Mary Josephine /Hannon/
+1 _SOSAN 00011
+1 SEX F
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:59:55
+1 BIRT
+2 DATE 31 OCT 1865
+2 PLAC , Town of Acton, , , Middlesex Co, MA, USA
+2 SOUR @S61@
+3 QUAY 1
+1 DEAT
+2 DATE 8 AUG 1964
+2 PLAC , Dorchester, , , Suffolk Co, MA, USA
+2 SOUR @S18@
+3 QUAY 1
+1 REFN HANNMJ65
+1 FAMC @F47@
+1 FAMS @F48@
+1 NOTE Mary Josephine's family tried to discourage her marriage to John
+2 CONT Fitzgerald. As second cousins they needed a dispensation from the
+2 CONT Catholic Church.  (Canon law at the time forbid marriages which fell
+2 CONT within the third degree of consanguinity.)  The underlying reason was
+2 CONT probably the fear that Josie, as she was called, and John would risk
+2 CONT producing retarded children.  However, the love match prevailed as
+2 CONT records show that the dispensation was granted on September 7 and the
+2 CONT marriage took place September 18.
+0 @R149@ INDI
+1 NAME George /Bouvier/
+1 _SOSAN 00384
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:57:31
+1 REFN BOUVGE
+1 FAMS @F73@
+0 @R150@ INDI
+1 NAME Francois /Bouvier/
+1 _SOSAN 00192
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:03:32
+1 BIRT
+2 DATE BET 30 JAN 1727 AND 30 JAN 1728
+2 PLAC , , , , , , France
+1 DEAT
+1 REFN BOUVFR28
+1 FAMS @F49@
+1 FAMC @F73@
+0 @R151@ INDI
+1 NAME Benoite /Repelin/
+1 _SOSAN 00193
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:03:50
+1 DEAT
+1 REFN REPEBE
+1 FAMS @F49@
+0 @R152@ INDI
+1 NAME Eustache /Bouvier/
+1 _SOSAN 00096
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:02:09
+1 BIRT
+2 DATE 29 MAY 1758
+2 PLAC , Grenoble, , , , , France
+1 DEAT
+2 DATE 1835
+1 REFN BOUVEU58
+1 FAMC @F49@
+1 FAMS @F52@
+0 @R153@ INDI
+1 NAME Melkior /Mercier/
+1 _SOSAN 00388
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:02:19
+1 DEAT
+1 REFN MERCME
+1 FAMS @F74@
+0 @R154@ INDI
+1 NAME Joseph /Mercier/
+1 _SOSAN 00194
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:51
+1 BIRT
+2 DATE ABT 1740
+1 DEAT
+1 REFN MERCJO
+1 FAMS @F51@
+1 FAMC @F74@
+0 @R155@ INDI
+1 NAME Jean /Trintignant/
+1 _SOSAN 00390
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:55
+1 DEAT
+1 REFN TRINJE
+1 FAMS @F50@
+0 @R156@ INDI
+1 NAME Therese /Paulin/
+1 _SOSAN 00391
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:08:00
+1 DEAT
+1 REFN PAULTH
+1 FAMS @F50@
+0 @R157@ INDI
+1 NAME Anne /Trintignant/
+1 _SOSAN 00195
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:08:38
+1 DEAT
+1 REFN TRINAN
+1 FAMC @F50@
+1 FAMS @F51@
+0 @R158@ INDI
+1 NAME Therese /Mercier/
+1 _SOSAN 00097
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:07:16
+1 BIRT
+2 DATE 12 AUG 1766
+1 DEAT
+2 DATE EST 1815
+1 REFN MERCTH66
+1 FAMC @F51@
+1 FAMS @F52@
+0 @R159@ INDI
+1 NAME Michel /Bouvier/
+1 _SOSAN 00048
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:07:41
+1 BIRT
+2 DATE 2 FEB 1792
+2 PLAC , Pont-St-Esprit, , , , , France
+1 DEAT
+2 DATE 1874
+1 IMMI
+2 DATE 1815
+1 OCCU carpenter
+1 REFN BOUVMI92
+1 FAMC @F52@
+1 FAMS @F55@
+0 @R160@ INDI
+1 NAME William Alexander /Lindsay/
+1 _SOSAN 00198
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:35
+1 DEAT
+1 REFN LINDSA
+1 FAMS @F53@
+0 @R161@ INDI
+1 NAME Elizabeth /Clifford/
+1 _SOSAN 00199
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:30
+1 DEAT
+1 REFN CLIFEL
+1 FAMS @F53@
+0 @R162@ INDI
+1 NAME Elizabeth Clifford /Lindsay/
+1 _SOSAN 00099
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:08
+1 DEAT
+1 REFN LINDEC
+1 FAMC @F53@
+1 FAMS @F54@
+0 @R163@ INDI
+1 NAME John /Vernou/
+1 _SOSAN 00098
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:06:36
+1 DEAT
+1 REFN VERNJO
+1 FAMS @F54@
+0 @R164@ INDI
+1 NAME Louise C. /Vernou/
+1 _SOSAN 00049
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:05:24
+1 DEAT
+1 REFN VERNLC
+1 FAMC @F54@
+1 FAMS @F55@
+0 @R165@ INDI
+1 NAME John Vernou /Bouvier/
+1 _SOSAN 00024
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:05:04
+1 BIRT
+2 DATE 1843
+1 DEAT
+2 DATE 1926
+1 REFN BOUVJV43
+1 FAMC @F55@
+1 FAMS @F56@
+0 @R166@ INDI
+1 NAME Caroline Maslin /Ewing/
+1 _SOSAN 00025
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:04:48
+1 DEAT
+1 REFN EWINCM
+1 FAMS @F56@
+0 @R167@ INDI
+1 NAME John Vernou /Bouvier/ Jr.
+1 _SOSAN 00012
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:11:27
+1 BIRT
+2 DATE 1865
+1 DEAT
+2 DATE 14 JAN 1948
+1 REFN BOUVJV65
+1 FAMC @F56@
+1 FAMS @F58@
+0 @R168@ INDI
+1 NAME William R. /Sergeant/
+1 _SOSAN 00026
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:11:52
+1 DEAT
+1 REFN SERGWR
+1 FAMS @F57@
+0 @R169@ INDI
+1 NAME Edith /Leaman/
+1 _SOSAN 00027
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:07
+1 DEAT
+1 REFN LEAMED
+1 FAMS @F57@
+0 @R170@ INDI
+1 NAME Maud Frances /Sergeant/
+1 _SOSAN 00013
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:09:06
+1 DEAT
+2 DATE 3 APR 1940
+1 REFN SERGMF
+1 FAMC @F57@
+1 FAMS @F58@
+0 @R171@ INDI
+1 NAME John Vernou /Bouvier/ III
+1 _SOSAN 00006
+1 SEX M
+1 OBJE
+2 TITL John Vernou BOUVIER III
+2 FILE photos/John_Bouvier_III.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S2@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:05:00
+1 BIRT
+2 DATE 19 MAY 1891
+2 PLAC , Easthampton, , , Hampshire Co, MA, USA
+1 DEAT
+2 DATE 2 AUG 1957
+2 PLAC , New York City, , , , NY, USA
+1 BURI
+2 PLAC , Easthampton, , , Hampshire Co, MA, USA
+1 REFN BOUVJV91
+1 FAMC @F58@
+1 FAMS @F62@
+0 @R172@ INDI
+1 NAME William Sergeant (Bud) /Bouvier/
+1 _SOSAN 00006-
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:09:42
+1 BIRT
+2 DATE 1893
+2 PLAC , Easthampton, , , Hampshire Co, MA, USA
+1 DEAT
+2 DATE 8 OCT 1929
+2 PLAC , Los Olivos, , , Santa Barbara Co, CA, USA
+1 BURI
+2 DATE 15 OCT 1929
+1 REFN BOUVWS93
+1 FAMC @F58@
+1 FAMS @F59@
+0 @R173@ INDI
+1 NAME Emma Louise /Stone/
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:09:20
+1 DEAT
+1 REFN STONEL
+1 FAMS @F59@
+0 @R174@ INDI
+1 NAME Michel /Bouvier/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:10:38
+1 DEAT
+1 REFN BOUVMI
+1 FAMC @F59@
+0 @R175@ INDI
+1 NAME Dr. James /Lee/
+1 _SOSAN 00028
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:09:58
+1 DEAT
+1 REFN LEEDJ
+1 FAMS @F60@
+0 @R176@ INDI
+1 NAME Mary /Norton/
+1 _SOSAN 00029
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:11:12
+1 DEAT
+1 REFN NORTMA
+1 FAMS @F60@
+0 @R177@ INDI
+1 NAME James Thomas /Lee/
+1 _SOSAN 00014
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:10:57
+1 BIRT
+2 DATE 1877
+1 DEAT
+1 REFN LEEJT77
+1 FAMC @F60@
+1 FAMS @F61@
+0 @R178@ INDI
+1 NAME Margaret A. /Merritt/
+1 _SOSAN 00015
+1 SEX F
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:15:36
+1 DEAT
+1 REFN MERRMA
+1 FAMS @F61@
+0 @R179@ INDI
+1 NAME Janet Norton /Lee/
+1 _SOSAN 00007
+1 SEX F
+1 SOUR @S2@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:05:53
+1 BIRT
+2 DATE 3 DEC 1907
+1 DEAT
+2 DATE 22 JUL 1989
+2 PLAC
+1 REFN LEEJN06
+1 FAMC @F61@
+1 FAMS @F62@
+1 FAMS @F65@
+0 @R180@ INDI
+1 NAME Caroline Lee /Bouvier/
+1 _SOSAN 00003-
+1 SEX F
+1 SOUR @S4@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:13:33
+1 BIRT
+2 DATE 1933
+2 PLAC , Southampton, , , Long Island, NY, USA
+1 CHR
+2 DATE 29 JUL 1933
+2 PLAC , New York City, , , , NY, USA
+1 REFN BOUVCL33
+1 FAMC @F62@
+1 FAMS @F63@
+1 FAMS @F64@
+0 @R181@ TITL JF Kennedy and JL Bouvier_Ancestry
+1 CHAN
+2 DATE 10 MAR 1988
+1 NUMB 190
+1 AUTH @R184@
+1 PUBL (Bountiful, UT: AIS, Inc.)
+1 ABBR Jackson, ANCESTRY
+1 REPO @R212@
+0 @R182@ TITL Jacqueline Bouvier Kennedy Onassis
+1 CHAN
+2 DATE 10 MAR 1988
+1 NUMB 191
+1 AUTH @R183@
+1 CALN 921 On5821
+1 PUBL (NY, NY: Grs't/Dunlap, 1978)
+1 ABBR Birmingham, ONASSIS
+1 REPO @R185@
+0 @R183@ INDI
+1 NAME Stephen /Birmingham/
+1 SEX M
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:13:09
+0 @R184@ INDI
+1 NAME R. Jackson A. Polson S._Jackson
+2 GIVN R. Jackson, A. Polson, S._Jackson
+1 SEX M
+1 SOUR @S62@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:13:04
+0 @R185@ INDI
+1 NAME Santa_Clara Public_Library Santa_Clara _CA
+2 GIVN Santa_Clara Public_Library, Santa_Clara, _CA
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:58
+0 @R186@ INDI
+1 NAME Michael /Canfield/
+1 SEX M
+1 SOUR @S4@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:47
+1 REFN CANFMI
+1 FAMS @F63@
+0 @R187@ INDI
+1 NAME Prince Stanislaus /Radziwill/
+1 SEX M
+1 SOUR @S4@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:35
+1 REFN RADZPS
+1 FAMS @F64@
+0 @R188@ INDI
+1 NAME Anna Christina /Radziwill/
+1 SEX F
+1 SOUR @S4@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:12:24
+1 BIRT
+2 DATE MAR 1959
+1 REFN RADZAC59
+1 FAMC @F64@
+0 @R189@ INDI
+1 NAME Hugh D. /Auchincloss/
+1 SEX M
+1 SOUR @S4@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:23:28
+1 REFN AUCHHD--
+1 FAMS @F65@
+0 @R190@ INDI
+1 NAME Janet Jennings /Auchincloss/
+1 SEX F
+1 SOUR @S4@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:22:27
+1 BIRT
+2 DATE 1945
+1 REFN AUCHJJ45
+1 FAMC @F65@
+0 @R191@ INDI
+1 NAME James Lee /Auchincloss/
+1 SEX M
+1 SOUR @S4@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:22:20
+1 BIRT
+2 DATE 1947
+1 REFN AUCHJL47
+1 FAMC @F65@
+0 @R192@ INDI
+1 NAME Lester /David/
+1 SEX M
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:21:52
+0 @R193@ TITL Ethel
+1 CHAN
+2 DATE 10 MAR 1988
+1 NUMB 202
+1 AUTH @R192@
+1 CALN 921 K363
+1 PUBL (NY, Cleveland, World Publishing, 1971)
+1 ABBR David, ETHEL
+1 REPO @R185@
+0 @R194@ INDI
+1 NAME George /Skakel/
+1 SEX M
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:22:13
+1 BIRT
+2 DATE 1892
+2 PLAC , Chicago, , , Cook Co, IL, USA
+1 DEAT
+2 DATE 1955
+2 PLAC , , , , , OK, USA
+1 OCCU manufacturing
+1 REFN SKAKGE92
+1 FAMS @F66@
+0 @R195@ INDI
+1 NAME Ann /Brannack/
+1 SEX F
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:22:04
+1 BIRT
+2 DATE ABT 1892
+1 DEAT
+2 DATE 1955
+2 PLAC , , , , , OK, USA
+1 REFN BRANAN92
+1 FAMS @F66@
+0 @R196@ INDI
+1 NAME Georgeanne /Skakel/
+1 SEX F
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:17:34
+1 BIRT
+2 DATE BEF 1928
+1 REFN SKAKGE28
+1 FAMC @F66@
+0 @R197@ INDI
+1 NAME James /Skakel/
+1 SEX M
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:16:58
+1 BIRT
+2 DATE BEF 1928
+1 REFN SKAKJA28
+1 FAMC @F66@
+0 @R198@ INDI
+1 NAME George /Skakel/ Jr.
+1 SEX M
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:21:47
+1 BIRT
+2 DATE BEF 1928
+1 REFN SKAKGE28
+1 FAMC @F66@
+0 @R199@ INDI
+1 NAME Rushton /Skakel/
+1 SEX M
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:17:41
+1 BIRT
+2 DATE BEF 1928
+1 REFN SKAKRU28
+1 FAMC @F66@
+0 @R200@ INDI
+1 NAME Patricia /Skakel/
+1 SEX F
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:12
+1 BIRT
+2 DATE BEF 1928
+1 REFN SKAKPA28
+1 FAMC @F66@
+0 @R201@ INDI
+1 NAME Ann /Skakel/
+1 SEX F
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:19
+1 BIRT
+2 DATE AFT 1928
+1 REFN SKAKAN28
+1 FAMC @F66@
+0 @R202@ INDI
+1 NAME Marcia /Chellis/
+1 SEX M
+1 SOUR @S5@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:05
+0 @R203@ TITL Living with the Kennedys
+1 CHAN
+2 DATE 10 MAR 1988
+1 NUMB 212
+1 AUTH @R202@
+1 CALN 921 K352
+1 PUBL (NY, NY, Simon & Shuster, 1987)
+1 ABBR Chellis, KENNEDYS
+1 REPO @R185@
+0 @R204@ INDI
+1 NAME Harry Wiggin /Bennett/
+1 SEX M
+1 SOUR @S6@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:37
+1 OCCU advertising
+1 REFN BENNHW
+1 FAMS @F67@
+0 @R205@ INDI
+1 NAME Virginia Joan /Stead/
+1 SEX F
+1 SOUR @S6@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:42
+1 REFN STEAVJ
+1 FAMS @F67@
+0 @R206@ INDI
+1 NAME Candace /Bennett/
+1 SEX F
+1 SOUR @S6@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:26
+1 BIRT
+2 DATE 1939
+2 PLAC , Riverdale, , , Unk Co, NY, USA
+1 REFN BENNCA39
+1 FAMC @F67@
+0 @R207@ INDI
+1 NAME Edwin /Schlossberg/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:33
+1 BIRT
+2 DATE ABT 1945
+1 REFN SCHLED45
+1 FAMS @F68@
+0 @R208@ INDI
+1 NAME William John Robert /Cavendish/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:02:03
+1 BIRT
+2 DATE 10 DEC 1917
+1 DEAT
+2 DATE 10 SEP 1944
+2 PLAC , Heppen, , , , , Belgium
+1 OCCU Marquess
+1 REFN CAVEWJ17
+1 FAMS @F69@
+0 @R209@ INDI
+1 NAME Aristotle Socrates /Onassis/
+1 SEX M
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:02:14
+1 DEAT
+2 DATE 15 MAR 1975
+1 OCCU tycoon
+1 REFN ONASAS75
+1 FAMS @F70@
+0 @R210@ INDI
+1 NAME Edward L. /Galvin/
+1 SEX M
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:01:00
+0 @R211@ INDI
+1 NAME /Linda_A._Holmes/ 2257_Old Middlefield_Way, Mt._View,_CA 94043
+1 SEX F
+1 SOUR @S63@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:48:22
+0 @R212@ INDI
+1 NAME COMMSOFT Library Mountain View CA
+2 GIVN COMMSOFT Library, Mountain View, CA
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:49:07
+0 @R213@ TITL The Fitzgeralds and the Kennedys
+1 CHAN
+2 DATE 10 MAR 1988
+1 NUMB 224
+1 AUTH @R214@
+1 PUBL (NY, NY, Simon & Schuster, 1987)
+1 ABBR Goodwin, KENNEDYS
+1 REPO @R185@
+0 @R214@ INDI
+1 NAME Doris Kearns /Goodwin/
+1 SEX F
+1 SOUR @S11@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:49:58
+1 RESI
+2 PLAC , Near Boston, , , Suffolk Co, MA, USA
+1 OCCU Writer
+0 @R215@ TITL "The_American Ancestry_of_John Fitzgerald Kennedy," TAG
+1 CHAN
+2 DATE 10 MAR 1988
+1 NUMB 226
+1 AUTH @R216@
+1 PUBL (Des Moines, IA: TAG)
+1 SERS Vol. 53, no. 3, July 1977, pp. 145-146
+1 ABBR "Ancestry," TAG
+1 REPO @R185@
+0 @R216@ INDI
+1 NAME Gary Boyd /Roberts/
+1 SEX M
+1 SOUR @S12@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:45:48
+1 OCCU Writer
+0 @R217@ TITL "American Presidential Ancestry:_A Bibliography," TAG
+1 CHAN
+2 DATE 10 MAR 1988
+1 NUMB 231
+1 AUTH @R216@
+1 PUBL (Des Moines, IA: TAG)
+1 SERS vol. 55, no. 1, January 1979, pp. 46-52
+1 ABBR "Bibliography," TAG
+1 REPO @R185@
+0 @R218@ INDI
+1 NAME James /Fitzgerald/
+1 _SOSAN 00092
+1 _SOSAN 00080
+1 SEX M
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:46:28
+1 DEAT
+1 ANCI HIGH
+1 FAMS @F72@
+0 @R219@ INDI
+1 NAME Edmond (Edward) /Fitzgerald/
+1 _SOSAN 00046
+1 _SOSAN 00040-
+1 SEX M
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:50:46
+1 BIRT
+2 DATE 1798
+2 PLAC , , , , , , Ireland
+2 SOUR @S69@
+3 QUAY 1
+1 DEAT
+2 DATE 1883
+2 SOUR @S69@
+3 QUAY 1
+1 FAMS @F71@
+1 FAMC @F72@
+0 @R220@ INDI
+1 NAME Mary /Linnehan/
+1 _SOSAN 00047
+1 SEX F
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:45:08
+1 DEAT
+1 ANCI HIGH
+1 FAMS @F71@
+0 @F0@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:32
+1 MARR
+2 DATE 7 OCT 1914
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 ENGA
+2 DATE 1914
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R1@
+1 WIFE @R2@
+1 CHIL @R3@
+1 CHIL @R4@
+1 CHIL @R6@
+1 CHIL @R7@
+1 CHIL @R8@
+1 CHIL @R10@
+1 CHIL @R12@
+1 CHIL @R13@
+1 CHIL @R14@
+0 @F1@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:24
+1 MARR
+2 DATE 23 MAY 1953
+2 PLAC , New York City, , , , NY, USA
+1 HUSB @R9@
+1 WIFE @R8@
+1 CHIL @R22@
+1 CHIL @R23@
+1 CHIL @R24@
+1 CHIL @R25@
+1 CHIL @R26@
+0 @F2@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:08
+1 MARR
+2 DATE 24 APR 1954
+2 PLAC , New York City, , , , NY, USA
+1 DIV
+2 DATE 1966
+1 HUSB @R11@
+1 WIFE @R10@
+1 CHIL @R16@
+1 CHIL @R17@
+1 CHIL @R18@
+1 CHIL @R19@
+0 @F3@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:56
+1 MARR
+2 DATE DEC 1984
+2 PLAC , Bequia, , , , , West Indies
+1 HUSB @R16@
+1 WIFE @R20@
+0 @F4@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:52
+1 MARR
+2 DATE 17 SEP 1983
+2 PLAC , Centerville, , , Barnstable Co, MA, USA
+1 HUSB @R21@
+1 WIFE @R17@
+0 @F5@ FAM
+1 SOUR @S24@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:43
+1 MARR
+2 DATE 25 APR 1986
+2 PLAC , Hyannis Port, , , Barnstable Co, MA, USA
+1 HUSB @R28@
+1 WIFE @R23@
+0 @F6@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:37:53
+1 MARR
+2 DATE 19 MAY 1956
+2 PLAC , New York City, , , , NY, USA
+1 HUSB @R29@
+1 WIFE @R13@
+1 CHIL @R30@
+1 CHIL @R31@
+1 CHIL @R32@
+1 CHIL @R33@
+0 @F7@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:38:58
+1 MARR
+2 DATE 30 NOV 1958
+2 PLAC , Bronxville, , , Westchester Co, NY, USA
+1 DIV
+2 DATE 1984
+1 HUSB @R14@
+1 WIFE @R15@
+1 CHIL @R34@
+1 CHIL @R35@
+1 CHIL @R36@
+0 @F8@ FAM
+1 OBJE
+2 TITL John and Jacqueline KENNEDY
+2 FILE photos/JFK_Jacqueline-BOUVIER.jpg
+3 FORM jpg
+2 NOTE
+1 SOUR @S2@
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 13:48:04
+1 MARR
+2 DATE 12 SEP 1953
+2 PLAC , Newport, , , Newport Co, RI, USA
+2 SOUR @S64@
+3 QUAY 2
+1 HUSB @R4@
+1 WIFE @R37@
+1 CHIL @R38@
+1 CHIL @R39@
+1 CHIL @R40@
+1 CHIL @R41@
+0 @F9@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:37:09
+1 MARR
+2 DATE 17 JUN 1950
+2 PLAC , Greenwich, , , Fairfield Co, CT, USA
+1 HUSB @R12@
+1 WIFE @R42@
+1 CHIL @R43@
+1 CHIL @R44@
+1 CHIL @R45@
+1 CHIL @R46@
+1 CHIL @R47@
+1 CHIL @R48@
+1 CHIL @R49@
+1 CHIL @R50@
+1 CHIL @R51@
+1 CHIL @R52@
+1 CHIL @R53@
+0 @F10@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:50
+1 MARR
+2 DATE 17 NOV 1973
+2 PLAC , Washington, , , , DC, USA
+1 HUSB @R54@
+1 WIFE @R43@
+1 CHIL @R55@
+1 CHIL @R56@
+1 CHIL @R57@
+0 @F11@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:43
+1 MARR
+2 DATE 3 FEB 1979
+2 PLAC , Gladwyne, , , Unk Co, PA, USA
+1 HUSB @R44@
+1 WIFE @R58@
+1 CHIL @R60@
+1 CHIL @R59@
+0 @F12@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:47
+1 MARR
+2 DATE 3 APR 1982
+2 PLAC , Bloomington, , , Monroe Co, IN, USA
+1 HUSB @R45@
+1 WIFE @R61@
+1 CHIL @R62@
+0 @F13@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:15
+1 MARR
+2 DATE 14 JUN 1980
+2 PLAC , Washington, , , , DC, USA
+1 HUSB @R63@
+1 WIFE @R47@
+0 @F14@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:20
+1 MARR
+2 DATE 14 MAR 1981
+2 PLAC , New York City, , , , NY, USA
+1 HUSB @R48@
+1 WIFE @R64@
+1 CHIL @R65@
+1 CHIL @R66@
+0 @F15@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:04
+1 MARR
+2 PLAC , , , , , , Ireland
+1 HUSB @R67@
+1 WIFE @R68@
+1 CHIL @R69@
+0 @F16@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:08
+1 MARR
+1 HUSB @R70@
+1 WIFE @R71@
+1 CHIL @R72@
+0 @F17@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:37:43
+1 MARR
+2 DATE 26 SEP 1849
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R69@
+1 WIFE @R72@
+1 CHIL @R73@
+1 CHIL @R74@
+1 CHIL @R75@
+1 CHIL @R76@
+1 CHIL @R77@
+0 @F18@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:38:02
+1 MARR
+2 PLAC , , , , , , Ireland
+1 HUSB @R78@
+1 WIFE @R79@
+1 CHIL @R80@
+0 @F19@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:54
+1 MARR
+2 DATE 1 JAN 1883
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R80@
+1 WIFE @R73@
+1 CHIL @R81@
+1 CHIL @R82@
+1 CHIL @R83@
+1 CHIL @R84@
+1 CHIL @R86@
+0 @F20@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:03
+1 MARR
+2 DATE 29 DEC 1918
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R85@
+1 WIFE @R84@
+0 @F21@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:45:59
+1 MARR
+2 DATE 22 SEP 1872
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R87@
+1 WIFE @R74@
+1 CHIL @R88@
+1 CHIL @R89@
+1 CHIL @R90@
+1 CHIL @R91@
+1 CHIL @R93@
+1 CHIL @R94@
+1 CHIL @R95@
+1 CHIL @R96@
+0 @F22@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:45:55
+1 MARR
+2 DATE 20 JUN 1916
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R92@
+1 WIFE @R91@
+0 @F23@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:45:51
+1 MARR
+2 DATE 30 JUN 1912
+2 PLAC , Chelsea, , , Suffolk Co, MA, USA
+1 HUSB @R94@
+1 WIFE @R97@
+0 @F24@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:42:16
+1 MARR
+1 HUSB @R98@
+0 @F25@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:41:57
+1 MARR
+2 DATE 21 FEB 1882
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R98@
+1 WIFE @R76@
+1 CHIL @R99@
+1 CHIL @R100@
+1 CHIL @R101@
+1 CHIL @R102@
+1 CHIL @R103@
+1 CHIL @R104@
+1 CHIL @R105@
+1 CHIL @R106@
+0 @F26@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:41:50
+1 MARR
+2 DATE 16 APR 1906
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R107@
+1 WIFE @R99@
+0 @F27@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:47
+1 MARR
+2 DATE 17 FEB 1920
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R108@
+1 WIFE @R101@
+0 @F28@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:45:12
+1 MARR
+2 DATE 4 JAN 1928
+2 PLAC , Revere, , , Suffolk Co, MA, USA
+1 HUSB @R109@
+1 WIFE @R105@
+0 @F29@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:42:37
+1 MARR
+2 DATE 29 AUG 1931
+2 PLAC , Revere, , , Suffolk Co, MA, USA
+1 HUSB @R106@
+1 WIFE @R110@
+0 @F30@ FAM
+1 SOUR @S53@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:30
+1 MARR
+1 HUSB @R111@
+1 WIFE @R112@
+1 CHIL @R113@
+0 @F31@ FAM
+1 SOUR @S53@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:37
+1 MARR
+1 HUSB @R114@
+1 WIFE @R115@
+1 CHIL @R116@
+0 @F32@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:33
+1 MARR
+1 HUSB @R116@
+1 WIFE @R113@
+1 CHIL @R117@
+0 @F33@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:43
+1 MARR
+2 DATE 23 NOV 1887
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R77@
+1 WIFE @R117@
+1 CHIL @R1@
+1 CHIL @R118@
+1 CHIL @R119@
+1 CHIL @R120@
+0 @F34@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:40
+1 MARR
+1 HUSB @R121@
+1 WIFE @R122@
+1 CHIL @R123@
+0 @F35@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:14
+1 MARR
+2 DATE 12 OCT 1927
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 HUSB @R123@
+1 WIFE @R119@
+1 CHIL @R124@
+0 @F36@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:10
+1 MARR
+2 DATE 29 DEC 1951
+2 PLAC , St. Augustine, , , St. Johns Co, FL, USA
+1 HUSB @R125@
+1 WIFE @R124@
+0 @F37@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:23
+1 MARR
+1 HUSB @R126@
+1 WIFE @R127@
+1 CHIL @R128@
+0 @F38@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:19
+1 MARR
+2 DATE 14 JUN 1924
+2 PLAC , Winthrop, , , Suffolk Co, MA, USA
+1 DIV
+1 HUSB @R128@
+1 WIFE @R120@
+1 CHIL @R129@
+1 CHIL @R130@
+1 CHIL @R131@
+0 @F39@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:27
+1 MARR
+1 HUSB @R132@
+1 WIFE @R129@
+0 @F40@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:39
+1 MARR
+2 DATE 4 FEB 1976
+2 PLAC , Newton, , , Middlesex Co, MA, USA
+1 HUSB @R130@
+1 WIFE @R133@
+0 @F41@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:35
+1 MARR
+2 DATE 18 JUN 1960
+2 PLAC , Watertown, , , Middlesex Co, MA, USA
+1 HUSB @R131@
+1 WIFE @R134@
+0 @F42@ FAM
+1 SOUR @S53@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:30
+1 MARR
+1 HUSB @R136@
+1 WIFE @R137@
+1 CHIL @R138@
+0 @F43@ FAM
+1 SOUR @S53@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:27
+1 MARR
+1 HUSB @R135@
+1 WIFE @R138@
+1 CHIL @R139@
+0 @F44@ FAM
+1 SOUR @S53@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:23
+1 MARR
+1 HUSB @R140@
+1 WIFE @R141@
+1 CHIL @R142@
+0 @F45@ FAM
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:19
+1 MARR
+2 DATE 15 NOV 1857
+1 HUSB @R139@
+1 WIFE @R142@
+1 CHIL @R143@
+0 @F46@ FAM
+1 SOUR @S53@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:14
+1 MARR
+1 HUSB @R144@
+1 WIFE @R145@
+1 CHIL @R146@
+0 @F47@ FAM
+1 SOUR @S13@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:08
+1 MARR
+2 DATE 12 FEB 1854
+1 HUSB @R146@
+1 WIFE @R147@
+1 CHIL @R148@
+0 @F48@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:36:04
+1 MARR
+2 DATE 18 SEP 1889
+2 PLAC , Concord, , , Middlesex Co, MA, USA
+2 SOUR @S65@
+3 QUAY 2
+1 HUSB @R143@
+1 WIFE @R148@
+1 CHIL @R2@
+0 @F49@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:35:53
+1 MARR
+2 DATE 26 APR 1753
+2 PLAC , , , , , , France
+1 HUSB @R150@
+1 WIFE @R151@
+1 CHIL @R152@
+0 @F50@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:26
+1 MARR
+1 HUSB @R155@
+1 WIFE @R156@
+1 CHIL @R157@
+0 @F51@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:33
+1 MARR
+2 DATE JUL 1765
+1 HUSB @R154@
+1 WIFE @R157@
+1 CHIL @R158@
+0 @F52@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:30
+1 MARR
+2 DATE 3 FEB 1789
+1 HUSB @R152@
+1 WIFE @R158@
+1 CHIL @R159@
+0 @F53@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:15
+1 MARR
+1 HUSB @R160@
+1 WIFE @R161@
+1 CHIL @R162@
+0 @F54@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:12
+1 MARR
+1 HUSB @R163@
+1 WIFE @R162@
+1 CHIL @R164@
+0 @F55@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:23
+1 MARR
+1 HUSB @R159@
+1 WIFE @R164@
+1 CHIL @R165@
+0 @F56@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:19
+1 MARR
+1 HUSB @R165@
+1 WIFE @R166@
+1 CHIL @R167@
+0 @F57@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:48
+1 MARR
+1 HUSB @R168@
+1 WIFE @R169@
+1 CHIL @R170@
+0 @F58@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:38
+1 MARR
+1 HUSB @R167@
+1 WIFE @R170@
+1 CHIL @R171@
+1 CHIL @R172@
+0 @F59@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:03
+1 MARR
+2 DATE 1917
+1 DIV
+2 DATE 1925
+1 HUSB @R172@
+1 WIFE @R173@
+1 CHIL @R174@
+0 @F60@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:41:54
+1 MARR
+1 HUSB @R175@
+1 WIFE @R176@
+1 CHIL @R177@
+0 @F61@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:42:01
+1 MARR
+1 HUSB @R177@
+1 WIFE @R178@
+1 CHIL @R179@
+0 @F62@ FAM
+1 SOUR @S59@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:43
+1 MARR
+2 DATE 7 JUL 1928
+2 PLAC , Easthampton, , , Long Island, NY, USA
+1 DIV
+2 DATE 1938
+1 HUSB @R171@
+1 WIFE @R179@
+1 CHIL @R37@
+1 CHIL @R180@
+0 @F63@ FAM
+1 SOUR @S60@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:54
+1 MARR
+2 DATE APR 1953
+2 PLAC , Washington, , , , DC, USA
+1 ANUL
+1 HUSB @R186@
+1 WIFE @R180@
+0 @F64@ FAM
+1 SOUR @S60@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:42:32
+1 MARR
+2 DATE MAR 1959
+1 HUSB @R187@
+1 WIFE @R180@
+1 CHIL @R188@
+0 @F65@ FAM
+1 SOUR @S60@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:45:08
+1 MARR
+2 DATE JUN 1942
+1 ENGA
+2 DATE 1942
+1 HUSB @R189@
+1 WIFE @R179@
+1 CHIL @R190@
+1 CHIL @R191@
+0 @F66@ FAM
+1 SOUR @S61@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:42:20
+1 MARR
+2 DATE 1918
+1 HUSB @R194@
+1 WIFE @R195@
+1 CHIL @R42@
+1 CHIL @R196@
+1 CHIL @R197@
+1 CHIL @R198@
+1 CHIL @R199@
+1 CHIL @R200@
+1 CHIL @R201@
+0 @F67@ FAM
+1 SOUR @S3@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:42:29
+1 MARR
+1 HUSB @R204@
+1 WIFE @R205@
+1 CHIL @R15@
+1 CHIL @R206@
+0 @F68@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:45:16
+1 MARR
+2 DATE 19 JUL 1986
+2 PLAC , Centerville, , , Barnstable Co, MA, USA
+1 HUSB @R207@
+1 WIFE @R39@
+0 @F69@ FAM
+1 SOUR @S2@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:45:21
+1 MARR
+2 DATE 6 MAY 1944
+2 PLAC , London, , , , , England
+1 HUSB @R208@
+1 WIFE @R7@
+0 @F70@ FAM
+1 SOUR @S60@
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:37
+1 MARR
+2 DATE 22 OCT 1968
+2 PLAC , Skorpios, , , , , Greece
+1 HUSB @R209@
+1 WIFE @R37@
+0 @F71@ FAM
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:46:07
+1 MARR
+2 SOUR @S70@
+1 HUSB @R219@
+1 WIFE @R220@
+1 CHIL @R147@
+0 @F72@ FAM
+1 HUSB @R218@
+1 CHIL @R135@
+1 CHIL @R219@
+0 @F73@ FAM
+1 HUSB @R149@
+1 CHIL @R150@
+0 @F74@ FAM
+1 HUSB @R153@
+1 CHIL @R154@
+0 @B1@ SUBM
+1 NAME Ancestris
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:32:30
+0 TRLR

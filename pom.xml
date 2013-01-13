@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>gedcom2sem</groupId>
+  <artifactId>gedcom2sem</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+	<dependency>
+		<groupId>org.apache.jena</groupId>
+		<artifactId>jena-arq</artifactId>
+		<version>2.9.3</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codeartisans.thirdparties.swing</groupId>
+		<artifactId>org-openide-util</artifactId>
+		<version>8.6.2</version>
+	</dependency>
+	<dependency>
+		<groupId>de.micromata.jak</groupId>
+		<artifactId>JavaAPIforKml</artifactId>
+		<version>2.2.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.gedcom4j</groupId>
+		<artifactId>gedcom4j</artifactId>
+		<version>2.1.1</version>
+	</dependency>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.11</version>
+	</dependency>
+  </dependencies>
+</project>
