@@ -24,11 +24,11 @@ public class BatchExamples
     private static final String MASHUP_TTL = new File("target/mashup.ttl").getAbsolutePath();
     private static final String REPORT_TXT = new File("target/report.txt").getAbsolutePath();
 
-    @Ignore // takes too long
+    @Ignore // Mashup takes too long to run on a regular basis
     @Test
     public void kennedy() throws Exception
     {
-        //TODO create MASHUP_TTL/TSV ???
+        //TODO create MASHUP_TTL???
         final PrintStream saved = redirectOutput(GEDCOM_TTL);
         Convert.main("-rules", QUICK_RULES, "-uri", UriFormats.DEFAULT_URI, "-gedcom", GEDCOM);
         restoreOutput(saved);
