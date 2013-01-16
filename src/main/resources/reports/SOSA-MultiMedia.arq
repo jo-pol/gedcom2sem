@@ -54,8 +54,8 @@ SELECT DISTINCT
   ### shared by all the union parts
 
   ?indi p:id    ?id; 
-     p:NAME  [rdfs:label ?name];
-     p:_SOSA [rdfs:label ?sosa].   
+     p:NAME   [rdfs:label ?name];
+     p:_SOSAN [rdfs:label ?sosa].   
 
   ### just ancestors, not their decendants
   
