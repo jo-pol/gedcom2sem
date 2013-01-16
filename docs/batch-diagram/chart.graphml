@@ -20,7 +20,7 @@
           <y:Geometry height="56.0" width="125.0" x="445.0" y="567.0435791015625"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="internal" modelPosition="b" textColor="#000000" visible="true" width="65.494140625" x="29.7529296875" y="36.22265625">semweb.Kml</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="internal" modelPosition="b" textColor="#000000" visible="true" width="84.5859375" x="20.20703125" y="36.22265625">semweb.GedKml</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
