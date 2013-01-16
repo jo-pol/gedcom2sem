@@ -1,0 +1,93 @@
+###############################################
+#
+# Migration lines.
+#
+# Prerequisites:
+#   Create (almost empty) records for unknown dads.
+#   Generate _TREETOP and _SOSAN (e.g. with the report "tool box" of ancestris).
+#   _SOSAN needs to be prefixed with zero'r up to 5 digits in total.
+#   Apply the slow rules.
+#
+# Customisation for KML processing:
+#   The columns sosa, isAtop, lat, long  are used
+#   to constructthe KML layout: be carefull with them.
+#   The other columns should match the templates
+#   in the kml.properties file.
+#
+# Note:
+#   A person appears two times with the same sosa-nr 
+#   if grandchildren by different spouses marry.
+#   Other cousin mariages cause the grandparents 
+#   appear with different sosa numbers.
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT DISTINCT
+  ?sosa                    # {0} A
+  (fn:substring(str(?top),1,1) as ?isATop)
+  ?lat                     # {2} C
+  ?long                    # {3} D
+  ?place                   # {4} E
+  (?nameIndi  as ?name)    # {5} F
+  (fn:substring(str(?dateMarried),1,4) as ?year_married)
+  ?placeMarried            # {7} H
+  ?placeBirth              # {8} I
+  ?placeDeath              #{ 9} J
+  (str(?indi) as ?url)     #{10} K
+{
+   ?indi p:_SOSAN   [rdfs:label ?sosa].
+
+   #### rather don't generate sosa numbers for siblings
+   FILTER( ! fn:contains(?sosa,'+') )
+   FILTER( ! fn:contains(?sosa,'-') )
+
+   #### whatever you want to show about the INDI
+   OPTIONAL { ?indi p:_TREETOP [a ?top]}
+   OPTIONAL { ?indi          p:NAME [rdfs:label ?nameIndi  ] }
+   OPTIONAL { ?indi p:DEAT [ p:DATE [rdfs:label ?dateDeath ]]}
+   OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
+   OPTIONAL { ?indi p:DEAT [ p:PLAC [rdfs:label ?placeDeath]]}
+   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]}
+   OPTIONAL {
+       ?indi  p:FAMS ?fam.
+
+       #### avoid remarriages: both parents must be in the pedigree
+       ?fam  p:HUSB [p:_SOSAN [rdfs:label ?sosaHusb]];
+             p:WIFE [p:_SOSAN [rdfs:label ?sosaWife]].
+
+       #### whatever you want to show about the FAM
+       OPTIONAL { ?fam p:MARR [p:DATE [rdfs:label ?dateMarried ]]}
+
+       OPTIONAL { ?fam p:MARR [p:PLAC [rdfs:label ?placeMarried]]
+                  ### match with downloaded data
+                  OPTIONAL { ?link     rdfs:label ?placeMarried;
+                                       rdfs:isDefinedBy ?gn. 
+                             OPTIONAL {?gn wgs84_pos:lat  ?lat;
+                                           wgs84_pos:long ?long}.
+                             OPTIONAL {?gn gn:name ?place.}
+                           }
+                }
+   }
+} order by ?sosa
