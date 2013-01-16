@@ -35,20 +35,19 @@ public abstract class QueryTest
     public static Collection<Object[]> getContructorParameters()
     {
         return Arrays.asList(new Object[][] {//
-                {false, 1, "AgeDiffBetweenSpouses.arq"},//
+               // {false, 1, "AgeDiffBetweenSpouses.arq"},//
                 {false, 89, "CountEventsPerPlace.arq"},//
-                {false, 1, "CountFirstNames.arq"},//
                 {false, 7, "CountGivnNames.arq"},//
-                {false, 1, "SOSA-InbredStatistics.arq"},//
-                {false, 1, "SOSA-MultiMedia.arq"},//
-                {true, 1, "mashup/classmates.arq"},//
-                {true, 1, "mashup/dbpediaLanguages.arq"},//
-                {true, 1, "mashup/dbpediaProperties.arq"},//
-                {true, 1, "mashup/dbpediaRelatedEntities.arq"},//
-                {true, 1, "mashup/geonamesProperties.arq"},//
-                {true, 1, "mashup/geonamesRelatedEntities.arq"},//
-                {true, 1, "mashup/mashup.arq"},//
-                {true, 1, "mashup/MigrationLines.arq"},//
+                {false, 34, "SOSA-InbredStatistics.arq"},//
+                {false, 158, "SOSA-MultiMedia.arq"},//
+                {true, 12, "mashup/classmates.arq"},//
+                {true, 15, "mashup/dbpediaLanguages.arq"},//
+                {true, 117, "mashup/dbpediaProperties.arq"},//
+                {true, 225, "mashup/dbpediaRelatedEntities.arq"},//
+                {true, 31, "mashup/geonamesProperties.arq"},//
+                {true, 9, "mashup/geonamesRelatedEntities.arq"},//
+                {true, 93, "mashup/mashup.arq"},//
+               // {true, 1, "mashup/MigrationLines.arq"},//
                 });
     }
 
