@@ -1,7 +1,5 @@
 package gedcom2sem.semweb;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 import gedcom2sem.gedsem.Parser;
 import gedcom2sem.gedsem.UriFormats;
 
@@ -23,7 +21,7 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 
-public class QueryWithPluginInterface extends QueryTest
+public class QueryWithPluginInterface extends AstractQueryTest
 {
 
     public QueryWithPluginInterface(final Boolean mashup, final Integer expectedNrOfLines, final String queryFileName)
@@ -38,8 +36,6 @@ public class QueryWithPluginInterface extends QueryTest
         final String queryStr = readFile(queryFileName);
         final QueryExecution queryExecution = executeQuery(model, queryStr);
         formatQueryOutput(queryExecution);
-        
-        assertThat(queryFileName, countLines(REPORT_TXT), is(expectedNrOfLines));
     }
 
     private QueryExecution executeQuery(final Model model, final String queryStr)
