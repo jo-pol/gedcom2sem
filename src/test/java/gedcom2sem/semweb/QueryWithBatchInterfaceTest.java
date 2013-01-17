@@ -1,11 +1,8 @@
 package gedcom2sem.semweb;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 import org.junit.Test;
 
-public class QueryWithBatchInterfaceTest extends QueryTest
+public class QueryWithBatchInterfaceTest extends AstractQueryTest
 {
 
     public QueryWithBatchInterfaceTest(final Boolean mashup, final Integer expectedNrOfLines, final String queryFileName)
@@ -21,7 +18,5 @@ public class QueryWithBatchInterfaceTest extends QueryTest
             Select.main(GEDCOM_TTL, MASHUP_TTL, REPORT_TXT, qualifiedQueryFileName);
         else
             Select.main(GEDCOM_TTL, REPORT_TXT, qualifiedQueryFileName);
-
-        assertThat(qualifiedQueryFileName, countLines(REPORT_TXT), is(expectedNrOfLines));
     }
 }
