@@ -1,15 +1,11 @@
 // @formatter:off
 /*
- * Copyright 2012, J. Pol
- *
- * This file is part of free software: you can redistribute it and/or modify it under the terms of the
- * GNU General Public License as published by the Free Software Foundation.
- *
- * This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
- * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * See the GNU General Public License for more details. A copy of the GNU General Public License is
- * available at <http://www.gnu.org/licenses/>.
+ * Copyright 2012, J. Pol This file is part of free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the Free Software Foundation. This
+ * package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
+ * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
+ * License for more details. A copy of the GNU General Public License is available at
+ * <http://www.gnu.org/licenses/>.
  */
 // @formatter:on
 package gedcom2sem.gedsem;
@@ -35,7 +31,9 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 public class Parser
 {
-    private static final List<String> datePrefixes = new ArrayList<String>(Arrays.asList(new String[] {"FROM", "TO", "BET", "BEF", "AFT", "ABT", "CAL", "EST"}));
+    private static final List<String> datePrefixes = new ArrayList<String>(Arrays.asList(new String[] {//
+            "FROM", "TO", "BET", "BEF", "AFT", "ABT", "CAL", "EST"}));
+
     private final Map<String, String> tagsOfIds = new HashMap<String, String>();
 
     private SemanticGedcomModel gedcomModel;
@@ -70,12 +68,23 @@ public class Parser
             }
             else
             {
-                final Resource propertyResource = gedcomModel.addProperty(resource, property.tag, property.value);
-                loadProperties(propertyResource, property.children);
+                final Resource propertyResource;
                 if ("NAME".equals(property.tag))
+                {
+                    propertyResource = gedcomModel.addProperty(resource, property.tag, property.value);
                     loadNameComponents(propertyResource, property.value);
+                }
                 else if ("DATE".equals(property.tag))
-                    loadDateComponents(propertyResource, property);
+                {
+                    Resource simpleFullDate = trySimpleFullDate(resource, property);
+                    if (simpleFullDate == null)
+                        propertyResource = gedcomModel.addProperty(resource, property.tag, property.value);
+                    else
+                        propertyResource = simpleFullDate;
+                }
+                else
+                    propertyResource = gedcomModel.addProperty(resource, property.tag, property.value);
+                loadProperties(propertyResource, property.children);
             }
         }
     }
@@ -93,7 +102,7 @@ public class Parser
             }
             else if (last != null)
             {
-                //FIXME never reached, why not?
+                // FIXME never reached, why not?
                 last.value = last.value + "\n" + property.value;
             }
         }
@@ -102,6 +111,8 @@ public class Parser
 
     private void loadNameComponents(final Resource resource, final String property)
     {
+        if (property == null)
+            return;
         final String[] name = property.split("/");
         if (name.length > 0)
             gedcomModel.addProperty(resource, "givn", name[0]);
@@ -109,18 +120,21 @@ public class Parser
             gedcomModel.addProperty(resource, "last", name[1]);
     }
 
-    private void loadDateComponents(final Resource resource, final StringTree property)
+    private Resource trySimpleFullDate(final Resource resource, final StringTree property)
     {
-        if (datePrefixes.contains(property.value.split(" ")))
-            return;
+        if (property.value == null //
+                || property.value.trim().length() == 0 //
+                || datePrefixes.contains(property.value.split(" ")))
+            return null;
         final PointInTime pointInTime = new PointInTime();
         pointInTime.set(property.value);
         if (pointInTime.isComplete() && pointInTime.isGregorian())
         {
             final Resource propertyResource = gedcomModel.addProperty(resource, property.tag, null);
             gedcomModel.addLiteral(propertyResource, gregorianToXsd(pointInTime));
-        }// TODO other types of dates
-
+            return propertyResource;
+        }
+        return null;
         // see e.g. http://tech.groups.yahoo.com/group/jena-dev/message/33075
         // String lex=null;
         // RDFDatatype dtype=new XSDYearMonthType(typename);
