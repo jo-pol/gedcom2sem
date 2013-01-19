@@ -1,0 +1,22 @@
+#labels Featured
+#structure of the library and cmmands
+
+The following diragram illustrates the main classes of the library that can be execute from the command line. A few stept allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps.
+
+*legend of the diagram*
+<dl>
+<dt>ovals</dt>
+<dd>
+commands<br/>
+The two at the bottom are drawn on top of one another to prevent crossing lines, they need (almost) the same files as arguments.
+</dd>
+<dt>clouds</dt><dd>manual actions</dd>
+<dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg</dt>
+<dd>
+see self documenting [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ examples] of  rules .arq, and .properties files.
+</dd>
+<dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg</dt>
+<dd>your data</dd>
+</dl>
+https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/chart.jpg
+
