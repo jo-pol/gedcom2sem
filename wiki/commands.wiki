@@ -1,0 +1,7 @@
+Below a partial command line example. Ovals in the diagram on the [structure] page represent such commands. 
+See [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples] for the arguments (...) of these commands . 
+{{{
+java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
+}}}
+The example expects some .jar files in the current directory (actualy on the `CLASSPATH`  or -cp directories): to start with the one in the download area of this project, the screenshot below shows the other ones, you might not need all of them.
+https://gedcom2sem.googlecode.com/svn/trunk/docs/images/dependencies.jpg
