@@ -1,6 +1,4 @@
 #labels Featured
-#structure of the library and cmmands
-
 The following diragram illustrates the main classes of the library that can be execute from the command line. A few stept allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps.
 
 *legend of the diagram*
@@ -19,4 +17,3 @@ see self documenting [https://code.google.com/p/gedcom2sem/source/browse/trunk/s
 <dd>your data</dd>
 </dl>
 https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/chart.jpg
-
