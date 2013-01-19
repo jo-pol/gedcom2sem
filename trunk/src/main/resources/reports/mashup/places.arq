@@ -1,4 +1,9 @@
-###############################################
+##################################################################################################
+# Copyright 2013, J. Pol 
+# This file is part of free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
+# This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
+##################################################################################################
 #
 # Migration lines.
 #
@@ -48,6 +53,8 @@ SELECT DISTINCT
   ?placeBirth              # {7} H
   ?placeDeath              #{ 8} I
   (str(?indi) as ?url)     #{ 9} J
+  (fn:substring(str(?dateBirth),1,4) as ?year_birth)
+  (fn:substring(str(?dateDeath),1,4) as ?year_death)
 {
    ?indi p:_SOSAN   [rdfs:label ?sosa].
 
@@ -56,8 +63,7 @@ SELECT DISTINCT
    FILTER( ! fn:contains(?sosa,'-') )
 
    #### whatever you want to show about the INDI
-   OPTIONAL { ?indi p:_TREETOP [a ?top]}
-   OPTIONAL { ?indi          p:NAME [rdfs:label ?nameIndi  ] }
+              ?indi p:NAME          [rdfs:label ?nameIndi  ].
    OPTIONAL { ?indi p:DEAT [ p:DATE [rdfs:label ?dateDeath ]]}
    OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
    OPTIONAL { ?indi p:DEAT [ p:PLAC [rdfs:label ?placeDeath]]}
