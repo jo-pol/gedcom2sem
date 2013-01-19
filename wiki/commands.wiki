@@ -1,3 +1,4 @@
+#labels Featured,Phase-Deploy
 Below a partial command line example. Ovals in the diagram on the [structure] page represent such commands. 
 See [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples] for the arguments (...) of these commands . 
 {{{
