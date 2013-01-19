@@ -160,7 +160,7 @@ public class Mashup
                 if (fields.length > 1)
                 {
                     final String geoNameId = fields[0].replaceAll("[^0-9]*", "");
-                    final String placeLiteral = fields[1].trim();
+                    final String placeLiteral = fields[1].replaceFirst("^\"", "").replaceAll("\"$", "").trim();
 
                     if (geoNameId.length() > 0 && placeLiteral.length() > 0)
                         mashup.addPlaceResources(placeLiteral, geoNameId);

@@ -1,13 +1,31 @@
+// @formatter:off
+/*
+ * Copyright 2012, J. Pol
+ *
+ * This file is part of free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation.
+ *
+ * This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+ * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * See the GNU General Public License for more details. A copy of the GNU General Public License is
+ * available at <http://www.gnu.org/licenses/>.
+ */
+// @formatter:on
 package gedcom2sem.semweb;
 
 import gedcom2sem.sem.Extension;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,14 +34,14 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 
+import org.apache.log4j.Logger;
+
 import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.RDFNode;
 
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
@@ -32,42 +50,15 @@ import de.micromata.opengis.kml.v_2_2_0.LineString;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Snippet;
 
+@SuppressWarnings("deprecation")
+// Snippet is deprecated, but how else can we set the required maxlines?
 public class KmlGenerator
 {
-    private class Row
-    {
-        String         sosa;
-        final Float    latitude;
-        final Float    longitude;
-        final String[] formatArgs;
+    private static final Logger logger = Logger.getLogger(KmlGenerator.class.getName());
 
-        Row(final List<String> resultVars, final QuerySolution solution)
-        {
-            sosa = toBinaryString(solution.get("sosa").toString().replaceAll("[^0-9].*$", ""));
-            latitude = getFloat(solution.get("lat"));
-            longitude = getFloat(solution.get("long"));
-            formatArgs = new String[resultVars.size()];
-            for (int i = 0; i < resultVars.size(); i++)
-            {
-                final String columnName = resultVars.get(i);
-                formatArgs[i] = getString(solution.get(columnName));
-            }
-        }
-
-        private String getString(final RDFNode node)
-        {
-            return node == null ? "" : node.toString();
-        }
-
-        private Float getFloat(final RDFNode rdfNode2)
-        {
-            return rdfNode2 == null ? null : rdfNode2.asLiteral().getFloat();
-        }
-    }
-
-    private final Map<String, Row> all    = new HashMap<String, Row>();
-    private final Map<String, Row> leaves = new TreeMap<String, Row>();
-    private final ResourceBundle   properties;
+    private final Map<String, KmlQueryRow> all = new HashMap<String, KmlQueryRow>();
+    private final Map<String, KmlQueryRow> leaves = new TreeMap<String, KmlQueryRow>();
+    private final ResourceBundle properties;
 
     /**
      * Creates an internal representation of the query results.
@@ -88,14 +79,54 @@ public class KmlGenerator
             throw new IllegalArgumentException("no null or empty arguments");
 
         final QuerySolutionMap qsm = new QuerySolutionMap();
+        logger.info("starting query");
         final ResultSet resultSet = QueryExecutionFactory.create(query, Syntax.syntaxARQ, model, qsm).execSelect();
+        logger.info("processing query results");
         final List<String> resultVars = resultSet.getResultVars();
         while (resultSet.hasNext())
         {
-            final Row row = new Row(resultVars, resultSet.next());
+            final KmlQueryRow row = new KmlQueryRow(resultVars, resultSet.next());
             all.put(row.sosa, row);
         }
-        for (final Row row : all.values())
+        findLeaves();
+        logger.info("constructor ready");
+    }
+
+    /**
+     * Creates an internal representation of the query results.
+     * 
+     * @param report
+     *        Tab separated lines. First column: mandatory content, starting with a sosa number. Second
+     *        an third column: latitude respective longitude (optional, float values).
+     * @param properties
+     *        templates for labels and descriptions in the KML file. The place holders in the templates
+     *        should match the columns of the query.
+     * @throws IOException
+     */
+    public KmlGenerator(final BufferedReader report, final ResourceBundle properties) throws IOException
+    {
+        this.properties = properties;
+        if (report == null || properties == null || properties.keySet().size() == 0)
+            throw new IllegalArgumentException("no null or empty arguments");
+
+        String line;
+        while (null != (line = report.readLine()))
+        {
+            if (!line.startsWith("?"))
+            {
+                final KmlQueryRow row = new KmlQueryRow(line.split("\t"));
+                all.put(row.sosa, row);
+            }
+        }
+        findLeaves();
+        logger.info("constructor ready");
+    }
+
+    private void findLeaves()
+    {
+        if (all.size() == 0)
+            throw new IllegalArgumentException("empty input");
+        for (final KmlQueryRow row : all.values())
         {
             if (!all.containsKey(row.sosa + "0") && !all.containsKey(row.sosa + "1"))
                 leaves.put(row.sosa, row);
@@ -115,26 +146,30 @@ public class KmlGenerator
         folder.withName(format("migration.folder.text", leaves.size() + ""));
         for (final String brancheId : leaves.keySet())
         {
+            final String name = createBrancheName(brancheId);
+            logger.info(name);
             final StringBuffer description = new StringBuffer();
-            final Placemark placeMark = folder.createAndAddPlacemark().//
-                    withName(createBrancheName(brancheId)).withOpen(false);
+            final Placemark placeMark = folder.createAndAddPlacemark().withName(name).withOpen(false);
             for (int l = brancheId.length(); l > 1; l--)
             {
                 final String sosa = brancheId.substring(0, l);
                 description.append(format("migration.ancestor.html", all.get(sosa).formatArgs));
+                logger.info("description " + Arrays.toString(all.get(sosa).formatArgs));
             }
             final String snippetValue = format("migration.folder.item.text", all.get(brancheId).formatArgs);
             placeMark.withDescription(format("migration.popup.html", description.toString()));
             placeMark.withSnippet(new Snippet().withValue(snippetValue));
-            // type snippet is deprecated, but how else can we set the required maxlines?
 
             final LineString lineString = placeMark.createAndSetLineString();
             for (int l = 2; l <= brancheId.length(); l++)
             {
                 final String sosa = brancheId.substring(0, l);
-                final Row row = all.get(sosa);
+                final KmlQueryRow row = all.get(sosa);
                 if (row != null && row.longitude != null && row.latitude != null)
+                {
                     lineString.addToCoordinates(row.longitude, row.latitude);
+                    logger.info("line " + Arrays.toString(all.get(sosa).formatArgs));
+                }
             }
         }
     }
@@ -156,10 +191,10 @@ public class KmlGenerator
         description.append(format("proband.father.html", all.get("10").formatArgs));
         description.append(format("proband.mother.html", all.get("11").formatArgs));
         placemark.createAndSetPoint().addToCoordinates(longitude, latitude);
-        placemark.withName(format("proband.marker.name", description.toString()));
+        placemark.withName(format("proband.marker.name", all.get("1").formatArgs));
         placemark.withDescription(format("proband.popup.html", description.toString()));
         placemark.withSnippet(new Snippet().withValue(format("proband.marker.text", all.get("1").formatArgs)));
-        // type snippet is deprecated, but how else can we set the required maxlines?
+        folder.withName(format("proband.folder.name", all.get("1").formatArgs));
     }
 
     private String createBrancheName(final String brancheId) throws MissingResourceException
@@ -169,45 +204,46 @@ public class KmlGenerator
         return brancheId.substring(1).replace("0", m).replace("1", f) + " " + Integer.parseInt(brancheId, 2);
     }
 
-    private String toBinaryString(final String brancheId)
-    {
-        return Integer.toBinaryString(Integer.valueOf(brancheId));
-    }
-
     private String format(final String templateKey, final String... args) throws MissingResourceException
     {
         final String template = properties.getString(templateKey);
         return MessageFormat.format(template, (Object[]) args);
     }
 
-    public static void main(final String... files)
+    public static void main(final String... files) throws UnsupportedEncodingException, IOException
     {
         final Model model = ModelFactory.createDefaultModel();
         ResourceBundle properties = null;
         String query = null;
+        File kmlFile = null;
+        BufferedReader report = null;
         for (final String file : files)
         {
             final String extension = file.replaceAll(".*[.]", "").toLowerCase();
-            try
-            {
-                if ("kml".equals(extension))
-                {
-                    createKml(model, properties, new File(file), query);
-                    return;
-                }
-                else if ("properties".equals(extension))
-                    properties = new PropertyResourceBundle(new FileInputStream(file));
-                else if (file.toLowerCase().endsWith(".arq"))
-                    query = readFile(new File(file));
-                else
-                    model.read(new FileInputStream(file), (String) null, Extension.valueOf(extension).language());
-            }
-            catch (final Exception e)
-            {
-                e.printStackTrace(System.err);
-            }
+            if ("kml".equals(extension))
+                kmlFile = new File(file);
+            else if ("tsv".equals(extension))
+                report = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
+            else if ("properties".equals(extension))
+                properties = new PropertyResourceBundle(new FileInputStream(file));
+            else if ("arq".equals(extension))
+                query = readFile(new File(file));
+            else
+                model.read(new FileInputStream(file), (String) null, Extension.valueOf(extension).language());
         }
-        showUsage();
+        if (kmlFile == null || properties == null)
+            showUsage();
+        else if (report == null && (model.size() == 0 || query == null))
+            showUsage();
+        else
+        {
+            final KmlGenerator kmlGenerator;
+            if (report == null)
+                kmlGenerator = new KmlGenerator(report, properties);
+            else
+                kmlGenerator = new KmlGenerator(report, properties);
+            createKml(kmlGenerator, properties, kmlFile);
+        }
     }
 
     private static String readFile(final File file) throws FileNotFoundException, IOException
@@ -225,22 +261,18 @@ public class KmlGenerator
         return new String(bytes, "UTF8");
     }
 
-    private static void createKml(final Model model, final ResourceBundle properties, final File kmlFile, final String file) throws IOException,
-            FileNotFoundException
+    private static void createKml(KmlGenerator kmlGenerator, final ResourceBundle properties, final File kmlFile) throws IOException, FileNotFoundException
     {
         final Kml kml = KmlFactory.createKml();
         final Folder rootFolder = kml.createAndSetFolder().withOpen(true);
-        final KmlGenerator migrationKml = new KmlGenerator(model, properties, file);
-        migrationKml.buildProbandParentsMarker(rootFolder.createAndAddFolder());
-        migrationKml.buildMigrationLines(rootFolder.createAndAddFolder());
+        kmlGenerator.buildProbandParentsMarker(rootFolder.createAndAddFolder());
+        kmlGenerator.buildMigrationLines(rootFolder.createAndAddFolder());
         kml.marshal(kmlFile);
     }
 
     private static void showUsage()
     {
         System.err.println();
-        System.err.println("expected filenames in random order: .properties .kml .ttl, .nt, .n3, .rdf");
-        System.err.println("the last file shoul be a sparql query with extension .arq");
-        System.err.println("only the last is used for .properties and .kml");
+        System.err.println("expected filenames in random order: .properties .kml [ .tsv | .arq [ .ttl, .nt, .n3, .rdf ]+ ]");
     }
 }
