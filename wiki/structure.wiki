@@ -1,4 +1,4 @@
-#labels Featured
+#labels Featured,Phase-Deploy
 The following diragram illustrates the main classes of the library that can be execute from the command line. A few stept allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps.
 
 *legend of the diagram*
