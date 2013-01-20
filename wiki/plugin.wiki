@@ -1,0 +1,34 @@
+#labels Featured,Phase-Implementation
+The functionality would be easier to use with a dedicated user interface. The plugins in [http://genj.sourceforge.net/ GenJ] and [http://www.ancestris.org/ Ancestris] still lack the power for mashups and kml. Plugin developers could plug this library back into both and into other applications that choose so. 
+
+The main classes are identified on the [structure] page, examine their API's in the source section of this project, in their own sources and the test classes using them.
+
+=design sugestions=
+==options per gedcom==
+  * URI templates (family, individual, note, object, repository, source, sbumitter, place)
+  * name and location of converted gedcom
+  * name and location of the file with rules (allow to save/ choose the built-in examples)
+  * name and location of collected mashup input data (perhaps the  geo-plugin of ancestris could export a replacement for the mashup.tsv)
+  * name and location of collected mashup output data file
+  * desired languages for dbpedia data (checkboxes for languages retuned by [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/reports/mashup/dbpediaLanguages.arq dbpediaLanguages.arq])
+  * checkbox: save the converted gedcom whenever the gedcom itself is saved (especially with all the rules applied it takes a while)
+
+==menu comands==
+  * save converted gedcom. Invokes Convert
+  * collect mashup data. Invokes Mashup
+
+==report dialog==
+invoked from the general menu or the context menu of an entity. The OK button of the dialog invokes: Select
+  * An entity chooser.
+  * When the dialog was opened from a context menu of an entity, that instance should be initialy selected. The chosen query may dictate another type of entity, The OK button should be disabled until that conflict is resolved. A "%s" in the query should be replaced by the selected entity.
+  * An edit box for the query.
+  * Show line numbers to help fix syntax errors.
+  * Additional controls to read from or write to the file system or load one of the built-in example queries. Prefixes of the built-in quiries indicate which rules should have been applied, disable the built in queries that need more rules than have been applied with the last conversion of the gedcom..
+  * checkboxes (At least one should be checked, selecting a built-in query automaticaly checks the apropriate ones)
+    * use converted gedcom
+    * use mashup output
+    * use all files of the mashup output location
+  * name and location of the output file (or show in a window)
+  * name and location of the xsl file (style sheet) to insert into xml output (an additional control saves http://www.w3.org/TR/rdf-sparql-XMLres/result-to-html.xsl)
+
+A mistake in a query might cause to execute forever. It should be executed in a subprocess that can be killed when the users chooses so. Same applies to conversion with custom rules. 
