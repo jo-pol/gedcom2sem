@@ -4,5 +4,6 @@ See [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedco
 {{{
 java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
 }}}
-The example expects some .jar files in the current directory (actualy on the `CLASSPATH`  or -cp directories): to start with the one in the download area of this project, the screenshot below shows the other ones, you might not need all of them.
+The example expects some .jar files in the current directory (actualy on the `CLASSPATH`  or -cp directories): to start with the one in the download area of this project, the screenshot below shows the other ones, you might not need all of them. You may locate them through sites like jarfinder.com and findjar.com 
+
 https://gedcom2sem.googlecode.com/svn/trunk/docs/images/dependencies.jpg
