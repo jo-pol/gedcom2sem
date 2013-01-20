@@ -1,9 +1,11 @@
 #labels Featured,Phase-Deploy
 Below a partial command line example. Ovals in the diagram on the [structure] page represent such commands. 
-See [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples] for the arguments (...) of these commands . 
+See [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples] for the arguments (...) of these commands. A simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j] 
 {{{
 java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
 }}}
-The example expects some .jar files in the current directory (actualy on the `CLASSPATH`  or -cp directories): to start with the one in the download area of this project, the screenshot below shows the other ones, you might not need all of them. You may locate them through sites like jarfinder.com and findjar.com 
+The example expects some .jar files in the current directory, more precisely the -cp directory. As an alternatively for -cp you could specify a CLASSPATH variable. 
+
+The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You may locate the jars for example with sites like jarfinder.com and findjar.com 
 
 https://gedcom2sem.googlecode.com/svn/trunk/docs/images/dependencies.jpg
