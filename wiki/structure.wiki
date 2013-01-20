@@ -1,17 +1,17 @@
 #labels Featured,Phase-Deploy
-The following diragram illustrates the main classes of the library that can be execute from the command line. A few stept allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps.
+The following diagram illustrates the main classes of the library that can be executed from the command line. A few steps allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps. If you just want (customized) reports from your own data, you will only need the commands `gedsem.Convert` and `semweb.Select`.
 
 *legend of the diagram*
 <dl>
 <dt>ovals</dt>
 <dd>
-commands<br/>
-The two at the bottom are drawn on top of one another to prevent crossing lines, they need (almost) the same files as arguments.
+commands; 
+the two at the bottom are drawn on top of one another to prevent crossing lines, they need (almost) the same files as arguments.
 </dd>
 <dt>clouds</dt><dd>manual actions</dd>
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg</dt>
 <dd>
-see self documenting [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ examples] of  rules .arq, and .properties files.
+configuration; see self documenting [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ examples] of  rules .arq, and .properties files.
 </dd>
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg</dt>
 <dd>your data</dd>
