@@ -1,0 +1,20 @@
+<wiki:toc max_depth="1" />
+
+=Does DbPedia have resources in my language?=
+
+Try the mashup query dbpediaLanguages.arq Note that not all can be queried directly.
+=What properties are commonly available?=
+    Try the mashup queries:
+
+        geonamesProperties.arq
+        geonamesRelatedEntities.arq
+        dbpediaRelatedEntities.arq
+        dbpediaProperties.arq
+
+=Some places do have a GeoNameID in the mashup input, but the result of semweb.Select with mashup.arg shows no coordinates.=
+
+The free services of GeoNames and DbPedia are not allways reliable so you might have to repeat semweb.Mashup. The command semweb.Mashup is designed not to download from GeoNames again what is already present. DbPedia is allways queried to create direct links, but nothing is downloaded because it is too much and can be queried directly. 
+
+=skipping mashup.arq: Lexical error at line 1, column 2. Encountered: "\u00bb" (187), after : "\u00ef"=
+
+You probably saved the arq file as an UTF-8 with a byte-order-mark. Typically Window's NotePad adds that BOM when you choose to save as UTF-8. Normaly these bytes do not show, but with the command "type" in a command window, they show up as funny characters. Try to save as ANSII. 
