@@ -1,5 +1,5 @@
 #labels Featured,Phase-Deploy
-The following diagram illustrates the main classes of the library that can be executed from the command line. A few steps allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps. If you just want (customized) reports from your own data, you will only need the commands `gedsem.Convert` and `semweb.Select`.
+The following diagram illustrates the main classes of the library that can be executed from the command line. A few steps allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps. If you just want (customized) reports from your own data, you will only need the commands `gedsem.Convert` and `semweb.Select`. Note that an XSL converts XML output to HTML, the example mentioned in [Localize#Headers localize] creates a straightworward table, but it could be rewritten in any shape.
 
 *legend of the diagram*
 <dl>
