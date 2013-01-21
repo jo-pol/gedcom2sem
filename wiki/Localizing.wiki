@@ -1,3 +1,4 @@
+#sidebar TOC
 #labels Featured
 = The wiki pages =
 

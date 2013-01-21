@@ -1,0 +1,9 @@
+#labels Featured
+  * [Overview overview]
+  * Usage
+    * [Commands commands]
+    * [GeoNameIDs]
+  * Contribute
+    * [Localizing]
+    * [Plugin plugin]
+  * [FAQs FAQ]
