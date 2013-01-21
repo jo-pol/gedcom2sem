@@ -1,4 +1,3 @@
-#labels Featured,Phase-Deploy
 #sidebar TableOfContent
 =Introduction=
 The main idea is to transform a [http://en.wikipedia.org/wiki/GEDCOM gedcom] database into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or a graph]. That allows flexible queries and reports. 
