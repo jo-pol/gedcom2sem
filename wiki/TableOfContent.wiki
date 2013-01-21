@@ -1,9 +1,13 @@
 [overview Overview]
 
 Usage
+
   * [commands Commands]
   * [GeoNameIDs]
+
 Contribute
+
   * [Localizing]
   * [plugin Plugin]
+
 [FAQ]
