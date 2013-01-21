@@ -1,8 +1,8 @@
-  * [overview Overview]
-  * Usage
-    * [commands Commands]
-    * [GeoNameIDs]
-  * Contribute
-    * [Localizing]
-    * [plugin Plugin]
-  * [FAQ]
+[overview Overview]
+Usage
+  * [commands Commands]
+  * [GeoNameIDs]
+Contribute
+  * [Localizing]
+  * [plugin Plugin]
+[FAQ]
