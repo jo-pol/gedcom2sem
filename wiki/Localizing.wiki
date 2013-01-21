@@ -1,5 +1,4 @@
-#sidebar TOC
-#labels Featured
+#sidebar TableOfContent
 = The wiki pages =
 
 See [http://code.google.com/p/support/wiki/WikiSyntax#Localizing_Wiki_Content google's explanation] .

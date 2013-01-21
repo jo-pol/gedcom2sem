@@ -1,5 +1,4 @@
-#sidebar TOC
-#labels Featured
+#sidebar TableOfContent
 You can directly query your own data together with data on the web, but the web is sometimes broke. So downloading (cashing) the data you want, can prevent problems. The command `semweb.Mashup` performs that task but to know what you want it nees a tab-separated list with geoNameIDs and the placenames in your database. You can try the proces with the Kennedy example if you download the raw files: [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/kennedy.ttl ttl] and [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/kennedy.tsv tsv].
 
 With some luck your genealology application has some export function that exports place names and geoNameIDs from your databes. Otherwise you can extract the place names with a query and add the geoNameIDs manually, see [structure] and [commands] for details. Wen you repeat the query as shown, it will produce GeoName URI's in the first column. Don't worry, `semweb.Mashup` can deal with a mix of plain ID's and URI's. 

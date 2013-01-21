@@ -1,5 +1,5 @@
-#sidebar TOC
-#labels Featured,Phase-Implementation
+#sidebar TableOfContent
+#labels Phase-Implementation
 The functionality would be easier to use with a dedicated user interface. The plugins in [http://genj.sourceforge.net/ GenJ] and [http://www.ancestris.org/ Ancestris] still lack the power for mashups and kml. Plugin developers could plug this library back into both and into other applications that choose so. 
 
 The main classes are identified on the [structure] page, examine their API's in the source section of this project, in their own sources and the test classes using them.
