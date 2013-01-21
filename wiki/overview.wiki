@@ -1,8 +1,18 @@
+#labels Featured,Phase-Deploy
 #sidebar TableOfContent
-#labels Featured, Phase-Deploy
-The following diagram illustrates the main classes of the library that can be executed from the command line. A few steps allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps. If you just want (customized) reports from your own data, you will only need the commands `gedsem.Convert` and `semweb.Select`. Note that an XSL converts XML output to HTML, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightworward table, but it could be rewritten in any shape.
+=Introduction=
+The main idea is to transform a [http://en.wikipedia.org/wiki/GEDCOM gedcom] database into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or a graph]. That allows flexible queries and reports. 
 
-*legend of the diagram*
+The fun part is to link these triples with the [http://richard.cyganiak.de/2007/10/lod/ semantic web]. For example connect places with GeoNames for maps. Through places you can connect to DbPedia and use it as an almanac.
+
+Available resources to cross-query directly:
+  * http://www.w3.org/wiki/SparqlEndpoints
+  * http://labs.mondeca.com/sparqlEndpointsStatus/
+
+=Diagram=
+The diagram illustrates how the main classes of the library interact. These main classes can be executed from the command line. If you just want (customized) reports from your own data, you will only need the first two commands: `gedsem.Convert` and `semweb.Select`. Note that an XSL converts XML output to HTML, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightworward table, but you can customize it to render any structure.
+
+*legend*
 <dl>
 <dt>ovals</dt>
 <dd>
