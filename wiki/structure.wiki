@@ -1,5 +1,5 @@
 #labels Featured,Phase-Deploy
-The following diagram illustrates the main classes of the library that can be executed from the command line. A few steps allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps. If you just want (customized) reports from your own data, you will only need the commands `gedsem.Convert` and `semweb.Select`. Note that an XSL converts XML output to HTML, the example mentioned in [Localize#Headers localize] creates a straightworward table, but it could be rewritten in any shape.
+The following diagram illustrates the main classes of the library that can be executed from the command line. A few steps allow you to convert your data, link it with external data such as geonames, dbpedia and generate reports and maps. If you just want (customized) reports from your own data, you will only need the commands `gedsem.Convert` and `semweb.Select`. Note that an XSL converts XML output to HTML, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightworward table, but it could be rewritten in any shape.
 
 *legend of the diagram*
 <dl>
@@ -11,7 +11,7 @@ the two at the bottom are drawn on top of one another to prevent crossing lines,
 <dt>clouds</dt><dd>manual actions</dd>
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg</dt>
 <dd>
-configuration; download the self documenting raw files form the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resourcess]. See also [https://code.google.com/p/gedcom2sem/wiki/Localizing?ts=1358691393&updated=Localizing#In_a_clone_of_a_query localize headers].
+configuration; download the self documenting <em>raw files</em> form the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resources]. See also [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize].
 </dd>
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg</dt>
 <dd>your data</dd>
