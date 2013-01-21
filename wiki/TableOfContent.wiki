@@ -1,4 +1,3 @@
-#labels Featured
   * [overview Overview]
   * Usage
     * [commands Commands]
