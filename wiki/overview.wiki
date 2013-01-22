@@ -9,7 +9,7 @@ Available resources to cross-query directly:
   * http://labs.mondeca.com/sparqlEndpointsStatus/
 
 =Diagram=
-The diagram illustrates how the main classes of the library interact. These main classes can be executed from the command line. If you just want (customized) reports from your own data, you will only need the first two commands: `gedsem.Convert` and `semweb.Select`. Note that an XSL converts XML output to HTML, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightworward table, but you can customize it to render any structure.
+The diagram illustrates how the main classes of the library interact. These main classes can be executed from the command line. If you just want (customized) reports from your own data, you will only need the first two commands: `gedsem.Convert` and `semweb.Select`. Note that HTML output requires an XSL, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightworward table, but you can customize it to render any structure.
 
 *legend*
 <dl>
