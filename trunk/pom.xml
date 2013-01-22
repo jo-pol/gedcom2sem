@@ -2,17 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>gedcom2sem</groupId>
   <artifactId>gedcom2sem</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <dependencies>
 	<dependency>
 		<groupId>org.apache.jena</groupId>
 		<artifactId>jena-arq</artifactId>
 		<version>2.9.3</version>
-	</dependency>
-	<dependency>
-		<groupId>org.codeartisans.thirdparties.swing</groupId>
-		<artifactId>org-openide-util</artifactId>
-		<version>8.6.2</version>
 	</dependency>
 	<dependency>
 		<groupId>de.micromata.jak</groupId>
@@ -28,6 +23,7 @@
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>
 		<version>4.11</version>
+		<scope>test</scope>
 	</dependency>
   </dependencies>
 </project>

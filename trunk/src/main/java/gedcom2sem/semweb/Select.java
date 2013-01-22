@@ -67,8 +67,9 @@ public class Select
      * traces.
      * 
      * @param args
+     * @throws Exception 
      */
-    public static void main(final String... args)
+    public static void main(final String... args) throws Exception
     {
         final Select select = new Select(Syntax.syntaxARQ);
         for (final String arg : args)
@@ -79,7 +80,8 @@ public class Select
             }
             catch (final Exception e)
             {
-                System.err.println("skipping " + arg + ": " + e.getMessage());
+                System.err.println("skipping " + arg + ": "+e.toString());
+                throw e;
             }
         }
     }
@@ -157,7 +159,7 @@ public class Select
             final Prologue prologue = new Prologue(PrefixMapping.Factory.create().setNsPrefixes(model.getNsPrefixMap()));
             outputStream.write(ResultSetFormatter.asText(resultSet, prologue).getBytes());
         }
-        else if (!ext.startsWith(ext))
+        else if (!ext.matches("html?"))
             throw new IllegalArgumentException("output extension not supported: " + ext);
         else
         {

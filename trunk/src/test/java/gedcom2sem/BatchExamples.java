@@ -30,7 +30,7 @@ public class BatchExamples
 {
     private static final String TEST = "src/test/resources/";
     private static final String MAIN = "src/main/resources/";
-    private static final String QUERY_DIR = "src/main/resources/reports/mashup/";
+    private static final String QUERY_DIR = "src/main/resources/reports/";
     private static final String RULES = "src/main/resources/rules/SlowRules.txt";
     private PrintStream savedOut;
 
@@ -43,20 +43,26 @@ public class BatchExamples
         Convert.main("-rules", RULES, "-uri", UriFormats.DEFAULT_URI, "-gedcom", TEST + "kennedy.ged");
         restoreOut();
 
-        Select.main("target/kennedy.ttl", "target/mashup.tsv", QUERY_DIR + "mashup.arq");
+        Select.main("target/kennedy.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
 
         // consider MASHUP_TSV changed manually into KENNEDY_TSV (geo name IDs added)
         Mashup.main(TEST + "kennedy.tsv", "http://my.domain.com/places#", "target/mashup.ttl", "de|fr");
 
         Select.main("target/kennedy.ttl", "target/mashup.ttl", "target/places.tsv", QUERY_DIR + "classmates.arq");
 
-        KmlGenerator.main(MAIN + "kml.properties", "target/kennedy.ttl", "target/mashup.ttl", QUERY_DIR + "places.arq", "target/places.kml");
+        KmlGenerator.main(MAIN + "kml.properties", "target/kennedy.ttl", "target/mashup.ttl", QUERY_DIR + "mashup/places.arq", "target/places.kml");
+    }
+    
+    @Test
+    public void toHtml() throws Exception
+    {
+        Select.main(TEST + "kennedy.ttl",TEST+"result-to-html.xsl", "target/report.html", QUERY_DIR + "CountEventsPerPlace.arq");
     }
 
     @Test
     public void migrations() throws Exception
     {
-        KmlGenerator.main(MAIN + "kml.properties", TEST + "kennedy.ttl", TEST + "mashup.ttl", QUERY_DIR + "places.arq", "target/places.kml");
+        KmlGenerator.main(MAIN + "kml.properties", TEST + "kennedy.ttl", TEST + "mashup.ttl", QUERY_DIR + "mashup/places.arq", "target/places.kml");
     }
 
     private void redirectOut(final String filename) throws FileNotFoundException
