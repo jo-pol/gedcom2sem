@@ -1,6 +1,6 @@
 #labels Phase-Deploy
 #sidebar TableOfContent
-Below a partial command line example. The ovals in the diagram on the [Overview overview] page represent such commands. The ... arguments are mainly filenames. Run a command without arguments for more info, see also [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples] and this simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j] example. 
+Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. The ... arguments are mainly filenames. Run a command without arguments for more info, see also [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples] and this simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j] example. 
 {{{
 java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
 }}}
