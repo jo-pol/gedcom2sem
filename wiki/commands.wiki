@@ -1,9 +1,11 @@
 #labels Phase-Deploy
 #sidebar TableOfContent
-Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. The ... arguments are mainly filenames. Run a command without arguments for more info, see also [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples] and this simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j] example. 
+Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. The ... arguments are mainly filenames. Run a command without arguments for more info, see also this simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j] example and [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/web/KmlConverterTest.java BatchExamples]. 
 {{{
 java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
 }}}
+_Hint: on Windows you can put a desired command in a .bat file, on Mac/Unix in a .sh file for quick and easy execution._
+
 The example expects some .jar files in the current directory, more precisely the `-cp` directory. As an alternative for `-cp` you could specify a `CLASSPATH` variable. 
 
 The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can find the jars for example with sites like jarfinder.com and findjar.com 
