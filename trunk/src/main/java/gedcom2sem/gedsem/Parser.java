@@ -20,7 +20,6 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -133,15 +132,13 @@ public class Parser
 
     private Resource trySimpleDate(final Resource resource, final StringTree property)
     {
-        //"(([0-9][0-9]?)? ((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC)) )?([0-9][0-9][0-9][0-9])"
-        
         if (property.value == null //
                 || property.value.trim().length() == 0 //
                 || datePrefixes.contains(property.value.split(" ")))
             return null;
         final PointInTime pointInTime = new PointInTime();
         pointInTime.set(property.value);
-        if (pointInTime.isComplete() && pointInTime.isGregorian())
+        if (pointInTime.isValid() && pointInTime.isGregorian())
         {
             final Resource propertyResource = gedcomModel.addProperty(resource, property.tag, null);
             gedcomModel.addLiteral(propertyResource, gregorianToXsd(pointInTime));
@@ -152,18 +149,27 @@ public class Parser
 
     private static XSDDateTime gregorianToXsd(final PointInTime pit)
     {
-        final Calendar date = new GregorianCalendar(pit.getYear(), pit.getMonth(), pit.getDay()+2 );
-        final XSDDateTime dateTime = new XSDDateTime(date);
+        final XSDDateTime dateTime;
         if (pit.isComplete())
+        {
+            dateTime = new XSDDateTime(new GregorianCalendar(pit.getYear(), pit.getMonth(), pit.getDay() + 2));
             dateTime.narrowType(XSDDatatype.XSDdate);
+        }
         else if (pit.getYear() < 9999 && pit.getYear() > 0)
         {
-            // FIXME why do valid but incomplete dates return large numbers?
             if (pit.getMonth() < 12 && pit.getMonth() >= 0)
+            {
+                dateTime = new XSDDateTime(new GregorianCalendar(pit.getYear(), pit.getMonth(), 2));
                 dateTime.narrowType(XSDDatatype.XSDgYearMonth);
+            }
             else
+            {
+                dateTime = new XSDDateTime(new GregorianCalendar(pit.getYear(), 1, 2));
                 dateTime.narrowType(XSDDatatype.XSDgYear);
+            }
         }
+        else
+            return null;
         return dateTime;
     }
 }
