@@ -20,6 +20,7 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +30,7 @@ import org.gedcom4j.model.StringTree;
 import org.gedcom4j.parser.GedcomParserException;
 import org.gedcom4j.parser.GedcomReader;
 
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.datatypes.xsd.XSDDateTime;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -80,7 +82,7 @@ public class Parser
                 }
                 else if ("DATE".equals(property.tag))
                 {
-                    Resource simpleFullDate = trySimpleFullDate(resource, property);
+                    final Resource simpleFullDate = trySimpleDate(resource, property);
                     if (simpleFullDate == null)
                         propertyResource = gedcomModel.addProperty(resource, property.tag, property.value);
                     else
@@ -124,8 +126,15 @@ public class Parser
             gedcomModel.addProperty(resource, "last", name[1]);
     }
 
-    private Resource trySimpleFullDate(final Resource resource, final StringTree property)
+    private static boolean referencesAnotherNode(final StringTree property)
     {
+        return property.value != null && property.value.matches("\\@.*\\@");
+    }
+
+    private Resource trySimpleDate(final Resource resource, final StringTree property)
+    {
+        //"(([0-9][0-9]?)? ((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC)) )?([0-9][0-9][0-9][0-9])"
+        
         if (property.value == null //
                 || property.value.trim().length() == 0 //
                 || datePrefixes.contains(property.value.split(" ")))
@@ -139,20 +148,22 @@ public class Parser
             return propertyResource;
         }
         return null;
-        // see e.g. http://tech.groups.yahoo.com/group/jena-dev/message/33075
-        // String lex=null;
-        // RDFDatatype dtype=new XSDYearMonthType(typename);
-        // rdfModel.getModel().createTypedLiteral(lex, dtype);
-    }
-
-    private static boolean referencesAnotherNode(final StringTree property)
-    {
-        return property.value != null && property.value.matches("\\@.*\\@");
     }
 
     private static XSDDateTime gregorianToXsd(final PointInTime pit)
     {
-        return new XSDDateTime(new GregorianCalendar(pit.getYear(), pit.getMonth(), pit.getDay() + 2));
+        final Calendar date = new GregorianCalendar(pit.getYear(), pit.getMonth(), pit.getDay()+2 );
+        final XSDDateTime dateTime = new XSDDateTime(date);
+        if (pit.isComplete())
+            dateTime.narrowType(XSDDatatype.XSDdate);
+        else if (pit.getYear() < 9999 && pit.getYear() > 0)
+        {
+            // FIXME why do valid but incomplete dates return large numbers?
+            if (pit.getMonth() < 12 && pit.getMonth() >= 0)
+                dateTime.narrowType(XSDDatatype.XSDgYearMonth);
+            else
+                dateTime.narrowType(XSDDatatype.XSDgYear);
+        }
+        return dateTime;
     }
-
 }
