@@ -35,7 +35,7 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 
-public class QueryWithPluginInterfaceTester extends AstractQueryTest
+public class QueryWithPluginInterfaceTester extends AbstractQueryTest
 // name does neither start nor end with test so maven can build a jar if web-resources don't cooperate
 {
 
