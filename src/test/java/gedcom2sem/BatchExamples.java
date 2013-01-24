@@ -52,11 +52,19 @@ public class BatchExamples
 
         KmlGenerator.main(MAIN + "kml.properties", "target/kennedy.ttl", "target/mashup.ttl", QUERY_DIR + "mashup/places.arq", "target/places.kml");
     }
-    
+
+    @Test
+    public void convert() throws Exception
+    {
+        redirectOut("target/kennedy.ttl");
+        Convert.main("-rules", RULES, "-gedcom", TEST + "kennedy.ged");
+        restoreOut();
+    }
+
     @Test
     public void toHtml() throws Exception
     {
-        Select.main(TEST + "kennedy.ttl",TEST+"result-to-html.xsl", "target/report.html", QUERY_DIR + "CountEventsPerPlace.arq");
+        Select.main(TEST + "kennedy.ttl", TEST + "result-to-html.xsl", "target/report.html", QUERY_DIR + "CountEventsPerPlace.arq");
     }
 
     @Test

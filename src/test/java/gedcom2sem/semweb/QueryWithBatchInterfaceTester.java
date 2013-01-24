@@ -16,7 +16,7 @@ package gedcom2sem.semweb;
 
 import org.junit.Test;
 
-public class QueryWithBatchInterfaceTester extends AstractQueryTest
+public class QueryWithBatchInterfaceTester extends AbstractQueryTest
 //name does neither start nor end with test so maven can build a jar if web-resources don't cooperate
 {
 

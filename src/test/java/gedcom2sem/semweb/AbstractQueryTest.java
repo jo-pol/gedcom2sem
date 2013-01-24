@@ -32,7 +32,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public abstract class AstractQueryTest
+public abstract class AbstractQueryTest
 {
     static final String GEDCOM     = "src/test/resources/kennedy.ged";
     static final String GEDCOM_TTL = "src/test/resources/kennedy.ttl";
@@ -43,7 +43,7 @@ public abstract class AstractQueryTest
     final String        queryFileName;
     final Boolean       mashup;
 
-    public AstractQueryTest(final Boolean mashup, final Integer expectedNrOfLines, final String queryFileName)
+    public AbstractQueryTest(final Boolean mashup, final Integer expectedNrOfLines, final String queryFileName)
     {
         this.mashup = mashup;
         this.expectedNrOfLines = expectedNrOfLines;
