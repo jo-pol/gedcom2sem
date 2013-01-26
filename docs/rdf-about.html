@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>RDF / SPARQL based reports</title>
+        <link rel="stylesheet" href="./ancestris.css" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./ancestris.css">
+    </head>
+    <body>
+        <a name="_Top_"></a>
+        <center>
+            <h2 class="ancestris_help_title">RDF / SPARQL based reports</h2>
+        </center>
+        <br>
+        <table border="0" width="100%">
+            <tr>
+                <td width="65%">
+                    &nbsp;
+                </td>
+                <td width="35%">
+                    <p style="font-style: italic; text-align: justify;
+                    text-justify: newspaper; font-size: 10px;">
+                        <font color="#0b7700"><u>Author</u></font>: Jo Pol.<br>
+                        <font color="#0b7700"><u>Maintenance</u></font>: Jo Pol, 
+                           <a href="./rdf-todo.html">You</a>.
+                    </p>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <p class="justify">
+            The SPARQL based reports allow to write and customise reports
+            without a development environment. As a side effect you get your
+            GedCom converted into an RDF file. When published the RDF file
+            could be used in cross-site queries for mash-ups.
+        </p>
+        <ol>
+            <li> <a href="rdf-about.html#rdf-about_1">Under the hood</a></li>
+            <li> <a href="rdf-about.html#queries">Queries</a></li>
+            <li> <a href="rdf-about.html#rules">Rules</a></li>
+            <li> <a href="rdf-about.html#rdf-about_6">RDF / TTL / N3</a></li>
+        </ol>
+
+        <a name="rdf-about_1"></a>
+        <h3 class="ancestris_help_title">1 - Under the hood</h3>
+        <p class="justify">
+            The report generation undergoes four stages:
+        <ol>
+            <li>conversion (optional)
+                <ul>
+                    <li>from GedCom format to your choice of <a href="rdf-about.html#rdf-about_6">RDF / TTL / N3</a>,
+                        and from ID's in the GedCom file to <a href="rdf-about.html#rdf-about_4">URI</a>'s in the converted file
+                    </li>
+                    <li>apply <a href="rdf-about.html#rules">rules</a> (optional)</li>
+                </ul>
+            <li>execute the SPARQL <a href="rdf-about.html#queries">query</a></li>
+            <li>apply a nice <a href="rdf-about.html#rdf-about_5">layout</a> (optional)</li>
+        </ol>
+        <br>
+        <i><b>(1)</b> Reload the previous conversion result if the GedCom did not
+        change and the new query works with the last applied rules.<br>
+        <b>(3)</b> Choose TXT as output extension for a simple table layout.</i>
+
+        <a name="queries"></a>
+        <h3 class="ancestris_help_title">2 - Queries</h3>
+        <p class="justify">
+            <a href="./rdf-examples.html">Examples</a>
+        </p>         
+        <p class="justify">
+          Delivered examples were initially intended to show the most important techniques.
+          Such as counting, sorting, computing, filtering and navigating through the data.
+        </p>
+        <h4 class="ancestris_help_title">a - customizing</h4>
+        <p class="justify">
+          Some examples may contain comment with hints about variations, rather than duplicate
+          the query. Save the query between your documents as a plain text file
+          and apply the desired adjustments.
+        </p>
+        <p class="justify">
+          You are free to experiment with the queries, 
+          but note that a simple typo may cause the query to return nothing.
+          A clumsy query may take for ever to execute and currently there is 
+          no way to stop it other than shutting down ancestris from outside.
+        </p>
+        <p class="justify">
+            Examining the converted GedCom can help with further customization and with 
+            developing new queries. Choose extension n3 or ttl for the converted file.
+            These formats have a lot in common with the SPARQL
+            query language. See also the
+            <object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+                <param name="content" value="http://jena.apache.org/tutorials/sparql.html">
+                <param name="text" value="<html><u>SPARQL tutorial</u></html>">
+                <param name="textFontSize" value="12px">
+                <param name="textColor" value="blue">
+            </object>
+        </p>
+        <h4 class="ancestris_help_title">b - localizing</h4>
+        <p class="justify">
+          For public queries the best approach is descibed on 
+          the <a href="./rdf-submit.html">submission</a> page.
+        </p>
+        <p class="justify">
+          Localizing the result can also be done by changing column headings as described below. 
+          Related problems are dates and names stored in various formats. 
+          Queries would become too complex and slow to cater for all these and other variations.
+          Once a query is forked for a translation, each variant would evolve along its own route
+          like wikipedia articles do.
+        </p>
+        <p class="justify">
+          A general hint about the column headings:<br/>
+          Between SELECT and the first "{", you will see constructs like 
+          <i>&lt;expression&gt;</i> or like <i>(&lt;expression&gt; as ?columnName)</i>.
+          By convention one per line.
+          You can change the former into the latter, and you can choose 
+          your own column names. Choose the names with care, they should 
+          not occur anywhere else in the query.
+          When you save a query as UTF-8 to cater for proper column names,
+          the file should not be saved with a BOM (Byte order mark) such as Windows' Notepad does.
+        </p>
+        <a name="rules"></a>
+        <h3 class="ancestris_help_title">3 - Rules</h3>
+        <p class="justify">
+            Some queries become easier when the conversion is extended with
+            rules. In words such a rule may sound like "the wife and husband
+            in a family are spouses" or "a child is a descendant, a descendant
+            of a descendant is also an descendant".
+        </p>
+        <p class="justify">
+            Computing all descendants and all ancestors of all individuals
+            may take minutes. The execution time grows exponentially with the
+            size of your database. Therefore we
+            have two set of rules, the quick rules don't generate ancestor/descendant
+            relations. Without any rules, conversion is at it fastest, but
+            only few queries will execute, with the slow rules any query
+            should execute. An alternative for the slow rules is rewrite the queries 
+            and make use of custom tags like _SOSA and _TREETOP
+            that can be generated with other tools.            
+        </p>
+        <p class="justify">
+            More than you might want to know about 
+            <object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+                <param name="content" value="http://jena.apache.org/documentation/inference/#rules">
+                <param name="text" value="<html><u>inference and rules</u></html>">
+                <param name="textFontSize" value="12px">
+                <param name="textColor" value="blue">
+            </object>
+        </p>
+
+        <a name="rdf-about_6"></a>
+        <h3 class="ancestris_help_title">6 - RDF / TTL / N3</h3>
+        <p class="justify">
+            The extension determines the stored format. 
+            For local queries it doesn't matter which one you choose.
+            For cross site queries RDF is recommend as the most commonly supported.
+            TTL and N3 are almost as easy to read as 
+            GedCom mode of Ancestris' edit view. These two formats also have a lot in common
+            with the query syntax.
+        </p>
+    </body>
+</html>

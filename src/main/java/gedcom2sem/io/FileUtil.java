@@ -9,11 +9,26 @@ import com.hp.hpl.jena.util.FileUtils;
 
 public class FileUtil
 {
+    /**
+     * @see FileUtils#guessLang
+     * @param file
+     * @return null for unknown extension
+     * @throws MalformedURLException
+     */
+
     public static String guessLanguage(File file) throws MalformedURLException
     {
-        return FileUtils.guessLang(file.toURI().toURL().toString());
+        return FileUtils.guessLang(file.toURI().toURL().toString(), null);
     }
 
+    /**
+     * Reads the whole file.
+     * 
+     * @param file
+     *        UTF-8 encoding assumed.
+     * @return
+     * @throws IOException
+     */
     public static String read(final File file) throws IOException
     {
         final byte[] bytes = new byte[(int) file.length()];
@@ -26,7 +41,7 @@ public class FileUtil
         {
             inputStream.close();
         }
-        return new String(bytes);
+        return new String(bytes, "UTF-8");
     }
 
 }
