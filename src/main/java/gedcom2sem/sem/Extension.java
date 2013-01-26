@@ -16,7 +16,7 @@ package gedcom2sem.sem;
 
 import java.io.File;
 
-public enum Extension
+ enum Extension
 {
     ttl("TURTLE"), n3("N3"), nt("N-TRIPPLE"), rdf("RDF/XML-ABBREV");
     private String language;

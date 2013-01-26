@@ -14,118 +14,62 @@
 // @formatter:on
 package gedcom2sem.gedsem;
 
-import gedcom2sem.sem.Extension;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintStream;
+import java.util.Properties;
 
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.reasoner.rulesys.GenericRuleReasoner;
 import com.hp.hpl.jena.reasoner.rulesys.Rule;
+import com.hp.hpl.jena.util.FileUtils;
 import com.hp.hpl.jena.util.PrintUtil;
-
-// import org.junit.Test;
 
 public class Convert
 {
-
-    private static final String LS = System.getProperty("line.separator");
-
-    private static final String HELP = "=== OPTIONS === " + Arrays.deepToString(Option.values()) + //
-            LS + "rules  : filename" + //
-            LS + "format : default ttl; possible values: " + Arrays.deepToString(Extension.values()) + //
-            LS + "uri    : default for the options FAM, INDI, OBJE, NOTE, REPO, SOUR, SUBM" + //
-            LS + "         default for uri is " + UriFormats.DEFAULT_URI + //
-            LS + "gedcom : filename, only preceding options are applied to the conversion";
-
-    private static enum Option
+    public static void main(final String... files) throws Exception
     {
-        rules, format, uri, FAM, INDI, OBJE, NOTE, REPO, SOUR, SUBM, gedcom
-    };
-
-    public static void main(final String... args) throws Exception
-    {
-
-        if (args == null || args.length == 0)
-            throw createException("missing arguments");
-
-        String qRules = null;
-        final UriFormats uriFormats = new UriFormats();
-        String language = Extension.ttl.language();
-        Logger.getLogger("").setLevel(Level.OFF);
-
-        for (int i = 0; i < args.length; i++)
+        final Properties uriFormats = new Properties();
+        BufferedInputStream gedcomInputStream = null;
+        PrintStream output = null;
+        String language = null;
+        String rules = null;
+        
+        if (files == null)
+            throw new IllegalArgumentException("no files at all");
+        for (final String file : files)
         {
-            final Option option = toOption(args[i]);
-            final String value = args[++i];
-            switch (option)
+            final String extension = file.replaceAll(".*[.]", "").toLowerCase();
+            if ("properties".equals(extension))
+                uriFormats.load(new FileInputStream(file));
+            else if ("txt".equals(extension))
+                rules = read(new File(file));
+            else if ("ged".equals(extension))
+                gedcomInputStream = new BufferedInputStream(new FileInputStream(file));
+            else
             {
-            case format:
-                language = toLanguage(value);
-                break;
-            case gedcom:
-                final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(value));
-                final Model model = new Parser().parse(inputStream, uriFormats.getURIs());
-                model.write(System.out, language);
-                System.err.println("parsing done");
-                if (qRules != null)
-                {
-                    System.err.println("applying rules");
-                    applyRules(qRules, model).write(System.out, language);
-                    System.err.println("rules done");
-                }
-                break;
-            case rules:
-                qRules = read(value);
-                break;
-            case FAM:
-                uriFormats.fam = chekURI(value);
-                break;
-            case INDI:
-                uriFormats.indi = chekURI(value);
-                break;
-            case OBJE:
-                uriFormats.obje = chekURI(value);
-                break;
-            case NOTE:
-                uriFormats.note = chekURI(value);
-                break;
-            case REPO:
-                uriFormats.repo = chekURI(value);
-                break;
-            case SOUR:
-                uriFormats.sour = chekURI(value);
-                break;
-            case SUBM:
-                uriFormats.subm = chekURI(value);
-                break;
-            case uri:
-                uriFormats.subm = chekURI(value);
-                uriFormats.fam = chekURI(value);
-                uriFormats.indi = chekURI(value);
-                uriFormats.obje = chekURI(value);
-                uriFormats.note = chekURI(value);
-                uriFormats.repo = chekURI(value);
-                uriFormats.sour = chekURI(value);
-                break;
+                language = FileUtils.guessLang(new File(file).toURI().toURL().toString());
+                output = new PrintStream(file);
             }
         }
+        if (gedcomInputStream == null)
+            throw new IllegalArgumentException("no .ged");
+        if (uriFormats.size() == 0)
+            throw new IllegalArgumentException("no or empty .properties");
+        
+        final Model model = new Parser().parse(gedcomInputStream, uriFormats);
+        model.write(output, language);
+        if (rules != null)
+            applyRules(rules, model).write(output, language);
     }
 
     private static InfModel applyRules(final String rules, final Model model)
     {
-
+        System.err.println("applying rules");
         for (final String key : SemanticGedcomModel.PREFIXES.keySet())
         {
             PrintUtil.registerPrefix(key, SemanticGedcomModel.PREFIXES.get(key));
@@ -135,29 +79,12 @@ public class Convert
 
         final InfModel infModel = ModelFactory.createInfModel(reasoner, model);
         infModel.prepare();
+        System.err.println("rules done");
         return infModel;
     }
 
-    private static String chekURI(final String value) throws URISyntaxException
+    private static String read(final File file) throws IOException
     {
-        try
-        {
-            new URI(MessageFormat.format(value, "123"));
-            return value;
-        }
-        catch (final URISyntaxException e)
-        {
-            throw createException(value + " " + e.getMessage());
-        }
-    }
-
-    private static String read(final String fileName) throws IOException
-    {
-        final File file = new File(fileName);
-        if (!file.exists())
-            throw createException(fileName + " does not exist");
-        if (file.isDirectory())
-            throw createException(fileName + " should be plain text file but is a directory");
         final byte[] bytes = new byte[(int) file.length()];
         final FileInputStream inputStream = new FileInputStream(file);
         try
@@ -169,41 +96,5 @@ public class Convert
             inputStream.close();
         }
         return new String(bytes);
-    }
-
-    private static IllegalArgumentException createException(final String string)
-    {
-
-        System.err.println(HELP);
-        return new IllegalArgumentException(string);
-    }
-
-    private static String toLanguage(final String value)
-    {
-        try
-        {
-            return Extension.valueOf(value).language();
-        }
-        catch (final IllegalArgumentException e)
-        {
-            throw createException("invalid value for " + Option.format + ": " + value);
-        }
-    }
-
-    private static Option toOption(final String string)
-    {
-
-        if (!string.startsWith("-"))
-        {
-            throw createException("unkown option: " + string);
-        }
-        try
-        {
-            return Option.valueOf(string.substring(1));
-        }
-        catch (final IllegalArgumentException e)
-        {
-            throw createException("unkown option: " + string);
-        }
     }
 }

@@ -22,7 +22,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.junit.After;
@@ -34,53 +34,56 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public abstract class AbstractQueryTest
 {
-    static final String GEDCOM     = "src/test/resources/kennedy.ged";
+    static final String GEDCOM = "src/test/resources/kennedy.ged";
     static final String GEDCOM_TTL = "src/test/resources/kennedy.ttl";
     static final String MASHUP_TTL = "src/test/resources/mashup.ttl";
     static final String REPORT_DIR = "src/main/resources/reports";
     static final String REPORT_TXT = "target/report.txt";
-    final Integer       expectedNrOfLines;
-    final String        queryFileName;
-    final Boolean       mashup;
 
-    public AbstractQueryTest(final Boolean mashup, final Integer expectedNrOfLines, final String queryFileName)
+    private static final Collection<Object[]> constructorArgs = new ArrayList<Object[]>();
+    final Integer expectedNrOfLines;
+    final String queryFileName;
+    final Boolean mashup;
+    private String endPointID;
+
+    private static void addTest(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
+    {
+        constructorArgs.add(new Object[] {mashup, expectedNrOfLines, endPointID, queryFileName});
+    }
+
+    public AbstractQueryTest(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
     {
         this.mashup = mashup;
         this.expectedNrOfLines = expectedNrOfLines;
+        this.endPointID = endPointID;
         this.queryFileName = REPORT_DIR + "/" + queryFileName;
     }
 
     @Parameters
     public static Collection<Object[]> getContructorParameters()
     {
-        return Arrays.asList(new Object[][] {//
-                // {false, 1, "AgeDiffBetweenSpouses.arq"},//
-                        {false, 89, "CountEventsPerPlace.arq"},//
-                        {false, 7, "CountGivnNames.arq"},//
-                        {false, 34, "SOSA-InbredStatistics.arq"},//
-                        {false, 158, "SOSA-MultiMedia.arq"},//
-                        {true, 12, "mashup/classmates.arq"},//
-                        {true, 15, "mashup/dbpediaLanguages.arq"},//
-                        {true, 117, "mashup/dbpediaProperties.arq"},//
-                        {true, 225, "mashup/dbpediaRelatedEntities.arq"},//
-                        {true, 31, "mashup/geonamesProperties.arq"},//
-                        {true, 9, "mashup/geonamesRelatedEntities.arq"},//
-                        {true, 93, "mashup/mashup.arq"},//
-                // {true, 1, "mashup/MigrationLines.arq"},//
-                });
+        // addTest(false, 1, null,"AgeDiffBetweenSpouses.arq");
+        addTest(false, 89,null, "CountEventsPerPlace.arq");
+        addTest(false, 7, null,"CountGivnNames.arq");
+        addTest(false, 34, null,"SOSA-InbredStatistics.arq");
+        addTest(false, 158, null,"SOSA-MultiMedia.arq");
+        addTest(true, 12, null,"mashup/classmates.arq");
+        addTest(true, 15, "dbp","mashup/dbpediaLanguages.arq");
+        addTest(true, 117, "dbp","mashup/dbpediaProperties.arq");
+        addTest(true, 225, "dbp","mashup/dbpediaRelatedEntities.arq");
+        addTest(true, 31, "gn","mashup/geonamesProperties.arq");
+        addTest(true, 9, "gn","mashup/geonamesRelatedEntities.arq");
+        addTest(true, 93, null,"mashup/mashup.arq");
+        // addTest(true, 1, null,"mashup/MigrationLines.arq");
+        return constructorArgs;
     }
 
     @Before
     public void beNice()
     {
-        if (!mashup)
-            return;
-        if (queryFileName.contains("dbpedia"))
-            Nice.sleep("dbpedia");
-        else if (queryFileName.contains("geonames"))
-            Nice.sleep("geonames");
-        else
-            Nice.sleep("unknown");
+        // too frequent access to a SPARQL end point causes "service not available"
+        if (endPointID!=null)
+            Nice.sleep(endPointID);
     }
 
     @After
