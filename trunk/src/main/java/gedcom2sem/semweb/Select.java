@@ -22,12 +22,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -37,6 +33,7 @@ import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.query.ResultSet;
@@ -49,168 +46,91 @@ import com.hp.hpl.jena.sparql.core.Prologue;
 
 public class Select
 {
-    private final Syntax querySyntax;
     static final String DEFAULT_XSL = "http://www.w3.org/TR/rdf-sparql-XMLres/result-to-html.xsl";
-    private static final Set<String> inputFormats;
-    static
-    {
-        inputFormats = new HashSet<String>();
-        for (final String ext : new String[] {"n3","nt","ttl","rdf"})
-            inputFormats.add(ext);
-    }
-    private final Model model = ModelFactory.createDefaultModel();
-    private File outputFile = null;
-    private File xsl = null;
 
-    /**
-     * Creates an object that executes SPARQL select queries with {@link Syntax.syntaxARQ).
-     */
-    public Select()
+    public static void main(final String... fileNames) throws IOException, TransformerFactoryConfigurationError, TransformerException
     {
-        querySyntax = Syntax.syntaxARQ;
-    }
-
-    /**
-     * Creates an object that executes SPARQL select queries with the specified syntax.
-     */
-    public Select(final Syntax querySyntax)
-    {
-        this.querySyntax = querySyntax;
-    }
-
-    /**
-     * Passes the arguments on to {@link #process(String...)}. Processing continues with the next
-     * argument in case an argument causes an exception. Exceptions are report on stderr without stack
-     * traces.
-     * 
-     * @param args
-     * @throws Exception 
-     */
-    public static void main(final String... args) throws Exception
-    {
-        final Select select = new Select(Syntax.syntaxARQ);
-        for (final String arg : args)
+        final Model model = ModelFactory.createDefaultModel();
+        File outputFile = null;
+        File xsl = null;
+        String queryStr = null;
+        for (final String fileName : fileNames)
         {
-            try
-            {
-                select.process(new File(arg));
-            }
-            catch (final Exception e)
-            {
-                System.err.println("skipping " + arg + ": "+e.toString());
-                throw e;
-            }
-        }
-    }
-
-    /**
-     * @param files
-     *        input files (see {@link Extension}), output files (txt/csv/tsv/htm/html/xml) and/or query
-     *        files (arq). As soon as a query file is encountered the results are written to the last
-     *        encountered output file. In case of HTML also an XSL file is required, whether the output
-     *        is actually HTML depends on the XSL. The default XSL is {@link #DEFAULT_XSL} though it is
-     *        recommended to save a local copy.
-     * @return this object for chaining. The following example reads all triple files from folder x and
-     *         executes the first query, the second query fails to prevent overwriting the previous
-     *         results. If folder x contains arq files, they might be processed in random order depending
-     *         on the presence of output files.
-     *         <code>new Select().process(new File("x").listFiles()).process("an.xsl","out.html").process("y.arq","z.arq")</code>
-     *         In contrast with {@link main}: as soon as one of the arguments in a single call causes an
-     *         exception, the rest will be ignored.
-     * @throws IOException
-     * @throws TransformerFactoryConfigurationError
-     * @throws TransformerException
-     * @throws IllegalStateException
-     *         if no input or output file was processed before a query file, or the input files so far
-     *         contained no triples.
-     */
-    public Select process(final File... files) throws IOException, TransformerFactoryConfigurationError, TransformerException
-    {
-        for (final File file : files)
-        {
-            final String ext = file.getName().replaceAll(".*[.]", "").toLowerCase();
-            if (inputFormats.contains(ext))
-            {
-                final String language = FileUtil.guessLanguage(file);
+            final File file = new File(fileName);
+            final String language = FileUtil.guessLanguage(file);
+            if (language != null)
                 model.read(new FileInputStream(file), (String) null, language);
-            }
-            else if ("xsl".equals(ext))
+            else if (fileName.toLowerCase().endsWith(".xsl"))
                 xsl = file;
-            else if (!"arq".equals(ext))
-                outputFile = file;
-            else if (outputFile == null)
-                throw new IllegalStateException("no output file yet");
-            else if (model.size() == 0)
-                throw new IllegalStateException("no input yet");
+            else if (fileName.toLowerCase().endsWith(".arq"))
+                queryStr = FileUtil.read(file);
             else
-            {
-                final ResultSet resultSet = executeSelect(file);
-                final OutputStream outputStream = new FileOutputStream(outputFile);
-                try
-                {
-                    final String outExt = outputFile.getName().replaceAll(".*[.]", "").toLowerCase();
-                    writeResultSet(outExt, resultSet, outputStream);
-                    // do not overwrite with anther query
-                    outputFile = null;
-                }
-                finally
-                {
-                    outputStream.close();
-                }
-            }
+                outputFile = file;
         }
-        return this;
-    }
+        if (model.size() == 0)
+            throw new IllegalArgumentException("no or empty data files (.nt, .n3, .ttl, .rdf)");
+        if (queryStr == null)
+            throw new IllegalArgumentException("no query file (.arq)");
+        if (outputFile == null)
+            throw new IllegalArgumentException("no output file (.txt, .tsv, .csv, .json, .xml, .htm, .html)");
 
-    private void writeResultSet(final String ext, final ResultSet resultSet, final OutputStream outputStream) throws IOException,
-            TransformerConfigurationException, TransformerException, TransformerFactoryConfigurationError
-    {
-        if ("tsv".equals(ext))
-            ResultSetFormatter.outputAsTSV(outputStream, resultSet);
-        else if ("csv".equals(ext))
-            ResultSetFormatter.outputAsCSV(outputStream, resultSet);
-        else if ("xml".equals(ext))
-            ResultSetFormatter.outputAsXML(outputStream, resultSet);
-        else if ("txt".equals(ext))
-        {
-            final Prologue prologue = new Prologue(PrefixMapping.Factory.create().setNsPrefixes(model.getNsPrefixMap()));
-            outputStream.write(ResultSetFormatter.asText(resultSet, prologue).getBytes());
-        }
-        else if (!ext.matches("html?"))
-            throw new IllegalArgumentException("output extension not supported: " + ext);
-        else
-        {
-            final ByteArrayOutputStream xml = new ByteArrayOutputStream();
-            ResultSetFormatter.outputAsXML(xml, resultSet);
-            final StreamSource xmlStreamSource = new StreamSource(new ByteArrayInputStream(xml.toByteArray()));
-            readXsl().transform(xmlStreamSource, new StreamResult(outputStream));
-        }
-    }
-
-    private Transformer readXsl() throws TransformerConfigurationException, TransformerFactoryConfigurationError, MalformedURLException, IOException
-    {
-        final StreamSource ss;
-        if (xsl == null)
-            ss = new StreamSource(xsl);
-        else
-            ss = new StreamSource(new URL(DEFAULT_XSL).openStream());
-        return TransformerFactory.newInstance().newTransformer(ss);
-    }
-
-    private ResultSet executeSelect(final File file) throws IOException
-    {
-        final byte[] bytes = new byte[(int) file.length()];
-        final InputStream inputStream = new FileInputStream(file);
+        final ResultSet resultSet = executeQuery(model, queryStr);
+        final OutputStream outputStream = new FileOutputStream(outputFile);
         try
         {
-            inputStream.read(bytes);
+            final String ext = outputFile.getName().replaceAll(".*[.]", "").toLowerCase();
+            if ("tsv".equals(ext))
+                ResultSetFormatter.outputAsTSV(outputStream, resultSet);
+            else if ("csv".equals(ext))
+                ResultSetFormatter.outputAsCSV(outputStream, resultSet);
+            else if ("xml".equals(ext))
+                ResultSetFormatter.outputAsXML(outputStream, resultSet);
+            else if ("json".equals(ext))
+                ResultSetFormatter.outputAsJSON(outputStream, resultSet);
+            else if ("txt".equals(ext))
+                outputAsText(resultSet, outputStream, model);
+            else if (ext.matches("html?"))
+                outputAsHtml(resultSet, outputStream, xsl);
+            else
+                throw new IllegalArgumentException("output extension not supported: " + outputFile);
         }
         finally
         {
-            inputStream.close();
+            outputStream.close();
         }
-        final String q = new String(bytes);
+    }
+
+    private static ResultSet executeQuery(final Model model, final String queryStr)
+    {
         final QuerySolutionMap qsm = new QuerySolutionMap();
-        return QueryExecutionFactory.create(q, querySyntax, model, qsm).execSelect();
+        final QueryExecution queryExecution = QueryExecutionFactory.create(queryStr, Syntax.syntaxARQ, model, qsm);
+        return queryExecution.execSelect();
+    }
+
+    private static void outputAsHtml(final ResultSet resultSet, final OutputStream outputStream, final File xsl) //
+            throws TransformerException, TransformerFactoryConfigurationError, IOException
+    {
+        final ByteArrayOutputStream xml = new ByteArrayOutputStream();
+        ResultSetFormatter.outputAsXML(xml, resultSet);
+        final StreamSource xmlStreamSource = new StreamSource(new ByteArrayInputStream(xml.toByteArray()));
+        readXsl(xsl).transform(xmlStreamSource, new StreamResult(outputStream));
+    }
+
+    private static void outputAsText(final ResultSet resultSet, final OutputStream outputStream, final Model model) //
+            throws IOException
+    {
+        final Prologue prologue = new Prologue(PrefixMapping.Factory.create().setNsPrefixes(model.getNsPrefixMap()));
+        outputStream.write(ResultSetFormatter.asText(resultSet, prologue).getBytes());
+    }
+
+    private static Transformer readXsl(final File file) //
+            throws TransformerConfigurationException, TransformerFactoryConfigurationError, IOException
+    {
+        final StreamSource ss;
+        if (file == null)
+            ss = new StreamSource(file);
+        else
+            ss = new StreamSource(new URL(DEFAULT_XSL).openStream());
+        return TransformerFactory.newInstance().newTransformer(ss);
     }
 }

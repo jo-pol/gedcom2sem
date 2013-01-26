@@ -270,10 +270,10 @@ of maps.google.com<y:LabelModel>
           <y:Geometry height="76.0" width="105.0" x="590.0" y="683.0435791015625"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="73.3310546875" x="15.83447265625" y="4.0">report.txt
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="88.1650390625" x="8.41748046875" y="4.0">report.txt
 
 txt / tsv / csv 
-xml / html
+json / xml / html
 </y:NodeLabel>
         </y:GenericNode>
       </data>
