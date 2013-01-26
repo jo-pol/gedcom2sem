@@ -15,8 +15,6 @@
 package gedcom2sem.semweb;
 
 import gedcom2sem.gedsem.Parser;
-import gedcom2sem.gedsem.UriFormats;
-import gedcom2sem.sem.Extension;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -24,7 +22,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.Properties;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.hp.hpl.jena.query.QueryExecution;
@@ -34,6 +34,7 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.util.FileUtils;
 
 public class SerialisationTest
 {
@@ -41,14 +42,22 @@ public class SerialisationTest
             "select * {?s a t:INDI}";
 
     private static final String TMP_MODEL = "target/model.ttl";
+    private static final String URI_TEMPLATES = "src/main/resources/uri.properties";
     private static final String GEDCOM = "src/test/resources/kennedy.ged";
     private static final String GEDCOM_TTL = new File("src/test/resources/kennedy.ttl").getAbsolutePath();
+    private static final Properties properties = new Properties();
+
+    @BeforeClass
+    public static void load() throws Exception
+    {
+        properties.load(new FileInputStream(URI_TEMPLATES));
+    }
 
     @Test
     public void withoutSerialisation() throws Exception
     {
         final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(GEDCOM));
-        final Model model = new Parser().parse(inputStream, new UriFormats().getURIs());
+        final Model model = new Parser().parse(inputStream, properties);
         runQuery(SIMPLE_QUERY, model);
     }
 
@@ -57,7 +66,8 @@ public class SerialisationTest
     {
         final String modelUrl = new File(GEDCOM_TTL).toURI().toURL().toString();
         final Model model = ModelFactory.createDefaultModel();
-        model.read(modelUrl, Extension.ttl.language());
+        final String lang = FileUtils.guessLang(new File(GEDCOM_TTL).toURI().toURL().toString());
+        model.read(modelUrl, lang);
         runQuery(SIMPLE_QUERY, model);
     }
 
@@ -66,7 +76,7 @@ public class SerialisationTest
     {
         final String modelUrl = new File(TMP_MODEL).toURI().toURL().toString();
         final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(GEDCOM));
-        Model model = new Parser().parse(inputStream, new UriFormats().getURIs());
+        Model model = new Parser().parse(inputStream, properties);
         model.write(new OutputStreamWriter(new FileOutputStream(TMP_MODEL), "UTF8"), "TURTLE");
         model.close();
         model = ModelFactory.createDefaultModel();

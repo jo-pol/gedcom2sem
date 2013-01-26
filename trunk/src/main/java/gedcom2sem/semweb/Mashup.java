@@ -14,17 +14,26 @@
 // @formatter:on
 package gedcom2sem.semweb;
 
-import static com.hp.hpl.jena.rdf.model.ResourceFactory.*;
+import static com.hp.hpl.jena.rdf.model.ResourceFactory.createResource;
 
-import gedcom2sem.sem.Extension;
-
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.apache.log4j.Logger;
 
-import com.hp.hpl.jena.rdf.model.*;
-import com.hp.hpl.jena.vocabulary.*;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.util.FileUtils;
+import com.hp.hpl.jena.vocabulary.RDFS;
 
 /**
  * Manager of data from the semantic web related to place name literals.
@@ -68,7 +77,7 @@ public class Mashup
         this.file = file;
         this.idPrefix = idPrefix;
 
-        rdfLanguage = Extension.valueOf(file).language();
+        rdfLanguage = FileUtils.guessLang(file.toURI().toURL().toString());
         model = ModelFactory.createDefaultModel();
         if (file.exists())
             model.read(new FileInputStream(file), (String) null, rdfLanguage);

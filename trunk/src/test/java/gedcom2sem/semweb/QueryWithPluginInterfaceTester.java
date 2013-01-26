@@ -15,7 +15,6 @@
 package gedcom2sem.semweb;
 
 import gedcom2sem.gedsem.Parser;
-import gedcom2sem.gedsem.UriFormats;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -24,8 +23,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Properties;
 
 import org.gedcom4j.parser.GedcomParserException;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.hp.hpl.jena.query.QueryExecution;
@@ -38,10 +39,18 @@ import com.hp.hpl.jena.rdf.model.Model;
 public class QueryWithPluginInterfaceTester extends AbstractQueryTest
 // name does neither start nor end with test so maven can build a jar if web-resources don't cooperate
 {
+    private static final String URI_TEMPLATES = "src/main/resources/uri.properties";
+    private static final Properties properties = new Properties();
 
-    public QueryWithPluginInterfaceTester(final Boolean mashup, final Integer expectedNrOfLines, final String queryFileName)
+    @BeforeClass
+    public static void load() throws Exception
     {
-        super(mashup, expectedNrOfLines, queryFileName);
+        properties.load(new FileInputStream(URI_TEMPLATES));
+    }
+
+    public QueryWithPluginInterfaceTester(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
+    {
+        super(mashup, expectedNrOfLines, endPointID, queryFileName);
     }
 
     @Test
@@ -61,7 +70,7 @@ public class QueryWithPluginInterfaceTester extends AbstractQueryTest
     private Model createModel() throws FileNotFoundException, IOException, GedcomParserException
     {
         final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(GEDCOM));
-        final Model model = new Parser().parse(inputStream, new UriFormats().getURIs());
+        final Model model = new Parser().parse(inputStream, properties);
         if (mashup)
             model.read(new File("src/test/resources/mashup.ttl").toURI().toURL().toString(),null, "TURTLE");
         return model;

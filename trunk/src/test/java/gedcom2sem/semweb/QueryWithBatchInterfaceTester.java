@@ -17,12 +17,12 @@ package gedcom2sem.semweb;
 import org.junit.Test;
 
 public class QueryWithBatchInterfaceTester extends AbstractQueryTest
-//name does neither start nor end with test so maven can build a jar if web-resources don't cooperate
+// name does neither start nor end with test so maven can build a jar if web-resources don't cooperate
 {
 
-    public QueryWithBatchInterfaceTester(final Boolean mashup, final Integer expectedNrOfLines, final String queryFileName)
+    public QueryWithBatchInterfaceTester(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
     {
-        super(mashup, expectedNrOfLines, queryFileName);
+        super(mashup, expectedNrOfLines, endPointID, queryFileName);
     }
 
     @Test

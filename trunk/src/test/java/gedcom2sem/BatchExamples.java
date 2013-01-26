@@ -15,13 +15,9 @@
 package gedcom2sem;
 
 import gedcom2sem.gedsem.Convert;
-import gedcom2sem.gedsem.UriFormats;
-import gedcom2sem.semweb.Mashup;
 import gedcom2sem.semweb.KmlGenerator;
+import gedcom2sem.semweb.Mashup;
 import gedcom2sem.semweb.Select;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -32,16 +28,13 @@ public class BatchExamples
     private static final String MAIN = "src/main/resources/";
     private static final String QUERY_DIR = "src/main/resources/reports/";
     private static final String RULES = "src/main/resources/rules/SlowRules.txt";
-    private PrintStream savedOut;
 
     @Ignore
     // Mashup takes too long to run on a regular basis
     @Test
     public void all() throws Exception
     {
-        redirectOut("target/kennedy.ttl");
-        Convert.main("-rules", RULES, "-uri", UriFormats.DEFAULT_URI, "-gedcom", TEST + "kennedy.ged");
-        restoreOut();
+        Convert.main(RULES, MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedy.ttl");
 
         Select.main("target/kennedy.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
 
@@ -56,9 +49,7 @@ public class BatchExamples
     @Test
     public void convert() throws Exception
     {
-        redirectOut("target/kennedy.ttl");
-        Convert.main("-rules", RULES, "-gedcom", TEST + "kennedy.ged");
-        restoreOut();
+        Convert.main(RULES, MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedy.ttl");
     }
 
     @Test
@@ -71,16 +62,5 @@ public class BatchExamples
     public void migrations() throws Exception
     {
         KmlGenerator.main(MAIN + "kml.properties", TEST + "kennedy.ttl", TEST + "mashup.ttl", QUERY_DIR + "mashup/places.arq", "target/places.kml");
-    }
-
-    private void redirectOut(final String filename) throws FileNotFoundException
-    {
-        savedOut = System.out;
-        System.setOut(new PrintStream(new FileOutputStream(filename)));
-    }
-
-    private void restoreOut()
-    {
-        System.setOut(savedOut);
     }
 }

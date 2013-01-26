@@ -14,21 +14,37 @@
 // @formatter:on
 package gedcom2sem.semweb;
 
-import gedcom2sem.sem.Extension;
-
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.xml.transform.*;
-import javax.xml.transform.stream.*;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
-import com.hp.hpl.jena.query.*;
-import com.hp.hpl.jena.rdf.model.*;
+import com.hp.hpl.jena.query.QueryExecutionFactory;
+import com.hp.hpl.jena.query.QuerySolutionMap;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.query.ResultSetFormatter;
+import com.hp.hpl.jena.query.Syntax;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.shared.PrefixMapping;
 import com.hp.hpl.jena.sparql.core.Prologue;
+import com.hp.hpl.jena.util.FileUtils;
 
 public class Select
 {
@@ -38,8 +54,8 @@ public class Select
     static
     {
         inputFormats = new HashSet<String>();
-        for (final Extension ext : Extension.values())
-            inputFormats.add(ext.name());
+        for (final String ext : new String[] {"n3","nt","ttl","rdf"})
+            inputFormats.add(ext);
     }
     private final Model model = ModelFactory.createDefaultModel();
     private File outputFile = null;
@@ -114,7 +130,7 @@ public class Select
             final String ext = file.getName().replaceAll(".*[.]", "").toLowerCase();
             if (inputFormats.contains(ext))
             {
-                final String language = Extension.valueOf(file).language();
+                final String language = FileUtils.guessLang(file.toURI().toURL().toString());
                 model.read(new FileInputStream(file), (String) null, language);
             }
             else if ("xsl".equals(ext))

@@ -14,8 +14,6 @@
 // @formatter:on
 package gedcom2sem.semweb;
 
-import gedcom2sem.sem.Extension;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,6 +40,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.util.FileUtils;
 
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
@@ -217,6 +216,9 @@ public class KmlGenerator
         String query = null;
         File kmlFile = null;
         BufferedReader report = null;
+
+        if (files == null)
+            throw new IllegalArgumentException("no files at all");
         for (final String file : files)
         {
             final String extension = file.replaceAll(".*[.]", "").toLowerCase();
@@ -229,21 +231,24 @@ public class KmlGenerator
             else if ("arq".equals(extension))
                 query = readFile(new File(file));
             else
-                model.read(new FileInputStream(file), (String) null, Extension.valueOf(extension).language());
+                model.read(new FileInputStream(file), (String) null, FileUtils.guessLang(new File(file).toURI().toURL().toString()));
         }
-        if (kmlFile == null || properties == null)
-            showUsage();
-        else if (report == null && (model.size() == 0 || query == null))
-            showUsage();
+        if (kmlFile == null)
+            throw new IllegalArgumentException("missing output (.kml)");
+        if (properties == null)
+            throw new IllegalArgumentException("missing formatting (.properties)");
+        final KmlGenerator kmlGenerator;
+        if (report != null)
+            kmlGenerator = new KmlGenerator(report, properties);
         else
         {
-            final KmlGenerator kmlGenerator;
-            if (report == null)
-                kmlGenerator = new KmlGenerator(report, properties);
-            else
-                kmlGenerator = new KmlGenerator(report, properties);
-            createKml(kmlGenerator, properties, kmlFile);
+            if (model.size() == 0)
+                throw new IllegalArgumentException("no data (no or all empty .ttl, nt, .n3, .rdf)");
+            if (query == null || query.trim().length()==0)
+                throw new IllegalArgumentException("no or empty query (.arq)");
+            kmlGenerator = new KmlGenerator(model, properties,query);
         }
+        createKml(kmlGenerator, properties, kmlFile);
     }
 
     private static String readFile(final File file) throws FileNotFoundException, IOException
@@ -268,11 +273,5 @@ public class KmlGenerator
         kmlGenerator.buildProbandParentsMarker(rootFolder.createAndAddFolder());
         kmlGenerator.buildMigrationLines(rootFolder.createAndAddFolder());
         kml.marshal(kmlFile);
-    }
-
-    private static void showUsage()
-    {
-        System.err.println();
-        System.err.println("expected filenames in random order: .properties .kml [ .tsv | .arq [ .ttl, .nt, .n3, .rdf ]+ ]");
     }
 }

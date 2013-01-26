@@ -17,6 +17,7 @@ package gedcom2sem.gedsem;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -44,13 +45,13 @@ class SemanticGedcomModel
 
     private final Map<String, Property> properties = new HashMap<String, Property>();
     private final Map<String, Resource> types = new HashMap<String, Resource>();
-    private final Map<String, String> uriFormats;
+    private final Properties uriFormats;
 
     /**
      * @param uriFormats
      *        pairs of entity tags and URIs (preferably URLs)
      */
-    public SemanticGedcomModel(final Map<String, String> uriFormats)
+    public SemanticGedcomModel(final Properties uriFormats)
     {
         this.uriFormats = uriFormats;
 
@@ -81,8 +82,10 @@ class SemanticGedcomModel
 
     private String toUri(final String id, final String tag)
     {
-        String format = uriFormats.get(tag);
-        return MessageFormat.format(format==null?UriFormats.DEFAULT_URI:format, id==null?tag:id.replaceAll("@", ""));
+        String format = (String) uriFormats.get(tag);
+        if (format == null)
+            throw new NullPointerException("no URI template found for "+tag);
+        return MessageFormat.format(format, id == null ? tag : id.replaceAll("@", ""));
     }
 
     public Resource addProperty(final Resource resource, final String tag, final String value)
