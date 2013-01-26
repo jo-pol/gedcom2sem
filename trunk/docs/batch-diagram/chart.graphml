@@ -221,7 +221,7 @@ custom queries<y:LabelModel>
     <node id="n14">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.cloud">
-          <y:Geometry height="100.0" width="125.0" x="522.0" y="306.0"/>
+          <y:Geometry height="100.0" width="125.0" x="492.0" y="306.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.5546875" modelName="custom" textColor="#000000" visible="true" width="66.2265625" x="29.38671875" y="36.22265625">add missing
@@ -281,7 +281,7 @@ json / xml / html
     <node id="n18">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="45.5" width="100.63043212890625" x="632.1304321289062" y="406.0"/>
+          <y:Geometry height="45.5" width="100.63043212890625" x="632.1304321289062" y="428.5"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="59.68359375" x="4.0" y="4.0">xxx.xsl</y:NodeLabel>
@@ -291,7 +291,7 @@ json / xml / html
     <node id="n19">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="45.5" width="100.63043212890625" x="661.5" y="440.5"/>
+          <y:Geometry height="45.5" width="100.63043212890625" x="661.5" y="463.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="61.470703125" x="4.0" y="4.0">xxx.arq</y:NodeLabel>
@@ -301,7 +301,7 @@ json / xml / html
     <node id="n20">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="46.0" width="100.63043212890625" x="661.5" y="512.6999206542969"/>
+          <y:Geometry height="46.0" width="100.63043212890625" x="661.5" y="535.1999206542969"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="73.5703125" x="4.0" y="4.0">places.arq</y:NodeLabel>
@@ -311,7 +311,7 @@ json / xml / html
     <node id="n21">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="46.0" width="100.63043212890625" x="686.5" y="541.9826049804688"/>
+          <y:Geometry height="46.0" width="100.63043212890625" x="686.5" y="564.4826049804688"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="95.0205078125" x="4.0" y="4.0">kml.properties</y:NodeLabel>
@@ -325,6 +325,16 @@ json / xml / html
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="90.1376953125" x="4.0" y="4.0">uri.properties</y:NodeLabel>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n23">
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.flowchart.process">
+          <y:Geometry height="64.0" width="119.0" x="630.2608642578125" y="324.0"/>
+          <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="115.611328125" x="4.0" y="4.0">mashup.properties</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -428,11 +438,11 @@ json / xml / html
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="-50.3330653828162" sy="12.530168947685814" tx="38.36030280449328" ty="-8.67359801267522">
-            <y:Point x="601.9091186523438" y="527.0634765625"/>
+            <y:Point x="603.756103515625" y="538.3134765625"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:Arc height="-12.734854698181152" ratio="-0.32835453748703003" type="fixedRatio"/>
+          <y:Arc height="-11.380976676940918" ratio="-0.32835453748703003" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
@@ -511,11 +521,11 @@ json / xml / html
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="76.4119715138869" ty="-17.459797565623035">
-            <y:Point x="665.71826171875" y="570.1746826171875"/>
+            <y:Point x="667.5439453125" y="581.4246826171875"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:Arc height="-11.419140815734863" ratio="-0.3245655596256256" type="fixedRatio"/>
+          <y:Arc height="-11.138711929321289" ratio="-0.3245655596256256" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
@@ -607,11 +617,11 @@ json / xml / html
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="76.94733736197804" ty="-17.023990242701075">
-            <y:Point x="650.6845092773438" y="557.126220703125"/>
+            <y:Point x="652.6510009765625" y="568.376220703125"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:Arc height="-11.153806686401367" ratio="-0.3495978116989136" type="fixedRatio"/>
+          <y:Arc height="-10.336958885192871" ratio="-0.3495978116989136" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
@@ -667,11 +677,11 @@ json / xml / html
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="-33.445648193359375" sy="0.75" tx="35.90239065865178" ty="-3.2557669800197355">
-            <y:Point x="594.684814453125" y="509.812744140625"/>
+            <y:Point x="595.9397583007812" y="521.062744140625"/>
           </y:Path>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:Arc height="-10.748661994934082" ratio="-0.22309993207454681" type="fixedRatio"/>
+          <y:Arc height="-9.65524673461914" ratio="-0.22309993207454681" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>
@@ -696,6 +706,18 @@ json / xml / html
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:Arc height="-31.030054092407227" ratio="-0.5984684824943542" type="fixedRatio"/>
+        </y:ArcEdge>
+      </data>
+    </edge>
+    <edge id="e31" source="n23" target="n8">
+      <data key="d10">
+        <y:ArcEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="617.4541015625" y="420.9950866699219"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:Arc height="22.736663818359375" ratio="0.48105332255363464" type="fixedRatio"/>
         </y:ArcEdge>
       </data>
     </edge>

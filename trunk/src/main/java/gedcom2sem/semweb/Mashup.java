@@ -27,6 +27,8 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.MessageFormat;
+import java.util.PropertyResourceBundle;
 
 import org.apache.log4j.Logger;
 
@@ -53,14 +55,14 @@ public class Mashup
     private final Model model;
 
     /** links the literal value with the downloaded resources */
-    private final URI idPrefix;
+    private final String uriTemplate;
 
     private long flushCount;
 
     /**
      * Creates an object to download and link data from the semantic web for place name literals.
      * 
-     * @param idPrefix
+     * @param uriTemplate
      *        used to construct new URIs.
      * @param file
      *        a file with one of the extension rdf/n3/ttl. External changes to the file between and
@@ -72,10 +74,10 @@ public class Mashup
      *        just fetch the English resources.
      * @throws IOException
      */
-    public Mashup(final URI idPrefix, final File file, final String languages) throws IOException
+    public Mashup(final String uriTemplate, final File file, final String languages) throws IOException
     {
         this.file = file;
-        this.idPrefix = idPrefix;
+        this.uriTemplate = uriTemplate;
 
         rdfLanguage = FileUtil.guessLanguage(file);
         model = ModelFactory.createDefaultModel();
@@ -119,7 +121,7 @@ public class Mashup
         flush(false);
         logger.info(place);
         final String geoNameUri = "http://sws.geonames.org/" + geoNameId + "/";
-        final Resource subject = createResource(idPrefix + geoNameId);
+        final Resource subject = createResource(MessageFormat.format(uriTemplate, geoNameId));
         model.add(subject, RDFS.label, place);
         for (final String gnUri : downloadManager.downloadGeoNames(geoNameUri))
         {
@@ -133,7 +135,7 @@ public class Mashup
         }
     }
 
-    private void flush(final boolean force) throws FileNotFoundException
+    public void flush(final boolean force) throws FileNotFoundException
     {
         if (force || flushCount < model.size())
         {
@@ -142,48 +144,68 @@ public class Mashup
         }
     }
 
-    public static void main(final String... args)
+    public static void main(final String... fileNames) throws IOException, URISyntaxException
     {
-        if (args.length < 3)
-        {
-            System.err.println("");
-            System.err.println("mandatory arguments: input file , URI, output file");
-            System.err.println("optional 4th argument: dbpedia languages, for example 'de' or 'de|fr'");
-            System.err.println("output file extensions: ttl/n3/nt/rdf");
-            System.err.println("per inputline: GeoNameID, tab, place name");
-            return;
-        }
-        logger.info("started");
-        try
-        {
-            final File inputFile = new File(args[0]);
-            final URI uri = new URI(args[1]);
-            final File outputFile = new File(args[2]);
-            final String dbpediaLanguages = (args.length > 3 ? args[3] : "");
+        File inputFile = null;
+        String uri = null;
+        File outputFile = null;
+        String dbpediaLanguages = null;
 
-            final Mashup mashup = new Mashup(uri, outputFile, dbpediaLanguages);
-            final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile)));
-            for (String line; (line = reader.readLine()) != null;)
+        for (final String fileName : fileNames)
+        {
+            if (fileName.toLowerCase().endsWith(".tsv"))
             {
-                final String[] fields = line.split("\t");
-                if (fields.length > 1)
-                {
-                    final String geoNameId = fields[0].replaceAll("[^0-9]*", "");
-                    final String placeLiteral = fields[1].replaceFirst("^\"", "").replaceAll("\"$", "").trim();
-
-                    if (geoNameId.length() > 0 && placeLiteral.length() > 0)
-                        mashup.addPlaceResources(placeLiteral, geoNameId);
-                }
+                inputFile = new File(fileName);
             }
-            reader.close();
-            mashup.flush(true);
-            mashup.downloadManager.logOverwiew();
-            logger.info(mashup.model.size() + " statements");
+            else if (fileName.toLowerCase().endsWith(".properties"))
+            {
+                final PropertyResourceBundle properties = new PropertyResourceBundle(new FileInputStream(fileName));
+                uri = properties.getString("PLACE");
+                new URI(MessageFormat.format(uri, "xyz"));// verification
+                dbpediaLanguages = properties.getString("dbPedia.languages");
+            }
+            else
+            {
+                outputFile = new File(fileName);
+                if (FileUtil.guessLanguage(outputFile) == null)
+                    throw new IllegalArgumentException("not an output file (.ttl, .n3, .nt, .rdf) " + fileName);
+            }
         }
-        catch (final Throwable e)
+        if (outputFile == null)
+            throw new IllegalArgumentException("no output file (.ttl, .n3, .nt, .rdf)");
+        if (inputFile == null)
+            throw new IllegalArgumentException("no input file (.tsv)");
+        if (uri == null)
+            throw new IllegalArgumentException("no configuration file (.properties)");
+
+        logger.info("started");
+        final Mashup mashup = new Mashup(uri, outputFile, dbpediaLanguages);
+        parse(mashup, createReader(inputFile));
+        createReader(inputFile).close();
+        mashup.flush(true);
+        mashup.downloadManager.logOverwiew();
+        logger.info(mashup.model.size() + " statements");
+    }
+
+    private static void parse(final Mashup mashup, final BufferedReader reader) throws IOException, URISyntaxException, UnsupportedEncodingException
+    {
+        for (String line; (line = reader.readLine()) != null;)
         {
-            logger.fatal(e);
+            final String[] fields = line.split("\t");
+            if (fields.length > 1)
+            {
+                final String geoNameId = fields[0].replaceAll("[^0-9]*", "");
+                final String placeLiteral = fields[1].replaceFirst("^\"", "").replaceAll("\"$", "").trim();
+
+                if (geoNameId.length() > 0 && placeLiteral.length() > 0)
+                    mashup.addPlaceResources(placeLiteral, geoNameId);
+            }
         }
-        logger.info("finished");
+    }
+
+    private static BufferedReader createReader(File inputFile) throws FileNotFoundException
+    {
+        final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile)));
+        return reader;
     }
 }
