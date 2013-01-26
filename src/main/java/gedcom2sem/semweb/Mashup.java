@@ -15,6 +15,7 @@
 package gedcom2sem.semweb;
 
 import static com.hp.hpl.jena.rdf.model.ResourceFactory.createResource;
+import gedcom2sem.io.FileUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,7 +33,6 @@ import org.apache.log4j.Logger;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.util.FileUtils;
 import com.hp.hpl.jena.vocabulary.RDFS;
 
 /**
@@ -77,7 +77,7 @@ public class Mashup
         this.file = file;
         this.idPrefix = idPrefix;
 
-        rdfLanguage = FileUtils.guessLang(file.toURI().toURL().toString());
+        rdfLanguage = FileUtil.guessLanguage(file);
         model = ModelFactory.createDefaultModel();
         if (file.exists())
             model.read(new FileInputStream(file), (String) null, rdfLanguage);

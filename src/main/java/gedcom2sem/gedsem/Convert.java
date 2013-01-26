@@ -14,10 +14,11 @@
 // @formatter:on
 package gedcom2sem.gedsem;
 
+import gedcom2sem.io.FileUtil;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Properties;
 
@@ -26,7 +27,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.reasoner.rulesys.GenericRuleReasoner;
 import com.hp.hpl.jena.reasoner.rulesys.Rule;
-import com.hp.hpl.jena.util.FileUtils;
 import com.hp.hpl.jena.util.PrintUtil;
 
 public class Convert
@@ -38,7 +38,7 @@ public class Convert
         PrintStream output = null;
         String language = null;
         String rules = null;
-        
+
         if (files == null)
             throw new IllegalArgumentException("no files at all");
         for (final String file : files)
@@ -47,12 +47,12 @@ public class Convert
             if ("properties".equals(extension))
                 uriFormats.load(new FileInputStream(file));
             else if ("txt".equals(extension))
-                rules = read(new File(file));
+                rules = FileUtil.read(new File(file));
             else if ("ged".equals(extension))
                 gedcomInputStream = new BufferedInputStream(new FileInputStream(file));
             else
             {
-                language = FileUtils.guessLang(new File(file).toURI().toURL().toString());
+                language = FileUtil.guessLanguage(new File(file));
                 output = new PrintStream(file);
             }
         }
@@ -60,9 +60,13 @@ public class Convert
             throw new IllegalArgumentException("no .ged");
         if (uriFormats.size() == 0)
             throw new IllegalArgumentException("no or empty .properties");
+        if (output == null)
+            throw new IllegalArgumentException("no output (.ttl, .n3, .nt, .rdf)");
+
+        // execute
         
         final Model model = new Parser().parse(gedcomInputStream, uriFormats);
-        model.write(output, language);
+        model.write(output, language); // flush in case rules take too long or too much heap space
         if (rules != null)
             applyRules(rules, model).write(output, language);
     }
@@ -71,9 +75,7 @@ public class Convert
     {
         System.err.println("applying rules");
         for (final String key : SemanticGedcomModel.PREFIXES.keySet())
-        {
             PrintUtil.registerPrefix(key, SemanticGedcomModel.PREFIXES.get(key));
-        }
         final GenericRuleReasoner reasoner = new GenericRuleReasoner(Rule.parseRules(rules));
         reasoner.setMode(GenericRuleReasoner.HYBRID);
 
@@ -81,20 +83,5 @@ public class Convert
         infModel.prepare();
         System.err.println("rules done");
         return infModel;
-    }
-
-    private static String read(final File file) throws IOException
-    {
-        final byte[] bytes = new byte[(int) file.length()];
-        final FileInputStream inputStream = new FileInputStream(file);
-        try
-        {
-            inputStream.read(bytes);
-        }
-        finally
-        {
-            inputStream.close();
-        }
-        return new String(bytes);
     }
 }
