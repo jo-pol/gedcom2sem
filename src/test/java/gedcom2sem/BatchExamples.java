@@ -28,28 +28,25 @@ public class BatchExamples
     private static final String MAIN = "src/main/resources/";
     private static final String QUERY_DIR = "src/main/resources/reports/";
     private static final String RULES = "src/main/resources/rules/SlowRules.txt";
-
-    @Ignore
-    // Mashup takes too long to run on a regular basis
-    @Test
-    public void all() throws Exception
-    {
-        Convert.main(RULES, MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedy.ttl");
-
-        Select.main("target/kennedy.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
-
-        // consider MASHUP_TSV changed manually into KENNEDY_TSV (geo name IDs added)
-        Mashup.main(TEST + "kennedy.tsv", "http://my.domain.com/places#", "target/mashup.ttl", "de|fr");
-
-        Select.main("target/kennedy.ttl", "target/mashup.ttl", "target/places.tsv", QUERY_DIR + "classmates.arq");
-
-        KmlGenerator.main(MAIN + "kml.properties", "target/kennedy.ttl", "target/mashup.ttl", QUERY_DIR + "mashup/places.arq", "target/places.kml");
-    }
-
+    
     @Test
     public void convert() throws Exception
     {
         Convert.main(RULES, MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedy.ttl");
+    }
+
+    @Test
+    public void prepareMashup() throws Exception
+    {
+        Select.main("target/kennedy.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
+    }
+
+    @Ignore
+    // takes too long to run on a regular basis
+    @Test
+    public void mashup() throws Exception
+    {
+        Mashup.main(TEST + "kennedy.tsv", MAIN + "mashup.properties", "target/kennedyMashup.ttl");
     }
 
     @Test
