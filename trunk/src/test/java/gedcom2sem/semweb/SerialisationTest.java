@@ -15,6 +15,7 @@
 package gedcom2sem.semweb;
 
 import gedcom2sem.gedsem.Parser;
+import gedcom2sem.io.FileUtil;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -34,7 +35,6 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.FileUtils;
 
 public class SerialisationTest
 {
@@ -66,7 +66,7 @@ public class SerialisationTest
     {
         final String modelUrl = new File(GEDCOM_TTL).toURI().toURL().toString();
         final Model model = ModelFactory.createDefaultModel();
-        final String lang = FileUtils.guessLang(new File(GEDCOM_TTL).toURI().toURL().toString());
+        final String lang = FileUtil.guessLanguage(new File(GEDCOM_TTL));
         model.read(modelUrl, lang);
         runQuery(SIMPLE_QUERY, model);
     }

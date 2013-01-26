@@ -15,6 +15,7 @@
 package gedcom2sem.semweb;
 
 import gedcom2sem.gedsem.Parser;
+import gedcom2sem.io.FileUtil;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -57,7 +58,7 @@ public class QueryWithPluginInterfaceTester extends AbstractQueryTest
     public void run() throws Exception
     {
         final Model model = createModel();
-        final String queryStr = readFile(queryFileName);
+        final String queryStr = FileUtil.read(new File(queryFileName));
         final QueryExecution queryExecution = executeQuery(model, queryStr);
         formatQueryOutput(queryExecution);
     }
@@ -81,14 +82,5 @@ public class QueryWithPluginInterfaceTester extends AbstractQueryTest
         final OutputStream outputStream = new FileOutputStream(REPORT_TXT);
         outputStream.write(ResultSetFormatter.asText(queryExecution.execSelect()).getBytes());
         outputStream.close();
-    }
-
-    private String readFile(final String filePath) throws Exception
-    {
-        final FileInputStream input = new FileInputStream(filePath);
-        final byte[] fileData = new byte[input.available()];
-        input.read(fileData);
-        input.close();
-        return new String(fileData, "UTF-8");
     }
 }

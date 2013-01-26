@@ -14,6 +14,8 @@
 // @formatter:on
 package gedcom2sem.semweb;
 
+import gedcom2sem.io.FileUtil;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,7 +46,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.shared.PrefixMapping;
 import com.hp.hpl.jena.sparql.core.Prologue;
-import com.hp.hpl.jena.util.FileUtils;
 
 public class Select
 {
@@ -130,7 +131,7 @@ public class Select
             final String ext = file.getName().replaceAll(".*[.]", "").toLowerCase();
             if (inputFormats.contains(ext))
             {
-                final String language = FileUtils.guessLang(file.toURI().toURL().toString());
+                final String language = FileUtil.guessLanguage(file);
                 model.read(new FileInputStream(file), (String) null, language);
             }
             else if ("xsl".equals(ext))

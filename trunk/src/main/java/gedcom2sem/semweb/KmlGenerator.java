@@ -14,12 +14,13 @@
 // @formatter:on
 package gedcom2sem.semweb;
 
+import gedcom2sem.io.FileUtil;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.text.MessageFormat;
@@ -40,7 +41,6 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.FileUtils;
 
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
@@ -229,9 +229,9 @@ public class KmlGenerator
             else if ("properties".equals(extension))
                 properties = new PropertyResourceBundle(new FileInputStream(file));
             else if ("arq".equals(extension))
-                query = readFile(new File(file));
+                query = FileUtil.read(new File(file));
             else
-                model.read(new FileInputStream(file), (String) null, FileUtils.guessLang(new File(file).toURI().toURL().toString()));
+                model.read(new FileInputStream(file), (String) null, FileUtil.guessLanguage(new File(file)));
         }
         if (kmlFile == null)
             throw new IllegalArgumentException("missing output (.kml)");
@@ -249,21 +249,6 @@ public class KmlGenerator
             kmlGenerator = new KmlGenerator(model, properties,query);
         }
         createKml(kmlGenerator, properties, kmlFile);
-    }
-
-    private static String readFile(final File file) throws FileNotFoundException, IOException
-    {
-        final byte[] bytes = new byte[(int) file.length()];
-        final InputStream inputStream = new FileInputStream(file);
-        try
-        {
-            inputStream.read(bytes);
-        }
-        finally
-        {
-            inputStream.close();
-        }
-        return new String(bytes, "UTF8");
     }
 
     private static void createKml(KmlGenerator kmlGenerator, final ResourceBundle properties, final File kmlFile) throws IOException, FileNotFoundException
