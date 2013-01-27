@@ -60,4 +60,11 @@ public class BatchExamples
     {
         KmlGenerator.main(MAIN + "kml.properties", TEST + "kennedy.ttl", TEST + "mashup.ttl", QUERY_DIR + "mashup/places.arq", "target/places.kml");
     }
+    
+    @Test
+    public void migrationsInTwoSteps() throws Exception
+    {
+        Select.main("target/kennedy.ttl", "target/places.tsv", QUERY_DIR + "mashup/places.arq");
+        KmlGenerator.main(MAIN + "kml.properties", "target/places.tsv", "target/places.kml");
+    }
 }

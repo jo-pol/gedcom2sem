@@ -42,6 +42,7 @@ import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
+import de.micromata.opengis.kml.v_2_2_0.Document;
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.KmlFactory;
@@ -132,6 +133,16 @@ public class KmlGenerator
         }
     }
 
+    public void create(final File kmlFile) throws IOException, FileNotFoundException
+    {
+        final Kml kml = KmlFactory.createKml();
+        final Document document = kml.createAndSetDocument();
+        addLineStyles(document);
+        buildProbandParentsMarker(document.createAndAddFolder());
+        buildMigrationLines(document.createAndAddFolder());
+        kml.marshal(kmlFile);
+    }
+
     /**
      * Creates lines from the proband to places of its ancestors.
      * 
@@ -140,7 +151,7 @@ public class KmlGenerator
      * @throws MissingResourceException
      *         when a property is missing in the resource specified at construction time
      */
-    public void buildMigrationLines(final Folder folder) throws MissingResourceException
+    private void buildMigrationLines(final Folder folder) throws MissingResourceException
     {
         folder.withName(format("migration.folder.text", leaves.size() + ""));
         for (final String brancheId : leaves.keySet())
@@ -158,6 +169,7 @@ public class KmlGenerator
             final String snippetValue = format("migration.folder.item.text", all.get(brancheId).formatArgs);
             placeMark.withDescription(format("migration.popup.html", description.toString()));
             placeMark.withSnippet(new Snippet().withValue(snippetValue));
+            placeMark.withStyleUrl("#" + brancheId.substring(1, 5));
 
             final LineString lineString = placeMark.createAndSetLineString();
             for (int l = 2; l <= brancheId.length(); l++)
@@ -181,7 +193,7 @@ public class KmlGenerator
      * @throws MissingResourceException
      *         when a property is missing in the resource specified at construction time
      */
-    public void buildProbandParentsMarker(final Folder folder) throws MissingResourceException
+    private void buildProbandParentsMarker(final Folder folder) throws MissingResourceException
     {
         final Placemark placemark = folder.createAndAddPlacemark();
         final float latitude = all.get("10").latitude;
@@ -194,6 +206,20 @@ public class KmlGenerator
         placemark.withDescription(format("proband.popup.html", description.toString()));
         placemark.withSnippet(new Snippet().withValue(format("proband.marker.text", all.get("1").formatArgs)));
         folder.withName(format("proband.folder.name", all.get("1").formatArgs));
+    }
+
+    private void addLineStyles(final Document document)
+    {
+        final double width = Double.parseDouble(properties.getString("line.style.width"));
+        for (final String key : properties.keySet())
+        {
+            if (key.startsWith("line.style.color."))
+            {
+                final String id = key.split("\\.", 4)[3];
+                final String value = properties.getString(key);
+                document.createAndAddStyle().withId(id).createAndSetLineStyle().withColor(value).withWidth(width);
+            }
+        }
     }
 
     private String createBrancheName(final String brancheId) throws MissingResourceException
@@ -244,19 +270,10 @@ public class KmlGenerator
         {
             if (model.size() == 0)
                 throw new IllegalArgumentException("no data (no or all empty .ttl, nt, .n3, .rdf)");
-            if (query == null || query.trim().length()==0)
+            if (query == null || query.trim().length() == 0)
                 throw new IllegalArgumentException("no or empty query (.arq)");
-            kmlGenerator = new KmlGenerator(model, properties,query);
+            kmlGenerator = new KmlGenerator(model, properties, query);
         }
-        createKml(kmlGenerator, properties, kmlFile);
-    }
-
-    private static void createKml(KmlGenerator kmlGenerator, final ResourceBundle properties, final File kmlFile) throws IOException, FileNotFoundException
-    {
-        final Kml kml = KmlFactory.createKml();
-        final Folder rootFolder = kml.createAndSetFolder().withOpen(true);
-        kmlGenerator.buildProbandParentsMarker(rootFolder.createAndAddFolder());
-        kmlGenerator.buildMigrationLines(rootFolder.createAndAddFolder());
-        kml.marshal(kmlFile);
+        kmlGenerator.create(kmlFile);
     }
 }
