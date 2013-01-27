@@ -34,6 +34,18 @@ public class ConvertTest
     @Test(expected = IllegalArgumentException.class)
     public void wrongOption() throws Exception
     {
-        Convert.main(new String[] {"-"});
+        Convert.main(new String[] {"/"});
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void noGedcom() throws Exception
+    {
+        Convert.main(new String[] {"target/out.ttl"});
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void noProperties() throws Exception
+    {
+        Convert.main(new String[] {"target/out.ttl", "src/test/resources/kennedy.ged"});
     }
 }
