@@ -17,7 +17,9 @@ package gedcom2sem.gedsem;
 import genj.gedcom.time.PointInTime;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
@@ -65,14 +67,14 @@ public class Parser
     {
         if (properties == null || properties.size() == 0)
             return;
-        for (final StringTree property : concatCONT(properties))
+        for (final StringTree property : properties)
         {
             if (referencesAnotherNode(property))
             {
                 for (final String value : property.value.split(" "))
                     gedcomModel.addConnection(resource, value, property.tag, tagsOfIds.get(value));
             }
-            else
+            else if (!"CONT".equals(property.tag))
             {
                 final Resource propertyResource;
                 if ("NAME".equals(property.tag))
@@ -88,31 +90,26 @@ public class Parser
                     else
                         propertyResource = simpleFullDate;
                 }
-                else
-                    propertyResource = gedcomModel.addProperty(resource, property.tag, property.value);
+                else 
+                    propertyResource = gedcomModel.addProperty(resource, property.tag, concatValues(property));
                 loadProperties(propertyResource, property.children);
             }
         }
     }
 
-    private List<StringTree> concatCONT(final List<StringTree> properties)
+    private String concatValues(final StringTree property)
     {
-        final List<StringTree> result = new ArrayList<StringTree>();
-        StringTree last = null;
-        for (final StringTree property : properties)
+        if (!"CONT".equals(property.children.get(0).tag))
+            return property.value;
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        final PrintStream printStream = new PrintStream(baos);
+        printStream.println(property.value);
+        for (final StringTree child : property.children)
         {
-            if (!"CONT".equals(property.tag))
-            {
-                result.add(property);
-                last = property;
-            }
-            else if (last != null)
-            {
-                // FIXME never reached, why not?
-                last.value = last.value + "\n" + property.value;
-            }
+            if ("CONT".equals(child.tag))
+                printStream.println(child.value);
         }
-        return result;
+        return baos.toString();
     }
 
     private void loadNameComponents(final Resource resource, final String property)
