@@ -2,7 +2,7 @@
 
 Usage
 
-  * [commands Commands]
+  * [commands Command lines]
   * [GeoNameIDs]
 
 Contribute
