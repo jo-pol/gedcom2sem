@@ -18,7 +18,10 @@ public class FileUtil
 
     public static String guessLanguage(File file) throws MalformedURLException
     {
-        return FileUtils.guessLang(file.toURI().toURL().toString(), null);
+        String language = FileUtils.guessLang(file.toURI().toURL().toString(), null);
+        if (language == null || language.length() == 0)
+            throw new IllegalArgumentException("invalid extension (.ttl, .n3, .nt, .rdf) " + file);
+        return language;
     }
 
     /**

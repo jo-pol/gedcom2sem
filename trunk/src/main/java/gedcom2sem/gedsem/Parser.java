@@ -90,7 +90,7 @@ public class Parser
                     else
                         propertyResource = simpleFullDate;
                 }
-                else 
+                else
                     propertyResource = gedcomModel.addProperty(resource, property.tag, concatValues(property));
                 loadProperties(propertyResource, property.children);
             }
@@ -99,7 +99,7 @@ public class Parser
 
     private String concatValues(final StringTree property)
     {
-        if (!"CONT".equals(property.children.get(0).tag))
+        if (property.children.size() == 0 || !"CONT".equals(property.children.get(0).tag))
             return property.value;
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         final PrintStream printStream = new PrintStream(baos);

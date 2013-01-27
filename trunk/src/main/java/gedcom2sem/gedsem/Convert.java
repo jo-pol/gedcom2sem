@@ -64,7 +64,7 @@ public class Convert
             throw new IllegalArgumentException("no output (.ttl, .n3, .nt, .rdf)");
 
         // execute
-        
+
         final Model model = new Parser().parse(gedcomInputStream, uriFormats);
         model.write(output, language); // flush in case rules take too long or too much heap space
         if (rules != null)

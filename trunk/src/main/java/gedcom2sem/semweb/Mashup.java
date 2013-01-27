@@ -166,9 +166,8 @@ public class Mashup
             }
             else
             {
+                FileUtil.guessLanguage(outputFile);
                 outputFile = new File(fileName);
-                if (FileUtil.guessLanguage(outputFile) == null)
-                    throw new IllegalArgumentException("not an output file (.ttl, .n3, .nt, .rdf) " + fileName);
             }
         }
         if (outputFile == null)
@@ -178,13 +177,20 @@ public class Mashup
         if (uri == null)
             throw new IllegalArgumentException("no configuration file (.properties)");
 
-        logger.info("started");
         final Mashup mashup = new Mashup(uri, outputFile, dbpediaLanguages);
-        parse(mashup, createReader(inputFile));
-        createReader(inputFile).close();
+        final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile)));
+        try
+        {
+            logger.info("started");
+            parse(mashup, reader);
+        }
+        catch (final Exception e)
+        {
+            reader.close();
+        }
         mashup.flush(true);
         mashup.downloadManager.logOverwiew();
-        logger.info(mashup.model.size() + " statements");
+        logger.info(mashup.model.size() + " statements in "+outputFile);
     }
 
     private static void parse(final Mashup mashup, final BufferedReader reader) throws IOException, URISyntaxException, UnsupportedEncodingException
@@ -201,11 +207,5 @@ public class Mashup
                     mashup.addPlaceResources(placeLiteral, geoNameId);
             }
         }
-    }
-
-    private static BufferedReader createReader(File inputFile) throws FileNotFoundException
-    {
-        final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile)));
-        return reader;
     }
 }
