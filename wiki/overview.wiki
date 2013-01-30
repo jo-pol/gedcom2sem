@@ -1,12 +1,11 @@
 #sidebar TableOfContent
 =Introduction=
-The basic idea is to transform a [http://en.wikipedia.org/wiki/GEDCOM gedcom] database into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or a graph]. That allows flexible queries and reports. 
-
-The fun part is to link these triples with the [http://richard.cyganiak.de/2007/10/lod/ semantic web]. The most obvious sections are `GeoNames` for maps and `dbPedia` for an almanac.
+The basic idea is to transform a [http://en.wikipedia.org/wiki/GEDCOM gedcom] database into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or a graph]. That allows flexible queries and reports. The fun part is to link these triples with the [http://richard.cyganiak.de/2007/10/lod/ semantic web].
 
 Resources you can cross-query directly together with your own data:
   * http://www.w3.org/wiki/SparqlEndpoints
   * http://labs.mondeca.com/sparqlEndpointsStatus/
+An obvious section is `GeoNames` for maps. Both dates and links via `GeoNames` are obvious entry points to use `dbPedia` as an almanak.
 
 =Diagram=
 The diagram illustrates how the main classes of the library interact. These main classes can be executed from the command line. If you just want (customized) reports from your own data, you will only need the first two commands: `gedsem.Convert` and `semweb.Select`.
@@ -17,7 +16,7 @@ The diagram illustrates how the main classes of the library interact. These main
 <dt>ovals</dt>
 <dd>
 _commands_; 
-the two at the bottom are drawn on top of one another to prevent crossing lines, they need (almost) the same files as arguments.
+the two at the bottom are drawn on top of one another to prevent crossing lines, these commands need (almost) the same files as arguments.
 </dd>
 
 <dt>clouds</dt><dd>_manual actions_</dd>
