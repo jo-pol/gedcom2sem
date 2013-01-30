@@ -1,22 +1,20 @@
 #labels Phase-Implementation
 #sidebar TableOfContent
-The plugins in [http://genj.sourceforge.net/ GenJ] and [http://www.ancestris.org/ Ancestris] still lack acces to mashups and kml. Plugin developers could plug this library back into both and into other applications that choose so. 
+The plugins in [http://genj.sourceforge.net/ GenJ] and [http://www.ancestris.org/ Ancestris] still lack access to mash ups and kml. Plugin developers could plug this library back into both and into other applications that choose so. 
 
-The main classes are identified on the [overview] page, they are a good starting point to explore the possibillities.
+The main classes are identified on the [overview] page, they are a good starting point to explore the possibilities.
 
-=design sugestions=
+=design suggestions=
 ==options per gedcom==
-  * name andlocation of uri.properties, mashup.properties
+  * names, locations and editors for uri.properties, mashup.properties and the file(s) with rules
   * name and location of converted gedcom
-  * name and location of the file with rules (allow to save/ choose the built-in examples)
-  * name and location of collected mashup input data (perhaps the  geo-plugin of ancestris could export a replacement for the mashup.tsv)
-  * name and location of collected mashup output data file
-  * desired languages for dbpedia data (checkboxes for languages retuned by [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/reports/mashup/dbpediaLanguages.arq dbpediaLanguages.arq])
-  * checkbox: save the converted gedcom whenever the gedcom itself is saved (especially with all the rules applied it takes a while)
+  * name and location of mashup.tsv (perhaps the  geo-plugin of ancestris could export a replacement for the mashup.tsv)
+  * name and location of collected mash up data
+  * checkbox: save the converted gedcom whenever the gedcom itself is saved (especially with all the rules applied it takes a while, prevent blocking GUI processing)
 
 ==menu comands==
   * save converted gedcom. Invokes Convert
-  * collect mashup data. Invokes Mashup
+  * collect mash up data. Invokes Mashup
 
 ==report dialog==
 invoked from the general menu or the context menu of an entity. The OK button of the dialog invokes: Select
