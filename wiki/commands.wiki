@@ -1,12 +1,12 @@
 #labels Phase-Deploy
 #sidebar TableOfContent
-Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. See also this simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j] example. 
+Whether the library is or is not plugged into your favorite gedcom-application, you can allways use the library on a command line. Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. See also this simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j] example. 
 {{{
 java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
 }}}
 _Hint: on Windows you can put a desired command in a .bat file, on Mac/Unix in a .sh file for quick and easy execution._
 
-The example expects some .jar files in the current directory, more precisely the `-cp` directory. As an alternative for `-cp` you could specify a `CLASSPATH` variable. 
+The example expects some .jar files in the current directory, more precisely the `-cp` directory, a dot alias the current direcory in the example. As an alternative for `-cp` you could specify a `CLASSPATH` variable. 
 
 The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can find the jars for example with sites like jarfinder.com and findjar.com 
 
