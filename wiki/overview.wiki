@@ -1,6 +1,6 @@
 #sidebar TableOfContent
 =Introduction=
-The basic idea is to transform a [http://en.wikipedia.org/wiki/GEDCOM gedcom] database into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or a graph]. That allows flexible queries and reports. The fun part is to link these triples with the [http://richard.cyganiak.de/2007/10/lod/ semantic web].
+The basic idea of this library is to transform a [http://en.wikipedia.org/wiki/GEDCOM gedcom] database into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or a graph]. That allows flexible queries and reports. The fun part is to link these triples with the [http://richard.cyganiak.de/2007/10/lod/ semantic web].
 
 Resources you can cross-query directly together with your own data:
   * http://www.w3.org/wiki/SparqlEndpoints
