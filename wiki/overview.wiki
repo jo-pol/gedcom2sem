@@ -3,11 +3,11 @@
 The core of this library is a transformation of [http://en.wikipedia.org/wiki/GEDCOM gedcom] databases into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or statements]. That allows flexible queries and reports. Various examples show various possibilities and techniques. Customize them to your wishes.
 
 The fun part is to link the generated statements with the [http://richard.cyganiak.de/2007/10/lod/ semantic web]. 
-Below two lists of resources you can cross-query directly together with your own data. An obvious section is `GeoNames` for maps. Both dates and links via `GeoNames` are obvious entry points to use `dbPedia` as an almanak.
+Below you find links to lists of resources you can cross-query directly together with your own data. An obvious section is `GeoNames` for maps. Both dates and links via `GeoNames` are obvious entry points to use `dbPedia` as an almanak.
   * http://www.w3.org/wiki/SparqlEndpoints
   * http://labs.mondeca.com/sparqlEndpointsStatus/
 
-The transformation does not follow an established ontology, but inference can bridge the gap with other data sets on the web. Inference is performed by applying rules. The rules provided so far mainly aim at simplifying queries, such as: a husband/wife in a family is a parent of a child in the family, a child in a family is the sibling of another child in the same family, a parent is an ancestor, an ancestor of an ancestor is an ancestor. More rules can implement other inference, such as: a place of an event of the type birth is the "birthplace of a person". Which is a statement common in established ontologies.
+The transformation does not follow an established ontology, but is rather a syntactical transformation. Inference can bridge the gap with other data sets on the web. Inference is performed by applying rules. The rules provided so far mainly aim at simplifying queries, such as: a husband/wife in a family is a parent of a child in the family, a child in a family is the sibling of another child in the same family, a parent is an ancestor, an ancestor of an ancestor is an ancestor. More rules can implement other inference, such as: a place of an event of the type birth is the "birthplace of a person". Which is a statement common in established ontologies.
 
 =Diagram=
 The diagram illustrates how the main classes of the library interact. These main classes can be executed from the [commands command line]. If you just want (customized) reports from your own data, you will only need the  commands: `gedsem.Convert` and `semweb.Select`. The files and commands with mashup in their names connect your data with the web.
