@@ -10,4 +10,6 @@ The example expects some .jar files in the current directory, more precisely the
 
 The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can find the jars for example with sites like jarfinder.com and findjar.com 
 
+The configuration files are self documenting and available in the source section. Download the <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resources], or extract the files from an unzipped version of the .jar file. 
+
 https://gedcom2sem.googlecode.com/svn/trunk/docs/images/dependencies.jpg
