@@ -1,14 +1,16 @@
 #sidebar TableOfContent
 =Introduction=
-The basic idea of this library is to transform a [http://en.wikipedia.org/wiki/GEDCOM gedcom] database into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or a graph]. That allows flexible queries and reports. The fun part is to link these triples with the [http://richard.cyganiak.de/2007/10/lod/ semantic web].
+The core of this library is a transformation of [http://en.wikipedia.org/wiki/GEDCOM gedcom] databases into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or statements]. That allows flexible queries and reports. The fun part is to link these statements with the [http://richard.cyganiak.de/2007/10/lod/ semantic web].
 
 Resources you can cross-query directly together with your own data:
   * http://www.w3.org/wiki/SparqlEndpoints
   * http://labs.mondeca.com/sparqlEndpointsStatus/
 An obvious section is `GeoNames` for maps. Both dates and links via `GeoNames` are obvious entry points to use `dbPedia` as an almanak.
 
+The transformation does not follow an established ontology, but inference can bridge the gap with other data sets on the web. Inference is performed by applying rules. The rules provided so far mainly aim at simplifying queries, such as: a husband/wife in a family is a parent of a child in the family, a child in a family is the sibling of another child in the same family, a parent is an ancestor, an ancestor of an ancestor is an ancestor. More rules can implement other inference, such as: a place of an event of the type birth is the "birthplace of a person". Which is a statement common in established ontologies.
+
 =Diagram=
-The diagram illustrates how the main classes of the library interact. These main classes can be executed from the command line. If you just want (customized) reports from your own data, you will only need the first two commands: `gedsem.Convert` and `semweb.Select`.
+The diagram illustrates how the main classes of the library interact. These main classes can be executed from the [commands command line]. If you just want (customized) reports from your own data, you will only need the  commands: `gedsem.Convert` and `semweb.Select`. 
 
 *legend*
 <dl>
@@ -23,7 +25,7 @@ the two at the bottom are drawn on top of one another to prevent crossing lines,
 
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg</dt>
 <dd>
-_configuration_; download the self documenting <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resources], or extract the files from an unzipped version of the .jar file. The .xsl file configures the html output, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. You might want to merge uri.properties and mashup.properties, you need typically one of both per gedcom. Variants of kml.properties on the other hand are related to variants of place.arq.
+_configuration_; download the self documenting <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resources], or extract the files from an unzipped version of the .jar file. The .arq files contain the queries to generate reports. The .xsl file configures the html output, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. You might want to merge uri.properties and mashup.properties, you need typically one of both per gedcom. Variants of kml.properties on the other hand are related to variants of place.arq.
 </dd>
 
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg</dt>
