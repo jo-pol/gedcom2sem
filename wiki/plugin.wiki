@@ -1,6 +1,6 @@
 #labels Phase-Implementation
 #sidebar TableOfContent
-The plugins in [http://genj.sourceforge.net/ GenJ] and [http://www.ancestris.org/ Ancestris] still lack access to mash ups and kml. Plugin developers could plug this library back into both and into other applications that choose so. 
+The original plugins in <a href="http://genj.sourceforge.net/">GenJ http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> and <a href="http://www.ancestris.org/">Ancestris http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> still lack the enhancements for mash ups and KML. The command line interface of this library is not very suitable for end users. Plugin developers could plug this library back into both applications and into other applications that choose so. 
 
 The main classes are identified on the [overview] page, they are a good starting point to explore the possibilities.
 
