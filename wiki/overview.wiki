@@ -1,11 +1,11 @@
 #sidebar TableOfContent
 =Introduction=
-The core of this library is a transformation of [http://en.wikipedia.org/wiki/GEDCOM gedcom] databases into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or statements]. That allows flexible queries and reports. Various examples show various possibilities and techniques. Customize them to your wishes.
+The core of this library is a transformation of <a href="http://en.wikipedia.org/wiki/GEDCOM">gedcom http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> databases into <a href="http://en.wikipedia.org/wiki/Resource_Description_Framework"> triples or statements http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a>. That allows flexible queries and reports. Various examples show various possibilities and techniques. Customize them to your wishes.
 
-The fun part is to link the generated statements with the [http://richard.cyganiak.de/2007/10/lod/ semantic web]. 
+The fun part is to link the generated statements with the <a href="http://richard.cyganiak.de/2007/10/lod/">semantic web http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a>. 
 Below you find links to lists of resources you can cross-query directly together with your own data. An obvious section is `GeoNames` for maps. Both dates and links via `GeoNames` are obvious entry points to use `dbPedia` as an almanak.
-  * http://www.w3.org/wiki/SparqlEndpoints
-  * http://labs.mondeca.com/sparqlEndpointsStatus/
+  * http://www.w3.org/wiki/SparqlEndpoints  http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
+  * http://labs.mondeca.com/sparqlEndpointsStatus/ http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
 
 The transformation does not follow an established ontology, but is rather a syntactical transformation. Inference can bridge the gap with other data sets on the web. Inference is performed by applying rules. The rules provided so far mainly aim at simplifying queries, such as: a husband/wife in a family is a parent of a child in the family, a child in a family is the sibling of another child in the same family, a parent is an ancestor, an ancestor of an ancestor is an ancestor. More rules can implement other inference, such as: a place of an event of the type birth is the "birthplace of a person". Which is a statement common in established ontologies.
 
@@ -42,4 +42,4 @@ The .xsl file configures the html output, the example mentioned in [https://code
 
 You might want to merge uri.properties and mashup.properties, you need typically one of both per gedcom. Variants of kml.properties on the other hand are related to variants of place.arq.
 
-The `KmlGenerator` can execute the query and format the results in one go or in two steps. The latter option is convenient to develop and trouble shoot variants of the supplied example. The first step is to execute the .arq with a select command and .tsv output. For the second step the `KmlGenerator` will only need the .tsv and kml.properties as input.
+The diagram shows how the `KmlGenerator` executes a query and formats the results in one go. For development and trouble shooting it can be convenient to split that in two steps. The first step is to execute the .arq with a select command and .tsv output. For the second step the `KmlGenerator` will only need the .tsv and kml.properties as input, no user data nor mash up data is required for the second step.
