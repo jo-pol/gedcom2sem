@@ -1,7 +1,7 @@
 #sidebar TableOfContent
 = The wiki pages =
 
-See [http://code.google.com/p/support/wiki/WikiSyntax#Localizing_Wiki_Content google's explanation] .
+See <a href="http://code.google.com/p/support/wiki/WikiSyntax#Localizing_Wiki_Content"> google's explanation http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a>.
 
 = The Reports =
 
@@ -19,7 +19,7 @@ The KML output is localized with [https://code.google.com/p/gedcom2sem/source/br
 Column headers of query results can be customized in a clone of the query or with a style sheet. 
 
 === With a stye sheet ===
-XML output of a query can be formatted as HTML (or whatever you want) with a style sheet. The style sheet should be published in the same domain as the xml. For a simple table layout in HTML format you can use a copy of http://www.w3.org/TR/rdf-sparql-XMLres/result-to-html.xsl
+XML output of a query can be formatted as HTML (or whatever you want) with a style sheet. The style sheet should be published in the same domain as the xml. For a simple table layout in HTML format you can use a copy of http://www.w3.org/TR/rdf-sparql-XMLres/result-to-html.xsl  http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
 
 For localization we need a stylesheet per query per language. Submit the style sheets with the base name of the query extended with the two letter ISO-639 code for the language.
 For example `CountEventsPerPlace.arq` would get a `CountEventsPerPlace.fr.xsl`
