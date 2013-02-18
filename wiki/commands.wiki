@@ -4,9 +4,9 @@ Whether the library is or is not plugged into your favorite gedcom-application, 
 {{{
 java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
 }}}
-_Hint: on Windows you can put a desired command in a [http://en.wikipedia.org/wiki/Batch_file .bat] file, on Mac/Unix in a [http://en.wikipedia.org/wiki/Shell_script .sh] file for quick and easy execution._
+_Hint: on Windows you can put a desired command in a <a href="http://en.wikipedia.org/wiki/Batch_file">.bat http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> file, on Mac/Unix in a <a href="http://en.wikipedia.org/wiki/Shell_script">.sh http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> file for quick and easy execution._
 
-The example expects some .jar files in the current directory, more precisely the `-cp` directory, a dot alias the current direcory in the example. As an alternative for `-cp` you could specify a [http://en.wikipedia.org/wiki/Classpath_%28Java%29 CLASSPATH] variable. 
+The example expects some .jar files in the current directory, more precisely the `-cp` directory, a dot alias the current direcory in the example. As an alternative for `-cp` you could specify a <a href="http://en.wikipedia.org/wiki/Classpath_%28Java%29"> CLASSPATH http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> variable. 
 
 The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can find the jars for example with sites like jarfinder.com and findjar.com 
 
