@@ -3,7 +3,7 @@ You can directly query your own data together with data on the web, but the web 
 
 With some luck your genealology application has some export function that exports place names and geoNameIDs from your databes. Otherwise you can extract the place names with a query and add the geoNameIDs manually, see [overview] and [commands] for details. Wen you repeat the query as shown, it will produce `GeoName` URI's in the first column. Don't worry, `semweb.Mashup` can deal with a mix of plain ID's and URI's. 
 
-You may use a spreadheet program to edit your tsv file, but make sure to save it as a tab separated file. The second column of the tsv file contains places together with all their jurisdictions and separators, exactly as in your database. Don't change a space, point or whatever. You can search your places on http://www.geonames.org with the show-on-map button. The balloons with details shows a `GeoNameId`, put that ID in the first column of your tsv file.
+You may use a spreadheet program to edit your tsv file, but make sure to save it as a tab separated file. The second column of the tsv file contains places together with all their jurisdictions and separators, exactly as in your database. Don't change a space, point or whatever. You can search your places on http://www.geonames.org  http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png with the show-on-map button. The balloons with details shows a `GeoNameId`, put that ID in the first column of your tsv file.
 
 <h1>screenshots</h1>
 <wiki:toc max_depth="2" />
