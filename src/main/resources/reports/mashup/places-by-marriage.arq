@@ -67,15 +67,7 @@ SELECT DISTINCT
    OPTIONAL { ?indi p:DEAT [ p:DATE [rdfs:label ?dateDeath ]]}
    OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
    OPTIONAL { ?indi p:DEAT [ p:PLAC [rdfs:label ?placeDeath]]}
-   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]
-                  ### match with downloaded data
-                  OPTIONAL { ?link     rdfs:label ?placeBirth;
-                                       rdfs:isDefinedBy ?gn. 
-                             OPTIONAL {?gn wgs84_pos:lat  ?lat;
-                                           wgs84_pos:long ?long}.
-                             OPTIONAL {?gn gn:name ?place.}
-                           }
-   }
+   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]}
    OPTIONAL {
        ?indi  p:FAMS ?fam.
 
@@ -87,6 +79,13 @@ SELECT DISTINCT
        OPTIONAL { ?fam p:MARR [p:DATE [rdfs:label ?dateMarried ]]}
 
        OPTIONAL { ?fam p:MARR [p:PLAC [rdfs:label ?placeMarried]]
+                  ### match with downloaded data
+                  OPTIONAL { ?link     rdfs:label ?placeMarried;
+                                       rdfs:isDefinedBy ?gn. 
+                             OPTIONAL {?gn wgs84_pos:lat  ?lat;
+                                           wgs84_pos:long ?long}.
+                             OPTIONAL {?gn gn:name ?place.}
+                           }
                 }
    }
 }

@@ -166,8 +166,8 @@ public class Mashup
             }
             else
             {
-                FileUtil.guessLanguage(outputFile);
                 outputFile = new File(fileName);
+                FileUtil.guessLanguage(outputFile);
             }
         }
         if (outputFile == null)
