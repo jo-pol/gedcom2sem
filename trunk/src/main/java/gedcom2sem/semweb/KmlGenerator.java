@@ -169,7 +169,7 @@ public class KmlGenerator
             final String snippetValue = format("migration.folder.item.text", all.get(brancheId).formatArgs);
             placeMark.withDescription(format("migration.popup.html", description.toString()));
             placeMark.withSnippet(new Snippet().withValue(snippetValue));
-            placeMark.withStyleUrl("#" + brancheId.substring(1, 5));
+            placeMark.withStyleUrl("#" + (brancheId+"0000").substring(1, 5));
 
             final LineString lineString = placeMark.createAndSetLineString();
             for (int l = 2; l <= brancheId.length(); l++)
@@ -196,16 +196,19 @@ public class KmlGenerator
     private void buildProbandParentsMarker(final Folder folder) throws MissingResourceException
     {
         final Placemark placemark = folder.createAndAddPlacemark();
-        final float latitude = all.get("10").latitude;
-        final float longitude = all.get("10").longitude;
+        KmlQueryRow father = all.get("10");
+        KmlQueryRow mother = all.get("11");
+        KmlQueryRow proband = all.get("1");
+        if (father == null || mother == null || proband == null||father.longitude==null|| father.latitude==null)
+            return;
         final StringBuffer description = new StringBuffer();
-        description.append(format("proband.father.html", all.get("10").formatArgs));
-        description.append(format("proband.mother.html", all.get("11").formatArgs));
-        placemark.createAndSetPoint().addToCoordinates(longitude, latitude);
-        placemark.withName(format("proband.marker.name", all.get("1").formatArgs));
+        description.append(format("proband.father.html", father.formatArgs));
+        description.append(format("proband.mother.html", mother.formatArgs));
+        placemark.createAndSetPoint().addToCoordinates(father.longitude, father.latitude);
+        placemark.withName(format("proband.marker.name", proband.formatArgs));
         placemark.withDescription(format("proband.popup.html", description.toString()));
-        placemark.withSnippet(new Snippet().withValue(format("proband.marker.text", all.get("1").formatArgs)));
-        folder.withName(format("proband.folder.name", all.get("1").formatArgs));
+        placemark.withSnippet(new Snippet().withValue(format("proband.marker.text", proband.formatArgs)));
+        folder.withName(format("proband.folder.name", proband.formatArgs));
     }
 
     private void addLineStyles(final Document document)

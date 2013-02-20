@@ -57,15 +57,20 @@ public class Select
         for (final String fileName : fileNames)
         {
             final File file = new File(fileName);
-            final String language = FileUtil.guessLanguage(file);
-            if (language != null)
+            try
+            {
+                final String language = FileUtil.guessLanguage(file);
                 model.read(new FileInputStream(file), (String) null, language);
-            else if (fileName.toLowerCase().endsWith(".xsl"))
-                xsl = file;
-            else if (fileName.toLowerCase().endsWith(".arq"))
-                queryStr = FileUtil.read(file);
-            else
-                outputFile = file;
+            }
+            catch (IllegalArgumentException e)
+            {
+                if (fileName.toLowerCase().endsWith(".xsl"))
+                    xsl = file;
+                else if (fileName.toLowerCase().endsWith(".arq"))
+                    queryStr = FileUtil.read(file);
+                else
+                    outputFile = file;
+            }
         }
         if (model.size() == 0)
             throw new IllegalArgumentException("no or empty data files (.nt, .n3, .ttl, .rdf)");

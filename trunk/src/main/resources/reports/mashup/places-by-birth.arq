@@ -1,0 +1,74 @@
+##################################################################################################
+# Copyright 2013, J. Pol 
+# This file is part of free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
+# This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
+##################################################################################################
+#
+# Migration lines.
+#
+# Prerequisites:
+#   Create (almost empty) records for unknown dads.
+#   Generate _SOSAN (e.g. with the report "tool box" of ancestris).
+#   No rules required.
+#
+# Customisation for KML processing:
+#   The columns sosa, lat, long  are used to
+#   construct the KML layout: be carefull with them.
+#   The other columns should match the templates
+#   in the kml.properties file.
+#
+###############################################
+
+### external data
+PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX gn:           <http://www.geonames.org/ontology#>
+PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
+PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
+PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+
+### converted gedcom
+PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> 
+PREFIX r: <http://genj.sourceforge.net/rdf/GedcomTags/rule#> 
+PREFIX p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+### language extensions
+PREFIX  fn: <http://www.w3.org/2005/xpath-functions#> 
+PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
+PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
+
+###############################################
+SELECT DISTINCT
+  ?sosa                    # {0} A
+  ?lat                     # {1} B
+  ?long                    # {2} C
+  ?place                   # {3} D
+  ?placeBirth              # {4} E
+  (?nameIndi  as ?name)    # {5} F
+  (str(?indi) as ?url)     # {6} G
+  (fn:substring(str(?dateBirth),1,4) as ?year_birth)
+{
+   ?indi p:_SOSAN   [rdfs:label ?sosa].
+
+   #### rather don't generate sosa numbers for siblings
+   FILTER( ! fn:contains(?sosa,'+') )
+   FILTER( ! fn:contains(?sosa,'-') )
+
+   #### whatever you want to show about the INDI
+              ?indi p:NAME          [rdfs:label ?nameIndi  ].
+   OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
+   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]
+                  ### match with downloaded data
+                  OPTIONAL { ?link     rdfs:label ?placeBirth;
+                                       rdfs:isDefinedBy ?gn. 
+                             OPTIONAL {?gn wgs84_pos:lat  ?lat;
+                                           wgs84_pos:long ?long}.
+                             OPTIONAL {?gn gn:name ?place.}
+                           }
+   }
+}
+order by ?sosa
