@@ -160,7 +160,7 @@ public class KmlGenerator
             logger.info(name);
             final StringBuffer description = new StringBuffer();
             final Placemark placeMark = folder.createAndAddPlacemark().withName(name).withOpen(false);
-            for (int l = brancheId.length(); l > 1; l--)
+            for (int l = brancheId.length(); l > 0; l--)
             {
                 final String sosa = brancheId.substring(0, l);
                 description.append(format("migration.ancestor.html", all.get(sosa).formatArgs));
@@ -172,7 +172,7 @@ public class KmlGenerator
             placeMark.withStyleUrl("#" + (brancheId+"0000").substring(1, 5));
 
             final LineString lineString = placeMark.createAndSetLineString();
-            for (int l = 2; l <= brancheId.length(); l++)
+            for (int l = 1; l <= brancheId.length(); l++)
             {
                 final String sosa = brancheId.substring(0, l);
                 final KmlQueryRow row = all.get(sosa);
@@ -196,15 +196,19 @@ public class KmlGenerator
     private void buildProbandParentsMarker(final Folder folder) throws MissingResourceException
     {
         final Placemark placemark = folder.createAndAddPlacemark();
-        KmlQueryRow father = all.get("10");
-        KmlQueryRow mother = all.get("11");
-        KmlQueryRow proband = all.get("1");
-        if (father == null || mother == null || proband == null||father.longitude==null|| father.latitude==null)
+        final KmlQueryRow father = all.get("10");
+        final KmlQueryRow mother = all.get("11");
+        final KmlQueryRow proband = all.get("1");
+        if (father == null || mother == null || proband == null)
+            return;
+        final Float latitude = (proband.latitude==null?(father.latitude==null?mother.latitude:father.latitude):proband.latitude);
+        final Float longitude = (proband.longitude==null?(father.longitude==null?mother.longitude:father.longitude):proband.longitude);
+        if (latitude == null || longitude == null)
             return;
         final StringBuffer description = new StringBuffer();
         description.append(format("proband.father.html", father.formatArgs));
         description.append(format("proband.mother.html", mother.formatArgs));
-        placemark.createAndSetPoint().addToCoordinates(father.longitude, father.latitude);
+        placemark.createAndSetPoint().addToCoordinates(longitude, latitude);
         placemark.withName(format("proband.marker.name", proband.formatArgs));
         placemark.withDescription(format("proband.popup.html", description.toString()));
         placemark.withSnippet(new Snippet().withValue(format("proband.marker.text", proband.formatArgs)));
