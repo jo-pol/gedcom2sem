@@ -13,10 +13,10 @@
 #   No rules required.
 #
 # Customisation for KML processing:
-#   The columns sosa, lat, long  are used to
+#   The first three columns (sosa, lat, long)  are used to
 #   construct the KML layout: be carefull with them.
 #   The other columns should match the templates
-#   in the kml.properties file.
+#   in the kml-by-marriage.properties file.
 #
 ###############################################
 

@@ -13,10 +13,10 @@
 #   No rules required.
 #
 # Customisation for KML processing:
-#   The columns sosa, lat, long  are used to
+#   The first three columns (sosa, lat, long)  are used to
 #   construct the KML layout: be carefull with them.
 #   The other columns should match the templates
-#   in the kml.properties file.
+#   in the kml-by-birth.properties file.
 #
 ###############################################
 
@@ -47,6 +47,7 @@ SELECT DISTINCT
   ?lat                     # {1} B
   ?long                    # {2} C
   ?place                   # {3} D
+ #?placeBaptism            
   ?placeBirth              # {4} E
   (?nameIndi  as ?name)    # {5} F
   (str(?indi) as ?url)     # {6} G
@@ -61,6 +62,7 @@ SELECT DISTINCT
    #### whatever you want to show about the INDI
               ?indi p:NAME          [rdfs:label ?nameIndi  ].
    OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
+   OPTIONAL { ?indi p:BAPM [ p:PLAC [rdfs:label ?placeBaptism]]}
    OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]
                   ### match with downloaded data
                   OPTIONAL { ?link     rdfs:label ?placeBirth;
