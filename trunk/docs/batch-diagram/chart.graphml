@@ -20,7 +20,7 @@
           <y:Geometry height="64.0" width="126.86956787109375" x="616.0" y="24.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="90.1376953125" x="4.0" y="4.0">uri.properties</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="82.359375" x="4.0" y="4.0">uri.properties</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -30,7 +30,7 @@
           <y:Geometry height="76.0" width="172.0" x="437.5" y="577.0435791015625"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="internal" modelPosition="b" textColor="#000000" visible="true" width="113.658203125" x="29.1708984375" y="56.22265625">semweb.KmlGenerator</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="internal" modelPosition="b" textColor="#000000" visible="true" width="106.2607421875" x="32.86962890625" y="55.7490234375">semweb.KmlGenerator</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -40,7 +40,7 @@
           <y:Geometry height="64.0" width="105.0" x="190.0" y="512.5435791015625"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="custom" textColor="#000000" visible="true" width="85.6259765625" x="9.68701171875" y="24.111328125">nt / n3 / ttl / rdf<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="custom" textColor="#000000" visible="true" width="67.916015625" x="18.5419921875" y="23.87451171875">nt / n3 / ttl / rdf<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -56,7 +56,7 @@
           <y:Geometry height="64.0" width="119.0" x="312.0" y="55.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="70.8056640625" x="4.0" y="4.0">family.ged</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="65.576171875" x="4.0" y="4.0">family.ged</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -66,7 +66,7 @@
           <y:Geometry height="64.0" width="119.0" x="312.0" y="174.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="39.33203125" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="101.6259765625" x="4.0" y="4.0">gedcom.ttl
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="40.7529296875" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="83.916015625" x="4.0" y="4.0">gedcom.ttl
 
 nt / n3 / ttl / rdf</y:NodeLabel>
         </y:GenericNode>
@@ -78,7 +78,7 @@ nt / n3 / ttl / rdf</y:NodeLabel>
           <y:Geometry height="64.0" width="105.0" x="356.0" y="324.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="custom" textColor="#000000" visible="true" width="59.83984375" x="22.580078125" y="24.111328125">mashup.tsv<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="custom" textColor="#000000" visible="true" width="55.1328125" x="24.93359375" y="23.87451171875">mashup.tsv<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -94,7 +94,7 @@ nt / n3 / ttl / rdf</y:NodeLabel>
           <y:Geometry height="56.0" width="125.0" x="461.0" y="118.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="custom" textColor="#000000" visible="true" width="83.1162109375" x="20.94189453125" y="20.111328125">gedsem.Convert<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="custom" textColor="#000000" visible="true" width="77.369140625" x="23.8154296875" y="19.87451171875">gedsem.Convert<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -110,7 +110,7 @@ nt / n3 / ttl / rdf</y:NodeLabel>
           <y:Geometry height="56.0" width="125.0" x="461.0" y="238.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="custom" textColor="#000000" visible="true" width="75.0205078125" x="24.98974609375" y="20.111328125">semweb.Select<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="custom" textColor="#000000" visible="true" width="71.8076171875" x="26.59619140625" y="19.87451171875">semweb.Select<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -126,7 +126,7 @@ nt / n3 / ttl / rdf</y:NodeLabel>
           <y:Geometry height="56.0" width="125.0" x="461.0" y="418.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="custom" textColor="#000000" visible="true" width="84.6787109375" x="20.16064453125" y="20.111328125">semweb.Mashup<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="custom" textColor="#000000" visible="true" width="79.5908203125" x="22.70458984375" y="19.87451171875">semweb.Mashup<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -142,7 +142,7 @@ nt / n3 / ttl / rdf</y:NodeLabel>
           <y:Geometry height="45.5" width="83.0" x="482.0" y="580.6259155273438"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="custom" textColor="#000000" visible="true" width="75.0205078125" x="3.98974609375" y="14.861328125">semweb.Select<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="custom" textColor="#000000" visible="true" width="71.8076171875" x="5.59619140625" y="14.62451171875">semweb.Select<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -158,7 +158,7 @@ nt / n3 / ttl / rdf</y:NodeLabel>
           <y:Geometry height="64.0" width="126.86956787109375" x="637.2608642578125" y="58.9564208984375"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="109.302734375" x="4.0" y="4.0">slowRules.txt
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="53.00390625" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="100.69921875" x="4.0" y="4.0">slowRules.txt
 quickRules.txt
 noRules.txt
 or your own rules</y:NodeLabel>
@@ -171,7 +171,7 @@ or your own rules</y:NodeLabel>
           <y:Geometry height="64.0" width="126.86956787109375" x="630.2608642578125" y="168.02178955078125"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="81.734375" x="4.0" y="4.0">mashup.arq</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.8076171875" x="4.0" y="4.0">mashup.arq</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -181,7 +181,7 @@ or your own rules</y:NodeLabel>
           <y:Geometry height="100.0" width="125.0" x="170.0" y="371.5435791015625"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" modelName="custom" textColor="#000000" visible="true" width="91.32421875" x="16.837890625" y="24.4453125">download
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="53.00390625" modelName="custom" textColor="#000000" visible="true" width="82.3740234375" x="21.31298828125" y="23.498046875">download
 
 what you want for
 custom queries<y:LabelModel>
@@ -200,7 +200,7 @@ custom queries<y:LabelModel>
           <y:Geometry height="100.0" width="125.0" x="492.0" y="306.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="27.5546875" modelName="custom" textColor="#000000" visible="true" width="66.2265625" x="29.38671875" y="36.22265625">add missing
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="28.501953125" modelName="custom" textColor="#000000" visible="true" width="64.576171875" x="30.2119140625" y="35.7490234375">add missing
 GeoNameIDs<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
@@ -217,10 +217,11 @@ GeoNameIDs<y:LabelModel>
           <y:Geometry height="100.0" width="157.5" x="356.0" y="789.0435791015625"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" modelName="custom" textColor="#000000" visible="true" width="110.7578125" x="23.37109375" y="24.4453125">upload
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="65.2548828125" modelName="custom" textColor="#000000" visible="true" width="120.728515625" x="18.3857421875" y="17.37255859375">upload
 
 put URL in searchbox 
-of maps.google.com<y:LabelModel>
+of maps.google.com
+or maps.burningsilicon.net<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -236,7 +237,7 @@ of maps.google.com<y:LabelModel>
           <y:Geometry height="76.0" width="105.0" x="381.0" y="683.0435791015625"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="15.77734375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="55.1669921875" x="24.91650390625" y="4.0">report.kml</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="48.453125" x="28.2734375" y="4.0">report.kml</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -246,7 +247,7 @@ of maps.google.com<y:LabelModel>
           <y:Geometry height="76.0" width="105.0" x="590.0" y="683.0435791015625"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="88.1650390625" x="8.41748046875" y="4.0">report.txt
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="53.00390625" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="73.4580078125" x="15.77099609375" y="4.0">report.txt
 
 txt / tsv / csv 
 json / xml / html
@@ -260,7 +261,7 @@ json / xml / html
           <y:Geometry height="45.5" width="125.0" x="632.1304321289062" y="428.5"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="59.68359375" x="4.0" y="4.0">xxx.xsl</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="54.0" x="4.0" y="4.0">xxx.xsl</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -270,7 +271,7 @@ json / xml / html
           <y:Geometry height="45.5" width="125.0" x="661.5" y="463.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="61.470703125" x="4.0" y="4.0">xxx.arq</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="56.2314453125" x="4.0" y="4.0">xxx.arq</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -280,7 +281,7 @@ json / xml / html
           <y:Geometry height="46.0" width="125.0" x="661.5" y="535.1999206542969"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="97.7548828125" x="4.0" y="4.0">places-xxx.arq</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.4677734375" x="4.0" y="4.0">places-xxx.arq</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -290,7 +291,7 @@ json / xml / html
           <y:Geometry height="46.0" width="125.0" x="686.5" y="564.4826049804688"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="119.205078125" x="4.0" y="4.0">kml-xxx.properties</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.1279296875" x="4.0" y="4.0">kml-xxx.properties</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -300,7 +301,7 @@ json / xml / html
           <y:Geometry height="64.0" width="126.86956787109375" x="630.2608642578125" y="324.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="115.611328125" x="4.0" y="4.0">mashup.properties</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="106.822265625" x="4.0" y="4.0">mashup.properties</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -310,7 +311,7 @@ json / xml / html
           <y:Geometry height="64.0" width="119.0" x="170.0" y="501.5435791015625"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.0" horizontalTextPosition="right" iconData="3" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.6259765625" x="4.0" y="4.0">nt / n3 / ttl / rdf</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="21.0" horizontalTextPosition="right" iconData="3" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="87.916015625" x="4.0" y="4.0">nt / n3 / ttl / rdf</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -320,7 +321,7 @@ json / xml / html
           <y:Geometry height="64.0" width="119.0" x="342.0" y="474.0"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="39.33203125" horizontalTextPosition="right" iconData="4" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.6259765625" x="4.0" y="4.0">mashup.ttl
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="40.7529296875" horizontalTextPosition="right" iconData="4" iconTextGap="4" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="87.916015625" x="4.0" y="4.0">mashup.ttl
 
 nt / n3 / ttl / rdf</y:NodeLabel>
         </y:GenericNode>
