@@ -1,15 +1,15 @@
 #labels Phase-Deploy
 #sidebar TableOfContent
-Whether the library is or is not plugged into your favorite gedcom-application, you can allways use the library on a command line. Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. See also this simple [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j.properties] example. 
+Whether the library is or is not plugged into your favorite gedcom-application, you can allways use the library on a command line. Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. 
 {{{
-java -Xmx1024M -Dlog4j.configuration=file:log4j.properties -cp . gedcom2sem.semweb.Select ...
+java -Xmx1024M -cp ./* gedcom2sem.semweb.Select ...
 }}}
 _Hint: on Windows you can put a desired command in a <a href="http://en.wikipedia.org/wiki/Batch_file">.bat http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> file, on Mac/Unix in a <a href="http://en.wikipedia.org/wiki/Shell_script">.sh http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> file for quick and easy execution._
 
-The example expects some .jar files in the current directory, more precisely the `-cp` directory, a dot alias the current direcory in the example. As an alternative for `-cp` you could specify a <a href="http://en.wikipedia.org/wiki/Classpath_%28Java%29"> CLASSPATH http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> variable. 
+The example assumes some .jar files and a [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j.properties] in the current directory. Replace the dot in the `-cp` argument if you want another directory, note that on windows the slash should be in the other direction. As an alternative for `-cp` you could specify a <a href="http://en.wikipedia.org/wiki/Classpath_%28Java%29"> CLASSPATH http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> variable. 
 
-The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can find the jars for example with sites like jarfinder.com and findjar.com 
+The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can find the jars for example on http://mvnrepository.com/
 
-The configuration files are self documenting and available in the source section. Download the <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resources], or extract the files from an unzipped version of the .jar file. 
+The configuration files are self documenting and available in the source section of this project. Download the <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resources], or extract the files from an unzipped version of the .jar file. 
 
 https://gedcom2sem.googlecode.com/svn/trunk/docs/images/dependencies.jpg
