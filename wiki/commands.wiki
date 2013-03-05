@@ -8,7 +8,7 @@ _Hint: on Windows you can put a desired command in a <a href="http://en.wikipedi
 
 The example assumes some .jar files and a [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j.properties] in the current directory. Replace the dot in the `-cp` argument if you want another directory, note that on windows the slash should be in the other direction. As an alternative for `-cp` you could specify a <a href="http://en.wikipedia.org/wiki/Classpath_%28Java%29"> CLASSPATH http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> variable. 
 
-The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can find the jars for example on http://mvnrepository.com/
+The main .jar file is in the download area of this project, the screenshot below shows the jars it says to need, but in practice you might not need all of them. At least you can skip the grey ones tagged with test. You can search for the jars for example on http://mvnrepository.com/ carefully look for the download button on the artifact row.
 
 The configuration files are self documenting and available in the source section of this project. Download the <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ resources], or extract the files from an unzipped version of the .jar file. 
 
