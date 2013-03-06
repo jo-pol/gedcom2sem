@@ -9,7 +9,7 @@ Below you find links to lists of resources you can cross-query directly together
 
 The transformation does not follow an established ontology, but is rather a syntactical transformation. Inference can bridge the gap with other data sets on the web. Inference is performed by applying rules. The rules provided so far mainly aim at simplifying queries, such as: a husband/wife in a family is a parent of a child in the family, a child in a family is the sibling of another child in the same family, a parent is an ancestor, an ancestor of an ancestor is an ancestor. More rules can implement other inference, such as: a place of an event of the type birth is the "birthplace of a person". Which is a statement common in established ontologies.
 
-=Diagram=
+=Diagrams=
 The diagram illustrates how the main classes of the library interact. These main classes can be executed from the [commands command line]. If you just want (customized) reports from your own data, you will only need the  commands: `gedsem.Convert` and `semweb.Select`. The files and commands with mashup in their names connect your data with the web.
 
 *legend*
@@ -43,3 +43,6 @@ The .xsl file configures the html output, the example mentioned in [https://code
 You might want to merge uri.properties and mashup.properties, you need typically one of both per gedcom. Variants of kml.properties on the other hand are related to variants of place.arq.
 
 The diagram shows how the `KmlGenerator` executes a query and formats the results in one go. For development and trouble shooting it can be convenient to split that in two steps. The first step is to execute the .arq with a select command and .tsv output. For the second step the `KmlGenerator` will only need the .tsv and kml.properties as input, no user data nor mash up data is required for the second step.
+=Alternative=
+Requires issue 8 for lots of cashed files
+http://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/alternative.jpg
