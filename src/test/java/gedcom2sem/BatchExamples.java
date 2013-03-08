@@ -58,13 +58,13 @@ public class BatchExamples
     @Test
     public void migrations() throws Exception
     {
-        KmlGenerator.main(MAIN + "kml.properties", TEST + "kennedy.ttl", TEST + "mashup.ttl", QUERY_DIR + "mashup/places.arq", "target/places.kml");
+        KmlGenerator.main(MAIN + "kml-by-birth.properties", TEST + "kennedy.ttl", TEST + "geoMashup.ttl", TEST + "geoNamesCache.ttl", QUERY_DIR + "mashup/places-by-birth.arq", "target/places.kml");
     }
     
     @Test
     public void migrationsInTwoSteps() throws Exception
     {
-        Select.main("target/kennedy.ttl", "target/places.tsv", QUERY_DIR + "mashup/places.arq");
-        KmlGenerator.main(MAIN + "kml.properties", "target/places.tsv", "target/places.kml");
+        Select.main("target/kennedy.ttl", "target/places.tsv", QUERY_DIR + "mashup/places-by-birth.arq");
+        KmlGenerator.main(MAIN + "kml-by-birth.properties", "target/places.tsv", "target/places.kml");
     }
 }
