@@ -1,9 +1,7 @@
-[overview Overview]
-
 Usage
 
+  * [overview Overview]
   * [commands Command lines]
-  * [GeoNameIDs]
 
 Contribute
 
