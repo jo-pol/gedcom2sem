@@ -29,7 +29,7 @@ _configuration_; the .arq files contain the queries to generate reports, [#Confi
 
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/semweb.jpg</dt>
 <dd>
-data from the semantic web, [#Configuration Semantic web...]
+data from the semantic web, [#Configuration more...]
 </dd>
 
 </dl>
@@ -48,6 +48,6 @@ Below you find links to lists of resources you can cross-query directly together
   * http://www.w3.org/wiki/SparqlEndpoints  http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
   * http://labs.mondeca.com/sparqlEndpointsStatus/ http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
 
-Note that `GeoNames` does not have a sparql endpoint. `FactForge` includes both `GeoNames` and `DbPedia`, but the merge causes trouble for the coordinates. Multiple values appear for the latitude and longitude in different formats and precision, no way to know their origin or even which belong together. Sometimes even latitude and longitude are mixed up, so in this case you have to download the data. The screenshot below shows where to find the download link while you are in the process of mapping the proper URI's with the place name literals in your gedcom.
+Note that `GeoNames` does not have a sparql endpoint. `FactForge` includes both `GeoNames` and `DbPedia`, but the merge causes trouble for the coordinates. Multiple values appear for the latitude and longitude in different formats and precision, no way to know their origin or even which belong together. Sometimes even latitude and longitude are mixed up, so in this case you have to download the data. The screenshot below shows where to find the download link, while you are in the process of mapping (creating geoMashup.ttl) the proper URI's with the place name literals in your gedcom.
 
-http://gedcom2sem.googlecode.com/svn/trunk/docs/downloadGeoNames.png
+http://gedcom2sem.googlecode.com/svn/trunk/docs/images/downloadGeoNames.png
