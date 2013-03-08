@@ -73,7 +73,10 @@ public class QueryWithPluginInterfaceTester extends AbstractQueryTest
         final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(GEDCOM));
         final Model model = new Parser().parse(inputStream, properties);
         if (mashup)
-            model.read(new File("src/test/resources/mashup.ttl").toURI().toURL().toString(),null, "TURTLE");
+        {
+            model.read(new File(MASHUP_TTL).toURI().toURL().toString(), null, "TURTLE");
+            model.read(new File(CACHE_TTL).toURI().toURL().toString(), null, "TURTLE");
+        }
         return model;
     }
 

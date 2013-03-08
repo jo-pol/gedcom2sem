@@ -30,7 +30,7 @@ public class QueryWithBatchInterfaceTester extends AbstractQueryTest
     {
         String qualifiedQueryFileName = queryFileName;
         if (mashup)
-            Select.main(GEDCOM_TTL, MASHUP_TTL, REPORT_TXT, qualifiedQueryFileName);
+            Select.main(GEDCOM_TTL, MASHUP_TTL, CACHE_TTL, REPORT_TXT, qualifiedQueryFileName);
         else
             Select.main(GEDCOM_TTL, REPORT_TXT, qualifiedQueryFileName);
     }

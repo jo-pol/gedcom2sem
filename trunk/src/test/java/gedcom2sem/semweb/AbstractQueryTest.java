@@ -36,7 +36,8 @@ public abstract class AbstractQueryTest
 {
     static final String GEDCOM = "src/test/resources/kennedy.ged";
     static final String GEDCOM_TTL = "src/test/resources/kennedy.ttl";
-    static final String MASHUP_TTL = "src/test/resources/mashup.ttl";
+    static final String MASHUP_TTL = "src/test/resources/geoMashup.ttl";
+    static final String CACHE_TTL = "src/test/resources/geoNamesCache.ttl";
     static final String REPORT_DIR = "src/main/resources/reports";
     static final String REPORT_TXT = "target/report.txt";
 
