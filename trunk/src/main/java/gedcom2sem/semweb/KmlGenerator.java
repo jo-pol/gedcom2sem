@@ -23,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -169,7 +170,7 @@ public class KmlGenerator
             final String snippetValue = format("migration.folder.item.text", all.get(brancheId).formatArgs);
             placeMark.withDescription(format("migration.popup.html", description.toString()));
             placeMark.withSnippet(new Snippet().withValue(snippetValue));
-            placeMark.withStyleUrl("#" + (brancheId+"0000").substring(1, 5));
+            placeMark.withStyleUrl("#" + (brancheId + "0000").substring(1, 5));
 
             final LineString lineString = placeMark.createAndSetLineString();
             for (int l = 1; l <= brancheId.length(); l++)
@@ -201,8 +202,8 @@ public class KmlGenerator
         final KmlQueryRow proband = all.get("1");
         if (father == null || mother == null || proband == null)
             return;
-        final Float latitude = (proband.latitude==null?(father.latitude==null?mother.latitude:father.latitude):proband.latitude);
-        final Float longitude = (proband.longitude==null?(father.longitude==null?mother.longitude:father.longitude):proband.longitude);
+        final Float latitude = (proband.latitude == null ? (father.latitude == null ? mother.latitude : father.latitude) : proband.latitude);
+        final Float longitude = (proband.longitude == null ? (father.longitude == null ? mother.longitude : father.longitude) : proband.longitude);
         if (latitude == null || longitude == null)
             return;
         final StringBuffer description = new StringBuffer();
@@ -263,6 +264,8 @@ public class KmlGenerator
                 properties = new PropertyResourceBundle(new FileInputStream(file));
             else if ("arq".equals(extension))
                 query = FileUtil.read(new File(file));
+            else if (new File(file).isDirectory())
+                loadFiles(model, new File(file));
             else
                 model.read(new FileInputStream(file), (String) null, FileUtil.guessLanguage(new File(file)));
         }
@@ -282,5 +285,26 @@ public class KmlGenerator
             kmlGenerator = new KmlGenerator(model, properties, query);
         }
         kmlGenerator.create(kmlFile);
+    }
+
+    private static void loadFiles(Model model, File folder)
+    {
+        for (File file : folder.listFiles())
+        {
+            try
+            {
+                final String language = FileUtil.guessLanguage(file);
+                model.read(new FileInputStream(file), (String) null, language);
+            }
+            catch (IllegalArgumentException e)
+            {
+            }
+            catch (MalformedURLException e)
+            {
+            }
+            catch (FileNotFoundException e)
+            {
+            }
+        }
     }
 }
