@@ -38,7 +38,7 @@ public class BatchExamples
     @Test
     public void prepareMashup() throws Exception
     {
-        Select.main("target/kennedy.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
+        Select.main(TEST+"kennedy.ttl", TEST+"geoMashup.ttl", TEST+"geoNamesCache.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
     }
 
     @Ignore

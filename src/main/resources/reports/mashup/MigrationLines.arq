@@ -1,24 +1,18 @@
 ##################################################################################################
 # Copyright 2012, J. Pol 
-# This file is part of free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
+# This file is part of free software: you can redistribute it and/or modify it under the terms of the ßU General Public License as published by the Free Software Foundation.
 # This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
 # Migration lines.
 #
+# Requires the converted gedcom, geoMashup and geoNamesCache
 # Prerequisites:
 #   Create (almost empty) records for unknown dads.
-#   Generate _TREETOP and _SOSAN with report "tool box".
+#   Generate _TREETOP and _SOSAN with report "tool box" of Ancestris
+#      or an equivalent function in the gedcom editor of your choice.
 #   Apply the slow rules.
-#
-# Customisation for KML processing:
-#   The first 4 columns are used to construct
-#   the KML layout: don't change them.
-#   Any column can be used for place holders in an
-#   HTML template injected per person into the KML file:
-#   for example: <p><a href={11}>{1}</a> {6}</p>
-#   for a linked sosa-number followed by a name. 
 #
 # Note:
 #   A person appears two times with the same sosa-nr 
@@ -91,8 +85,7 @@ SELECT DISTINCT
 
        OPTIONAL { ?fam p:MARR [p:PLAC [rdfs:label ?placeMarried]].
                   ### match with downloaded data
-                  OPTIONAL { ?link     rdfs:label ?placeMarried;
-                                       rdfs:isDefinedBy ?gn. 
+                  OPTIONAL { ?gn p:elaborates ?placeMarried. 
                              OPTIONAL {?gn wgs84_pos:lat  ?lat;
                                            wgs84_pos:long ?long}.
                              OPTIONAL {?gn gn:name ?place.}
@@ -126,8 +119,7 @@ SELECT DISTINCT
 
        OPTIONAL { ?fam p:MARR [p:PLAC [rdfs:label ?placeMarried]]
                   ### match with downloaded data
-                  OPTIONAL { ?link     rdfs:label ?placeMarried;
-                                       rdfs:isDefinedBy ?gn. 
+                  OPTIONAL { ?gn p:elaborates  ?placeMarried. 
                              OPTIONAL {?gn wgs84_pos:lat  ?lat;
                                            wgs84_pos:long ?long}.
                              OPTIONAL {?gn gn:name ?place.}

@@ -7,7 +7,7 @@
 #
 # frequency of geonames properties
 #
-# Only the semi-automatically downloaded data is required
+# Requires only geoMashup and geoNamesCache
 #
 ###################################################################
 
@@ -38,10 +38,8 @@ SELECT ?property ?count
     ?property
     (count(?gn) as ?count)
   {
-    ?placeLink
-         rdfs:label    ?place;
-         rdfs:isDefinedBy ?gn.
-    ?gn  ?property        ?type.
+    ?gn p:elaborates ?place.
+    ?gn  ?property   ?type.
   }
   GROUP BY ?property
 }

@@ -7,7 +7,7 @@
 #
 # frequency of entities related to dbpedia places
 #
-# Only the semi-automatically downloaded data is required
+# Requires only geoMashup and geoNamesCache
 #
 ###################################################################
 
@@ -39,9 +39,8 @@ SELECT ?property ?count
       ?property
       (count(?dbp) as ?count)
     {
-      _:link
-           rdfs:label    ?place;
-           rdfs:seeAlso     ?dbp.
+      ?gn p:elaborates ?place;
+          rdfs:seeAlso ?dbp.
       SERVICE <http://dbpedia.org/sparql>
       { 
         _:resource ?property ?dbp.

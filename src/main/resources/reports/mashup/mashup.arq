@@ -5,11 +5,10 @@
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# overview of places
+# overview of places in a gedcom
 #
-# runs with either or both of
-# - the converted gedcom
-# - the end result of the semi-automated download for GeoNames and DbPedia 
+# runs with just a gedcom.ttl but then the geoNames columns will be empty
+# supply your geoMashup and geoNamesCash to verify their content
 #
 #########################################################################
 
@@ -55,16 +54,15 @@ SELECT DISTINCT
   }
   OPTIONAL
   {
-    ?placeLink
-        rdfs:label       ?place;
-        rdfs:isDefinedBy ?gn.
-    ?gn wgs84_pos:lat    ?lat;
-        wgs84_pos:long   ?long.
+    ?gn p:elaborates       ?place.
     OPTIONAL
     {
-      ?placeLink
-          rdfs:label       ?place;
-          rdfs:seeAlso     ?dbp.
+       ?gn wgs84_pos:lat  ?lat;
+           wgs84_pos:long ?long.
+    }
+    OPTIONAL
+    {
+      ?gn rdfs:seeAlso    ?dbp.
       LET ( ?dbpedia_resource := fn:substring(str(?dbp),28) )
     }
   }

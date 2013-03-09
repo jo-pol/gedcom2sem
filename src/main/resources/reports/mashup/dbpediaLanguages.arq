@@ -7,7 +7,7 @@
 #
 # shows the number of resources available per (non-english) language
 #
-# Only the semi-automatically downloaded data is required
+# Requires only geoMashup and geoNamesCache
 #
 ###################################################################
 
@@ -36,11 +36,10 @@ SELECT DISTINCT
   ?domain
   (count(?dbp) as ?count)
 {
-  ?placeLink
-     rdfs:label    ?place;
-     rdfs:seeAlso ?dbp.
-      SERVICE <http://dbpedia.org/sparql>
-      { ?dbp owl:sameAs ?alt. }
+  ?gn p:elaborates  ?place;
+      rdfs:seeAlso ?dbp.
+  SERVICE <http://dbpedia.org/sparql>
+  { ?dbp owl:sameAs ?alt. }
   FILTER regex(str(?alt),"[.]dbpedia[.]org")
   LET (?domain := substr(str(?alt),8,2))
 }
