@@ -25,7 +25,10 @@ _configuration_; the .arq files contain the queries to generate reports, [#Confi
 </dd>
 
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg</dt>
-<dd>_your data_</dd>
+<dd>
+_your data_;
+a set of example files is available at the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ test resources]
+</dd>
 
 <dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/semweb.jpg</dt>
 <dd>
