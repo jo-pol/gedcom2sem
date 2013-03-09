@@ -40,6 +40,12 @@ public class BatchExamples
     }
 
     @Test
+    public void prepareMashupWithFolder() throws Exception
+    {
+        Select.main(TEST, "target/mashup2.tsv", QUERY_DIR + "mashup/mashup.arq");
+    }
+
+    @Test
     public void toHtml() throws Exception
     {
         Select.main(TEST + "kennedy.ttl", MAIN + "result-to-html.xsl", "target/report.html", QUERY_DIR + "CountEventsPerPlace.arq");

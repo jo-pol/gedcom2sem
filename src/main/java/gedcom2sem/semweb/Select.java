@@ -20,9 +20,11 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.xml.transform.Transformer;
@@ -57,20 +59,23 @@ public class Select
         for (final String fileName : fileNames)
         {
             final File file = new File(fileName);
-            try
-            {
-                final String language = FileUtil.guessLanguage(file);
-                model.read(new FileInputStream(file), (String) null, language);
-            }
-            catch (IllegalArgumentException e)
-            {
-                if (fileName.toLowerCase().endsWith(".xsl"))
-                    xsl = file;
-                else if (fileName.toLowerCase().endsWith(".arq"))
-                    queryStr = FileUtil.read(file);
-                else
-                    outputFile = file;
-            }
+            if (file.isDirectory())
+                loadFiles(model, file);
+            else
+                try
+                {
+                    final String language = FileUtil.guessLanguage(file);
+                    model.read(new FileInputStream(file), (String) null, language);
+                }
+                catch (IllegalArgumentException e)
+                {
+                    if (fileName.toLowerCase().endsWith(".xsl"))
+                        xsl = file;
+                    else if (fileName.toLowerCase().endsWith(".arq"))
+                        queryStr = FileUtil.read(file);
+                    else
+                        outputFile = file;
+                }
         }
         if (model.size() == 0)
             throw new IllegalArgumentException("no or empty data files (.nt, .n3, .ttl, .rdf)");
@@ -102,6 +107,27 @@ public class Select
         finally
         {
             outputStream.close();
+        }
+    }
+
+    private static void loadFiles(Model model, File folder)
+    {
+        for (File file : folder.listFiles())
+        {
+            try
+            {
+                final String language = FileUtil.guessLanguage(file);
+                model.read(new FileInputStream(file), (String) null, language);
+            }
+            catch (IllegalArgumentException e)
+            {
+            }
+            catch (MalformedURLException e)
+            {
+            }
+            catch (FileNotFoundException e)
+            {
+            }
         }
     }
 
