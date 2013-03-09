@@ -25,12 +25,12 @@ public class BatchExamples
     private static final String TEST = "src/test/resources/";
     private static final String MAIN = "src/main/resources/";
     private static final String QUERY_DIR = "src/main/resources/reports/";
-    private static final String RULES = "src/main/resources/rules/SlowRules.txt";
+    private static final String RULES = "src/main/resources/rules/";
     
     @Test
     public void convert() throws Exception
     {
-        Convert.main(RULES, MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedy.ttl");
+        Convert.main(RULES+"basicRules.txt", RULES+"additionalRules.txt", MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedy.ttl");
     }
 
     @Test

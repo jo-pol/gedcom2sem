@@ -1,0 +1,2 @@
+[(?parent r:child ?child)->(?child r:ancestor ?parent)(?parent r:descendant ?child)]
+[(?a r:ancestor ?b)(?b r:ancestor ?c)->(?a r:ancestor ?c)(?c r:descendant ?a)]
