@@ -42,7 +42,7 @@ public class BatchExamples
     @Test
     public void toHtml() throws Exception
     {
-        Select.main(TEST + "kennedy.ttl", TEST + "result-to-html.xsl", "target/report.html", QUERY_DIR + "CountEventsPerPlace.arq");
+        Select.main(TEST + "kennedy.ttl", MAIN + "result-to-html.xsl", "target/report.html", QUERY_DIR + "CountEventsPerPlace.arq");
     }
 
     @Test
