@@ -7,6 +7,7 @@
 #
 # Migration lines.
 #
+# Requires the converted gedcom, geoMashup and geoNamesCache
 # Prerequisites:
 #   Create (almost empty) records for unknown dads.
 #   Generate _SOSAN (e.g. with the report "tool box" of ancestris).
@@ -65,8 +66,7 @@ SELECT DISTINCT
    OPTIONAL { ?indi p:BAPM [ p:PLAC [rdfs:label ?placeBaptism]]}
    OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]
                   ### match with downloaded data
-                  OPTIONAL { ?link     rdfs:label ?placeBirth;
-                                       rdfs:isDefinedBy ?gn. 
+                  OPTIONAL { ?gn p:elaborates ?placeBirth. 
                              OPTIONAL {?gn wgs84_pos:lat  ?lat;
                                            wgs84_pos:long ?long}.
                              OPTIONAL {?gn gn:name ?place.}

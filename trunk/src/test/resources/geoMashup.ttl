@@ -1,411 +1,79 @@
-@prefix gn:      <http://www.geonames.org/ontology#> .
-@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix wgs84_pos:  <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
-@prefix owl:     <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix cc:      <http://creativecommons.org/ns#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
-
-<htp://my.domain.com/places#4943629>
-      rdfs:isDefinedBy <http://sws.geonames.org/4943629/> ;
-      rdfs:label ", Medford, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Medford%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4931482>
-      rdfs:isDefinedBy <http://sws.geonames.org/4931482/> ;
-      rdfs:label ", Brookline, , , Norfolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Brookline%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4940197>
-      rdfs:isDefinedBy <http://sws.geonames.org/4940197/> ;
-      rdfs:label ", Hyannis Port, , , Barnstable Co, MA, USA" .
-
-<htp://my.domain.com/places#4940134>
-      rdfs:isDefinedBy <http://sws.geonames.org/4940134/> ;
-      rdfs:label ", Hull, , , Plymouth Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Hull%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4955128>
-      rdfs:isDefinedBy <http://sws.geonames.org/4955128/> ;
-      rdfs:label ", West Roxbury, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/West_Roxbury%2C_Massachusetts> , <http://dbpedia.org/resource/West_Roxbury_%28MBTA_station%29> .
-
-<htp://my.domain.com/places#4932587>
-      rdfs:isDefinedBy <http://sws.geonames.org/4932587/> ;
-      rdfs:label ", Centerville, , , Barnstable Co, MA, USA" .
-
-<htp://my.domain.com/places#5127744>
-      rdfs:isDefinedBy <http://sws.geonames.org/5127744/> ;
-      rdfs:label ", Mt. Kisco, , , Westchester Co, NY, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Mount_Kisco%2C_New_York> .
-
-<htp://my.domain.com/places#3017382>
-      rdfs:isDefinedBy <http://sws.geonames.org/3017382/> ;
-      rdfs:label ", , , , , , France" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/France> .
-
-<htp://my.domain.com/places#4930956>
-      rdfs:isDefinedBy <http://sws.geonames.org/4930956/> ;
-      rdfs:label ", Boston, , , Suffolk Co, MA, USA" , ", Near Boston, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Boston%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4931482>
-      rdfs:isDefinedBy <http://sws.geonames.org/4931482/> ;
-      rdfs:label ", Brookline, , , Norfolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Brookline%2C_Massachusetts> .
-
-<htp://my.domain.com/places#5368361>
-      rdfs:isDefinedBy <http://sws.geonames.org/5368361/> ;
-      rdfs:label ", Los Angeles, , , Los Angeles Co, CA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Los_Angeles%2C_California> .
-
-<htp://my.domain.com/places#4935304>
-      rdfs:isDefinedBy <http://sws.geonames.org/4935304/> ;
-      rdfs:label ", East Boston, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/East_Boston%2C_Massachusetts> .
-
-<htp://my.domain.com/places#5133918>
-      rdfs:isDefinedBy <http://sws.geonames.org/5133918/> ;
-      rdfs:label ", Riverdale, , , Unk Co, NY, USA" .
-
-<htp://my.domain.com/places#5136334>
-      rdfs:isDefinedBy <http://sws.geonames.org/5136334/> ;
-      rdfs:label ", Saratoga Springs, , , Saratoga Co, NY, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Saratoga_Springs%2C_New_York> .
-
-<htp://my.domain.com/places#4933743>
-      rdfs:isDefinedBy <http://sws.geonames.org/4933743/> ;
-      rdfs:label ", Concord, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Concord_%28MBTA_station%29> .
-
-<htp://my.domain.com/places#5139030>
-      rdfs:isDefinedBy <http://sws.geonames.org/5139030/> ;
-      rdfs:label ", Southampton, , , Long Island, NY, USA" .
-
-<htp://my.domain.com/places#5325738>
-      rdfs:isDefinedBy <http://sws.geonames.org/5325738/> ;
-      rdfs:label ", Bakersfield, , 93380, Kern Co, CA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Bakersfield%2C_California> .
-
-<htp://my.domain.com/places#4984247>
-      rdfs:isDefinedBy <http://sws.geonames.org/4984247/> ;
-      rdfs:label ", Ann Arbor, , 48109, Washtenaw Co, MI, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Ann_Arbor%2C_Michigan> .
-
-<htp://my.domain.com/places#5128581>
-      rdfs:isDefinedBy <http://sws.geonames.org/5128581/> ;
-      rdfs:label ", New York City, , , , NY, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/New_York_City> .
-
-<htp://my.domain.com/places#4254282>
-      rdfs:isDefinedBy <http://sws.geonames.org/4254282/> ;
-      rdfs:label ", Bedford, , , Lawrence Co, IN, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Bedford%2C_Indiana> .
-
-<htp://my.domain.com/places#3014728>
-      rdfs:isDefinedBy <http://sws.geonames.org/3014728/> ;
-      rdfs:label ", Grenoble, , , , , France" .
-
-<htp://my.domain.com/places#4772354>
-      rdfs:isDefinedBy <http://sws.geonames.org/4772354/> ;
-      rdfs:label ", McLean, , , Fairfax Co, VA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/McLean%2C_Virginia> .
-
-<htp://my.domain.com/places#4373238>
-      rdfs:isDefinedBy <http://sws.geonames.org/4373238/> ;
-      rdfs:label ", Westminster, , , Carroll Co, MD, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Westminster%2C_Maryland> .
-
-<htp://my.domain.com/places#2963597>
-      rdfs:isDefinedBy <http://sws.geonames.org/2963597/> ;
-      rdfs:label ", , , , , , Ireland" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Republic_of_Ireland> , <http://dbpedia.org/resource/Ireland> .
-
-<htp://my.domain.com/places#2644210>
-      rdfs:isDefinedBy <http://sws.geonames.org/2644210/> ;
-      rdfs:label ", Liverpool, , , , , England" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Liverpool> .
-
-<htp://my.domain.com/places#4954380>
-      rdfs:isDefinedBy <http://sws.geonames.org/4954380/> ;
-      rdfs:label ", Waltham, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Waltham%2C_Massachusetts> .
-
-<htp://my.domain.com/places#2964529>
-      rdfs:isDefinedBy <http://sws.geonames.org/2964529/> ;
-      rdfs:label ", Dunganstown, , , Wexford Co, , Ireland" .
-
-<htp://my.domain.com/places#4945283>
-      rdfs:isDefinedBy <http://sws.geonames.org/4945283/> ;
-      rdfs:label ", Newton, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Newton%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4832294>
-      rdfs:isDefinedBy <http://sws.geonames.org/4832294/> ;
-      rdfs:label ", Revere, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Revere%2C_Massachusetts> .
-
-<htp://my.domain.com/places#2964529>
-      rdfs:isDefinedBy <http://sws.geonames.org/2964529/> ;
-      rdfs:label ", Dunganstown, , , Wexford Co, , Ireland" .
-
-<htp://my.domain.com/places#5191209>
-      rdfs:isDefinedBy <http://sws.geonames.org/5191209/> ;
-      rdfs:label ", Gladwyne, , , Unk Co, PA, USA" .
-
-<htp://my.domain.com/places#5128581>
-      rdfs:isDefinedBy <http://sws.geonames.org/5128581/> ;
-      rdfs:label ", New York City, , , , NY, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/New_York_City> .
-
-<htp://my.domain.com/places#7838931>
-      rdfs:isDefinedBy <http://sws.geonames.org/7838931/> ;
-      rdfs:label ", , , , Wexford Co, , Ireland" .
-
-<htp://my.domain.com/places#5223593>
-      rdfs:isDefinedBy <http://sws.geonames.org/5223593/> ;
-      rdfs:label ", Newport, , , Newport Co, RI, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Newport%2C_Rhode_Island> .
-
-<htp://my.domain.com/places#4170894>
-      rdfs:isDefinedBy <http://sws.geonames.org/4170894/> ;
-      rdfs:label ", St. Augustine, , , St. Johns Co, FL, USA" .
-
-<htp://my.domain.com/places#5200499>
-      rdfs:isDefinedBy <http://sws.geonames.org/5200499/> ;
-      rdfs:label ", McKeesport, , , Allegheny Co, PA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/McKeesport%2C_Pennsylvania> .
-
-<htp://my.domain.com/places#2643743>
-      rdfs:isDefinedBy <http://sws.geonames.org/2643743/> ;
-      rdfs:label ", London, , , , , England" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/London> .
-
-<htp://my.domain.com/places#4942939>
-      rdfs:isDefinedBy <http://sws.geonames.org/4942939/> ;
-      rdfs:label ", Malden, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Malden%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4955993>
-      rdfs:isDefinedBy <http://sws.geonames.org/4955993/> ;
-      rdfs:label ", Winthrop, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Winthrop%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4932879>
-      rdfs:isDefinedBy <http://sws.geonames.org/4932879/> ;
-      rdfs:label ", Chelsea, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Chelsea%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4930956>
-      rdfs:isDefinedBy <http://sws.geonames.org/4930956/> ;
-      rdfs:label ", Boston, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Boston%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4950267>
-      rdfs:isDefinedBy <http://sws.geonames.org/4950267/> ;
-      rdfs:label ", Saugus, , , Essex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Saugus%2C_Massachusetts> .
-
-<htp://my.domain.com/places#5095445>
-      rdfs:isDefinedBy <http://sws.geonames.org/5095445/> ;
-      rdfs:label ", Bayonne, , , Hudson Co, NJ, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Bayonne%2C_New_Jersey> .
-
-<htp://my.domain.com/places#4839366>
-      rdfs:isDefinedBy <http://sws.geonames.org/4839366/> ;
-      rdfs:label ", New Haven, , , New Haven Co, CT, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/New_Haven%2C_Connecticut> .
-
-<htp://my.domain.com/places#4955993>
-      rdfs:isDefinedBy <http://sws.geonames.org/4955993/> ;
-      rdfs:label ", Winthrop, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Winthrop%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4955259>
-      rdfs:isDefinedBy <http://sws.geonames.org/4955259/> ;
-      rdfs:label ", Weston, , , Middlesex Co, MA, USA" .
-
-<htp://my.domain.com/places#4916826>
-      rdfs:isDefinedBy <http://sws.geonames.org/4916826/> ;
-      rdfs:label ", Winfield, , , Du Page Co, IL, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Winfield%2C_Illinois> .
-
-<htp://my.domain.com/places#4936174>
-      rdfs:isDefinedBy <http://sws.geonames.org/4936174/> ;
-      rdfs:label ", Falmouth, , , Barnstable Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Falmouth_%28CDP%29%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4954611>
-      rdfs:isDefinedBy <http://sws.geonames.org/4954611/> ;
-      rdfs:label ", Watertown, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Watertown%2C_Massachusetts> .
-
-<htp://my.domain.com/places#5257829>
-      rdfs:isDefinedBy <http://sws.geonames.org/5257829/> ;
-      rdfs:label ", Jefferson, , , Jefferson Co, WI, USA" .
-
-<htp://my.domain.com/places#4347778>
-      rdfs:isDefinedBy <http://sws.geonames.org/4347778/> ;
-      rdfs:label ", Baltimore, , , Baltimore Co, MD, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Baltimore_%28disambiguation%29> , <http://dbpedia.org/resource/Baltimore%2C_Maryland> .
-
-<htp://my.domain.com/places#4940190>
-      rdfs:isDefinedBy <http://sws.geonames.org/4940190/> ;
-      rdfs:label ", Hyannis, , , , MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Hyannis%2C_Massachusetts> .
-
-<htp://my.domain.com/places#5182064>
-      rdfs:isDefinedBy <http://sws.geonames.org/5182064/> ;
-      rdfs:label ", Bryn Mawr, , , Montgomery Co, PA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Bryn_Mawr%2C_Pennsylvania> , <http://dbpedia.org/resource/Bryn_Mawr_%28SEPTA_Regional_Rail_station%29> .
-
-<htp://my.domain.com/places#5110269>
-      rdfs:isDefinedBy <http://sws.geonames.org/5110269/> ;
-      rdfs:label ", Bronxville, , , Westchester Co, NY, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Bronxville%2C_New_York> .
-
-<htp://my.domain.com/places#7287963>
-      rdfs:isDefinedBy <http://sws.geonames.org/7287963/> ;
-      rdfs:label ", Chatsworth, , , , , England" .
-
-<htp://my.domain.com/places#2986109>
-      rdfs:isDefinedBy <http://sws.geonames.org/2986109/> ;
-      rdfs:label ", Pont-St-Esprit, , , , , France" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Pont-Saint-Esprit> .
-
-<htp://my.domain.com/places#5110302>
-      rdfs:isDefinedBy <http://sws.geonames.org/5110302/> ;
-      rdfs:label ", Brooklyn, , , Kings Co, NY, USA" .
-
-<htp://my.domain.com/places#4935304>
-      rdfs:isDefinedBy <http://sws.geonames.org/4935304/> ;
-      rdfs:label ", East Boston, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/East_Boston%2C_Massachusetts> .
-
-<htp://my.domain.com/places#2965140>
-      rdfs:isDefinedBy <http://sws.geonames.org/2965140/> ;
-      rdfs:label ", Cork, , , Cork Co, Munster Province, Ireland" .
-
-<htp://my.domain.com/places#5368559>
-      rdfs:isDefinedBy <http://sws.geonames.org/5368559/> ;
-      rdfs:label ", Los Olivos, , , Santa Barbara Co, CA, USA" .
-
-<htp://my.domain.com/places#4744709>
-      rdfs:isDefinedBy <http://sws.geonames.org/4744709/> ;
-      rdfs:label ", Arlington, , 22209, Arlington Co, VA, USA" .
-
-<htp://my.domain.com/places#4934964>
-      rdfs:isDefinedBy <http://sws.geonames.org/4934964/> ;
-      rdfs:label ", Dorchester, , , Suffolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Dorchester%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4752042>
-      rdfs:isDefinedBy <http://sws.geonames.org/4752042/> ;
-      rdfs:label ", Charlottesvlle, , , Albemarle Co, VA, USA" .
-
-<htp://my.domain.com/places#4887398>
-      rdfs:isDefinedBy <http://sws.geonames.org/4887398/> ;
-      rdfs:label ", Chicago, , , Cook Co, IL, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Chicago> .
-
-<htp://my.domain.com/places#4955336>
-      rdfs:isDefinedBy <http://sws.geonames.org/4955336/> ;
-      rdfs:label ", Weymouth, , , Norfolk Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Weymouth%2C_Massachusetts> .
-
-<htp://my.domain.com/places#253563>
-      rdfs:isDefinedBy <http://sws.geonames.org/253563/> ;
-      rdfs:label ", Skorpios, , , , , Greece" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Skorpios> .
-
-<htp://my.domain.com/places#4254679>
-      rdfs:isDefinedBy <http://sws.geonames.org/4254679/> ;
-      rdfs:label ", Bloomington, , , Monroe Co, IN, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Bloomington%2C_Indiana> .
-
-<htp://my.domain.com/places#4835395>
-      rdfs:isDefinedBy <http://sws.geonames.org/4835395/> ;
-      rdfs:label ", Greenwich, , , Fairfield Co, CT, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Greenwich%2C_Connecticut> .
-
-<htp://my.domain.com/places#4928718>
-      rdfs:isDefinedBy <http://sws.geonames.org/4928718/> ;
-      rdfs:label ", Town of Acton, , , Middlesex Co, MA, USA" .
-
-<htp://my.domain.com/places#2796052>
-      rdfs:isDefinedBy <http://sws.geonames.org/2796052/> ;
-      rdfs:label ", Heppen, , , , , Belgium" .
-
-<htp://my.domain.com/places#2963597>
-      rdfs:isDefinedBy <http://sws.geonames.org/2963597/> ;
-      rdfs:label ", , , , , , Ireland" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Republic_of_Ireland> , <http://dbpedia.org/resource/Ireland> .
-
-<htp://my.domain.com/places#7164007>
-      rdfs:isDefinedBy <http://sws.geonames.org/7164007/> ;
-      rdfs:label ", La Porte, , , La Porte Co, IN, USA" .
-
-<htp://my.domain.com/places#4942807>
-      rdfs:isDefinedBy <http://sws.geonames.org/4942807/> ;
-      rdfs:label ", Lynn, , , Essex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Lynn%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4140963>
-      rdfs:isDefinedBy <http://sws.geonames.org/4140963/> ;
-      rdfs:label ", Washington, , , , DC, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Washington%2C_D.C.> .
-
-<htp://my.domain.com/places#4684888>
-      rdfs:isDefinedBy <http://sws.geonames.org/4684888/> ;
-      rdfs:label ", Dallas, , , Dallas Co, TX, USA" .
-
-<htp://my.domain.com/places#4931972>
-      rdfs:isDefinedBy <http://sws.geonames.org/4931972/> ;
-      rdfs:label ", Cambridge, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Cambridge%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4954749>
-      rdfs:isDefinedBy <http://sws.geonames.org/4954749/> ;
-      rdfs:label ", Wellesley Hills, , , Norfolk Co, MA, USA" .
-
-<htp://my.domain.com/places#4942939>
-      rdfs:isDefinedBy <http://sws.geonames.org/4942939/> ;
-      rdfs:label ", Malden, , , Middlesex Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Malden%2C_Massachusetts> .
-
-<htp://my.domain.com/places#1835848>
-      rdfs:isDefinedBy <http://sws.geonames.org/1835848/> ;
-      rdfs:label ", Seoul, , , , , Korea" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Seoul> .
-
-<htp://my.domain.com/places#5393212>
-      rdfs:isDefinedBy <http://sws.geonames.org/5393212/> ;
-      rdfs:label ", Santa Monica, , , Los Angeles Co, CA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Santa_Monica%2C_California> .
-
-<htp://my.domain.com/places#4935582>
-      rdfs:isDefinedBy <http://sws.geonames.org/4935582/> ;
-      rdfs:label ", Easthampton, , , Hampshire Co, MA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Easthampton%2C_Massachusetts> .
-
-<htp://my.domain.com/places#4140963>
-      rdfs:isDefinedBy <http://sws.geonames.org/4140963/> ;
-      rdfs:label ", Washington, , , , DC, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Washington%2C_D.C.> .
-
-<htp://my.domain.com/places#5206379>
-      rdfs:isDefinedBy <http://sws.geonames.org/5206379/> ;
-      rdfs:label ", Pittsburgh, , , Allegheny Co, PA, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Pittsburgh%2C_Pennsylvania> .
-
-<htp://my.domain.com/places#4167505>
-      rdfs:isDefinedBy <http://sws.geonames.org/4167505/> ;
-      rdfs:label ", Palm Beach, , , Palm Beach Co, FL, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Palm_Beach%2C_Florida> .
-
-<htp://my.domain.com/places#5490263>
-      rdfs:isDefinedBy <http://sws.geonames.org/5490263/> ;
-      rdfs:label ", Santa Fe, , , Santa Fe Co, NM, USA" ;
-      rdfs:seeAlso <http://dbpedia.org/resource/Santa_Fe%2C_New_Mexico> .
+@prefix p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> .
+
+<http://sws.geonames.org/7838931/> p:elaborates ", , , , Wexford Co, , Ireland".
+<http://sws.geonames.org/4744709/> p:elaborates ", Arlington, , 22209, Arlington Co, VA, USA".
+<http://sws.geonames.org/5110302/> p:elaborates ", Brooklyn, , , Kings Co, NY, USA".
+<http://sws.geonames.org/4932587/> p:elaborates ", Centerville, , , Barnstable Co, MA, USA".
+<http://sws.geonames.org/4752042/> p:elaborates ", Charlottesvlle, , , Albemarle Co, VA, USA".
+<http://sws.geonames.org/7287963/> p:elaborates ", Chatsworth, , , , , England".
+<http://sws.geonames.org/2965140/> p:elaborates ", Cork, , , Cork Co, Munster Province, Ireland".
+<http://sws.geonames.org/4684888/> p:elaborates ", Dallas, , , Dallas Co, TX, USA".
+<http://sws.geonames.org/2964529/> p:elaborates ", Dunganstown, , , Wexford Co, , Ireland".
+<http://sws.geonames.org/5191209/> p:elaborates ", Gladwyne, , , Unk Co, PA, USA".
+<http://sws.geonames.org/3014728/> p:elaborates ", Grenoble, , , , , France".
+<http://sws.geonames.org/2796052/> p:elaborates ", Heppen, , , , , Belgium".
+<http://sws.geonames.org/4940197/> p:elaborates ", Hyannis Port, , , Barnstable Co, MA, USA".
+<http://sws.geonames.org/5257829/> p:elaborates ", Jefferson, , , Jefferson Co, WI, USA".
+<http://sws.geonames.org/7164007/> p:elaborates ", La Porte, , , La Porte Co, IN, USA".
+<http://sws.geonames.org/5368559/> p:elaborates ", Los Olivos, , , Santa Barbara Co, CA, USA".
+<http://sws.geonames.org/5133918/> p:elaborates ", Riverdale, , , Unk Co, NY, USA".
+<http://sws.geonames.org/5139030/> p:elaborates ", Southampton, , , Long Island, NY, USA".
+<http://sws.geonames.org/4170894/> p:elaborates ", St. Augustine, , , St. Johns Co, FL, USA".
+<http://sws.geonames.org/4928718/> p:elaborates ", Town of Acton, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/4954749/> p:elaborates ", Wellesley Hills, , , Norfolk Co, MA, USA".
+<http://sws.geonames.org/4955259/> p:elaborates ", Weston, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/4984247/> p:elaborates ", Ann Arbor, , 48109, Washtenaw Co, MI, USA".
+<http://sws.geonames.org/5325738/> p:elaborates ", Bakersfield, , 93380, Kern Co, CA, USA".
+<http://sws.geonames.org/4347778/> p:elaborates ", Baltimore, , , Baltimore Co, MD, USA".
+<http://sws.geonames.org/5095445/> p:elaborates ", Bayonne, , , Hudson Co, NJ, USA".
+<http://sws.geonames.org/4254282/> p:elaborates ", Bedford, , , Lawrence Co, IN, USA".
+<http://sws.geonames.org/4254679/> p:elaborates ", Bloomington, , , Monroe Co, IN, USA".
+<http://sws.geonames.org/4930956/> p:elaborates ", Boston, , , Suffolk Co, MA, USA".
+<http://sws.geonames.org/4930956/> p:elaborates ", Near Boston, , , Suffolk Co, MA, USA".
+<http://sws.geonames.org/5110269/> p:elaborates ", Bronxville, , , Westchester Co, NY, USA".
+<http://sws.geonames.org/4931482/> p:elaborates ", Brookline, , , Norfolk Co, MA, USA".
+<http://sws.geonames.org/5182064/> p:elaborates ", Bryn Mawr, , , Montgomery Co, PA, USA".
+<http://sws.geonames.org/4931972/> p:elaborates ", Cambridge, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/4932879/> p:elaborates ", Chelsea, , , Suffolk Co, MA, USA".
+<http://sws.geonames.org/4887398/> p:elaborates ", Chicago, , , Cook Co, IL, USA".
+<http://sws.geonames.org/4933743/> p:elaborates ", Concord, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/4934964/> p:elaborates ", Dorchester, , , Suffolk Co, MA, USA".
+<http://sws.geonames.org/4935304/> p:elaborates ", East Boston, , , Suffolk Co, MA, USA".
+<http://sws.geonames.org/4935582/> p:elaborates ", Easthampton, , , Hampshire Co, MA, USA".
+<http://sws.geonames.org/4936174/> p:elaborates ", Falmouth, , , Barnstable Co, MA, USA".
+<http://sws.geonames.org/3017382/> p:elaborates ", , , , , , France".
+<http://sws.geonames.org/4835395/> p:elaborates ", Greenwich, , , Fairfield Co, CT, USA".
+<http://sws.geonames.org/4940134/> p:elaborates ", Hull, , , Plymouth Co, MA, USA".
+<http://sws.geonames.org/4940190/> p:elaborates ", Hyannis, , , , MA, USA".
+<http://sws.geonames.org/2963597/> p:elaborates ", , , , , , Ireland".
+<http://sws.geonames.org/2644210/> p:elaborates ", Liverpool, , , , , England".
+<http://sws.geonames.org/2643743/> p:elaborates ", London, , , , , England".
+<http://sws.geonames.org/5368361/> p:elaborates ", Los Angeles, , , Los Angeles Co, CA, USA".
+<http://sws.geonames.org/4942807/> p:elaborates ", Lynn, , , Essex Co, MA, USA".
+<http://sws.geonames.org/4942939/> p:elaborates ", Malden, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/5200499/> p:elaborates ", McKeesport, , , Allegheny Co, PA, USA".
+<http://sws.geonames.org/4772354/> p:elaborates ", McLean, , , Fairfax Co, VA, USA".
+<http://sws.geonames.org/4943629/> p:elaborates ", Medford, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/5127744/> p:elaborates ", Mt. Kisco, , , Westchester Co, NY, USA".
+<http://sws.geonames.org/4839366/> p:elaborates ", New Haven, , , New Haven Co, CT, USA".
+<http://sws.geonames.org/5128581/> p:elaborates ", New York City, , , , NY, USA".
+<http://sws.geonames.org/5223593/> p:elaborates ", Newport, , , Newport Co, RI, USA".
+<http://sws.geonames.org/4945283/> p:elaborates ", Newton, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/4167505/> p:elaborates ", Palm Beach, , , Palm Beach Co, FL, USA".
+<http://sws.geonames.org/5206379/> p:elaborates ", Pittsburgh, , , Allegheny Co, PA, USA".
+<http://sws.geonames.org/2986109/> p:elaborates ", Pont-St-Esprit, , , , , France".
+<http://sws.geonames.org/4832294/> p:elaborates ", Revere, , , Suffolk Co, MA, USA".
+<http://sws.geonames.org/5490263/> p:elaborates ", Santa Fe, , , Santa Fe Co, NM, USA".
+<http://sws.geonames.org/5393212/> p:elaborates ", Santa Monica, , , Los Angeles Co, CA, USA".
+<http://sws.geonames.org/5136334/> p:elaborates ", Saratoga Springs, , , Saratoga Co, NY, USA".
+<http://sws.geonames.org/4950267/> p:elaborates ", Saugus, , , Essex Co, MA, USA".
+<http://sws.geonames.org/1835848/> p:elaborates ", Seoul, , , , , Korea".
+<http://sws.geonames.org/253563/> p:elaborates ", Skorpios, , , , , Greece".
+<http://sws.geonames.org/4954380/> p:elaborates ", Waltham, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/4140963/> p:elaborates ", Washington, , , , DC, USA".
+<http://sws.geonames.org/4954611/> p:elaborates ", Watertown, , , Middlesex Co, MA, USA".
+<http://sws.geonames.org/4955128/> p:elaborates ", West Roxbury, , , Suffolk Co, MA, USA".
+<http://sws.geonames.org/4373238/> p:elaborates ", Westminster, , , Carroll Co, MD, USA".
+<http://sws.geonames.org/4955336/> p:elaborates ", Weymouth, , , Norfolk Co, MA, USA".
+<http://sws.geonames.org/4916826/> p:elaborates ", Winfield, , , Du Page Co, IL, USA".
+<http://sws.geonames.org/4955993/> p:elaborates ", Winthrop, , , Suffolk Co, MA, USA".

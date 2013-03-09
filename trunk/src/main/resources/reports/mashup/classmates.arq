@@ -7,9 +7,7 @@
 #
 # potential (junior) classmates that achieved a military rank
 #
-# needs both of
-# - the converted gedcom
-# - the end result of the semi-automated download for GeoNames and DbPedia 
+# needs the converted gedcom, geoMashup and geoNamesCache
 #
 #########################################################################
 
@@ -54,9 +52,8 @@ SELECT DISTINCT
   FILTER ( ! fn:starts-with(?placeLiteral,", ,") ) 
 
   ### match our person with downloaded data
-  ?link
-       rdfs:label   ?placeLiteral;
-       rdfs:seeAlso ?dbp.
+  ?gn p:elaborates ?placeLiteral;
+      rdfs:seeAlso ?dbp.
 
   ### prepare for date evaluation
   LET( ?year := xsd:int ( fn:substring(str(?birthDate), 1, 4) ))

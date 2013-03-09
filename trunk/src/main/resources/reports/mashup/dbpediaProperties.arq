@@ -39,9 +39,8 @@ SELECT ?property ?count
       ?property
       (count(?dbp) as ?count)
     {
-      ?placeLink
-           rdfs:label    ?place;
-           rdfs:seeAlso  ?dbp.
+      ?gn p:elaborates ?place;
+          rdfs:seeAlso ?dbp.
       SERVICE <http://dbpedia.org/sparql>
       { ?dbp ?property   ?type. }
     }
