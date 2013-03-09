@@ -17,7 +17,7 @@ Try the mashup queries:
   *      dbpediaRelatedEntities.arq
   *      dbpediaProperties.arq
 
-= Some places do have a geoNameID in the mashup input, but the result of semweb.Select with mashup.arg shows no coordinates. =
+= Some places do have a geoNameID in the mashup input, but the result of semweb.Select with mashup.arq shows no coordinates. =
 
 The free services of `GeoNames` and `DbPedia` are not allways reliable so you might have to repeat semweb.Mashup. The command semweb.Mashup is designed not to download from `GeoNames` again what is already present. `DbPedia` is allways queried to create direct links, but nothing is downloaded because it is too much and can be queried directly. 
 
