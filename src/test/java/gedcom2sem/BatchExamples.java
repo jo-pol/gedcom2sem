@@ -16,10 +16,8 @@ package gedcom2sem;
 
 import gedcom2sem.gedsem.Convert;
 import gedcom2sem.semweb.KmlGenerator;
-import gedcom2sem.semweb.Mashup;
 import gedcom2sem.semweb.Select;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class BatchExamples
@@ -39,14 +37,6 @@ public class BatchExamples
     public void prepareMashup() throws Exception
     {
         Select.main(TEST+"kennedy.ttl", TEST+"geoMashup.ttl", TEST+"geoNamesCache.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
-    }
-
-    @Ignore
-    // takes too long to run on a regular basis
-    @Test
-    public void mashup() throws Exception
-    {
-        Mashup.main(TEST + "kennedy.tsv", MAIN + "mashup.properties", "target/kennedyMashup.ttl");
     }
 
     @Test
