@@ -10,32 +10,11 @@ The gedcom transformation does not follow an established ontology, it is rather 
 =Diagram=
 The diagram illustrates how the main classes of the library interact.
 
-*legend*
-<dl>
+|| ovals || _commands_; the two at the bottom are drawn on top of one another to prevent crossing lines,<br> these commands need (almost) the same files as arguments. [commands More...] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg || _configuration_; the .arq files contain the queries to generate reports, [#Configuration more...] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg || _your data_; a set of example files is available at the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ test resources] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/semweb.jpg || data from the semantic web, [#Configuration more...] ||
 
-<dt>ovals</dt>
-<dd>
-_commands_; 
-the two at the bottom are drawn on top of one another to prevent crossing lines, these commands need (almost) the same files as arguments. [commands More...]
-</dd>
-
-<dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg</dt>
-<dd>
-_configuration_; the .arq files contain the queries to generate reports, [#Configuration more...]
-</dd>
-
-<dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg</dt>
-<dd>
-_your data_;
-a set of example files is available at the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ test resources]
-</dd>
-
-<dt>https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/semweb.jpg</dt>
-<dd>
-data from the semantic web, [#Configuration more...]
-</dd>
-
-</dl>
 http://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/overview.png
 
 =Configuration=
@@ -51,6 +30,6 @@ Below you find links to lists of resources you can cross-query directly together
   * http://www.w3.org/wiki/SparqlEndpoints  http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
   * http://labs.mondeca.com/sparqlEndpointsStatus/ http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
 
-Note that `GeoNames` does not have a sparql endpoint. `FactForge` includes both `GeoNames` and `DbPedia`, but the merge causes trouble for the coordinates. Multiple values appear for the latitude and longitude in different formats and precision, no way to know their origin or even which belong together. Sometimes even latitude and longitude are mixed up, so in this case you have to download the data. The screenshot below shows where to find the download link, while you are in the process of mapping (creating geoMashup.ttl) the proper URI's with the place name literals in your gedcom.
+Note that `GeoNames` does not have a sparql endpoint. `FactForge` includes both `GeoNames` and `DbPedia`, but the merge causes trouble for the coordinates. Multiple values appear for the latitude and longitude in different formats and precision, no way to know their origin or even which belong together. Sometimes even latitude and longitude are mixed up, so in this case you have to download the data. The screenshot below shows where to find the download link, while you are in the process of mapping (creating [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ geoMashup.ttl]) the proper URI's with the place name literals in your gedcom.
 
 http://gedcom2sem.googlecode.com/svn/trunk/docs/images/downloadGeoNames.png
