@@ -11,15 +11,11 @@ URI versus URL (in short): A URI is an _identifier_, it is unique, might but nee
 Try the mashup query dbpediaLanguages.arq Note that not all can be queried directly.
 
 = What properties are commonly available? =
-Try the mashup queries:
+Try the mashup [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources%2Freports%2Fmashup queries]:
   *      geonamesProperties.arq
   *      geonamesRelatedEntities.arq
   *      dbpediaRelatedEntities.arq
   *      dbpediaProperties.arq
-
-= Some places do have a geoNameID in the mashup input, but the result of semweb.Select with mashup.arq shows no coordinates. =
-
-The free services of `GeoNames` and `DbPedia` are not allways reliable so you might have to repeat semweb.Mashup. The command semweb.Mashup is designed not to download from `GeoNames` again what is already present. `DbPedia` is allways queried to create direct links, but nothing is downloaded because it is too much and can be queried directly. 
 
 = Skipping xxx.arq: Lexical error at line 1, column 2. Encountered: "\u00bb" (187), after : "\u00ef" =
 
