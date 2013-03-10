@@ -11,6 +11,8 @@
 # replace the value for idOfRootIndi
 # or launch from a INDI context
 #
+# Requires the basic rules and additional rules.
+#
 ###############################################
 
 ### external data
