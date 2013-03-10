@@ -1,6 +1,6 @@
 #labels Phase-Implementation
 #sidebar TableOfContent
-The original plugins in <a href="http://genj.sourceforge.net/">GenJ http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> and <a href="http://www.ancestris.org/">Ancestris http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png</a> still lack the enhancements for mash ups and KML. The command line interface of this library is not very suitable for end users. Plugin developers could plug this library back into both applications and into other applications that choose so. 
+The original plugins in <a href="http://genj.sourceforge.net/">GenJ http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> and <a href="http://www.ancestris.org/">Ancestris http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> still lack the enhancements for mash ups and KML. The command line interface of this library is not very suitable for end users. Plugin developers could plug this library back into both applications and into other applications that choose so. 
 
 The main classes are identified on the [overview] page, they are a good starting point to explore the possibilities.
 
@@ -8,13 +8,13 @@ The main classes are identified on the [overview] page, they are a good starting
 ==options per gedcom==
   * names, locations and editors for uri.properties, mashup.properties and the file(s) with rules
   * name and location of converted gedcom
-  * name and location of mashup.tsv (perhaps the  geo-plugin of ancestris could export a replacement for the mashup.tsv)
+  * name and location of geoMashup.ttl (perhaps the  geo-plugin of ancestris could export a replacement for the mashup.tsv)
   * name and location of collected mash up data
   * checkbox: save the converted gedcom whenever the gedcom itself is saved (especially with all the rules applied it takes a while, prevent blocking GUI processing)
 
 ==menu comands==
   * save converted gedcom. Invokes Convert
-  * collect mash up data. Invokes Mashup
+  * collect mash up data
 
 ==report dialog==
 invoked from the general menu or the context menu of an entity. The OK button of the dialog invokes: Select
