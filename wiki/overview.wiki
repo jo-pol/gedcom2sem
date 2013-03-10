@@ -15,6 +15,7 @@ The diagram illustrates how to use the the main classes of the library.
 || https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg || _configuration_; the .arq files contain the queries to generate reports, [#Configuration more...] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg || _your data_; a set of example files is available as [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ test resources] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/semweb.jpg || data from the semantic web, [#Configuration more...] ||
+|| - - - || optional ||
 
 http://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/overview.png
 
