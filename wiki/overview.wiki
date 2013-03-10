@@ -1,4 +1,5 @@
 #sidebar TableOfContent
+<wiki:toc>
 =Introduction=
 The core of this library is a transformation of [http://en.wikipedia.org/wiki/GEDCOM gedcom]http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png databases into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or statements]http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png. That allows flexible queries and reports. Various examples show various possibilities and techniques. Customize them to your wishes.
 
@@ -8,11 +9,11 @@ Both dates and places are obvious entry points: `GeoNames` for maps and `dbPedia
 The gedcom transformation does not follow an established ontology, it is rather a syntactical transformation. Inference can bridge the gap with other data sets on the web. Inference by ontologies can be quite tricky, rules take care of the job instead. The rules provided so far mainly aim at simplifying queries, such as: a husband/wife in a family is a parent of a child in the family, a child in a family is the sibling of another child in the same family, a parent is an ancestor, an ancestor of an ancestor is an ancestor. More rules can implement other inference, such as: a place of an event of the type birth is the "birthplace of a person". Which is a statement common in established ontologies.
 
 =Diagram=
-The diagram illustrates how the main classes of the library interact.
+The diagram illustrates how to use the the main classes of the library.
 
 || ovals || _commands_; the two at the bottom are drawn on top of one another to prevent crossing lines,<br> these commands need (almost) the same files as arguments. [commands More...] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/config.jpg || _configuration_; the .arq files contain the queries to generate reports, [#Configuration more...] ||
-|| https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg || _your data_; a set of example files is available at the [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ test resources] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/data.jpg || _your data_; a set of example files is available as [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ test resources] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/semweb.jpg || data from the semantic web, [#Configuration more...] ||
 
 http://gedcom2sem.googlecode.com/svn/trunk/docs/batch-diagram/overview.png
@@ -25,12 +26,17 @@ You need typically one uri.properties per gedcom. Variants of kml.properties on 
 The diagram shows how the `KmlGenerator` executes a query and formats the results in one go. For development and trouble shooting it can be convenient to split that in two steps. The first step is to execute a select command using with .tsv output. For the second step the `KmlGenerator` will only need the .tsv and kml.properties as input, no user data nor mash up data is required for the second step.
 
 =Semantic web=
-Below you find links to lists of resources you can cross-query directly together with your own data. 
+The folowing lists show resources you can cross-query directly together with your own data. 
 
   * http://www.w3.org/wiki/SparqlEndpoints  http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
   * http://labs.mondeca.com/sparqlEndpointsStatus/ http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png
 
+==`GeoNames` versus `DbPedia`==
+
 Note that `GeoNames` does not have a sparql endpoint, therefore it has a different place in the diagram above than `DbPedia`. `FactForge` includes both `GeoNames` and `DbPedia`, but the merge causes trouble for the coordinates. Multiple values appear for the latitude and longitude in different formats and precision, no way to know their origin or even which belong together. Sometimes even latitude and longitude are mixed up, so in this case you have to download the data.
-You may try to download the full [http://download.geonames.org/all-geonames-rdf.zip rdf dump]http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png if your unzip tool is powerful enough, or download place by place while you are in the process of mapping (creating [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ geoMashup.ttl]) URI's with the place name literals in your gedcom anyway. The screenshot below shows the download link. The query [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/reports/mashup/mashup.arq mashup.arq] helps to check completeness of geoMashup.ttl.
+
+==`GeoNames`==
+
+You may try to download the full [http://download.geonames.org/all-geonames-rdf.zip rdf dump]http://gedcom2sem.googlecode.com/svn/trunk/docs/images/icon_external_link_blue.png if your unzip tool is powerful enough. Another option is to download place by place. You need to search for each place anyway to create [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ geoMashup.ttl] to map URI's with the place name literals in your gedcom. The screenshot below shows the download link. The query [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/reports/mashup/mashup.arq mashup.arq] helps to check completeness of geoMashup.ttl.
 
 http://gedcom2sem.googlecode.com/svn/trunk/docs/images/downloadGeoNames.png
