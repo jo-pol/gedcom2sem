@@ -7,7 +7,7 @@
 #
 # frequency of dbpedia properties
 #
-# Only the semi-automatically downloaded data is required
+# Requires only geoNamesCache
 #
 ###################################################################
 
