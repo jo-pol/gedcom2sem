@@ -17,7 +17,7 @@
     <node id="n0">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="64.0" width="137.58056640625" x="454.9347839355469" y="258.52178955078125"/>
+          <y:Geometry height="64.0" width="137.58056640625" x="454.9347839355469" y="198.52178955078125"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="90.1376953125" x="4.0" y="4.0">uri.properties</y:NodeLabel>
@@ -91,13 +91,10 @@ nt / n3 / ttl / rdf</y:NodeLabel>
     <node id="n6">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="64.0" width="137.58056640625" x="483.1956481933594" y="282.5"/>
+          <y:Geometry height="64.0" width="137.58056640625" x="483.1956481933594" y="222.5"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="109.302734375" x="4.0" y="4.0">slowRules.txt
-quickRules.txt
-noRules.txt
-or your own rules</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="91.79296875" x="4.0" y="4.0">basicRules.txt</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -223,7 +220,7 @@ nt / n3 / ttl / rdf</y:NodeLabel>
     <node id="n17">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.cloud">
-          <y:Geometry height="133.0" width="195.0" x="631.8043518066406" y="248.0"/>
+          <y:Geometry height="133.0" width="195.0" x="671.3631591796875" y="248.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="95.6640625" horizontalTextPosition="center" iconData="5" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="163.443359375" x="15.7783203125" y="18.66796875">SERVICE
@@ -238,6 +235,26 @@ for custom queries<y:LabelModel>
               <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
             </y:ModelParameter>
           </y:NodeLabel>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n18">
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.flowchart.process">
+          <y:Geometry height="64.0" width="137.58056640625" x="508.39129638671875" y="248.0"/>
+          <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="115.259765625" x="4.0" y="4.0">additionalRules.txt</y:NodeLabel>
+        </y:GenericNode>
+      </data>
+    </node>
+    <node id="n19">
+      <data key="d6">
+        <y:GenericNode configuration="com.yworks.flowchart.process">
+          <y:Geometry height="64.0" width="137.58056640625" x="533.7825927734375" y="273.0"/>
+          <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="1" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="88.53125" x="4.0" y="4.0">yourRules.txt</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -277,19 +294,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e3" source="n0" target="n4">
-      <data key="d10">
-        <y:ArcEdge>
-          <y:Path sx="-62.574484679061975" sy="15.9564208984375" tx="0.0" ty="0.0">
-            <y:Point x="479.9213562011719" y="364.71051025390625"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:Arc height="-10.59814739227295" ratio="-0.3517591655254364" type="fixedRatio"/>
-        </y:ArcEdge>
-      </data>
-    </edge>
-    <edge id="e4" source="n15" target="n1">
+    <edge id="e3" source="n15" target="n1">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="-90.70108043946647" ty="-16.925424058160843">
@@ -301,7 +306,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e5" source="n11" target="n5">
+    <edge id="e4" source="n11" target="n5">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="-67.87957099982629" sy="17.62485302531631" tx="38.36030280449328" ty="-8.67359801267522">
@@ -313,7 +318,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e6" source="n3" target="n5">
+    <edge id="e5" source="n3" target="n5">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -324,7 +329,7 @@ for custom queries<y:LabelModel>
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e7" source="n14" target="n5">
+    <edge id="e6" source="n14" target="n5">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="-6.5" ty="12.375244140625">
@@ -336,7 +341,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e8" source="n1" target="n8">
+    <edge id="e7" source="n1" target="n8">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -348,7 +353,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e9" source="n8" target="n7">
+    <edge id="e8" source="n8" target="n7">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -360,7 +365,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e10" source="n13" target="n1">
+    <edge id="e9" source="n13" target="n1">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="86.62985142562758" ty="-21.135544421543685">
@@ -372,7 +377,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e11" source="n14" target="n1">
+    <edge id="e10" source="n14" target="n1">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="-84.70932489052205" ty="22.80842235810701">
@@ -384,7 +389,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e12" source="n5" target="n1">
+    <edge id="e11" source="n5" target="n1">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -396,7 +401,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e13" source="n3" target="n1">
+    <edge id="e12" source="n3" target="n1">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="0.0" sy="0.0" tx="-29.649952028890553" ty="-43.77994559158711">
@@ -405,6 +410,18 @@ for custom queries<y:LabelModel>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
         </y:QuadCurveEdge>
+      </data>
+    </edge>
+    <edge id="e13" source="n1" target="n1">
+      <data key="d10">
+        <y:ArcEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="523.2762451171875" y="615.0435791015625"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:Arc height="0.0" ratio="1.0" type="fixedRatio"/>
+        </y:ArcEdge>
       </data>
     </edge>
     <edge id="e14" source="n1" target="n1">
@@ -431,19 +448,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e16" source="n1" target="n1">
-      <data key="d10">
-        <y:ArcEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="523.2762451171875" y="615.0435791015625"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:Arc height="0.0" ratio="1.0" type="fixedRatio"/>
-        </y:ArcEdge>
-      </data>
-    </edge>
-    <edge id="e17" source="n12" target="n1">
+    <edge id="e16" source="n12" target="n1">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="87.23680689294021" ty="-20.607988188532886">
@@ -455,7 +460,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e18" source="n5" target="n9">
+    <edge id="e17" source="n5" target="n9">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -467,7 +472,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e19" source="n10" target="n5">
+    <edge id="e18" source="n10" target="n5">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="-45.10506630004351" sy="1.0549450549450547" tx="35.90239065865178" ty="-3.2557669800197355">
@@ -479,7 +484,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e20" source="n5" target="n5">
+    <edge id="e19" source="n5" target="n5">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -491,28 +496,64 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e21" source="n6" target="n4">
-      <data key="d10">
-        <y:ArcEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="543.2692260742188" y="366.7726745605469"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:Arc height="9.069693565368652" ratio="0.3474140465259552" type="fixedRatio"/>
-        </y:ArcEdge>
-      </data>
-    </edge>
-    <edge id="e22" source="n17" target="n11">
+    <edge id="e20" source="n17" target="n11">
       <data key="d10">
         <y:ArcEdge>
           <y:Path sx="0.0" sy="0.0" tx="39.084767578125" ty="8.087912087912088">
-            <y:Point x="769.9492797851562" y="389.67333984375"/>
+            <y:Point x="789.7286987304688" y="397.037841796875"/>
           </y:Path>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:Arc height="29.818904876708984" ratio="0.7446656823158264" type="fixedRatio"/>
+          <y:Arc height="29.70604705810547" ratio="0.7446656823158264" type="fixedRatio"/>
         </y:ArcEdge>
+      </data>
+    </edge>
+    <edge id="e21" source="n18" target="n4">
+      <data key="d9"/>
+      <data key="d10">
+        <y:QuadCurveEdge straightness="0.1">
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="494.4347839355469" y="318.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+        </y:QuadCurveEdge>
+      </data>
+    </edge>
+    <edge id="e22" source="n6" target="n4">
+      <data key="d9"/>
+      <data key="d10">
+        <y:QuadCurveEdge straightness="0.1">
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="486.0" y="287.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+        </y:QuadCurveEdge>
+      </data>
+    </edge>
+    <edge id="e23" source="n19" target="n4">
+      <data key="d9"/>
+      <data key="d10">
+        <y:QuadCurveEdge straightness="0.1">
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="498.4347839355469" y="337.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+        </y:QuadCurveEdge>
+      </data>
+    </edge>
+    <edge id="e24" source="n0" target="n4">
+      <data key="d9"/>
+      <data key="d10">
+        <y:QuadCurveEdge straightness="0.1">
+          <y:Path sx="-58.725067138671875" sy="32.03289794921875" tx="0.0" ty="0.0">
+            <y:Point x="465.0" y="337.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+        </y:QuadCurveEdge>
       </data>
     </edge>
   </graph>
