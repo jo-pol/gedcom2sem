@@ -2,7 +2,7 @@
 <wiki:toc max_depth="1" />
 
 = Why does the converter need URI's? =
-The semantic web uses URIs to identify objects. The ID's of gedcom entities are inserted into URI's for that purpose. When your GedCom is published somewhere with a page per entity (such as I12 for an INDI and F34 for a FAM), it is good practice to use these URL's as URI. For entities that don't have pages invent URI's with a similar construction that will not be used for another purpose.
+The semantic web uses URIs to identify objects. The ID's of gedcom entities are inserted into URI's for that purpose. When your gedcom is published somewhere with a page per entity (such as I12 for an INDI and F34 for a FAM), it is good practice to use these URL's as URI. For entities that don't have pages invent URI's with a similar construction that will not be used for another purpose.
 
 URI versus URL (in short): A URI is an _identifier_, it is unique, might but need not resolve to a web-page. A URL is a _locater_ and does resolve to a web page. 
 
