@@ -12,7 +12,7 @@ Dates and names are stored in various formats. Queries would become too complex 
 
 == KML ==
 
-The KML output is localized with [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/ kml.properties]. The file may contain further customizations and forks suffer the same fate as described for queries. Note that customazations should stay synchronized with [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/reports/mashup places.arq]
+The KML output is localized with [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources kml.properties]. The file may contain further customizations and forks suffer the same fate as described for queries. Note that customazations should stay synchronized with [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources%2Freports%2Fmashup places.arq]
 
 == Headers ==
 
