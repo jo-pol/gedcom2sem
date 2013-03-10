@@ -41,11 +41,9 @@
 <http://sws.geonames.org/4935304/> p:elaborates ", East Boston, , , Suffolk Co, MA, USA".
 <http://sws.geonames.org/4935582/> p:elaborates ", Easthampton, , , Hampshire Co, MA, USA".
 <http://sws.geonames.org/4936174/> p:elaborates ", Falmouth, , , Barnstable Co, MA, USA".
-<http://sws.geonames.org/3017382/> p:elaborates ", , , , , , France".
 <http://sws.geonames.org/4835395/> p:elaborates ", Greenwich, , , Fairfield Co, CT, USA".
 <http://sws.geonames.org/4940134/> p:elaborates ", Hull, , , Plymouth Co, MA, USA".
 <http://sws.geonames.org/4940190/> p:elaborates ", Hyannis, , , , MA, USA".
-<http://sws.geonames.org/2963597/> p:elaborates ", , , , , , Ireland".
 <http://sws.geonames.org/2644210/> p:elaborates ", Liverpool, , , , , England".
 <http://sws.geonames.org/2643743/> p:elaborates ", London, , , , , England".
 <http://sws.geonames.org/5368361/> p:elaborates ", Los Angeles, , , Los Angeles Co, CA, USA".
