@@ -5,29 +5,29 @@ The original plugins in <a href="http://genj.sourceforge.net/">GenJ http://gedco
 The main classes are identified on the [overview] page, they are a good starting point to explore the possibilities.
 
 =design suggestions=
+
 ==options per gedcom==
-  * names, locations and editors for uri.properties, mashup.properties and the file(s) with rules
+
+  * name, location and editor for uri.properties
   * name and location of converted gedcom
-  * name and location of geoMashup.ttl (perhaps the  geo-plugin of ancestris could export a replacement for the mashup.tsv)
-  * name and location of collected mash up data
+  * name and location of geoMashup.ttl and geoNamesCache (and something to guide creteing them)
   * checkbox: save the converted gedcom whenever the gedcom itself is saved (especially with all the rules applied it takes a while, prevent blocking GUI processing)
 
-==menu comands==
-  * save converted gedcom. Invokes Convert
-  * collect mash up data
+== menu commands ==
 
-==report dialog==
-invoked from the general menu or the context menu of an entity. The OK button of the dialog invokes: Select
-  * An entity chooser.
-  * When the dialog was opened from a context menu of an entity, that instance should be initialy selected. The chosen query may dictate another type of entity, The OK button should be disabled until that conflict is resolved. A "%s" in the query should be replaced by the selected entity.
-  * An edit box for the query.
-  * Show line numbers to help fix syntax errors.
-  * Additional controls to read from or write to the file system or load one of the built-in example queries. Prefixes of the built-in quiries indicate which rules should have been applied, disable the built in queries that need more rules than have been applied with the last conversion of the gedcom..
-  * checkboxes (At least one should be checked, selecting a built-in query automaticaly checks the apropriate ones)
-    * use converted gedcom
-    * use mashup output
-    * use all files of the mashup output location
-  * name and location of the output file (or show in a window)
-  * name and location of the xsl file (style sheet) to insert into xml output (an additional control saves http://www.w3.org/TR/rdf-sparql-XMLres/result-to-html.xsl)
+  * a menu command to save the converted gedcom
+
+== report dialog ==
+
+Invoked from the general menu or the context menu of an entity. The OK button of the dialog invokes: Select.
+
+Controls:
+  * An entity chooser. When the dialog was opened from a context menu of an entity, that instance should be initialy selected. 
+  * drop down lists / file choosers for the arguments shown on the [overview] page
+  * Edit box[es?] for the chosen arguments. Line numbers may help fix syntax errors.
+
+Disable/hide built in queries that conflict with the selected type of entity. A "%s" in a query should be replaced by the selected entity.
+
+Disable/hide built in queries that need more rules than have been applied with the last conversion of the gedcom.
 
 A mistake in a query might cause to execute forever. It should be executed in a subprocess that can be killed when the users chooses so. Same applies to conversion with custom rules. 
