@@ -1,0 +1,39 @@
+##################################################################################################
+# Copyright 2013, J. Pol 
+# This file is part of free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
+# This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
+##################################################################################################
+#
+# find ancestors without parents
+#
+# requires sosa numbers before conversion 
+# Use: View - lists and reports - tool box 
+#               - choose tool to run: generation of sosa numbers
+# Not: Tools - gedcom - regenerate sosa numbers
+#
+###############################################
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX fn:   <http://www.w3.org/2005/xpath-functions#> 
+PREFIX p:    <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+###############################################
+SELECT distinct
+  (str(?id) as ?ID)
+  ?name
+{
+  ?a p:id     ?id; 
+     p:_SOSAN [rdfs:label ?sosa];
+     p:NAME   [rdfs:label ?name]. 
+
+  ### the first step to find parents without rules applied
+  OPTIONAL { ?a p:FAMC ?fam }
+
+  ### just the ones without parents
+  FILTER ( ! bound(?fam) )
+
+  ### prevent duplicates in case GIVN and SURN are stored separately
+  FILTER( fn:contains(?name,'/')  )
+}
+order by ?id
