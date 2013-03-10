@@ -13,7 +13,7 @@ The diagram illustrates how to use the the main classes of the library.
 
 || ovals || _commands_; the two at the bottom are drawn on top of one another to prevent crossing lines,<br> these commands need (almost) the same files as arguments. [commands More...] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg || _configuration_; the .arq files contain queries to generate reports, [#Configuration more...] ||
-|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/data.jpg || _your data_; a set of example files is available as [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ test resources] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/data.jpg || _your data_; a set of example files is available as [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources test resources] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/semweb.jpg || data from the semantic web, [#Configuration more...] ||
 || - - - || optional ||
 
@@ -39,6 +39,6 @@ The folowing lists show resources you can cross-query directly together with you
 
 == `GeoNames` downloads ==
 
-You may try to download the full [http://download.geonames.org/all-geonames-rdf.zip rdf dump]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png if your unzip tool is powerful enough. Another option is to download place by place. You need to search for each place anyway to create [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/resources/ geoMashup.ttl] to map URI's with the place name literals in your gedcom. The screenshot below shows the download link. The query [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/reports/mashup/mashup.arq mashup.arq] helps to check completeness of geoMashup.ttl.
+You may try to download the full [http://download.geonames.org/all-geonames-rdf.zip rdf dump]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png if your unzip tool is powerful enough. Another option is to download place by place. You need to search for each place anyway to create [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources geoMashup.ttl] to map URI's with the place name literals in your gedcom. The screenshot below shows the download link. The query [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources%2Freports%2Fmashup%2Fmashup.arq mashup.arq] helps to check completeness of geoMashup.ttl.
 
 http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/downloadGeoNames.png
