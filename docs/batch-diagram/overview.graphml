@@ -496,20 +496,7 @@ for custom queries<y:LabelModel>
         </y:ArcEdge>
       </data>
     </edge>
-    <edge id="e20" source="n17" target="n11">
-      <data key="d10">
-        <y:ArcEdge>
-          <y:Path sx="0.0" sy="0.0" tx="39.084767578125" ty="8.087912087912088">
-            <y:Point x="789.7286987304688" y="397.037841796875"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-          <y:Arc height="29.70604705810547" ratio="0.7446656823158264" type="fixedRatio"/>
-        </y:ArcEdge>
-      </data>
-    </edge>
-    <edge id="e21" source="n18" target="n4">
-      <data key="d9"/>
+    <edge id="e20" source="n18" target="n4">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -520,8 +507,7 @@ for custom queries<y:LabelModel>
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e22" source="n6" target="n4">
-      <data key="d9"/>
+    <edge id="e21" source="n6" target="n4">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -532,8 +518,7 @@ for custom queries<y:LabelModel>
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e23" source="n19" target="n4">
-      <data key="d9"/>
+    <edge id="e22" source="n19" target="n4">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -544,14 +529,35 @@ for custom queries<y:LabelModel>
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e24" source="n0" target="n4">
-      <data key="d9"/>
+    <edge id="e23" source="n0" target="n4">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="-58.725067138671875" sy="32.03289794921875" tx="0.0" ty="0.0">
             <y:Point x="465.0" y="337.0"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+        </y:QuadCurveEdge>
+      </data>
+    </edge>
+    <edge id="e24" source="n17" target="n13">
+      <data key="d9"/>
+      <data key="d10">
+        <y:QuadCurveEdge straightness="0.1">
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="811.0" y="543.0"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+        </y:QuadCurveEdge>
+      </data>
+    </edge>
+    <edge id="e25" source="n17" target="n11">
+      <data key="d9"/>
+      <data key="d10">
+        <y:QuadCurveEdge straightness="0.1">
+          <y:Path sx="0.0" sy="0.0" tx="56.414306640625" ty="15.964569091796875"/>
+          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
         </y:QuadCurveEdge>
       </data>
