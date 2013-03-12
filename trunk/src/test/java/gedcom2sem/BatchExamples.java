@@ -15,6 +15,7 @@
 package gedcom2sem;
 
 import gedcom2sem.gedsem.Convert;
+import gedcom2sem.gedsem.Publish;
 import gedcom2sem.semweb.KmlGenerator;
 import gedcom2sem.semweb.Select;
 
@@ -31,6 +32,18 @@ public class BatchExamples
     public void convert() throws Exception
     {
         Convert.main(RULES+"basicRules.txt", RULES+"additionalRules.txt", MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedy.ttl");
+    }
+
+    @Test
+    public void preparePublication() throws Exception
+    {
+        Publish.main(RULES+"foafRules.txt", MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedyFoaf.ttl");
+    }
+
+    @Test
+    public void convertFoaf() throws Exception
+    {
+        Convert.main(RULES+"foafRules.txt", MAIN + "uri.properties", TEST + "kennedy.ged", "target/kennedyFoaf2.ttl");
     }
 
     @Test

@@ -1,0 +1,7 @@
+[(?indi p:SEX  ?sex )(?sex  rdfs:label ?label)->(?indi http://xmlns.com/foaf/0.1/gender ?label)]
+[(?indi p:NAME ?name)(?name p:givn ?givn)(?givn rdfs:label ?label)->(?indi http://xmlns.com/foaf/0.1/givenName  ?label)]
+[(?fam p:WIFE ?wife) (?fam p:HUSB ?husband)->(?wife http://purl.org/vocab/relationship/spouseOf ?husband)(?husband http://purl.org/vocab/relationship/spouseOf ?wife)]
+[(?fam p:WIFE ?wife) (?fam p:CHIL ?child)->(?child http://purl.org/vocab/bio/0.1/mother ?wife)]
+[(?fam p:WIFE ?husband) (?fam p:CHIL ?child)->(?child http://purl.org/vocab/bio/0.1/father ?husband)]
+[(?indi p:NAME ?name)(?name p:last ?last)(?last rdfs:label ?label)->(?indi http://xmlns.com/foaf/0.1/familyName ?label)]
+[(?indi p:NAME ?name)(?name rdfs:label ?label)->(?indi http://xmlns.com/foaf/0.1/name   ?label)]
