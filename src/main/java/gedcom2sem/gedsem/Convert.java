@@ -19,12 +19,19 @@ import gedcom2sem.io.FileUtil;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.net.MalformedURLException;
 import java.util.Properties;
+import java.util.Set;
+
+import org.gedcom4j.parser.GedcomParserException;
 
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.reasoner.rulesys.GenericRuleReasoner;
 import com.hp.hpl.jena.reasoner.rulesys.Rule;
 import com.hp.hpl.jena.util.PrintUtil;
@@ -32,6 +39,11 @@ import com.hp.hpl.jena.util.PrintUtil;
 public class Convert
 {
     public static void main(final String... files) throws Exception
+    {
+        execute(files);
+    }
+
+    static Set<Statement> execute(final String... files) throws IOException, FileNotFoundException, MalformedURLException, GedcomParserException
     {
         final Properties uriFormats = new Properties();
         BufferedInputStream gedcomInputStream = null;
@@ -67,13 +79,21 @@ public class Convert
 
         final Model model = new Parser().parse(gedcomInputStream, uriFormats);
         model.write(output, language); // flush in case rules take too long or too much heap space
-        if (rules != null)
-            applyRules(rules, model).write(output, language);
+        Set<Statement> originalStatements = model.listStatements().toSet();
+        System.err.println("before rules: "+originalStatements.size());
+        if (rules != null){
+            Model infModel = applyRules(rules, model).write(output, language);
+            Set<Statement> statements = infModel.listStatements().toSet();
+            System.err.println("after rules: "+infModel.listStatements().toList().size());
+            statements.removeAll(originalStatements);
+            System.err.println("inferred: "+statements.size());
+            return statements;
+        }
+        else return null;
     }
 
     private static InfModel applyRules(final String rules, final Model model)
     {
-        System.err.println("applying rules");
         for (final String key : SemanticGedcomModel.PREFIXES.keySet())
             PrintUtil.registerPrefix(key, SemanticGedcomModel.PREFIXES.get(key));
         final GenericRuleReasoner reasoner = new GenericRuleReasoner(Rule.parseRules(rules));
@@ -81,7 +101,6 @@ public class Convert
 
         final InfModel infModel = ModelFactory.createInfModel(reasoner, model);
         infModel.prepare();
-        System.err.println("rules done");
         return infModel;
     }
 }
