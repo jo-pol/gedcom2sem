@@ -17,7 +17,7 @@ java -Xmx1024M -cp jar-folder/* gedcom2sem.semweb.Select ...
 
 _Note_: on windows the slash should be in the other direction.
 
-_Hint_: on Windows you can put a desired command in a <a href="http://en.wikipedia.org/wiki/Batch_file">.bat http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file, on Mac/Unix in a <a href="http://en.wikipedia.org/wiki/Shell_script">.sh http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file for quick and easy execution._
+_Hint_: for quick and easy execution you can put the desired commands in a file. On Windows in a <a href="http://en.wikipedia.org/wiki/Batch_file">.bat http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file, on Mac/Unix in a <a href="http://en.wikipedia.org/wiki/Shell_script">.sh http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file ._
 
 The configuration files are self documenting and available in the source section of this project. Download the <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources resources], or extract the files from an unzipped version of the .jar file. Sample data files are available as [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources test resources]
 
