@@ -6,7 +6,7 @@ Whether the library is or is not plugged into your favorite gedcom-application, 
 The first step is create a folder and download some files into the folder:
   * The latest jar in the download section of this project
   * [https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/log4j.properties log4j.properties]
-  * The jar files in the screenshot.<br> In practice you need jena-arq, jena-core, jena-iri, JavaAPIforKML, xml-apis, xercesImpl, jaxb-api, log4j, slf4j-api, slf4j-log4j.<br> You can search for the jars for example on http://mvnrepository.com/ Beware of advertisements with download buttons, carefully look for the download button on the artifact row.
+  * The jar files in the screenshot.<br> In practice you need jena-arq, jena-core, jena-iri, JavaAPIforKML, xml-apis, xercesImpl, jaxb-api, log4j, slf4j-api, slf4j-log4j.<br> You can search for the jars for example on http://mvnrepository.com/ Beware of advertisements with download buttons, carefully look for the links in the table below.
 
 =command line=
 
