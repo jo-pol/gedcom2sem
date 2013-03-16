@@ -1,3 +1,4 @@
+#sidebar TableOfContent
 =Ontologies and rules=
 
 ==Introduction==
@@ -13,5 +14,3 @@ In short: the examples provided so far in this project can be extended with comp
 ==Status==
 
 The basic rules and additional rules were designed to simplify writing reports without any consideration about ontologies. Probably the reporting queries can be rewritten with the bio/foaf model once the rules are completed. An [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/java/gedcom2sem/gedsem/Publish.java experimental alternative] for the convert command drops the original statements.
-
-
