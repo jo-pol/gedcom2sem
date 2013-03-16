@@ -2,7 +2,7 @@ Usage
 
   * [overview Overview]
   * [commands Command lines]
-  * [OntologiesAndRules Ontologies And Rules]
+  * [OntologiesAndRules Ontologies and rules]
 
 Contribute
 
