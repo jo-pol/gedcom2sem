@@ -1,0 +1,17 @@
+=Ontologies and rules=
+
+==Introduction==
+
+The first conversion step merely turns gedcom tags into predicates without thoughts about semantics. The approach results into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. Rules can derive new statements that respect an established ontology. Drop the original statements and you can get a valid semantic document. Thus you can model the data any way you want. Two ontologies surface from a quick survey:
+  * http://www.daml.org/2001/01/gedcom/gedcom is simple but uses only a fraction of the information that can be stored in a gedcom. It has an apparently abandoned [http://web.archive.org/web/20041214001231/http://orlando.drc.com/daml/Ontology/Genealogy/3.1/Gentology-ont.daml variant]. More background on http://jay.askren.net/Projects/SemWeb/
+  * http://purl.org/vocab/bio leaning on [http://www.xml.com/pub/a/2004/02/04/foaf.html foaf]
+
+Technical details about rules: http://jena.apache.org/documentation/inference/index.html#rules<br>
+Some examples: http://hydrogen.informatik.tu-cottbus.de/wiki/index.php/JenaRules<br>
+In short: the examples provided so far in this project can be extended with computations, logic and string magic with built in [http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]
+
+==Status==
+
+The basic rules and additional rules were designed to simplify writing reports without any consideration about ontologies. Probably the reporting queries can be rewritten with the bio/foaf model once the rules are completed. An [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/java/gedcom2sem/gedsem/Publish.java experimental alternative] for the convert command drops the original statements.
+
+
