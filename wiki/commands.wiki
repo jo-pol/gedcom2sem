@@ -10,7 +10,7 @@ The first step is create a folder and download some files into the folder:
 
 =command line=
 
-Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. 
+Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. To be future proof, put the output file last.
 {{{
 java -Xmx1024M -cp jar-folder/* gedcom2sem.semweb.Select ...
 }}}
