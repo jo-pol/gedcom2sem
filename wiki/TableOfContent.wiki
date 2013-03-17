@@ -1,8 +1,8 @@
 Usage
 
   * [overview Overview]
-  * [commands Command lines]
   * [OntologiesAndRules Ontologies and rules]
+  * [commands Command lines]
 
 Contribute
 
