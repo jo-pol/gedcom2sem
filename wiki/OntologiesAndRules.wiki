@@ -9,10 +9,26 @@ The first conversion step merely turns gedcom tags into predicates without thoug
   * [http://protege.cim3.net/file/pub/ontologies/family.swrl.owl/family.swrl.owl family.swrl.owl]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png about relations
   * http://purl.org/vocab/bio leaning on [http://www.xml.com/pub/a/2004/02/04/foaf.html foaf]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png seems pretty complete
 
-Technical details about rules: http://jena.apache.org/documentation/inference/index.html#rules<br>
-The [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources%2Frules examples] provided so far in this project can be extended with computations, logic and string magic with built in [http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png<br>
+Technical details about [http://jena.apache.org/documentation/inference/index.html#rules jena's rules]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+and its built in [http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 Some examples: http://hydrogen.informatik.tu-cottbus.de/wiki/index.php/JenaRules
 
 ==Status==
 
-The basic rules and additional rules were designed to simplify writing reports without any consideration about ontologies. Probably the reporting queries can be rewritten with the bio/foaf model once the rules are completed. An [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/java/gedcom2sem/gedsem/Publish.java experimental alternative] for the convert command drops the original statements.
+The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/BasicRules.txt basic rules] and [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/AdditionalRules.txt additional rules] were designed to simplify writing reports without any consideration about ontologies. 
+An [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/java/gedcom2sem/gedsem/Publish.java experimental alternative] for the convert command drops the original statements. A partial mapping to foaf/bio statements is provided. Notes and sources are not yet figured out.
+
+==Customization==
+
+When you upload your gedcom to some community or publish it from your application you might want to link to that publication with an additional rule, for example
+
+{{{
+[
+  (?indi rdf:type  t:INDI)
+  (?indi p:id ?i)
+  regex(?i, '@(.*)@.*', ?id)
+  uriConcat("http://www.genealogieonline.nl/SOMENAME/", ?id, ".php", ?url)
+->
+  (?indi http://xmlns.com/foaf/0.1/isPrimaryTopicOf ?url  )
+]
+}}}
