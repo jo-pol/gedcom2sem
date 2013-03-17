@@ -19,7 +19,7 @@ The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources
 
 ==Customization==
 
-When you upload your gedcom to some community or publish it yourself, you might want to link to that publication with an additional rule. In the following examples you should replace at least `SOMENAME` with a value related to your account or publication.
+When you upload your gedcom to some community or publish it yourself, you might want to link to that publication with an additional rule. In the following examples you should replace at least `SOMENAME` with a value related to your account or publication. Read also about "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html Introduction to FOAF]
 
 
 *ancestry.com*
