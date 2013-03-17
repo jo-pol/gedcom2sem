@@ -3,11 +3,11 @@
 
 ==Introduction==
 
-The first conversion step merely turns gedcom tags into predicates without thoughts about semantics. The approach results into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. Rules can derive new statements that respect an established ontology. Drop the original statements and you can get a valid semantic document. Thus you can model the data any way you want. Ontologies that surfaced from a quick survey:
+The first conversion step merely turns gedcom tags into predicates without thoughts about semantics. The approach results into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. Rules can derive new statements that respect an ontology of your choice. Drop the original statements and you can get a valid semantic document. Thus you can model the data any way you want. Some ontologies that surfaced from a quick survey:
   * http://www.daml.org/2001/01/gedcom/gedcom is simple but uses only a fraction of the information that can be stored in a gedcom. It has an apparently abandoned [http://web.archive.org/web/20041214001231/http://orlando.drc.com/daml/Ontology/Genealogy/3.1/Gentology-ont.daml variant]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. More background on http://jay.askren.net/Projects/SemWeb/
   * [http://protege.cim3.net/file/pub/ontologies/generations/generations.owl generations.owl]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png about relations
   * [http://protege.cim3.net/file/pub/ontologies/family.swrl.owl/family.swrl.owl family.swrl.owl]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png about relations
-  * http://purl.org/vocab/bio leaning on [http://www.xml.com/pub/a/2004/02/04/foaf.html foaf]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png seems pretty complete
+  * http://purl.org/vocab/bio together with [http://www.xml.com/pub/a/2004/02/04/foaf.html foaf]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png seems to pretty much cover most of a gedcom file.
 
 Technical details about [http://jena.apache.org/documentation/inference/index.html#rules jena's rules]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 and its built in [http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
@@ -21,7 +21,20 @@ The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources
 
 ==Customization==
 
-When you upload your gedcom to some community or publish it from your application you might want to link to that publication with an additional rule. In the following examples you will to replace at least `SOMENAME`.
+When you upload your gedcom to some community or publish it yourself, you might want to link to that publication with an additional rule. In the following examples you should replace at least `SOMENAME` with a value related to your account or publication.
+
+
+*ancestry.com*
+{{{
+[
+  (?indi rdf:type  t:INDI)
+  (?indi p:id ?i)
+  regex(?i, '@(.*)@.*', ?id)
+  uriConcat("http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=SOMENAME&id=", ?id, ?url)
+->
+  (?indi http://xmlns.com/foaf/0.1/isPrimaryTopicOf ?url  )
+]
+}}}
 
 *genealogieonline.nl*
 {{{
@@ -30,18 +43,6 @@ When you upload your gedcom to some community or publish it from your applicatio
   (?indi p:id ?i)
   regex(?i, '@(.*)@.*', ?id)
   uriConcat("http://www.genealogieonline.nl/SOMENAME/", ?id, ".php", ?url)
-->
-  (?indi http://xmlns.com/foaf/0.1/isPrimaryTopicOf ?url  )
-]
-}}}
-
-*rootsweb.ancestry.com*
-{{{
-[
-  (?indi rdf:type  t:INDI)
-  (?indi p:id ?i)
-  regex(?i, '@(.*)@.*', ?id)
-  uriConcat("http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=SOMENAME&id=", ?id, ?url)
 ->
   (?indi http://xmlns.com/foaf/0.1/isPrimaryTopicOf ?url  )
 ]
