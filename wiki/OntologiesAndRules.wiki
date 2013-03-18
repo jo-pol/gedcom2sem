@@ -24,6 +24,8 @@ The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources
 
 Ontologies give you leaway to model your data to your own taste or to some practical purpose. For example if you specify someone is the child of a male person, you don't need to specify it is a father. Or the other way arround if you specify someone is a father, you don't need to specify he is male. With a proper ontology reasoners can deduce the same information in both cases. So the rules in this project are just examples, however some of the queries rely on some of the rules, their comment headers tells if and which.
 
+Other details depend on what you do with and in your gedcom. These details are discussen in this chapter to help you construct additional rule files.
+
 == Published gedcom / identification ==
 
 When you upload your gedcom to some community or publish it yourself, you might want to link to that publication with an additional rule. In the following examples you should replace at least `SOMENAME` with a value related to your account or publication. Read also about "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html Introduction to FOAF]
@@ -51,3 +53,7 @@ When you upload your gedcom to some community or publish it yourself, you might 
   (?indi http://xmlns.com/foaf/0.1/isPrimaryTopicOf ?url  )
 ]
 }}}
+
+== notes, sources and multimedia objects ==
+
+The meaning of these properties may vary with individual or project conventions. So no default rules can be specified to model them. Some examples however may be helpful but are still to be developped...
