@@ -22,7 +22,7 @@ The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources
 
 = Customization =
 
-Ontologies give you leaway to model your data to your own taste or to some practical purpose. For example if you specify someone is the child of a male person, you don't need to specify it is a father. Or the other wa arround if you specify someone is a father, you don't need to specify he is male. With a proper ontology reasoners can deduce the same information in both cases. So the rules in this project are just examples, however some of the queries rely on some of the rules, their comment headers tells if and which.
+Ontologies give you leaway to model your data to your own taste or to some practical purpose. For example if you specify someone is the child of a male person, you don't need to specify it is a father. Or the other way arround if you specify someone is a father, you don't need to specify he is male. With a proper ontology reasoners can deduce the same information in both cases. So the rules in this project are just examples, however some of the queries rely on some of the rules, their comment headers tells if and which.
 
 == Published gedcom / identification ==
 
