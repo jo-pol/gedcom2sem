@@ -26,9 +26,9 @@ Ontologies give you leaway to model your data to your own taste or to some pract
 
 Other details depend on what you do with and in your gedcom. These details are discussen in this chapter to help you construct additional rule files.
 
-== Published gedcom / identification ==
+== Published gedcom ==
 
-When you upload your gedcom to some community or publish it yourself, you might want to link to that publication with an additional rule. In the following examples you should replace at least `SOMENAME` with a value related to your account or publication. Read also about "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html Introduction to FOAF]
+When you upload your gedcom to some community or publish it yourself, you might want to link to that publication with an additional rule. In the following examples you should replace at least `SOMENAME` with a value related to your account or publication. 
 
 *ancestry.com*
 {{{
@@ -54,6 +54,26 @@ When you upload your gedcom to some community or publish it yourself, you might 
 ]
 }}}
 
-== notes, sources and multimedia objects ==
+== Identification ==
 
-The meaning of these properties may vary with individual or project conventions. So no default rules can be specified to model them. Some examples however may be helpful but are still to be developped...
+See "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html Introduction to FOAF]. It explains how the above primary-topic statements are identifications for the persons.
+
+== Notes, sources and multimedia objects ==
+
+The meaning of these gedcom properties may vary with individual or project conventions. So no default rules can be specified to model them. 
+
+Let us assume a convention to put URLs in the source tag of the gedcom whenever possible. For example http://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
+with birth certificates. The URL used to have a question mark and some parameters, it appears in this case these can be stripped from the URL and replaced with something like "#112". The replacement has no function than to indicate the certificate number on the digitized page to human readers and still have a valid URL. The following rule can create statements from this gedcom data. 
+{{{
+[
+  (?entity p:BIRT ?event)
+  (?birth p:SOUR ?s)
+  (?s rdfs:label ?uri)
+  regex(?uri, '(https?://familysearch.org/pal:.*)#(.*)', ?plainURL, ?certificateNr)
+  print(?plainURL, ?certificateNr)
+  bound(?plainURL)
+->
+  (?uri rdf:about ?event)  
+]
+}}}
+The question mark after https makes the s optional, both forms of the URLs work. For the new statement rdf:about is used, foaf:isPrimaryTopicOf is clearly not applicable as there are more certificates on the digitized page. The regular expression extracts the mandatory part of the URL and the added certificate number. Suggestions are welcome to model the certificate number differently.
