@@ -7,19 +7,32 @@
 [(?indi p:NAME ?name)                    (?name rdfs:label ?label)
                        regex(?label, '(.*)/(.*)/(.*)', ?f, ?l, ?t)
                        strConcat(?f, " ", ?l, ?name)              ->(?indi    http://xmlns.com/foaf/0.1/name              ?name   )]
-[(?fam  p:WIFE ?wife   )(?fam p:HUSB ?husband)(?fam p:MARR ?m)    ->(?wife    http://purl.org/vocab/relationship/spouseOf ?husband)
-                                                                    (?husband http://purl.org/vocab/relationship/spouseOf ?wife   )]
 
-[(?fam  p:WIFE ?wife   )(?fam p:CHIL ?child)                      ->(?child   http://purl.org/vocab/bio/0.1/mother        ?wife   )
-                                                                    (?wife    http://purl.org/vocab/bio/0.1/child         ?child  )]
-[(?fam  p:HUSB ?husband)(?fam p:CHIL ?child)                      ->(?child   http://purl.org/vocab/bio/0.1/father        ?husband)
-                                                                    (?husband http://purl.org/vocab/bio/0.1/child         ?child  )]
-
-[(?indi p:BIRT ?birth)                                            ->(?indi    http://purl.org/vocab/bio/0.1/event         ?birth  )
-                                                                    (?birth   rdf:type http://purl.org/vocab/bio/0.1/Birth)
-                                                                    (?birth   http://purl.org/vocab/bio/0.1/principal     ?indi   )]
-
-[(?indi p:BIRT ?birth)(?birth p:DATE ?d)(?d rdfs:label ?label)    ->(?birth   http://purl.org/vocab/bio/0.1/date          ?label  )]
+[(?indi p:BIRT ?birth)(?birth p:DATE ?d)(?d rdfs:label ?label)    ->(?birth   http://purl.org/dc/elements/1.1/date        ?label  )]
 
 [(?indi p:BIRT ?birth)(?birth p:PLAC ?p)(?p rdfs:label ?label)    ->(?birth   http://purl.org/vocab/bio/0.1/place         ?label  )]
+
+[(?indi p:BIRT ?birth)                                            ->(?indi    http://purl.org/vocab/bio/0.1/event         ?birth  )
+                                                                    (?birth   http://purl.org/vocab/bio/0.1/principal     ?indi   )
+
+                                                                    (?birth   rdf:type http://purl.org/vocab/bio/0.1/Birth)]
+
+[(?fam p:CHIL ?child)(?fam  p:HUSB ?husband)                      ->(?child   http://purl.org/vocab/bio/0.1/father            ?husband)
+                                                                    (?child   http://purl.org/vocab/relationship/descendantOf ?husband)
+                                                                    (?child   http://purl.org/vocab/relationship/childOf      ?husband)
+                                                                    (?husband http://purl.org/vocab/relationship/ancestorOf   ?child  )
+                                                                    (?husband http://purl.org/vocab/relationship/parentOf     ?child  )]
+[(?fam p:CHIL ?child)(?fam  p:WIFE ?wife )                        ->(?child   http://purl.org/vocab/bio/0.1/mother            ?wife   )
+                                                                    (?child   http://purl.org/vocab/relationship/descendantOf ?wife   )
+                                                                    (?child   http://purl.org/vocab/relationship/childOf      ?wife   )
+                                                                    (?wife    http://purl.org/vocab/relationship/ancestorOf   ?child  )
+                                                                    (?wife    http://purl.org/vocab/relationship/parentOf     ?child  )]
+
+[(?fam p:MARR ?marr )(?marr p:DATE  ?d)(?d rdfs:label ?label)     ->(?marr    http://purl.org/dc/elements/1.1/date        ?label  )]
+[(?fam p:MARR ?marr )(?marr p:PLACE ?p)(?p rdfs:label ?label)     ->(?marr    http://purl.org/vocab/bio/0.1/place         ?label  )]
+[(?fam p:MARR ?marr )(?fam  p:WIFE ?wife)(?fam p:HUSB ?husband)   ->(?wife    http://purl.org/vocab/relationship/spouseOf ?husband)
+                                                                    (?husband http://purl.org/vocab/relationship/spouseOf ?wife   )
+                                                                    (?marr    http://purl.org/vocab/bio/0.1/partner       ?wife   )
+                                                                    (?marr    http://purl.org/vocab/bio/0.1/partner       ?husband)
+                                                                    (?marr    rdf:type http://purl.org/vocab/bio/0.1/Marriage)]
 
