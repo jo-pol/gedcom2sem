@@ -63,7 +63,7 @@ See "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html I
 The meaning of these gedcom properties may vary with individual or project conventions. So no default rules can be specified to model them. 
 
 Let us assume a convention to put URLs in the source tag of the gedcom whenever possible. For example http://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
-with birth certificates. The URL used to have a question mark and some parameters, it appears in this case these can be stripped from the URL and replaced with something like "#112". The replacement has no function than to indicate the certificate number on the digitized page to human readers and still have a valid URL. 
+with birth certificates. These URLs usually come a question mark and some parameters, it appears these can be stripped from the URL and replaced with something like "#112". The replacement has no function than to indicate the certificate number on the digitized page to human readers and still have a functional URL. 
 
 The following rule links your gedcom data with the digitized page. 
 {{{
