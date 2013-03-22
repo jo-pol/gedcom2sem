@@ -59,12 +59,14 @@ When you upload your gedcom to some community or publish it yourself, you might 
 
 See "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html Introduction to FOAF]. It explains how the above primary-topic statements are identifications for the persons.
 
-== Notes, sources and multimedia objects ==
+== Sources ==
 
-The meaning of these gedcom properties may vary with individual or project conventions. So no default rules can be specified to model them. 
+The meaning of the gedcom properties notes, sources and multimedia objects may vary with individual or project conventions. So no default rules can be specified to model them. 
+Let us assume a convention to put URLs in the source tag of the gedcom whenever possible. At least in some and not start with an URL if it comes with ordinary text.
 
-Let us assume a convention to put URLs in the source tag of the gedcom whenever possible. For example http://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
-with birth certificates. These URLs usually come a question mark and some parameters, it appears these can be stripped from the URL and replaced with something like "#112". The replacement has no function than to indicate the certificate number on the digitized page to human readers and still have a working URL. 
+For example https://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
+has birth certificates. Early adopters of this service might also have something starting with das.familysearch.org
+These URLs usually come with a question mark and subsequent parameters, it appears these can be stripped from the URL and replaced with something like "#112". The replacement has no function than to indicate the certificate number on the digitized page to human readers and still have a working URL. 
 
 The following rule links your gedcom data with the digitized page. 
 {{{
@@ -72,11 +74,11 @@ The following rule links your gedcom data with the digitized page.
   (?entity p:BIRT ?event)
   (?event p:SOUR ?s)
   (?s rdfs:label ?uri)
-  regex(?uri, '(https?://familysearch.org/pal:[^#]*)(#(.*))?', ?url, ?hash, ?certificateNr)
+  regex(?uri, '(https?://[das.]*familysearch.org/[^#]*)(#(.*))?', ?url, ?fragment, ?certificateNr)
   print(?url, ?certificateNr)
   bound(?url)
 ->
-  (?url to:do ?event)  
+  (?event under:construction ?url)  
 ]
 }}}
-The regular expression splits the mandatory part of the URL and the added certificate number. The question mark after https makes the s optional, both forms of the URLs work. The statement with the `to:do` predicate needs to be figured out, foaf:isPrimaryTopicOf is not applicable as there are more certificates on the digitized page. Suggestions are welcome to elaborate this attempt.
+The regular expression splits the mandatory part of the URL and the added certificate number. The question mark after https makes the s optional, both forms of the URLs work. The statement with the `under:construction` predicate needs to be figured out, `foaf:isPrimaryTopicOf` is not applicable as there are more certificates on the digitized page. Suggestions are welcome to elaborate this attempt.
