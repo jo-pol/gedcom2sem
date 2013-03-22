@@ -75,7 +75,7 @@ The following rule links your gedcom data with the digitized page.
   print(?plainURL, ?certificateNr)
   bound(?plainURL)
 ->
-  (?uri rdf:about ?event)  
+  (?uri to:do ?event)  
 ]
 }}}
-The question mark after https makes the s optional, both forms of the URLs work. For the new statement rdf:about is used, foaf:isPrimaryTopicOf is clearly not applicable as there are more certificates on the digitized page. The regular expression extracts the mandatory part of the URL and the added certificate number. Suggestions are welcome to model the certificate number differently.
+The question mark after https makes the s optional, both forms of the URLs work. The predicate `to:do` needs to be figured out, foaf:isPrimaryTopicOf is not applicable as there are more certificates on the digitized page. The regular expression splits the mandatory part of the URL and the added certificate number. Suggestions are welcome to elaborate this attempt.
