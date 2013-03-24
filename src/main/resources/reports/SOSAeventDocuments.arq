@@ -1,0 +1,39 @@
+##################################################################################################
+# Copyright 2013, J. Pol 
+# This file is part of free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
+# This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
+##################################################################################################
+#
+# Checklist to show how your events are (not?) documented.
+#
+# no rules required (but they don't harm) but keep the original statements
+# The sosa numbers are used to filter and sort the results, they are otherwsie not essential.
+#
+###############################################
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX fn:   <http://www.w3.org/2005/xpath-functions#> 
+PREFIX p:    <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+
+SELECT distinct
+ ?sosaNr
+ ?name
+ ?event
+ ?file
+{
+  {         ?indi p:_SOSAN [rdfs:label ?sosaNr]; p:NAME [rdfs:label ?name]. LET(?event :="" )
+  } UNION { ?indi p:_SOSAN [rdfs:label ?sosaNr]; p:NAME [rdfs:label ?name]. ?indi         ?event [p:OBJE [p:FILE [rdfs:label ?file]]]. 
+  } UNION { ?indi p:_SOSAN [rdfs:label ?sosaNr]; p:NAME [rdfs:label ?name]. ?indi p:FAMS [?event [p:OBJE [p:FILE [rdfs:label ?file]]]].
+  } UNION { ?indi p:_SOSAN [rdfs:label ?sosaNr]; p:NAME [rdfs:label ?name]. ?indi         ?event [p:SOUR [rdfs:label ?file]].          
+  } UNION { ?indi p:_SOSAN [rdfs:label ?sosaNr]; p:NAME [rdfs:label ?name]. ?indi p:FAMS [?event [p:SOUR [rdfs:label ?file]]].         
+  }
+  
+  FILTER( ! fn:contains(?sosaNr,'+') )
+  FILTER( ! fn:contains(?sosaNr,'-') )
+  FILTER( ! fn:contains(str(?event) ,'#CHIL') )
+  FILTER( ! fn:contains(str(?event) ,'#HUSB') )
+  FILTER( ! fn:contains(str(?event) ,'#WIFE') )
+  FILTER( ! fn:contains(str(?event) ,'#FAMC') )
+  FILTER( ! fn:contains(str(?event) ,'#FAMS') )
+}
+ORDER BY ?sosaNr ?event
