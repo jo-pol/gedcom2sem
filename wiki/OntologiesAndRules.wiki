@@ -19,11 +19,11 @@ An [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/java/gedco
 and [http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html regular expressions]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 for more tricks.
 
-The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/BasicRules.txt basic rules] and [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/AdditionalRules.txt additional rules] were designed to simplify writing reports without any consideration about ontologies. Do not drop the original statements in this case. NB: specify the additional rules after the basic rules.
+The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/BasicRules.txt basic rules] and [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/AdditionalRules.txt additional rules] were designed to simplify writing reports without any consideration about ontologies. Do not drop the original statements in this case. NB: apply the additional rules after the basic rules.
 
 = Customization =
 
-Ontologies give you leeway to model your data to your own taste or for some practical purpose. For example if a parent is male, you don't need to specify it is a father. If someone is a father, you don't need to specify he is male. With a proper ontology reasoners can deduce the same information in both cases. So the rules supplied in this project are just examples. However some of the supplied queries rely on some of the rules, their comment headers tells if and which.
+Ontologies give you leeway to model your data to your own taste or for some practical purpose. For example if a parent is male you don't need to specify it is a father. On the other hand, if someone is a father, you don't need to specify he is male. With a proper ontology reasoners can deduce the same information in both cases. So the rules supplied in this project are just examples. However some of the supplied queries rely on some of the rules, their comment headers tells if and which.
 
 Other details depend on what you do with and in your gedcom. The examples below should help you to construct additional rule files.
 
@@ -62,7 +62,7 @@ See "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html I
 == Sources ==
 
 The meaning of the gedcom properties notes, sources and multimedia objects may vary with individual or project conventions. So no default rules can be specified to model them. 
-Let us assume a convention to put URLs in the source tag of the gedcom whenever possible. At least in some and not start with an URL if it comes with ordinary text.
+Let us assume a convention to put URLs in the source tag of the gedcom whenever possible. At least in some cases and not start with an URL if it comes with ordinary text.
 
 For example https://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
 has birth certificates. Early adopters of this service might also have something starting with das.familysearch.org
@@ -81,4 +81,4 @@ The following rule links your gedcom data with the digitized page.
   (?event under:construction ?url)  
 ]
 }}}
-The regular expression splits the mandatory part of the URL and the added certificate number. The question mark after https makes the s optional, both forms of the URLs work. The statement with the `under:construction` predicate needs to be figured out, `foaf:isPrimaryTopicOf` is not applicable as there are more certificates on the digitized page. Suggestions are welcome to elaborate this attempt.
+The regular expression splits the mandatory part of the URL and the added certificate number. The question mark after https makes the s optional, both forms of the URLs work. The statement with the predicate `under:construction` needs to be figured out, `foaf:isPrimaryTopicOf` is not applicable as there are more certificates on the digitized page. Suggestions are welcome to elaborate this attempt.
