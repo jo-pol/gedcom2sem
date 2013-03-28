@@ -10,7 +10,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
 
-public class Publish
+public class Transform
 {
     public static void main(final String... files) throws Exception
     {

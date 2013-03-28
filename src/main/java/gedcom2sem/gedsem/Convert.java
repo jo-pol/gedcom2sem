@@ -23,7 +23,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.MalformedURLException;
-import java.util.Properties;
 import java.util.Set;
 
 import org.gedcom4j.parser.GedcomParserException;
@@ -45,9 +44,8 @@ public class Convert
 
     static Set<Statement> execute(final String... files) throws IOException, FileNotFoundException, MalformedURLException, GedcomParserException
     {
-        final Properties uriFormats = new Properties();
         BufferedInputStream gedcomInputStream = null;
-        PrintStream output = null;
+        String output = null;
         String language = null;
         String rules = null;
 
@@ -56,33 +54,29 @@ public class Convert
         for (final String file : files)
         {
             final String extension = file.replaceAll(".*[.]", "").toLowerCase();
-            if ("properties".equals(extension))
-                uriFormats.load(new FileInputStream(file));
-            else if ("txt".equals(extension))
+            if ("txt".equals(extension))
                 rules = FileUtil.read(new File(file));
             else if ("ged".equals(extension))
                 gedcomInputStream = new BufferedInputStream(new FileInputStream(file));
             else
             {
                 language = FileUtil.guessLanguage(new File(file));
-                output = new PrintStream(file);
+                output = file;
             }
         }
         if (gedcomInputStream == null)
             throw new IllegalArgumentException("no .ged");
-        if (uriFormats.size() == 0)
-            throw new IllegalArgumentException("no or empty .properties");
         if (output == null)
             throw new IllegalArgumentException("no output (.ttl, .n3, .nt, .rdf)");
 
         // execute
 
-        final Model model = new Parser().parse(gedcomInputStream, uriFormats);
-        model.write(output, language); // flush in case rules take too long or too much heap space
+        final Model model = new Parser().parse(gedcomInputStream);
+        model.write(new PrintStream(output), language); // flush in case rules take too long or too much heap space
         Set<Statement> originalStatements = model.listStatements().toSet();
         System.err.println("before rules: "+originalStatements.size());
         if (rules != null){
-            Model infModel = applyRules(rules, model).write(output, language);
+            Model infModel = applyRules(rules, model).write(new PrintStream(output), language);
             Set<Statement> statements = infModel.listStatements().toSet();
             System.err.println("after rules: "+infModel.listStatements().toList().size());
             statements.removeAll(originalStatements);

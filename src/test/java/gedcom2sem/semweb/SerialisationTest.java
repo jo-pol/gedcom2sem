@@ -23,9 +23,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Properties;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.hp.hpl.jena.query.QueryExecution;
@@ -38,26 +36,18 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class SerialisationTest
 {
-    private static final String SIMPLE_QUERY = "PREFIX t: <http://genj.sourceforge.net/rdf/GedcomTags/type#> " + //
+    private static final String SIMPLE_QUERY = "PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> " + //
             "select * {?s a t:INDI}";
 
     private static final String TMP_MODEL = "target/model.ttl";
-    private static final String URI_TEMPLATES = "src/main/resources/uri.properties";
     private static final String GEDCOM = "src/test/resources/kennedy.ged";
     private static final String GEDCOM_TTL = new File("src/test/resources/kennedy.ttl").getAbsolutePath();
-    private static final Properties properties = new Properties();
-
-    @BeforeClass
-    public static void load() throws Exception
-    {
-        properties.load(new FileInputStream(URI_TEMPLATES));
-    }
 
     @Test
     public void withoutSerialisation() throws Exception
     {
         final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(GEDCOM));
-        final Model model = new Parser().parse(inputStream, properties);
+        final Model model = new Parser().parse(inputStream);
         runQuery(SIMPLE_QUERY, model);
     }
 
@@ -76,7 +66,7 @@ public class SerialisationTest
     {
         final String modelUrl = new File(TMP_MODEL).toURI().toURL().toString();
         final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(GEDCOM));
-        Model model = new Parser().parse(inputStream, properties);
+        Model model = new Parser().parse(inputStream);
         model.write(new OutputStreamWriter(new FileOutputStream(TMP_MODEL), "UTF8"), "TURTLE");
         model.close();
         model = ModelFactory.createDefaultModel();

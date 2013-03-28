@@ -26,7 +26,6 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.gedcom4j.model.StringTree;
 import org.gedcom4j.parser.GedcomParserException;
@@ -46,7 +45,7 @@ public class Parser
 
     private SemanticGedcomModel gedcomModel;
 
-    public Model parse(final BufferedInputStream stream, final Properties uris) throws IOException, GedcomParserException
+    public Model parse(final BufferedInputStream stream) throws IOException, GedcomParserException
     {
         final List<StringTree> entities = GedcomReader.read(stream);
 
@@ -54,7 +53,7 @@ public class Parser
         for (final StringTree entity : entities)
             tagsOfIds.put(entity.id, entity.tag);
 
-        gedcomModel = new SemanticGedcomModel(uris);
+        gedcomModel = new SemanticGedcomModel();
         for (final StringTree entity : entities)
         {
             final Resource resource = gedcomModel.addEntity(entity.id, entity.tag);
