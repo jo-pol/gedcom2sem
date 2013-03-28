@@ -16,7 +16,7 @@
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX fn:   <http://www.w3.org/2005/xpath-functions#> 
-PREFIX p:    <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> 
+PREFIX p:    <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/predicate#> 
 
 ###############################################
 SELECT distinct

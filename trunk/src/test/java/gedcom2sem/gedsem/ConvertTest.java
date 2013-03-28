@@ -42,10 +42,4 @@ public class ConvertTest
     {
         Convert.main(new String[] {"target/out.ttl"});
     }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void noProperties() throws Exception
-    {
-        Convert.main(new String[] {"target/out.ttl", "src/test/resources/kennedy.ged"});
-    }
 }

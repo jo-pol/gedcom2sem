@@ -71,7 +71,7 @@ public class QueryWithPluginInterfaceTester extends AbstractQueryTest
     private Model createModel() throws FileNotFoundException, IOException, GedcomParserException
     {
         final BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(GEDCOM));
-        final Model model = new Parser().parse(inputStream, properties);
+        final Model model = new Parser().parse(inputStream);
         if (mashup)
         {
             model.read(new File(MASHUP_TTL).toURI().toURL().toString(), null, "TURTLE");

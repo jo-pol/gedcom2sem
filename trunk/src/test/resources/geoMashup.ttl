@@ -1,4 +1,4 @@
-@prefix p: <http://genj.sourceforge.net/rdf/GedcomTags/predicate#> .
+@prefix p: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/predicate#> .
 
 <http://sws.geonames.org/7838931/> p:elaborates ", , , , Wexford Co, , Ireland".
 <http://sws.geonames.org/4744709/> p:elaborates ", Arlington, , 22209, Arlington Co, VA, USA".

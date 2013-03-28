@@ -14,10 +14,8 @@
 // @formatter:on
 package gedcom2sem.gedsem;
 
-import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -27,13 +25,14 @@ import com.hp.hpl.jena.rdf.model.Resource;
 class SemanticGedcomModel
 {
 
-    private static final String PREDICATE = "http://genj.sourceforge.net/rdf/GedcomTags/predicate#";
+    public static final String GEDCOM_TAGS = "http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/";
+    private static final String PREDICATE = GEDCOM_TAGS + "predicate#";
     public final static Map<String, String> PREFIXES = new HashMap<String, String>();
     static
     {
         PREFIXES.put("p", PREDICATE);
-        PREFIXES.put("t", "http://genj.sourceforge.net/rdf/GedcomTags/type#");
-        PREFIXES.put("r", "http://genj.sourceforge.net/rdf/GedcomTags/rule#");
+        PREFIXES.put("t", GEDCOM_TAGS + "type#");
+        PREFIXES.put("r", GEDCOM_TAGS + "rule#");
         PREFIXES.put("xsd", "http://www.w3.org/2001/XMLSchema#");
         PREFIXES.put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
 
@@ -45,16 +44,10 @@ class SemanticGedcomModel
 
     private final Map<String, Property> properties = new HashMap<String, Property>();
     private final Map<String, Resource> types = new HashMap<String, Resource>();
-    private final Properties uriFormats;
-
     /**
-     * @param uriFormats
-     *        pairs of entity tags and URIs (preferably URLs)
      */
-    public SemanticGedcomModel(final Properties uriFormats)
+    public SemanticGedcomModel()
     {
-        this.uriFormats = uriFormats;
-
         getModel().setNsPrefixes(PREFIXES);
     }
 
@@ -75,6 +68,7 @@ class SemanticGedcomModel
     public Resource addEntity(final String longId, final String tag)
     {
         final String id = (longId == null || longId.trim().length() == 0 ? tag : longId);
+        // TODO search if resource was created by addConnection
         final Resource resource = model.createResource(toUri(id, tag), toType(tag));
         resource.addLiteral(idProperty, id);
         return resource;
@@ -82,10 +76,7 @@ class SemanticGedcomModel
 
     private String toUri(final String id, final String tag)
     {
-        String format = (String) uriFormats.get(tag);
-        if (format == null)
-            throw new NullPointerException("no URI template found for "+tag);
-        return MessageFormat.format(format, id == null ? tag : id.replaceAll("@", ""));
+        return ("http://localhost/"+tag+"#"+id).replaceAll("@", "");
     }
 
     public Resource addProperty(final Resource resource, final String tag, final String value)
@@ -116,6 +107,7 @@ class SemanticGedcomModel
 
     public void addConnection(final Resource referrer, final String id, final String referrerTag, final String referredTag)
     {
+        // TODO search for referred resource with id, if not found:create it
         final Resource referred = model.getResource(toUri(id, referredTag));
         referrer.addProperty(toProperty(referrerTag), referred);
     }
