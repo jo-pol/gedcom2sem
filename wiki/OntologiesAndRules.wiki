@@ -15,7 +15,7 @@ you can derive new statements that respect an ontology of your choice. Drop the 
 
 =Status=
 
-An [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/java/gedcom2sem/gedsem/Publish.java experimental alternative] for the convert command drops the original statements. A mapping to [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/foafRules.txt foaf/bio] statements is under development. See the built in [http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+The convert command does not drop the original statements, the transform command does. A mapping to [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/foafRules.txt foaf/bio] statements is under development. See the built in [http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 and [http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html regular expressions]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 for more tricks.
 
