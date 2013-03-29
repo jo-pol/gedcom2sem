@@ -48,7 +48,8 @@ import com.hp.hpl.jena.sparql.core.Prologue;
 
 public class Select
 {
-    static final String DEFAULT_XSL = "https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/result-to-html.xsl";
+    // TODO rather read from class path, see issue 7
+    private static final String DEFAULT_XSL = "https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/result-to-html.xsl";
 
     public static void main(final String... fileNames) throws IOException, TransformerFactoryConfigurationError, TransformerException
     {
