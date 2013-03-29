@@ -8,9 +8,8 @@ The main classes are identified on the [overview] page, they are a good starting
 
 ==options per gedcom==
 
-  * name, location and editor for uri.properties
   * name and location of converted gedcom
-  * name and location of geoMashup.ttl and geoNamesCache (and something to guide creteing them)
+  * name and location of geoMashup.rules and geoNamesCache (and something to guide createing them)
   * checkbox: save the converted gedcom whenever the gedcom itself is saved (especially with all the rules applied it takes a while, prevent blocking GUI processing)
 
 == menu commands ==
