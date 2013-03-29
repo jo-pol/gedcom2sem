@@ -1,11 +1,15 @@
 // @formatter:off
 /*
- * Copyright 2012, J. Pol This file is part of free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by the Free Software Foundation. This
- * package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
- * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public
- * License for more details. A copy of the GNU General Public License is available at
- * <http://www.gnu.org/licenses/>.
+ * Copyright 2012, J. Pol
+ *
+ * This file is part of free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation.
+ *
+ * This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+ * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * See the GNU General Public License for more details. A copy of the GNU General Public License is
+ * available at <http://www.gnu.org/licenses/>.
  */
 // @formatter:on
 package gedcom2sem.gedsem;
@@ -93,10 +97,10 @@ class SemanticGedcomModel
         if (subjects != null && subjects.hasNext())
             return subjects.next();
 
-//        final String uri = ("http://localhost/" + tag + "#" + id).replaceAll("@", "");
-//        final Resource referred = model.createResource(uri,toType(tag));
+        // final String uri = ("http://localhost/" + tag + "#" + id).replaceAll("@", "");
+        // final Resource referred = model.createResource(uri,toType(tag));
         // TODO check queries with anonymous IDs
-         final Resource referred = model.createResource(new AnonId());
+        final Resource referred = model.createResource(new AnonId());
         referred.addProperty(typeProperty, toType(tag));
 
         if (id != null)

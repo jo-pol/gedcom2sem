@@ -1,3 +1,17 @@
+// @formatter:off
+/*
+ * Copyright 2012, J. Pol
+ *
+ * This file is part of free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation.
+ *
+ * This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+ * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * See the GNU General Public License for more details. A copy of the GNU General Public License is
+ * available at <http://www.gnu.org/licenses/>.
+ */
+// @formatter:on
 package gedcom2sem.gedsem;
 
 import gedcom2sem.io.FileUtil;
@@ -19,7 +33,7 @@ public class Transform
         final Set<Statement> inferredStatements = Convert.execute(files);
         final Model modelOut = ModelFactory.createDefaultModel();
         for (final Statement stmt : inferredStatements)
-            modelOut.add(stmt.getSubject(),stmt.getPredicate(),stmt.getObject());
+            modelOut.add(stmt.getSubject(), stmt.getPredicate(), stmt.getObject());
         // TODO add name space prefixes, must be user specified along with the rules
         for (final String file : files)
         {
@@ -27,7 +41,7 @@ public class Transform
             {
                 final String language = FileUtil.guessLanguage(new File(file));
                 modelOut.write(new PrintStream(file), language);
-                System.err.println("written: "+modelOut.listStatements().toList().size());
+                System.err.println("written: " + modelOut.listStatements().toList().size());
                 return;
             }
             catch (final IllegalArgumentException e)

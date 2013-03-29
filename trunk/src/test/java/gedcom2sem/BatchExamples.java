@@ -33,7 +33,7 @@ public class BatchExamples
     @Test
     public void convertRDF() throws Exception
     {
-        Convert.main(RULES + "basicRules.txt", RULES + "additionalRules.txt", TEST + "kennedy.ged", "target/kennedy.rdf");
+        Convert.main(TEST + "kennedy.ged", "target/kennedy.rdf");
     }
 
     @Test
