@@ -72,18 +72,21 @@ public class Convert
         // execute
 
         final Model model = new Parser().parse(gedcomInputStream);
-        model.write(new PrintStream(output), language); // flush in case rules take too long or too much heap space
+        model.write(new PrintStream(output), language); // flush in case rules take too long or too much
+                                                        // heap space
         Set<Statement> originalStatements = model.listStatements().toSet();
-        System.err.println("before rules: "+originalStatements.size());
-        if (rules != null){
+        System.err.println("before rules: " + originalStatements.size());
+        if (rules != null)
+        {
             Model infModel = applyRules(rules, model).write(new PrintStream(output), language);
             Set<Statement> statements = infModel.listStatements().toSet();
-            System.err.println("after rules: "+infModel.listStatements().toList().size());
+            System.err.println("after rules: " + infModel.listStatements().toList().size());
             statements.removeAll(originalStatements);
-            System.err.println("inferred: "+statements.size());
+            System.err.println("inferred: " + statements.size());
             return statements;
         }
-        else return null;
+        else
+            return null;
     }
 
     private static InfModel applyRules(final String rules, final Model model)

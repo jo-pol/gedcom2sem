@@ -1,3 +1,17 @@
+// @formatter:off
+/*
+ * Copyright 2012, J. Pol
+ *
+ * This file is part of free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation.
+ *
+ * This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+ * the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * See the GNU General Public License for more details. A copy of the GNU General Public License is
+ * available at <http://www.gnu.org/licenses/>.
+ */
+// @formatter:on
 package gedcom2sem.io;
 
 import java.io.File;
@@ -21,7 +35,7 @@ public class FileUtil
         String language = FileUtils.guessLang(file.toURI().toURL().toString(), null);
         if (language == null || language.length() == 0)
             throw new IllegalArgumentException("invalid extension (.ttl, .n3, .nt, .rdf) " + file);
-        return language;
+        return language.replaceAll("^RDF/XML$", "RDF/XML-ABBREV");
     }
 
     /**
