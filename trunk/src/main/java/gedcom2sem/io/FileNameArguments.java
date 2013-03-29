@@ -104,10 +104,10 @@ public class FileNameArguments
 
     public void write(final Model model) throws MalformedURLException, FileNotFoundException
     {
-        final String language = FileUtils.guessLang(output.toURI().toURL().toString(), null);
+        final String language = FileUtils.guessLang(getOutput().toURI().toURL().toString(), null);
         if (language == null)
-            throw new IllegalArgumentException("output extension not supported: " + output);
-        final PrintStream outputStream = new PrintStream(output);
+            throw new IllegalArgumentException("output extension not supported: " + getOutput());
+        final PrintStream outputStream = new PrintStream(getOutput());
         try
         {
             model.write(outputStream, language.replaceAll("^RDF/XML$", "RDF/XML-ABBREV"));
@@ -118,9 +118,9 @@ public class FileNameArguments
         }
     }
 
-    public File getQueryFile()
+    public File getMandatoryFile(String extension)
     {
-        return getOptional("arq");
+        return getMandatory(extension);
     }
 
     public Model readGedcom() throws IOException, GedcomParserException
@@ -142,7 +142,7 @@ public class FileNameArguments
         for (final String fileName : input)
         {
             String ext = fileName.replaceAll(".*[.]", "").toLowerCase();
-            if ("rules".equals(ext)||"txt".equals(ext))
+            if ("rules".equals(ext))
                 result.add(new File(fileName));
         }
         return result;
@@ -151,10 +151,10 @@ public class FileNameArguments
     public void write(final ResultSet resultSet) throws IOException, TransformerException, TransformerFactoryConfigurationError
     {
         Model model = resultSet.getResourceModel();
-        final OutputStream outputStream = new FileOutputStream(output);
+        final OutputStream outputStream = new FileOutputStream(getOutput());
         try
         {
-            final String ext = output.getName().replaceAll(".*[.]", "").toLowerCase();
+            final String ext = getOutput().getName().replaceAll(".*[.]", "").toLowerCase();
             if ("tsv".equals(ext))
                 ResultSetFormatter.outputAsTSV(outputStream, resultSet);
             else if ("csv".equals(ext))
@@ -168,7 +168,7 @@ public class FileNameArguments
             else if (ext.matches("html?"))
                 outputAsHtml(resultSet, outputStream);
             else
-                throw new IllegalArgumentException("output extension not supported: " + output);
+                throw new IllegalArgumentException("output extension not supported: " + getOutput());
         }
         finally
         {
@@ -208,5 +208,10 @@ public class FileNameArguments
         if (file == null)
             throw new IllegalArgumentException("missing argument: " + extension);
         return file;
+    }
+
+    public File getOutput()
+    {
+        return output;
     }
 }

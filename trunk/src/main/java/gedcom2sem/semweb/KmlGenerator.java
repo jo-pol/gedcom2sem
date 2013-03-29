@@ -14,16 +14,14 @@
 // @formatter:on
 package gedcom2sem.semweb;
 
+import gedcom2sem.io.FileNameArguments;
 import gedcom2sem.io.FileUtil;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -69,55 +67,25 @@ public class KmlGenerator
      * @param properties
      *        templates for labels and descriptions in the KML file. The place holders in the templates
      *        should match the columns of the query.
-     * @param query
+     * @param queryStr
      *        required column names: sosa (mandatory values starting with a number) lat + long (optional
      *        float values)
      */
-    public KmlGenerator(final Model model, final ResourceBundle properties, final String query)
+    public KmlGenerator(final Model model, final ResourceBundle properties, final String queryStr)
     {
         this.properties = properties;
-        if (model == null || properties == null || query == null || model.size() == 0 || properties.keySet().size() == 0)
+        if (model == null || properties == null || queryStr == null || model.size() == 0 || properties.keySet().size() == 0)
             throw new IllegalArgumentException("no null or empty arguments");
 
         final QuerySolutionMap qsm = new QuerySolutionMap();
         logger.info("starting query");
-        final ResultSet resultSet = QueryExecutionFactory.create(query, Syntax.syntaxARQ, model, qsm).execSelect();
+        final ResultSet resultSet = QueryExecutionFactory.create(queryStr, Syntax.syntaxARQ, model, qsm).execSelect();
         logger.info("processing query results");
         final List<String> resultVars = resultSet.getResultVars();
         while (resultSet.hasNext())
         {
             final KmlQueryRow row = new KmlQueryRow(resultVars, resultSet.next());
             all.put(row.sosa, row);
-        }
-        findLeaves();
-        logger.info("constructor ready");
-    }
-
-    /**
-     * Creates an internal representation of the query results.
-     * 
-     * @param report
-     *        Tab separated lines. First column: mandatory content, starting with a sosa number. Second
-     *        an third column: latitude respective longitude (optional, float values).
-     * @param properties
-     *        templates for labels and descriptions in the KML file. The place holders in the templates
-     *        should match the columns of the query.
-     * @throws IOException
-     */
-    public KmlGenerator(final BufferedReader report, final ResourceBundle properties) throws IOException
-    {
-        this.properties = properties;
-        if (report == null || properties == null || properties.keySet().size() == 0)
-            throw new IllegalArgumentException("no null or empty arguments");
-
-        String line;
-        while (null != (line = report.readLine()))
-        {
-            if (!line.startsWith("?"))
-            {
-                final KmlQueryRow row = new KmlQueryRow(line.split("\t"));
-                all.put(row.sosa, row);
-            }
         }
         findLeaves();
         logger.info("constructor ready");
@@ -134,7 +102,7 @@ public class KmlGenerator
         }
     }
 
-    public void create(final File kmlFile) throws IOException, FileNotFoundException
+    private void create(final File kmlFile) throws IOException, FileNotFoundException
     {
         final Kml kml = KmlFactory.createKml();
         final Document document = kml.createAndSetDocument();
@@ -245,66 +213,14 @@ public class KmlGenerator
 
     public static void main(final String... files) throws UnsupportedEncodingException, IOException
     {
-        final Model model = ModelFactory.createDefaultModel();
-        ResourceBundle properties = null;
-        String query = null;
-        File kmlFile = null;
-        BufferedReader report = null;
-
-        if (files == null)
-            throw new IllegalArgumentException("no files at all");
-        for (final String file : files)
-        {
-            final String extension = file.replaceAll(".*[.]", "").toLowerCase();
-            if ("kml".equals(extension))
-                kmlFile = new File(file);
-            else if ("tsv".equals(extension))
-                report = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
-            else if ("properties".equals(extension))
-                properties = new PropertyResourceBundle(new FileInputStream(file));
-            else if ("arq".equals(extension))
-                query = FileUtil.read(new File(file));
-            else if (new File(file).isDirectory())
-                loadFiles(model, new File(file));
-            else
-                model.read(new FileInputStream(file), (String) null, FileUtil.guessLanguage(new File(file)));
-        }
-        if (kmlFile == null)
-            throw new IllegalArgumentException("missing output (.kml)");
-        if (properties == null)
-            throw new IllegalArgumentException("missing formatting (.properties)");
-        final KmlGenerator kmlGenerator;
-        if (report != null)
-            kmlGenerator = new KmlGenerator(report, properties);
-        else
-        {
-            if (model.size() == 0)
-                throw new IllegalArgumentException("no data (no or all empty .ttl, nt, .n3, .rdf)");
-            if (query == null || query.trim().length() == 0)
-                throw new IllegalArgumentException("no or empty query (.arq)");
-            kmlGenerator = new KmlGenerator(model, properties, query);
-        }
-        kmlGenerator.create(kmlFile);
-    }
-
-    private static void loadFiles(Model model, File folder)
-    {
-        for (File file : folder.listFiles())
-        {
-            try
-            {
-                final String language = FileUtil.guessLanguage(file);
-                model.read(new FileInputStream(file), (String) null, language);
-            }
-            catch (IllegalArgumentException e)
-            {
-            }
-            catch (MalformedURLException e)
-            {
-            }
-            catch (FileNotFoundException e)
-            {
-            }
-        }
+        final FileNameArguments arguments = new FileNameArguments(files);
+        final Model model = arguments.readInto(ModelFactory.createDefaultModel());
+        final String propertiesFile = arguments.getMandatoryFile("properties").getPath();
+        final ResourceBundle properties = new PropertyResourceBundle(new FileInputStream(propertiesFile));
+        final String queryStr = FileUtil.read(arguments.getMandatoryFile("arq"));
+        final File kmlFile = arguments.getOutput();
+        if(!kmlFile.getName().toLowerCase().endsWith(".kml"))
+            throw new IllegalArgumentException("wrong type of output: "+kmlFile);
+        new KmlGenerator(model, properties, queryStr).create(kmlFile);
     }
 }

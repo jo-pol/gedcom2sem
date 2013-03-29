@@ -27,7 +27,7 @@ public class BatchExamples
     @Test
     public void convertTTL() throws Exception
     {
-        Convert.main(RULES + "basicRules.txt", RULES + "additionalRules.txt", TEST + "kennedy.ged", "target/kennedy.ttl");
+        Convert.main(RULES + "basic.rules", RULES + "additional.rules", TEST + "kennedy.ged", "target/kennedy.ttl");
     }
 
     @Test
@@ -39,31 +39,32 @@ public class BatchExamples
     @Test
     public void transformFoaf() throws Exception
     {
-        Transform.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafRules.txt", "target/kennedyFoaf.ttl");
+        Transform.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafBio.rules", "target/kennedyFoaf.ttl");
     }
 
     @Test
     public void convertFoaf() throws Exception
     {
-        Convert.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafRules.txt", "target/kennedyFoaf2.ttl");
+        Convert.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafBio.rules", "target/kennedyFoaf2.ttl");
     }
 
     @Test
     public void prepareMashup() throws Exception
     {
-        Select.main(TEST + "kennedy.ttl", TEST + "geoMashup.ttl", TEST + "geoNamesCache.ttl", "target/mashup.tsv", QUERY_DIR + "mashup/mashup.arq");
+        Select.main(TEST + "kennedy.ttl", TEST + "geoMashup.ttl", TEST + "geoNamesCache.ttl", //
+                QUERY_DIR + "mashup/mashup.arq", "target/mashup.tsv");
     }
 
     @Test
     public void prepareMashupWithFolder() throws Exception
     {
-        Select.main(TEST, "target/mashup2.tsv", QUERY_DIR + "mashup/mashup.arq");
+        Select.main(TEST, QUERY_DIR + "mashup/mashup.arq", "target/mashup2.tsv");
     }
 
     @Test
     public void toHtml() throws Exception
     {
-        Select.main(TEST + "kennedy.ttl", MAIN + "result-to-html.xsl", "target/report.html", QUERY_DIR + "CountEventsPerPlace.arq");
+        Select.main(TEST + "kennedy.ttl", MAIN + "result-to-html.xsl", QUERY_DIR + "CountEventsPerPlace.arq", "target/report.html");
     }
 
     @Test
@@ -80,9 +81,8 @@ public class BatchExamples
     }
 
     @Test
-    public void migrationsInTwoSteps() throws Exception
+    public void migrationsFirstStep() throws Exception
     {
-        Select.main(TEST, "target/places.tsv", QUERY_DIR + "mashup/places-by-birth.arq");
-        KmlGenerator.main(MAIN + "kml-by-birth.properties", "target/places.tsv", "target/places3.kml");
+        Select.main(TEST, QUERY_DIR + "mashup/places-by-birth.arq", "target/places.tsv");
     }
 }
