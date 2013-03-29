@@ -78,7 +78,7 @@ SELECT DISTINCT
            }
 
   ### not sure this works if you don't store GIVN and SURN separately
-  OPTIONAL { ?child p:NAME [p:GIVN [rdfs:label ?nameChild]] }
+  OPTIONAL { ?child p:NAME [pgivn [rdfs:label ?nameChild]] }
   OPTIONAL { ?child p:NAME [p:first ?nameChild] }
 
   ### computations

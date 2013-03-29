@@ -64,10 +64,10 @@ public abstract class AbstractQueryTest
     public static Collection<Object[]> getContructorParameters()
     {
         // addTest(false, 1, null,"AgeDiffBetweenSpouses.arq");
-        addTest(false, 89,null, "CountEventsPerPlace.arq");
-        addTest(false, 7, null,"CountGivnNames.arq");
+        addTest(false, 95,null, "CountEventsPerPlace.arq");
+        addTest(false, 171, null,"CountGivnNames.arq");
         addTest(false, 34, null,"SOSA-InbredStatistics.arq");
-        addTest(false, 158, null,"SOSA-MultiMedia.arq");
+        addTest(false, 11, null,"SOSA-MultiMedia.arq");
         addTest(true, 12, null,"mashup/classmates.arq");
         addTest(true, 15, "dbp","mashup/dbpediaLanguages.arq");
         addTest(true, 117, "dbp","mashup/dbpediaProperties.arq");
