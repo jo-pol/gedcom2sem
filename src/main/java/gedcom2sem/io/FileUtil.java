@@ -30,6 +30,7 @@ public class FileUtil
      * @throws MalformedURLException
      */
 
+    @Deprecated
     public static String guessLanguage(File file) throws MalformedURLException
     {
         String language = FileUtils.guessLang(file.toURI().toURL().toString(), null);

@@ -37,15 +37,15 @@ public class BatchExamples
     }
 
     @Test
-    public void preparePublication() throws Exception
+    public void transformFoaf() throws Exception
     {
-        Transform.main(RULES + "foafRules.txt", TEST + "kennedy.ged", "target/kennedyFoaf.ttl");
+        Transform.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafRules.txt", "target/kennedyFoaf.ttl");
     }
 
     @Test
     public void convertFoaf() throws Exception
     {
-        Convert.main(RULES + "foafRules.txt", TEST + "kennedy.ged", "target/kennedyFoaf2.ttl");
+        Convert.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafRules.txt", "target/kennedyFoaf2.ttl");
     }
 
     @Test

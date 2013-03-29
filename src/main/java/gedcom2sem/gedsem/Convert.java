@@ -1,6 +1,6 @@
 // @formatter:off
 /*
- * Copyright 2012, J. Pol
+ * Copyright 2013, J. Pol
  *
  * This file is part of free software: you can redistribute it and/or modify it under the terms of the
  * GNU General Public License as published by the Free Software Foundation.
@@ -14,14 +14,12 @@
 // @formatter:on
 package gedcom2sem.gedsem;
 
+import gedcom2sem.io.FileNameArguments;
 import gedcom2sem.io.FileUtil;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.net.MalformedURLException;
 import java.util.Set;
 
@@ -31,6 +29,7 @@ import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.reasoner.rulesys.GenericRuleReasoner;
 import com.hp.hpl.jena.reasoner.rulesys.Rule;
 import com.hp.hpl.jena.util.PrintUtil;
@@ -44,57 +43,46 @@ public class Convert
 
     static Set<Statement> execute(final String... files) throws IOException, FileNotFoundException, MalformedURLException, GedcomParserException
     {
-        BufferedInputStream gedcomInputStream = null;
-        String output = null;
-        String language = null;
-        String rules = null;
+        if (files == null || files.length < 2)
+            throw new IllegalArgumentException("need at least a gedcom file and an output file");
 
-        if (files == null)
-            throw new IllegalArgumentException("no files at all");
-        for (final String file : files)
+        final FileNameArguments arguments = new FileNameArguments(files);
+        final Model model = arguments.readGedcom();
+        arguments.readInto(model); // additional triples and/or prefixes
+        arguments.write(model); // flush in case rules take too long or too much heap space
+
+        preparePrefixes(model);
+        Model infModel = model;
+        for (final File file : arguments.getRuleFiles())
         {
-            final String extension = file.replaceAll(".*[.]", "").toLowerCase();
-            if ("txt".equals(extension))
-                rules = FileUtil.read(new File(file));
-            else if ("ged".equals(extension))
-                gedcomInputStream = new BufferedInputStream(new FileInputStream(file));
-            else
-            {
-                language = FileUtil.guessLanguage(new File(file));
-                output = file;
-            }
+            System.err.println("before " + file + " " + infModel.listStatements().toList().size());
+            infModel = applyRules(FileUtil.read(file), infModel);
+            arguments.write(infModel); // flush
         }
-        if (gedcomInputStream == null)
-            throw new IllegalArgumentException("no .ged");
-        if (output == null)
-            throw new IllegalArgumentException("no output (.ttl, .n3, .nt, .rdf)");
-
-        // execute
-
-        final Model model = new Parser().parse(gedcomInputStream);
-        model.write(new PrintStream(output), language); // flush in case rules take too long or too much
-                                                        // heap space
-        Set<Statement> originalStatements = model.listStatements().toSet();
-        System.err.println("before rules: " + originalStatements.size());
-        if (rules != null)
-        {
-            Model infModel = applyRules(rules, model).write(new PrintStream(output), language);
-            Set<Statement> statements = infModel.listStatements().toSet();
-            System.err.println("after rules: " + infModel.listStatements().toList().size());
-            statements.removeAll(originalStatements);
-            System.err.println("inferred: " + statements.size());
-            return statements;
-        }
-        else
+        if (infModel == model)
             return null;
+        return getInferredStatements(model.listStatements(), infModel);
+    }
+
+    private static Set<Statement> getInferredStatements(final StmtIterator originalStatements, final Model infModel)
+    {
+        final Set<Statement> statements = infModel.listStatements().toSet();
+        System.err.println("finaly: " + statements.size());
+        statements.removeAll(originalStatements.toSet());
+        System.err.println("inferred: " + statements.size());
+        return statements;
+    }
+
+    private static void preparePrefixes(final Model model)
+    {
+        for (final String key:model.getNsPrefixMap().keySet())
+            PrintUtil.registerPrefix(key, model.getNsPrefixMap().get(key));
     }
 
     private static InfModel applyRules(final String rules, final Model model)
     {
-        for (final String key : SemanticGedcomModel.PREFIXES.keySet())
-            PrintUtil.registerPrefix(key, SemanticGedcomModel.PREFIXES.get(key));
         final GenericRuleReasoner reasoner = new GenericRuleReasoner(Rule.parseRules(rules));
-        reasoner.setMode(GenericRuleReasoner.HYBRID);
+        reasoner.setMode(GenericRuleReasoner.FORWARD);
 
         final InfModel infModel = ModelFactory.createInfModel(reasoner, model);
         infModel.prepare();
