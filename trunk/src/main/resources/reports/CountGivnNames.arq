@@ -38,7 +38,7 @@ SELECT
   ?given 
 {
  ?indi a t:INDI ; 
-       p:NAME [p:GIVN [rdfs:label ?given]] . 
+       p:NAME [p:givn [rdfs:label ?given]] . 
 }
 GROUP BY ?given 
 ORDER BY ?given

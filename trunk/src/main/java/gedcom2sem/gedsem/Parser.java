@@ -56,7 +56,7 @@ public class Parser
         gedcomModel = new SemanticGedcomModel();
         for (final StringTree entity : entities)
         {
-            final Resource resource = gedcomModel.addEntity(entity.id, entity.tag);
+            final Resource resource = gedcomModel.getResource(entity.id, entity.tag);
             loadProperties(resource, entity.children);
         }
         return gedcomModel.getModel();
@@ -71,7 +71,10 @@ public class Parser
             if (referencesAnotherNode(property))
             {
                 for (final String value : property.value.split(" "))
-                    gedcomModel.addConnection(resource, value, property.tag, tagsOfIds.get(value));
+                {
+                    final Resource referred = gedcomModel.getResource(value, tagsOfIds.get(value));
+                    gedcomModel.connect(resource, property.tag, referred);
+                }
             }
             else if (!"CONT".equals(property.tag))
             {
