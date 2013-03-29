@@ -14,122 +14,30 @@
 // @formatter:on
 package gedcom2sem.semweb;
 
+import gedcom2sem.io.FileNameArguments;
 import gedcom2sem.io.FileUtil;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolutionMap;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.query.Syntax;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.shared.PrefixMapping;
-import com.hp.hpl.jena.sparql.core.Prologue;
 
 public class Select
 {
-    // TODO rather read from class path, see issue 7
-    private static final String DEFAULT_XSL = "https://gedcom2sem.googlecode.com/svn/trunk/src/main/resources/result-to-html.xsl";
-
     public static void main(final String... fileNames) throws IOException, TransformerFactoryConfigurationError, TransformerException
     {
-        final Model model = ModelFactory.createDefaultModel();
-        File outputFile = null;
-        File xsl = null;
-        String queryStr = null;
-        for (final String fileName : fileNames)
-        {
-            final File file = new File(fileName);
-            if (file.isDirectory())
-                loadFiles(model, file);
-            else
-                try
-                {
-                    final String language = FileUtil.guessLanguage(file);
-                    model.read(new FileInputStream(file), (String) null, language);
-                }
-                catch (IllegalArgumentException e)
-                {
-                    if (fileName.toLowerCase().endsWith(".xsl"))
-                        xsl = file;
-                    else if (fileName.toLowerCase().endsWith(".arq"))
-                        queryStr = FileUtil.read(file);
-                    else
-                        outputFile = file;
-                }
-        }
-        if (model.size() == 0)
-            throw new IllegalArgumentException("no or empty data files (.nt, .n3, .ttl, .rdf)");
-        if (queryStr == null)
-            throw new IllegalArgumentException("no query file (.arq)");
-        if (outputFile == null)
-            throw new IllegalArgumentException("no output file (.txt, .tsv, .csv, .json, .xml, .htm, .html)");
-
-        final ResultSet resultSet = executeQuery(model, queryStr);
-        final OutputStream outputStream = new FileOutputStream(outputFile);
-        try
-        {
-            final String ext = outputFile.getName().replaceAll(".*[.]", "").toLowerCase();
-            if ("tsv".equals(ext))
-                ResultSetFormatter.outputAsTSV(outputStream, resultSet);
-            else if ("csv".equals(ext))
-                ResultSetFormatter.outputAsCSV(outputStream, resultSet);
-            else if ("xml".equals(ext))
-                ResultSetFormatter.outputAsXML(outputStream, resultSet);
-            else if ("json".equals(ext))
-                ResultSetFormatter.outputAsJSON(outputStream, resultSet);
-            else if ("txt".equals(ext))
-                outputAsText(resultSet, outputStream, model);
-            else if (ext.matches("html?"))
-                outputAsHtml(resultSet, outputStream, xsl);
-            else
-                throw new IllegalArgumentException("output extension not supported: " + outputFile);
-        }
-        finally
-        {
-            outputStream.close();
-        }
-    }
-
-    private static void loadFiles(Model model, File folder)
-    {
-        for (File file : folder.listFiles())
-        {
-            try
-            {
-                final String language = FileUtil.guessLanguage(file);
-                model.read(new FileInputStream(file), (String) null, language);
-            }
-            catch (IllegalArgumentException e)
-            {
-            }
-            catch (MalformedURLException e)
-            {
-            }
-            catch (FileNotFoundException e)
-            {
-            }
-        }
+        final FileNameArguments arguments = new FileNameArguments(fileNames);
+        final Model model = arguments.readInto(ModelFactory.createDefaultModel());
+        final String queryStr = FileUtil.read(arguments.getMandatoryFile("arq"));
+        arguments.write(executeQuery(model, queryStr));
     }
 
     private static ResultSet executeQuery(final Model model, final String queryStr)
@@ -137,32 +45,5 @@ public class Select
         final QuerySolutionMap qsm = new QuerySolutionMap();
         final QueryExecution queryExecution = QueryExecutionFactory.create(queryStr, Syntax.syntaxARQ, model, qsm);
         return queryExecution.execSelect();
-    }
-
-    private static void outputAsHtml(final ResultSet resultSet, final OutputStream outputStream, final File xsl) //
-            throws TransformerException, TransformerFactoryConfigurationError, IOException
-    {
-        final ByteArrayOutputStream xml = new ByteArrayOutputStream();
-        ResultSetFormatter.outputAsXML(xml, resultSet);
-        final StreamSource xmlStreamSource = new StreamSource(new ByteArrayInputStream(xml.toByteArray()));
-        readXsl(xsl).transform(xmlStreamSource, new StreamResult(outputStream));
-    }
-
-    private static void outputAsText(final ResultSet resultSet, final OutputStream outputStream, final Model model) //
-            throws IOException
-    {
-        final Prologue prologue = new Prologue(PrefixMapping.Factory.create().setNsPrefixes(model.getNsPrefixMap()));
-        outputStream.write(ResultSetFormatter.asText(resultSet, prologue).getBytes());
-    }
-
-    private static Transformer readXsl(final File file) //
-            throws TransformerConfigurationException, TransformerFactoryConfigurationError, IOException
-    {
-        final StreamSource ss;
-        if (file == null)
-            ss = new StreamSource(file);
-        else
-            ss = new StreamSource(new URL(DEFAULT_XSL).openStream());
-        return TransformerFactory.newInstance().newTransformer(ss);
     }
 }
