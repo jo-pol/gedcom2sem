@@ -23,7 +23,7 @@ The .arq files contain queries to generate reports.
 
 The .xsl file configures the html output, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
 
-The diagram shows how the `KmlGenerator` executes a query and formats the results in one go. While customizing the details it can be convenient to split the commands in two steps. The first step is to execute a select command using with .tsv output. For the second step the `KmlGenerator` will only need the .tsv and kml.properties as input, no user data nor mash up data is required for the second step. Note that you may also host a kml map on you own website, search the web for how-to's.
+The diagram shows how the `KmlGenerator` executes a query and formats the results in one go. While customizing the details it can be convenient to first test the results of the query. Note that you may also host a kml map on you own website, search the web for how-to's.
 
 = https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/semweb.jpg Semantic web =
 
