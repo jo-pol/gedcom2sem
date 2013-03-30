@@ -43,18 +43,6 @@ public class BatchExamples
     }
 
     @Test
-    public void transformFoaf() throws Exception
-    {
-        Transform.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafBio.rules", "target/kennedyFoaf.ttl");
-    }
-
-    @Test
-    public void convertFoaf() throws Exception
-    {
-        Convert.main(TEST + "kennedy.ged", MAIN + "prefixes.ttl", RULES + "foafBio.rules", "target/kennedyFoaf2.ttl");
-    }
-
-    @Test
     public void prepareMashup() throws Exception
     {
         Select.main(TEST + "kennedy.ttl", TEST + "geoNamesCache.ttl", //

@@ -4,5 +4,5 @@
   (?d rdfs:label ?date)
   (?entity foaf:isPrimaryTopicOf ?url  )
 ->
-  (?entity dct:modified ?date)
+  (?entity http://purl.org/dc/terms/modified ?date)
 ]
