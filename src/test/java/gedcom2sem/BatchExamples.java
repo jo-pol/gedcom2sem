@@ -46,13 +46,13 @@ public class BatchExamples
     public void prepareMashup() throws Exception
     {
         Select.main(TEST + "kennedy.ttl", TEST + "geoNamesCache.ttl", //
-                QUERY_DIR + "mashup/mashup.arq", "target/mashup.txt");
+                QUERY_DIR + "mashup.arq", "target/mashup.txt");
     }
 
     @Test
     public void prepareMashupWithFolder() throws Exception
     {
-        Select.main(TEST, QUERY_DIR + "mashup/mashup.arq", "target/mashup.tsv");
+        Select.main(TEST, QUERY_DIR + "mashup.arq", "target/mashup.tsv");
     }
 
     @Test
@@ -65,24 +65,24 @@ public class BatchExamples
     public void migrations() throws Exception
     {
         KmlGenerator.main(TEST + "kennedy.ttl", TEST + "geoNamesCache.ttl",//
-                MAIN + "kml-by-birth.properties", QUERY_DIR + "mashup/places-by-birth.arq", "target/places1.kml");
+                MAIN + "kml-by-birth.properties", QUERY_DIR + "places-by-birth.arq", "target/places1.kml");
     }
 
     @Test
     public void migrationsWithFolder() throws Exception
     {
-        KmlGenerator.main(MAIN + "kml-by-birth.properties", TEST, QUERY_DIR + "mashup/places-by-birth.arq", "target/birthPlaces.kml");
+        KmlGenerator.main(MAIN + "kml-by-birth.properties", TEST, QUERY_DIR + "places-by-birth.arq", "target/birthPlaces.kml");
     }
 
     @Test
     public void birthPlacesFirstStep() throws Exception
     {
-        Select.main(TEST, QUERY_DIR + "mashup/places-by-birth.arq", "target/birthPlaces.txt");
+        Select.main(TEST, QUERY_DIR + "places-by-birth.arq", "target/birthPlaces.txt");
     }
 
     @Test
     public void mariagePlacesFirstStep() throws Exception
     {
-        Select.main(TEST, QUERY_DIR + "mashup/places-by-birth.arq", "target/marrigaePlaces.txt");
+        Select.main(TEST, QUERY_DIR + "places-by-birth.arq", "target/marrigaePlaces.txt");
     }
 }
