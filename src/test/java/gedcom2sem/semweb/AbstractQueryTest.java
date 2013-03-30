@@ -27,26 +27,22 @@ import java.util.Collection;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public abstract class AbstractQueryTest
+public class AbstractQueryTest
 {
-    static final String GEDCOM = "src/test/resources/kennedy.ged";
-    static final String GEDCOM_TTL = "src/test/resources/kennedy.ttl";
-    static final String MASHUP_TTL = "src/test/resources/geoMashup.ttl";
-    static final String CACHE_TTL = "src/test/resources/geoNamesCache.ttl";
-    static final String REPORT_DIR = "src/main/resources/reports";
-    static final String REPORT_TXT = "target/report.txt";
-
     private static final Collection<Object[]> constructorArgs = new ArrayList<Object[]>();
-    final Integer expectedNrOfLines;
-    final String queryFileName;
-    final Boolean mashup;
-    private String endPointID;
+    private final Integer expectedNrOfLines;
+    private final String queryFileName;
+    private final String report;
+    private final Boolean mashup;
+    private final String endPointID;
 
+    /** Same arguments as constructor. */
     private static void addTest(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
     {
         constructorArgs.add(new Object[] {mashup, expectedNrOfLines, endPointID, queryFileName});
@@ -57,40 +53,55 @@ public abstract class AbstractQueryTest
         this.mashup = mashup;
         this.expectedNrOfLines = expectedNrOfLines;
         this.endPointID = endPointID;
-        this.queryFileName = REPORT_DIR + "/" + queryFileName;
+        this.queryFileName = "src/main/resources/reports/" + queryFileName;
+        this.report = "target/reports/" + queryFileName.replace(".arq", ".txt");
+        new File(report).getParentFile().mkdirs();
     }
 
     @Parameters
     public static Collection<Object[]> getContructorParameters()
     {
-        // addTest(false, 1, null,"AgeDiffBetweenSpouses.arq");
-        addTest(false, 95,null, "CountEventsPerPlace.arq");
-        addTest(false, 171, null,"CountGivnNames.arq");
-        addTest(false, 34, null,"SOSA-InbredStatistics.arq");
-        addTest(false, 11, null,"SOSA-MultiMedia.arq");
-        addTest(true, 12, null,"mashup/classmates.arq");
-        addTest(true, 15, "dbp","mashup/dbpediaLanguages.arq");
-        addTest(true, 117, "dbp","mashup/dbpediaProperties.arq");
-        addTest(true, 225, "dbp","mashup/dbpediaRelatedEntities.arq");
-        addTest(true, 31, "gn","mashup/geonamesProperties.arq");
-        addTest(true, 9, "gn","mashup/geonamesRelatedEntities.arq");
-        addTest(true, 93, null,"mashup/mashup.arq");
-        // addTest(true, 1, null,"mashup/MigrationLines.arq");
+        /* 00 */addTest(false, 13, null, "AgeDiffBetweenSpouses.arq");
+        /* 01 */addTest(true, 49, null, "classmates.arq");
+        /* 02 */addTest(false, 95, null, "CountEventsPerPlace.arq");
+        /* 03 */addTest(false, 171, null, "CountGivnNames.arq");
+        /* 04 */addTest(true, 15, "dbp", "dbpediaLanguages.arq");
+        /* 05 */addTest(true, 201, "dbp", "dbpediaProperties.arq");
+        /* 06 */addTest(true, 300, "dbp", "dbpediaRelatedEntities.arq");
+        /* 07 */addTest(true, 29, "gn", "geonamesProperties.arq");
+        /* 08 */addTest(true, 7, "gn", "geonamesRelatedEntities.arq");
+        /* 09 */addTest(true, 98, null, "mashup.arq");
+        /* 10 */addTest(true, 69, null, "places-by-birth.arq");
+        /* 11 */addTest(true, 69, null, "places-by-marriage.arq");
+        /* 12 */addTest(false, 4, null, "SOSA-EventDocuments.arq");
+        /* 13 */addTest(false, 34, null, "SOSA-InbredStatistics.arq");
+        /* 14 */addTest(false, 11, null, "SOSA-MultiMedia.arq");
+        /* 15 */addTest(false, 34, null, "SOSA-Roots.arq");
         return constructorArgs;
     }
 
     @Before
     public void beNice()
     {
-        // too frequent access to a SPARQL end point causes "service not available"
-        if (endPointID!=null)
+        // too frequent access to a SPARQL end point causes "service not available" or
+        // "bandwidth exceeded"
+        if (endPointID != null)
             Nice.sleep(endPointID);
+    }
+
+    @Test
+    public void run() throws Exception
+    {
+        if (mashup)
+            Select.main("src/test/resources/", queryFileName, report);
+        else
+            Select.main("src/test/resources/kennedy.ttl", queryFileName, report);
     }
 
     @After
     public void countLines() throws FileNotFoundException, IOException
     {
-        final BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(REPORT_TXT)));
+        final BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(report)));
         int nrOfLines = 0;
         while (bufferedReader.readLine() != null)
             nrOfLines++;

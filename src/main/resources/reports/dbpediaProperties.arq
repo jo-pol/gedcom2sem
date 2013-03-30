@@ -1,21 +1,17 @@
 ##################################################################################################
-# Copyright 2013, J. Pol 
+# Copyright 2012, J. Pol 
 # This file is part of free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
 # This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# Ancestors without ancestors, like _TREETOP
-# an exercise embedded in other queries
+# frequency of dbpedia properties
 #
-# replace the value for idOfRootIndi
-# or launch from a INDI context
+# Apply geoNames.rules, don't drop original statements, provide geoNamesCache*.
 #
-# Requires the basic rules and additional rules.
-#
-###############################################
+###################################################################
 
-### external data
+### from external data
 PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
@@ -25,6 +21,7 @@ PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
 PREFIX dbpedia-prop: <http://dbpedia.org/property/>
 PREFIX dbpr:         <http://dbpedia.org/resource/>
 PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+PREFIX bio:          <http://purl.org/vocab/bio/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -36,30 +33,18 @@ PREFIX  fn: <http://www.w3.org/2005/xpath-functions#>
 PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
 PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
 
-###############################################
-SELECT 
-  (str(?id) as ?ID)
-  ?name
+SELECT ?property ?count
 {
-  ### for which individual do you want the report?
-
-  LET (?idOfRootIndi := '%s')
-
-  ### the neded data
-
-  ?indi p:id ?idOfRootIndi; 
-        r:ancestor ?a. 
-
-  ?a p:id ?id; 
-     p:NAME [rdfs:label ?name]. 
-
-  ### does the ancestor have ancestors?  
-
-  OPTIONAL {?a r:ancestor ?a2}
-  FILTER (!bound(?a2))
-
-  ### prevent duplicates in case GIVN and SURN are stored separately
-
-  FILTER( fn:contains(?name,'/')  )
-
-} 
+  {
+    SELECT 
+      ?property
+      (count(?dbp) as ?count)
+    { ?indi ?event [bio:place [rdfs:seeAlso ?dbp]].
+      SERVICE <http://dbpedia.org/sparql>
+      { ?dbp ?property   ?type. }
+    }
+    GROUP BY ?property
+  }
+  FILTER (?count>10)
+}
+ORDER BY DESC(?count) ?property

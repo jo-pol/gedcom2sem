@@ -5,9 +5,9 @@
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# frequency of entities related to dbpedia places
+# frequency of entities related to GeoName places
 #
-# Requires only geoMashup and geoNamesCache
+# Apply geoNames.rules, don't drop original statements, provide geoNamesCache*.
 #
 ###################################################################
 
@@ -21,6 +21,7 @@ PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
 PREFIX dbpedia-prop: <http://dbpedia.org/property/>
 PREFIX dbpr:         <http://dbpedia.org/resource/>
 PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+PREFIX bio:          <http://purl.org/vocab/bio/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -34,20 +35,13 @@ PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#>
 
 SELECT ?property ?count
 {
+  SELECT 
+    ?property
+    (count(?gn) as ?count)
   {
-    SELECT 
-      ?property
-      (count(?dbp) as ?count)
-    {
-      ?gn p:elaborates ?place;
-          rdfs:seeAlso ?dbp.
-      SERVICE <http://dbpedia.org/sparql>
-      { 
-        _:resource ?property ?dbp.
-      }
-    }
-    GROUP BY ?property
+    ?indi ?event [bio:place ?gn].
+    ?resource ?property   ?gn.
   }
-  FILTER(?count > 9)
+  GROUP BY ?property
 }
 ORDER BY ?count ?property

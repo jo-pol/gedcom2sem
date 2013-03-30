@@ -1,17 +1,20 @@
 ##################################################################################################
-# Copyright 2012, J. Pol 
+# Copyright 2013, J. Pol 
 # This file is part of free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation.
 # This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# frequency of dbpedia properties
+# Ancestors without ancestors, like _TREETOP
+# an exercise embedded in other queries
 #
-# Requires only geoNamesCache
+# replace the value for idOfRootIndi or launch from a INDI context
 #
-###################################################################
+# Apply basic rules and additional rules, don't drop original statements.
+#
+###############################################
 
-### from external data
+### external data
 PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
@@ -32,20 +35,30 @@ PREFIX  fn: <http://www.w3.org/2005/xpath-functions#>
 PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
 PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
 
-SELECT ?property ?count
+###############################################
+SELECT 
+  (str(?id) as ?ID)
+  ?name
 {
-  {
-    SELECT 
-      ?property
-      (count(?dbp) as ?count)
-    {
-      ?gn p:elaborates ?place;
-          rdfs:seeAlso ?dbp.
-      SERVICE <http://dbpedia.org/sparql>
-      { ?dbp ?property   ?type. }
-    }
-    GROUP BY ?property
-  }
-  FILTER (?count>5)
-}
-ORDER BY ?count ?property
+  ### for which individual do you want the report?
+
+  LET (?idOfRootIndi := '%s')
+
+  ### the neded data
+
+  ?indi p:id ?idOfRootIndi; 
+        r:ancestor ?a. 
+
+  ?a p:id ?id; 
+     p:NAME [rdfs:label ?name]. 
+
+  ### does the ancestor have ancestors?  
+
+  OPTIONAL {?a r:ancestor ?a2}
+  FILTER (!bound(?a2))
+
+  ### prevent duplicates in case GIVN and SURN are stored separately
+
+  FILTER( fn:contains(?name,'/')  )
+
+} 

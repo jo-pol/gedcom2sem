@@ -32,8 +32,5 @@ SELECT distinct
 
   ### just the ones without parents
   FILTER ( ! bound(?fam) )
-
-  ### prevent duplicates in case GIVN and SURN are stored separately
-  FILTER( fn:contains(?name,'/')  )
 }
 order by ?id

@@ -5,9 +5,9 @@
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# Checklist to show how your events are (not?) documented.
+# Checklist to show how your events are (not?) documented with SOUR/OBJE properties (not SOUR/OBJE entities)
 #
-# no rules required (but they don't harm) but keep the original statements
+# No rules required (but they don't harm) but keep the original statements
 # The sosa numbers are used to filter and sort the results, they are otherwsie not essential.
 #
 ###############################################

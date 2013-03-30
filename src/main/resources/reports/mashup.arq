@@ -5,22 +5,24 @@
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# shows the number of resources available per (non-english) language
+# overview of places in a gedcom
 #
-# Requires only geoMashup and geoNamesCache
+# supply the optional geoMashup.rules and geoNamesCash* to verify their content
+# don't drop the original statements.
 #
-###################################################################
+#########################################################################
 
 ### from external data
 PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
-PREFIX owl:          <http://www.w3.org/2002/07/owl#>
 PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX gn:           <http://www.geonames.org/ontology#>
 PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
 PREFIX dbpedia-prop: <http://dbpedia.org/property/>
+PREFIX dbpr:         <http://dbpedia.org/resource/>
 PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+PREFIX bio:          <http://purl.org/vocab/bio/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -32,17 +34,39 @@ PREFIX  fn: <http://www.w3.org/2005/xpath-functions#>
 PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
 PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
 
-SELECT DISTINCT
-  ?domain
-  (count(?dbp) as ?count)
+SELECT DISTINCT 
+  ?gn
+  ?place
+  (COUNT(?place)   as ?events)
+  (MIN(?eventYear) as ?from)
+  (MAX(?eventYear) as ?to)
+  ?lat
+  ?long
+  ?dbpedia_resource 
 {
-  ?gn p:elaborates  ?place;
-      rdfs:seeAlso ?dbp.
-  SERVICE <http://dbpedia.org/sparql>
-  { ?dbp owl:sameAs ?alt. }
-  FILTER regex(str(?alt),"[.]dbpedia[.]org")
-  LET (?domain := substr(str(?alt),8,2))
+  OPTIONAL
+  {
+    ?entity ?eventType [ p:PLAC [ rdfs:label ?place ]].
+  }
+  OPTIONAL
+  {
+    ?entity ?eventType [ p:DATE [ rdfs:label ?eventDate ]].
+    LET(?eventYear := fn:substring(str(?eventDate),1,4))
+  }
+  OPTIONAL
+  {
+    ?entity ?eventType [bio:place ?gn].
+    OPTIONAL
+    {
+       ?gn wgs84_pos:lat  ?lat;
+           wgs84_pos:long ?long.
+    }
+    OPTIONAL
+    {
+      ?gn rdfs:seeAlso    ?dbp.
+      LET ( ?dbpedia_resource := fn:substring(str(?dbp),28) )
+    }
+  }
 }
-GROUP BY ?domain
-ORDER BY ?domain
-
+GROUP BY ?place ?lat ?long ?dbpedia_resource ?gn
+ORDER BY ?dbpedia_resource ?place

@@ -10,7 +10,7 @@
 # replace the value for the famID
 # or launch from a family context
 #
-# at least the basic rules are required
+# Apply basic rules, don't drop original statements.
 #
 # see also comments on GIVN/SURN
 #
