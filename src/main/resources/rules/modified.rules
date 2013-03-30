@@ -1,0 +1,8 @@
+[
+  (?entity p:CHAN ?c)
+  (?c p:DATE ?d)
+  (?d rdfs:label ?date)
+  (?entity foaf:isPrimaryTopicOf ?url  )
+->
+  (?entity dct:modified ?date)
+]

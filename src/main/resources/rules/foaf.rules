@@ -1,0 +1,6 @@
+[(?indi p:SEX ?sex ) (?sex rdfs:label ?label)                     ->(?indi foaf:gender     ?label )]
+[(?indi p:NAME ?name)(?name p:last ?last)(?last rdfs:label ?label)->(?indi foaf:familyName ?label )]
+[(?indi p:NAME ?name)(?name p:givn ?givn)(?givn rdfs:label ?label)->(?indi foaf:givenName  ?label )]
+[(?indi p:NAME ?name) (?name rdfs:label ?label)
+                      regex(?label, '(.*)/(.*)/(.*)', ?f, ?l, ?t)
+                                    strConcat(?f, " ", ?l, ?name) ->(?indi foaf:name ?name )]
