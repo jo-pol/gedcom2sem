@@ -1,0 +1,5 @@
+[(?indi p:BIRT ?event)(?event p:DATE ?d)(?d rdfs:label ?label) ->(?event http://purl.org/dc/elements/1.1/date ?label )]
+[(?indi p:BIRT ?event)(?event p:PLAC ?p)(?p rdfs:label ?label) ->(?event bio:place ?label )]
+[(?indi p:BIRT ?event)                                         ->(?indi  bio:event ?event )
+                                                                 (?event bio:principal ?indi )
+                                                                 (?event rdf:type bio:Birth)]

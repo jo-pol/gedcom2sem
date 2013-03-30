@@ -1,0 +1,7 @@
+[(?fam p:MARR ?event)(?event p:DATE  ?d)(?d rdfs:label ?label)    ->(?event   dc:date      ?label  )]
+[(?fam p:MARR ?event)(?event p:PLACE ?p)(?p rdfs:label ?label)    ->(?event   bio:place    ?label  )]
+[(?fam p:MARR ?event)(?fam  p:WIFE ?wife)(?fam p:HUSB ?husband)   ->(?wife    rel:spouseOf ?husband)
+                                                                    (?husband rel:spouseOf ?wife   )
+                                                                    (?event   bio:partner  ?wife   )
+                                                                    (?event   bio:partner  ?husband)
+                                                                    (?event   rdf:type bio:Marriage)]

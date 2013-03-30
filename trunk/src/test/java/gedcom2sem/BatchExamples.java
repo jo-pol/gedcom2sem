@@ -33,9 +33,13 @@ public class BatchExamples
     }
 
     @Test
-    public void convertRDF() throws Exception
+    public void transform() throws Exception
     {
-        Convert.main(TEST + "kennedy.ged", "target/kennedy.rdf");
+        Transform.main(MAIN + "prefixes.ttl", TEST + "primaryTopicOf.rules", //
+                MAIN + "rules/foaf.rules", MAIN + "rules/child.rules",//
+                MAIN + "rules/birth.rules", MAIN + "rules/marriage.rules", //
+                MAIN + "rules/publisher.rules", MAIN + "rules/modified.rules", //
+                TEST + "geoMashup.rules", TEST + "kennedy.ged", "target/kennedy2.ttl");
     }
 
     @Test

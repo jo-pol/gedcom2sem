@@ -1,0 +1,8 @@
+[
+  (?indi rdf:type  t:INDI)
+  (?indi p:id ?i)
+  regex(?i, '@(.*)@.*', ?id)
+  uriConcat("http://demo.domain.com/INDI/", ?id, ".html", ?url)
+->
+  (?indi foaf:isPrimaryTopicOf ?url)
+]

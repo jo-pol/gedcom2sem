@@ -1,0 +1,10 @@
+[(?fam p:CHIL ?child)(?fam  p:HUSB ?husband)                      ->(?child   bio:father       ?husband)
+                                                                    (?child   rel:descendantOf ?husband)
+                                                                    (?child   rel:childOf      ?husband)
+                                                                    (?husband rel:ancestorOf   ?child  )
+                                                                    (?husband rel:parentOf     ?child  )]
+[(?fam p:CHIL ?child)(?fam  p:WIFE ?wife )                        ->(?child   bio:mother       ?wife   )
+                                                                    (?child   rel:descendantOf ?wife   )
+                                                                    (?child   rel:childOf      ?wife   )
+                                                                    (?wife    rel:ancestorOf   ?child  )
+                                                                    (?wife    rel:parentOf     ?child  )]

@@ -1,38 +1,38 @@
-[(?indi p:SEX  ?sex )                    (?sex  rdfs:label ?label)->(?indi    http://xmlns.com/foaf/0.1/gender            ?label  )]
+[(?indi p:SEX  ?sex )                    (?sex  rdfs:label ?label)->(?indi    foaf:gender            ?label  )]
 
-[(?indi p:NAME ?name)(?name p:last ?last)(?last rdfs:label ?label)->(?indi    http://xmlns.com/foaf/0.1/familyName        ?label  )]
+[(?indi p:NAME ?name)(?name p:last ?last)(?last rdfs:label ?label)->(?indi    foaf:familyName        ?label  )]
 
-[(?indi p:NAME ?name)(?name p:givn ?givn)(?givn rdfs:label ?label)->(?indi    http://xmlns.com/foaf/0.1/givenName         ?label  )]
+[(?indi p:NAME ?name)(?name p:givn ?givn)(?givn rdfs:label ?label)->(?indi    foaf:givenName         ?label  )]
 
 [(?indi p:NAME ?name)                    (?name rdfs:label ?label)
                        regex(?label, '(.*)/(.*)/(.*)', ?f, ?l, ?t)
-                       strConcat(?f, " ", ?l, ?name)              ->(?indi    http://xmlns.com/foaf/0.1/name              ?name   )]
+                       strConcat(?f, " ", ?l, ?name)              ->(?indi    foaf:name              ?name   )]
 
 [(?indi p:BIRT ?event)(?event p:DATE ?d)(?d rdfs:label ?label)    ->(?event   http://purl.org/dc/elements/1.1/date        ?label  )]
 
-[(?indi p:BIRT ?event)(?event p:PLAC ?p)(?p rdfs:label ?label)    ->(?event   http://purl.org/vocab/bio/0.1/place         ?label  )]
+[(?indi p:BIRT ?event)(?event p:PLAC ?p)(?p rdfs:label ?label)    ->(?event   bio:place         ?label  )]
 
-[(?indi p:BIRT ?event)                                            ->(?indi    http://purl.org/vocab/bio/0.1/event         ?event  )
-                                                                    (?event   http://purl.org/vocab/bio/0.1/principal     ?indi   )
+[(?indi p:BIRT ?event)                                            ->(?indi    bio:event         ?event  )
+                                                                    (?event   bio:principal     ?indi   )
 
-                                                                    (?event   rdf:type http://purl.org/vocab/bio/0.1/Birth)]
+                                                                    (?event   rdf:type bio:Birth)]
 
-[(?fam p:CHIL ?child)(?fam  p:HUSB ?husband)                      ->(?child   http://purl.org/vocab/bio/0.1/father            ?husband)
-                                                                    (?child   http://purl.org/vocab/relationship/descendantOf ?husband)
-                                                                    (?child   http://purl.org/vocab/relationship/childOf      ?husband)
-                                                                    (?husband http://purl.org/vocab/relationship/ancestorOf   ?child  )
-                                                                    (?husband http://purl.org/vocab/relationship/parentOf     ?child  )]
-[(?fam p:CHIL ?child)(?fam  p:WIFE ?wife )                        ->(?child   http://purl.org/vocab/bio/0.1/mother            ?wife   )
-                                                                    (?child   http://purl.org/vocab/relationship/descendantOf ?wife   )
-                                                                    (?child   http://purl.org/vocab/relationship/childOf      ?wife   )
-                                                                    (?wife    http://purl.org/vocab/relationship/ancestorOf   ?child  )
-                                                                    (?wife    http://purl.org/vocab/relationship/parentOf     ?child  )]
+[(?fam p:CHIL ?child)(?fam  p:HUSB ?husband)                      ->(?child   bio:father            ?husband)
+                                                                    (?child   rel:descendantOf ?husband)
+                                                                    (?child   rel:childOf      ?husband)
+                                                                    (?husband rel:ancestorOf   ?child  )
+                                                                    (?husband rel:parentOf     ?child  )]
+[(?fam p:CHIL ?child)(?fam  p:WIFE ?wife )                        ->(?child   bio:mother            ?wife   )
+                                                                    (?child   rel:descendantOf ?wife   )
+                                                                    (?child   rel:childOf      ?wife   )
+                                                                    (?wife    rel:ancestorOf   ?child  )
+                                                                    (?wife    rel:parentOf     ?child  )]
 
 [(?fam p:MARR ?event)(?event p:DATE  ?d)(?d rdfs:label ?label)    ->(?event   http://purl.org/dc/elements/1.1/date        ?label  )]
-[(?fam p:MARR ?event)(?event p:PLACE ?p)(?p rdfs:label ?label)    ->(?event   http://purl.org/vocab/bio/0.1/place         ?label  )]
-[(?fam p:MARR ?event)(?fam  p:WIFE ?wife)(?fam p:HUSB ?husband)   ->(?wife    http://purl.org/vocab/relationship/spouseOf ?husband)
-                                                                    (?husband http://purl.org/vocab/relationship/spouseOf ?wife   )
-                                                                    (?event   http://purl.org/vocab/bio/0.1/partner       ?wife   )
-                                                                    (?event   http://purl.org/vocab/bio/0.1/partner       ?husband)
-                                                                    (?event   rdf:type http://purl.org/vocab/bio/0.1/Marriage)]
+[(?fam p:MARR ?event)(?event p:PLACE ?p)(?p rdfs:label ?label)    ->(?event   bio:place         ?label  )]
+[(?fam p:MARR ?event)(?fam  p:WIFE ?wife)(?fam p:HUSB ?husband)   ->(?wife    rel:spouseOf ?husband)
+                                                                    (?husband rel:spouseOf ?wife   )
+                                                                    (?event   bio:partner       ?wife   )
+                                                                    (?event   bio:partner       ?husband)
+                                                                    (?event   rdf:type bio:Marriage)]
 
