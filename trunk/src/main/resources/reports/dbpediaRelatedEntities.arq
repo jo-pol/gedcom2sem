@@ -5,12 +5,11 @@
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# overview of places in a gedcom
+# frequency of entities related to dbpedia places
 #
-# runs with just a gedcom.ttl but then the geoNames columns will be empty
-# supply your geoMashup and geoNamesCash to verify their content
+# Apply geoNames.rules, don't drop original statements, provide geoNamesCache*.
 #
-#########################################################################
+###################################################################
 
 ### from external data
 PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
@@ -22,6 +21,7 @@ PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
 PREFIX dbpedia-prop: <http://dbpedia.org/property/>
 PREFIX dbpr:         <http://dbpedia.org/resource/>
 PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+PREFIX bio:          <http://purl.org/vocab/bio/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -33,39 +33,20 @@ PREFIX  fn: <http://www.w3.org/2005/xpath-functions#>
 PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
 PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
 
-SELECT DISTINCT 
-  ?gn
-  ?place
-  (COUNT(?place)   as ?events)
-  (MIN(?eventYear) as ?from)
-  (MAX(?eventYear) as ?to)
-  ?lat
-  ?long
-  ?dbpedia_resource 
+SELECT ?property ?count
 {
-  OPTIONAL
   {
-    ?entity ?eventType [ p:PLAC [ rdfs:label ?place ]].
-  }
-  OPTIONAL
-  {
-    ?entity ?eventType [ p:DATE [ rdfs:label ?eventDate ]].
-    LET(?eventYear := fn:substring(str(?eventDate),1,4))
-  }
-  OPTIONAL
-  {
-    ?gn p:elaborates       ?place.
-    OPTIONAL
-    {
-       ?gn wgs84_pos:lat  ?lat;
-           wgs84_pos:long ?long.
+    SELECT 
+      ?property
+      (count(?dbp) as ?count)
+    { ?indi ?event [bio:place [rdfs:seeAlso ?dbp]].
+      SERVICE <http://dbpedia.org/sparql>
+      { 
+        _:resource ?property ?dbp.
+      }
     }
-    OPTIONAL
-    {
-      ?gn rdfs:seeAlso    ?dbp.
-      LET ( ?dbpedia_resource := fn:substring(str(?dbp),28) )
-    }
+    GROUP BY ?property
   }
+  FILTER(?count > 9)
 }
-GROUP BY ?place ?lat ?long ?dbpedia_resource ?gn
-ORDER BY ?dbpedia_resource ?place
+ORDER BY ?count ?property

@@ -51,9 +51,7 @@ SELECT DISTINCT
   ?smallest_sosa
   ?largest_sosa
   (str(?nr_of_sosa) as ?sosa_count)
-  (str(?diff) as ?difference)
   ?ID
-  ?name
 
   # no bit-wise & opererator available
   #(fn:string-length(?large&(?large-1)) as ?smallest_generation)
@@ -86,10 +84,5 @@ SELECT DISTINCT
     # group on selected items that are not agregated
     GROUP BY ?id ?name
   }
-  LET (?diff := xsd:int(?largest_sosa) - xsd:int(?smallest_sosa) )
-
-  # get rid of the leading zeroes
-  LET (?small := xsd:int(?smallest_sosa)*1)
-  LET (?large := xsd:int(?smallest_sosa)*1)
 }
 ORDER BY DESC(?nr_of_sosa) ?smallest_sosa

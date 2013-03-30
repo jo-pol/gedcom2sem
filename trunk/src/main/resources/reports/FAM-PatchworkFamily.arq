@@ -7,10 +7,8 @@
 #
 # timeline with all ex- and later spouses with their children
 #
-# replace the value for the famID
-# or launch from a family context
-#
-# no rules required (but it won't harm)
+# Replace the value for the famID or launch from a family context
+# Needs the original statements.
 #
 # BUG: couples without children don't appear
 #      see also comments on GIVN/SURN

@@ -7,7 +7,7 @@
 #
 # Large age difference between spouses
 #
-# executes in any context
+# Needs the original statements.
 #
 # Variation hint:
 # turn into a statistical report
@@ -47,7 +47,7 @@ SELECT
 {
   ### choose what you call large 
 
-  LET (?minDiff := 20)
+  LET (?minDiff := 5)
 
   ### select required data
 
@@ -60,8 +60,8 @@ SELECT
 
   ### get the years out of the dates
 
-  LET (?yearHusb := fn:substring(str(?dateHusb),0,4))
-  LET (?yearWife := fn:substring(str(?dateWife),0,4))
+  LET (?yearHusb := fn:substring(str(?dateHusb),0,5))
+  LET (?yearWife := fn:substring(str(?dateWife),0,5))
 
   ### compute the difference
 

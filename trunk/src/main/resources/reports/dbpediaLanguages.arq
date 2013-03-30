@@ -5,9 +5,11 @@
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# frequency of geonames properties
+# Shows the number of resources available per (non-english) language
 #
-# Requires only geoMashup and geoNamesCache
+# Seems to be broken. Gives error 503 while other queries using the same service don't.
+#
+# Apply geoNames.rules, don't drop original statements, provide geoNamesCache*.
 #
 ###################################################################
 
@@ -15,12 +17,13 @@
 PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
+PREFIX owl:          <http://www.w3.org/2002/07/owl#>
 PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX gn:           <http://www.geonames.org/ontology#>
 PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
 PREFIX dbpedia-prop: <http://dbpedia.org/property/>
-PREFIX dbpr:         <http://dbpedia.org/resource/>
 PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+PREFIX bio:          <http://purl.org/vocab/bio/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -32,15 +35,16 @@ PREFIX  fn: <http://www.w3.org/2005/xpath-functions#>
 PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> 
 PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#> 
 
-SELECT ?property ?count
-{
-  SELECT 
-    ?property
-    (count(?gn) as ?count)
-  {
-    ?gn p:elaborates ?place.
-    ?gn  ?property   ?type.
-  }
-  GROUP BY ?property
+SELECT DISTINCT
+  ?alt# ?domain
+  (count(?dbp) as ?count)
+{ ?indi ?event [bio:place [rdfs:seeAlso ?dbp]].
+  SERVICE <http://dbpedia.org/sparql>
+  { ?dbp owl:sameAs ?alt. }
+#  FILTER regex(str(?alt),"[.]dbpedia[.]org")
+#  LET (?domain := substr(str(?alt),8,2))
+#  LET (?domain := ?alt)
 }
-ORDER BY ?count ?property
+GROUP BY ?alt# ?domain
+ORDER BY ?alt# ?domain
+

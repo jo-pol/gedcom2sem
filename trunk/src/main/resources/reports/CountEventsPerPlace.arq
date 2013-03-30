@@ -7,7 +7,7 @@
 #
 # Count events per place
 #
-# executes in any context
+# Needs the original statements.
 #
 ###############################################
 

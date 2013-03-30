@@ -9,15 +9,14 @@
 #
 # Requires the converted gedcom, geoMashup and geoNamesCache
 # Prerequisites:
-#   Create (almost empty) records for unknown dads.
 #   Generate _SOSAN (e.g. with the report "tool box" of ancestris).
-#   No rules required.
+#   apply geoNames.rules, don't drop original statements.
 #
 # Customisation for KML processing:
 #   The first three columns (sosa, lat, long)  are used to
 #   construct the KML layout: be carefull with them.
 #   The other columns should match the templates
-#   in the kml-by-birth.properties file.
+#   in the kml-by-marriage.properties file.
 #
 ###############################################
 
@@ -31,6 +30,7 @@ PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
 PREFIX dbpedia-prop: <http://dbpedia.org/property/>
 PREFIX dbpr:         <http://dbpedia.org/resource/>
 PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+PREFIX bio:          <http://purl.org/vocab/bio/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -48,11 +48,14 @@ SELECT DISTINCT
   ?lat                     # {1} B
   ?long                    # {2} C
   ?place                   # {3} D
- #?placeBaptism            
-  ?placeBirth              # {4} E
-  (?nameIndi  as ?name)    # {5} F
-  (str(?indi) as ?url)     # {6} G
+  (?nameIndi  as ?name)    # {4} E
+  (fn:substring(str(?dateMarried),1,4) as ?year_married)
+  ?placeMarried            # {6} G
+  ?placeBirth              # {7} H
+  ?placeDeath              #{ 8} I
+  (str(?indi) as ?url)     #{ 9} J
   (fn:substring(str(?dateBirth),1,4) as ?year_birth)
+  (fn:substring(str(?dateDeath),1,4) as ?year_death)
 {
    ?indi p:_SOSAN   [rdfs:label ?sosa].
 
@@ -62,15 +65,27 @@ SELECT DISTINCT
 
    #### whatever you want to show about the INDI
               ?indi p:NAME          [rdfs:label ?nameIndi  ].
+   OPTIONAL { ?indi p:DEAT [ p:DATE [rdfs:label ?dateDeath ]]}
    OPTIONAL { ?indi p:BIRT [ p:DATE [rdfs:label ?dateBirth ]]}
-   OPTIONAL { ?indi p:BAPM [ p:PLAC [rdfs:label ?placeBaptism]]}
-   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]
-                  ### match with downloaded data
-                  OPTIONAL { ?gn p:elaborates ?placeBirth. 
-                             OPTIONAL {?gn wgs84_pos:lat  ?lat;
-                                           wgs84_pos:long ?long}.
-                             OPTIONAL {?gn gn:name ?place.}
-                           }
+   OPTIONAL { ?indi p:DEAT [ p:PLAC [rdfs:label ?placeDeath]]}
+   OPTIONAL { ?indi p:BIRT [ p:PLAC [rdfs:label ?placeBirth]]}
+   OPTIONAL {
+       ?indi  p:FAMS ?fam.
+
+       #### avoid remarriages: both parents must be in the pedigree
+       ?fam  p:HUSB [p:_SOSAN [rdfs:label ?sosaHusb]];
+             p:WIFE [p:_SOSAN [rdfs:label ?sosaWife]].
+
+       #### whatever you want to show about the FAM
+       OPTIONAL { ?fam p:MARR [p:DATE [rdfs:label ?dateMarried ]]}
+
+       OPTIONAL { ?fam p:MARR [p:PLAC [rdfs:label ?placeMarried]]}
+       ### match with downloaded data
+       OPTIONAL { ?fam p:MARR [bio:place ?gn].
+                  OPTIONAL {?gn wgs84_pos:lat  ?lat;
+                                wgs84_pos:long ?long}.
+                  OPTIONAL {?gn gn:name ?place.}
+       }
    }
 }
 order by ?sosa

@@ -7,7 +7,7 @@
 #
 # potential (junior) classmates that achieved a military rank
 #
-# needs the converted gedcom, geoMashup and geoNamesCache
+# Apply geoNames.rules, don't drop original statements, provide geoNamesCache*.
 #
 #########################################################################
 
@@ -21,6 +21,7 @@ PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#>
 PREFIX wgs84:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
 PREFIX gn:           <http://www.geonames.org/ontology#>
 PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
+PREFIX bio:          <http://purl.org/vocab/bio/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -35,25 +36,22 @@ PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#>
 SELECT DISTINCT 
   ?placeLiteral
   ?name
-  (str(xsd:date(?birthDate)) as ?birth_date_1)
+  (str(xsd:date(?birthDate)) as ?birth_date)
   (?dbpName                  as ?potential_classmate)
-  (str(?dbpDate)             as ?birth_date_2)
+  (str(?dbpDate)             as ?birth_date_classmate)
 {
   ### our person from the gedcom
   _:indi p:BIRT [p:DATE [rdfs:label ?birthDate]
                 ;p:PLAC [rdfs:label ?placeLiteral]
+                ;bio:place ?gn
                 ];
          p:NAME [rdfs:label ?name].
-
-  ### remove duplicates when GIVN and SURN are stored seperately
-  FILTER ( fn:contains(?name,"/") )
 
   ### just places, no countries!
   FILTER ( ! fn:starts-with(?placeLiteral,", ,") ) 
 
   ### match our person with downloaded data
-  ?gn p:elaborates ?placeLiteral;
-      rdfs:seeAlso ?dbp.
+  ?gn rdfs:seeAlso ?dbp.
 
   ### prepare for date evaluation
   LET( ?year := xsd:int ( fn:substring(str(?birthDate), 1, 4) ))

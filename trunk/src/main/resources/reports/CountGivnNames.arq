@@ -7,7 +7,7 @@
 #
 # Count given names (if GIVN and SURN ARE stored seperately)
 #
-# no rules required (but they don't harm)
+# Needs the original statements.
 #
 ###############################################
 
