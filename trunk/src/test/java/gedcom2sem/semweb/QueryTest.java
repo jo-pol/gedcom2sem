@@ -33,7 +33,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class AbstractQueryTest
+public class QueryTest
 {
     private static final Collection<Object[]> constructorArgs = new ArrayList<Object[]>();
     private final Integer expectedNrOfLines;
@@ -48,7 +48,7 @@ public class AbstractQueryTest
         constructorArgs.add(new Object[] {mashup, expectedNrOfLines, endPointID, queryFileName});
     }
 
-    public AbstractQueryTest(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
+    public QueryTest(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
     {
         this.mashup = mashup;
         this.expectedNrOfLines = expectedNrOfLines;
