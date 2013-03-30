@@ -1,7 +1,7 @@
 [
-  (?entity foaf:isPrimaryTopicOf ?url  )
+  (?entity foaf:isPrimaryTopicOf ?url)
   (?subm rdf:type t:SUBM)
 ->
-  (?url dct:publisher ?subm)
-  (?url dct:license http://creativecommons.org/licenses/by-nc/3.0/)
+  (?url http://purl.org/dc/terms/publisher ?subm)
+  (?url http://purl.org/dc/terms/license http://creativecommons.org/licenses/by-nc/3.0/)
 ]

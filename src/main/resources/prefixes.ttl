@@ -4,5 +4,3 @@
 @prefix dc:   <http://purl.org/dc/elements/1.1/>.
 @prefix bio:  <http://purl.org/vocab/bio/0.1/>.
 @prefix rel:  <http://purl.org/vocab/relationship/>.
-@prefix dc:   <http://purl.org/dc/elements/1.1/>.
-@prefix dct:  <http://purl.org/dc/terms/>.
