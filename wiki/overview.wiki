@@ -4,10 +4,10 @@
 The core of this library is a transformation of [http://en.wikipedia.org/wiki/GEDCOM gedcom]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png databases into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or statements]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. That allows flexible queries and reports. Various examples show various possibilities and techniques. Customize them to your wishes.
 
 The fun part is to integrate your data with the [http://richard.cyganiak.de/2007/10/lod/ semantic web]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. 
-The first that springs to mind is the results or sources of others family research. Dates and places are obvious entry points for other types of data: `GeoNames` for maps and `dbPedia` for an almanak. 
+The first that springs to mind is the results or sources of family research by others. Dates and places are obvious entry points for other types of data: `GeoNames` for maps and `dbPedia` for an almanak. 
 
 =Diagram=
-The library contains 2x2 main classes (executable with a command line) that produce output. The diagram shows the files to specify as arguments. Note that in the code the `publish` command still has to be renamed to `transform` as depicted in the diagram, see also issue 9. The rules depicted for `convert` make no sense for `transform`, but the rules depicted for `transform` can be used with `convert`.
+The library contains 2x2 main classes (executable with a command line) that produce output. The diagram shows the files to specify as arguments. 
 
 || ovals || [commands] ||
 || bold elements || output ||
@@ -21,7 +21,9 @@ http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview.png
 = https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg Configuration =
 The .arq files contain queries to generate reports.
 
-The .xsl file configures the html output, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
+The .rules and .arq files depicted on the right side can be used with the commands on the left side, but not the other way around.
+
+.html as output makes .xsl mandatory, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
 
 The diagram shows how the `KmlGenerator` executes a query and formats the results in one go. While customizing the details it can be convenient to first test the results of the query. Note that you may also host a kml map on you own website, search the web for how-to's.
 
