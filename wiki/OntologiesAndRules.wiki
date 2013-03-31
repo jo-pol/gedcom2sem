@@ -60,10 +60,9 @@ See "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html I
 
 == Sources ==
 
-The meaning of the gedcom properties notes, sources and multimedia objects may vary with individual or project conventions. So no default rules can be specified to model them. 
-Let us assume a convention to put URLs in the source tag of the gedcom whenever possible. At least in some cases and not start with an URL if it comes with ordinary text.
+The meaning of the gedcom properties/entities notes, sources and multimedia objects may vary with individual or project conventions. So no default rules can be specified to model them. 
 
-For example https://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
+Let us assume a convention to put URLs in a source property of the gedcom whenever possible. At least in some cases and not start with an URL if it comes with ordinary text. For example https://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
 has birth certificates. Early adopters of this service might also have something starting with das.familysearch.org
 These URLs usually come with a question mark and subsequent parameters, it appears these can be stripped from the URL and replaced with something like "#112". The replacement has no function than to indicate the certificate number on the digitized page to human readers and still have a working URL. 
 
