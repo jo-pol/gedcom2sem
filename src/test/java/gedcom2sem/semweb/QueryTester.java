@@ -33,7 +33,9 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class QueryTest
+public class QueryTester
+// name should not start or end with test so maven does not use it
+// results from third parties (dbpedia/geonames) may vary
 {
     private static final Collection<Object[]> constructorArgs = new ArrayList<Object[]>();
     private final Integer expectedNrOfLines;
@@ -48,7 +50,7 @@ public class QueryTest
         constructorArgs.add(new Object[] {mashup, expectedNrOfLines, endPointID, queryFileName});
     }
 
-    public QueryTest(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
+    public QueryTester(final Boolean mashup, final Integer expectedNrOfLines, final String endPointID, final String queryFileName)
     {
         this.mashup = mashup;
         this.expectedNrOfLines = expectedNrOfLines;
