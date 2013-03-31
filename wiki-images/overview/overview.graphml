@@ -305,19 +305,6 @@ nt/n3/ttl/rdf/owl</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
-    <node id="n24">
-      <data key="d6">
-        <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="70.59238897951627" width="137.58056640625" x="552.0094473382396" y="585.1855445591007"/>
-          <y:Fill color="#EBF6CB55" color2="#99CC0055" transparent="false"/>
-          <y:BorderStyle color="#C0C0C0" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="51.109375" horizontalTextPosition="right" iconTextGap="4" image="5" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="130.712890625" x="4.0" y="4.0">geoMashup.ttl
-
-deprecated but .arq
-not yet adjusted</y:NodeLabel>
-        </y:GenericNode>
-      </data>
-    </node>
     <edge id="e0" source="n2" target="n4">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
@@ -621,18 +608,7 @@ not yet adjusted</y:NodeLabel>
         </y:QuadCurveEdge>
       </data>
     </edge>
-    <edge id="e31" source="n24" target="n0">
-      <data key="d10">
-        <y:QuadCurveEdge straightness="0.1">
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="538.5" y="615.8094177246094"/>
-          </y:Path>
-          <y:LineStyle color="#C0C0C0" type="line" width="1.0"/>
-          <y:Arrows source="none" target="standard"/>
-        </y:QuadCurveEdge>
-      </data>
-    </edge>
-    <edge id="e32" source="n10" target="n10">
+    <edge id="e31" source="n10" target="n10">
       <data key="d10">
         <y:QuadCurveEdge straightness="0.1">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
