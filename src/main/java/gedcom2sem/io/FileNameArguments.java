@@ -60,7 +60,7 @@ public class FileNameArguments
      * 
      * @throws MalformedURLException
      */
-    public FileNameArguments(final String... fileNames) throws MalformedURLException
+    public FileNameArguments(final String... fileNames)
     {
         input = Arrays.copyOfRange(fileNames, 0, fileNames.length - 1);
         output = new File(fileNames[fileNames.length - 1]);
@@ -141,11 +141,24 @@ public class FileNameArguments
         final List<File> result = new ArrayList<File>();
         for (final String fileName : input)
         {
-            String ext = fileName.replaceAll(".*[.]", "").toLowerCase();
-            if ("rules".equals(ext))
-                result.add(new File(fileName));
+            if (new File(fileName).isDirectory())
+            {
+                for (File file : new File(fileName).listFiles())
+                    if (isRuleFile(file.getName()))
+                        result.add(file);
+            }
+            else
+            {
+                if (isRuleFile(fileName))
+                    result.add(new File(fileName));
+            }
         }
         return result;
+    }
+
+    private boolean isRuleFile(final String fileName)
+    {
+        return "rules".equals(fileName.replaceAll(".*[.]", "").toLowerCase());
     }
 
     public void write(final ResultSet resultSet) throws IOException, TransformerException, TransformerFactoryConfigurationError

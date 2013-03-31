@@ -15,6 +15,10 @@ import gedcom2sem.gedsem.Transform;
 import gedcom2sem.semweb.KmlGenerator;
 import gedcom2sem.semweb.Select;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.gedcom4j.parser.GedcomParserException;
 import org.junit.Test;
 
 public class BatchExamples
@@ -24,22 +28,34 @@ public class BatchExamples
     private static final String QUERY_DIR = "src/main/resources/reports/";
     private static final String RULES = "src/main/resources/rules/";
 
+    /** See {@link Convert#main} */
     @Test
-    public void convertTTL() throws Exception
+    public void convertTTL() throws FileNotFoundException, IOException, GedcomParserException
     {
         Convert.main(RULES + "basic.rules", RULES + "additional.rules", //
                 MAIN + "prefixes.ttl", TEST + "geoMashup.rules", //
                 TEST + "kennedy.ged", "target/kennedy.ttl");
     }
 
+    /** See {@link Transform#main} */
     @Test
-    public void transform() throws Exception
+    public void transform() throws FileNotFoundException, IOException, GedcomParserException
     {
-        Transform.main(MAIN + "prefixes.ttl", TEST + "primaryTopicOf.rules", //
-                MAIN + "rules/foaf.rules", MAIN + "rules/child.rules",//
-                MAIN + "rules/birth.rules", MAIN + "rules/marriage.rules", //
-                MAIN + "rules/publisher.rules", MAIN + "rules/modified.rules", //
-                TEST + "geoMashup.rules", TEST + "kennedy.ged", "target/kennedy2.ttl");
+        // TODO fix blind nodes caused by INDI records not in a FAM record
+        // these are typically authors of the gedcom or SOUR entities
+        // TODO multiply birth/marriage for other event types (after review)
+        Transform.main(MAIN + "prefixes.ttl", //
+                TEST + "geoMashup.rules", // causes blind nodes for not handled types of events
+                MAIN + "rules/foaf.rules", //
+                MAIN + "rules/bio/child.rules",//
+                MAIN + "rules/bio/birth.rules", //
+                MAIN + "rules/bio/marriage.rules", //
+                // Provenance:
+                TEST + "primaryTopicOf.rules", //
+                MAIN + "rules/provenance/publisher.rules", //
+                MAIN + "rules/provenance/modified.rules", //
+                // I/O
+                TEST + "kennedy.ged", "target/kennedy2.ttl");
     }
 
     @Test
