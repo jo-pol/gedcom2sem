@@ -247,7 +247,7 @@ for custom queries<y:LabelModel>
           <y:Geometry height="70.59238897951627" width="137.58056640625" x="60.99967484024779" y="171.03671464488093"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="84.8251953125" x="4.0" y="4.0">foafBio.rules</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="128.7802734375" x="4.0" y="4.0">foaf.rules; bio/*.rules</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>
@@ -267,7 +267,7 @@ for custom queries<y:LabelModel>
           <y:Geometry height="70.59238897951627" width="137.58056640625" x="9.89139298213746" y="219.6248419398625"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="106.9248046875" x="4.0" y="4.0">provenance.rules</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.0" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="116.98828125" x="4.0" y="4.0">provenance/*.rules</y:NodeLabel>
         </y:GenericNode>
       </data>
     </node>

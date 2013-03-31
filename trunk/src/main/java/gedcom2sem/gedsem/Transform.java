@@ -29,7 +29,6 @@ import com.hp.hpl.jena.rdf.model.Statement;
 
 public class Transform
 {
-
     /**
      * Converts a file with extension ged into a semantic document. Files with rules are used to replace
      * the initial triplyfied gedcom tags. Additional semantic documents enrich the gedcom source.

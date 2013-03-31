@@ -23,28 +23,48 @@ import org.junit.Test;
 
 public class BatchExamples
 {
-    private static final String TEST = "src/test/resources/";
+    /** built in resources */
     private static final String MAIN = "src/main/resources/";
-    private static final String QUERY_DIR = "src/main/resources/reports/";
-    private static final String RULES = "src/main/resources/rules/";
 
-    /** See {@link Convert#main} */
+    /** Examples of input / configuration files */
+    private static final String TEST = "src/test/resources/";
+
+    /**
+     * Converts a file with extension ged into semantic statements. The gedcom tags are simply turned
+     * into predicates and type values.
+     * 
+     * @throws GedcomParserException
+     * @throws IOException
+     * @throws FileNotFoundException
+     */
     @Test
     public void convertTTL() throws FileNotFoundException, IOException, GedcomParserException
     {
-        Convert.main(RULES + "basic.rules", RULES + "additional.rules", //
-                MAIN + "prefixes.ttl", TEST + "geoMashup.rules", //
-                TEST + "kennedy.ged", "target/kennedy.ttl");
+        Convert.main(//
+                MAIN + "prefixes.ttl", //
+                MAIN + "rules/basic.rules", //
+                MAIN + "rules/additional.rules", //
+                TEST + "geoMashup.rules", //
+                TEST + "kennedy.ged", //
+                "target/kennedy.ttl");
     }
 
-    /** See {@link Transform#main} */
+    /**
+     * Converts a file with extension ged into a semantic document. Files with rules are used to replace
+     * the initial triplyfied gedcom tags. Additional semantic documents enrich the gedcom source.
+     * 
+     * @throws GedcomParserException
+     * @throws IOException
+     * @throws FileNotFoundException
+     */
     @Test
     public void transform() throws FileNotFoundException, IOException, GedcomParserException
     {
         // TODO fix blind nodes caused by INDI records not in a FAM record
         // these are typically authors of the gedcom or SOUR entities
         // TODO multiply birth/marriage for other event types (after review)
-        Transform.main(MAIN + "prefixes.ttl", //
+        Transform.main(//
+                MAIN + "prefixes.ttl", //
                 TEST + "geoMashup.rules", // causes blind nodes for not handled types of events
                 MAIN + "rules/foaf.rules", //
                 MAIN + "rules/bio/child.rules",//
@@ -55,50 +75,62 @@ public class BatchExamples
                 MAIN + "rules/provenance/publisher.rules", //
                 MAIN + "rules/provenance/modified.rules", //
                 // I/O
-                TEST + "kennedy.ged", "target/kennedy2.ttl");
+                TEST + "kennedy.ged", //
+                "target/kennedy2.ttl");
     }
 
     @Test
     public void prepareMashup() throws Exception
     {
-        Select.main(TEST + "kennedy.ttl", TEST + "geoNamesCache.ttl", //
-                QUERY_DIR + "mashup.arq", "target/mashup.txt");
+        Select.main(//
+                TEST + "kennedy.ttl", //
+                TEST + "geoNamesCache.ttl", //
+                MAIN + "reports/mashup.arq", //
+                "target/mashup.txt");
     }
 
     @Test
     public void prepareMashupWithFolder() throws Exception
     {
-        Select.main(TEST, QUERY_DIR + "mashup.arq", "target/mashup.tsv");
+        Select.main(TEST, //
+                MAIN + "reports/mashup.arq", //
+                "target/mashup.tsv");
     }
 
     @Test
     public void toHtml() throws Exception
     {
-        Select.main(TEST + "kennedy.ttl", MAIN + "result-to-html.xsl", QUERY_DIR + "CountEventsPerPlace.arq", "target/report.html");
+        Select.main(TEST + "kennedy.ttl", //
+                MAIN + "result-to-html.xsl", //
+                MAIN + "reports/CountEventsPerPlace.arq", //
+                "target/report.html");
     }
 
     @Test
     public void migrations() throws Exception
     {
-        KmlGenerator.main(TEST + "kennedy.ttl", TEST + "geoNamesCache.ttl",//
-                MAIN + "kml-by-birth.properties", QUERY_DIR + "places-by-birth.arq", "target/places1.kml");
+        KmlGenerator.main(TEST + "kennedy.ttl", //
+                TEST + "geoNamesCache.ttl",//
+                MAIN + "kml-by-birth.properties", //
+                MAIN + "reports/places-by-birth.arq", //
+                "target/places1.kml");
     }
 
     @Test
     public void migrationsWithFolder() throws Exception
     {
-        KmlGenerator.main(MAIN + "kml-by-birth.properties", TEST, QUERY_DIR + "places-by-birth.arq", "target/birthPlaces.kml");
+        KmlGenerator.main(MAIN + "kml-by-birth.properties", TEST, MAIN + "reports/places-by-birth.arq", "target/birthPlaces.kml");
     }
 
     @Test
     public void birthPlacesFirstStep() throws Exception
     {
-        Select.main(TEST, QUERY_DIR + "places-by-birth.arq", "target/birthPlaces.txt");
+        Select.main(TEST, MAIN + "reports/places-by-birth.arq", "target/birthPlaces.txt");
     }
 
     @Test
     public void mariagePlacesFirstStep() throws Exception
     {
-        Select.main(TEST, QUERY_DIR + "places-by-birth.arq", "target/marrigaePlaces.txt");
+        Select.main(TEST, MAIN + "reports/places-by-birth.arq", "target/marrigaePlaces.txt");
     }
 }
