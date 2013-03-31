@@ -69,7 +69,8 @@ class SemanticGedcomModel
 
     public Resource addProperty(final Resource resource, final String tag, final String value)
     {
-        final Resource property = model.createResource(toType(tag));
+        final Resource property = createAnonResource(tag);
+
         resource.addProperty(toProperty(tag), property);
         if (value != null && value.trim().length() > 0)
             property.addProperty(valueProperty, value);
@@ -97,14 +98,16 @@ class SemanticGedcomModel
         if (subjects != null && subjects.hasNext())
             return subjects.next();
 
-        // final String uri = ("http://localhost/" + tag + "#" + id).replaceAll("@", "");
-        // final Resource referred = model.createResource(uri,toType(tag));
-        // TODO check queries with anonymous IDs
-        final Resource referred = model.createResource(new AnonId());
-        referred.addProperty(typeProperty, toType(tag));
-
+        final Resource referred = createAnonResource(tag);
         if (id != null)
             referred.addLiteral(idProperty, id);
         return referred;
+    }
+
+    private Resource createAnonResource(final String tag)
+    {
+        final Resource property = model.createResource(new AnonId());
+        property.addProperty(typeProperty, toType(tag));
+        return property;
     }
 }

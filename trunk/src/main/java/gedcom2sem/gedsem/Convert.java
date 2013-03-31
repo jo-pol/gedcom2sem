@@ -36,7 +36,15 @@ import com.hp.hpl.jena.util.PrintUtil;
 
 public class Convert
 {
-    public static void main(final String... files) throws Exception
+    /**
+     * Converts a file with extension ged into semantic statements. The gedcom tags are simply turned
+     * into predicates and type values.
+     * 
+     * @throws GedcomParserException
+     * @throws IOException
+     * @throws FileNotFoundException
+     */
+    public static void main(final String... files) throws FileNotFoundException, IOException, GedcomParserException
     {
         execute(files);
     }
