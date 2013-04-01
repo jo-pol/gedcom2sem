@@ -16,6 +16,7 @@ package gedcom2sem.semweb;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import gedcom2sem.gedsem.Convert;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,6 +28,7 @@ import java.util.Collection;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -37,6 +39,10 @@ public class QueryTester
 // name should not start or end with test so maven does not use it
 // results from third parties (dbpedia/geonames) may vary
 {
+    private static final String MAIN = "src/main/resources/";
+    private static final String TEST = "src/test/resources/";
+    private static final String KENNEDY_TTL = "target/kennedy.ttl";
+
     private static final Collection<Object[]> constructorArgs = new ArrayList<Object[]>();
     private final Integer expectedNrOfLines;
     private final String queryFileName;
@@ -67,7 +73,7 @@ public class QueryTester
         /* 01 */addTest(true, 49, null, "classmates.arq");
         /* 02 */addTest(false, 95, null, "CountEventsPerPlace.arq");
         /* 03 */addTest(false, 171, null, "CountGivnNames.arq");
-        /* 04 */addTest(true, 15, "dbp", "dbpediaLanguages.arq");
+        /* 04 */addTest(true, 98, "dbp", "dbpediaLanguages.arq");
         /* 05 */addTest(true, 201, "dbp", "dbpediaProperties.arq");
         /* 06 */addTest(true, 300, "dbp", "dbpediaRelatedEntities.arq");
         /* 07 */addTest(true, 29, "gn", "geonamesProperties.arq");
@@ -80,6 +86,18 @@ public class QueryTester
         /* 14 */addTest(false, 11, null, "SOSA-MultiMedia.arq");
         /* 15 */addTest(false, 34, null, "SOSA-Roots.arq");
         return constructorArgs;
+    }
+
+    @BeforeClass
+    public static void gedcomToTTL() throws Exception
+    {
+        Convert.main(//
+                MAIN + "prefixes.ttl", //
+                MAIN + "rules/basic.rules", //
+                MAIN + "rules/additional.rules", //
+                TEST + "geoMashup.rules", //
+                TEST + "kennedy.ged", //
+                KENNEDY_TTL);
     }
 
     @Before
@@ -95,9 +113,9 @@ public class QueryTester
     public void run() throws Exception
     {
         if (mashup)
-            Select.main("src/test/resources/", queryFileName, report);
+            Select.main("src/test/resources/geoNamesCache.ttl", KENNEDY_TTL, queryFileName, report);
         else
-            Select.main("src/test/resources/kennedy.ttl", queryFileName, report);
+            Select.main(KENNEDY_TTL, queryFileName, report);
     }
 
     @After

@@ -19,15 +19,20 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.gedcom4j.parser.GedcomParserException;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class BatchExamples
 {
+    private static final String KENNEDY_TTL = "target/kennedy.ttl";
+
     /** built in resources */
     private static final String MAIN = "src/main/resources/";
 
     /** Examples of input / configuration files */
     private static final String TEST = "src/test/resources/";
+
+    private static final String CACHE = TEST + "geoNamesCache.ttl";
 
     /**
      * Converts a file with extension ged into semantic statements. The gedcom tags are simply turned
@@ -37,8 +42,8 @@ public class BatchExamples
      * @throws IOException
      * @throws FileNotFoundException
      */
-    @Test
-    public void convertTTL() throws FileNotFoundException, IOException, GedcomParserException
+    @BeforeClass
+    public static void convert() throws Exception
     {
         Convert.main(//
                 MAIN + "prefixes.ttl", //
@@ -46,7 +51,7 @@ public class BatchExamples
                 MAIN + "rules/additional.rules", //
                 TEST + "geoMashup.rules", //
                 TEST + "kennedy.ged", //
-                "target/kennedy.ttl");
+                KENNEDY_TTL);
     }
 
     /**
@@ -80,11 +85,39 @@ public class BatchExamples
     }
 
     @Test
+    public void withoutRules() throws Exception
+    {
+        Convert.main(TEST + "kennedy-mini.ged", "target/mini.ttl");
+    }
+
+    /**
+     * Intended for validation but http://www.w3.org/RDF/Validator/ and http://inspector.sindice.com seem
+     * to accept something containing "_:x bio:birth [rdf:type bio:marriage]."
+     */
+    @Test
+    public void foafBioRdf() throws Exception
+    {
+        Transform.main(//
+                MAIN + "prefixes.ttl", //
+                TEST + "geoMashup.rules", // causes blind nodes for not handled types of events
+                MAIN + "rules/foaf.rules", //
+                MAIN + "rules/bio/child.rules",//
+                MAIN + "rules/bio/birth.rules", //
+                MAIN + "rules/bio/marriage.rules", //
+                // Provenance:
+                TEST + "primaryTopicOf.rules", //
+                MAIN + "rules/provenance/publisher.rules", //
+                MAIN + "rules/provenance/modified.rules", //
+                // I/O
+                TEST + "kennedy-mini.ged", //
+                "target/mini.rdf");
+    }
+
+    @Test
     public void prepareMashup() throws Exception
     {
-        Select.main(//
-                TEST + "kennedy.ttl", //
-                TEST + "geoNamesCache.ttl", //
+        Select.main(KENNEDY_TTL, //
+                CACHE, //
                 MAIN + "reports/mashup.arq", //
                 "target/mashup.txt");
     }
@@ -92,15 +125,14 @@ public class BatchExamples
     @Test
     public void prepareMashupWithFolder() throws Exception
     {
-        Select.main(TEST, //
-                MAIN + "reports/mashup.arq", //
+        Select.main(TEST, KENNEDY_TTL, MAIN + "reports/mashup.arq", //
                 "target/mashup.tsv");
     }
 
     @Test
     public void toHtml() throws Exception
     {
-        Select.main(TEST + "kennedy.ttl", //
+        Select.main(KENNEDY_TTL, //
                 MAIN + "result-to-html.xsl", //
                 MAIN + "reports/CountEventsPerPlace.arq", //
                 "target/report.html");
@@ -109,8 +141,7 @@ public class BatchExamples
     @Test
     public void migrations() throws Exception
     {
-        KmlGenerator.main(TEST + "kennedy.ttl", //
-                TEST + "geoNamesCache.ttl",//
+        KmlGenerator.main(CACHE, KENNEDY_TTL, //
                 MAIN + "kml-by-birth.properties", //
                 MAIN + "reports/places-by-birth.arq", //
                 "target/places1.kml");
@@ -119,18 +150,20 @@ public class BatchExamples
     @Test
     public void migrationsWithFolder() throws Exception
     {
-        KmlGenerator.main(MAIN + "kml-by-birth.properties", TEST, MAIN + "reports/places-by-birth.arq", "target/birthPlaces.kml");
+        KmlGenerator.main(TEST, KENNEDY_TTL, //
+                MAIN + "kml-by-birth.properties", MAIN + "reports/places-by-birth.arq", //
+                "target/birthPlaces.kml");
     }
 
     @Test
     public void birthPlacesFirstStep() throws Exception
     {
-        Select.main(TEST, MAIN + "reports/places-by-birth.arq", "target/birthPlaces.txt");
+        Select.main(CACHE, KENNEDY_TTL, MAIN + "reports/places-by-birth.arq", "target/birthPlaces.txt");
     }
 
     @Test
     public void mariagePlacesFirstStep() throws Exception
     {
-        Select.main(TEST, MAIN + "reports/places-by-birth.arq", "target/marrigaePlaces.txt");
+        Select.main(CACHE, KENNEDY_TTL, MAIN + "reports/places-by-birth.arq", "target/marrigaePlaces.txt");
     }
 }
