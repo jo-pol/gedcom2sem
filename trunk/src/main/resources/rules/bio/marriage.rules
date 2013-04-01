@@ -2,8 +2,8 @@
 [(?fam p:MARR ?event)(?event p:PLAC ?p)(?p rdfs:label ?label)    ->(?event   bio:place    ?label  )]
 [(?fam p:MARR ?event)(?fam  p:WIFE ?wife)(?fam p:HUSB ?husband)  ->(?wife    rel:spouseOf ?husband)
                                                                    (?husband rel:spouseOf ?wife   )
-                                                                   (?wife    rel:spouseOf ?event  )
-                                                                   (?husband rel:spouseOf ?event  )
+                                                                   (?wife    bio:event    ?event  )
+                                                                   (?husband bio:event    ?event  )
                                                                    (?event   bio:partner  ?wife   )
                                                                    (?event   bio:partner  ?husband)
                                                                    (?event   rdf:type bio:Marriage)]
