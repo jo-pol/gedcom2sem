@@ -1,0 +1,161 @@
+0 HEAD
+1 SOUR ANCESTRIS
+2 VERS 0.7.0.3822
+2 NAME Ancestris
+2 CORP Ancestris Team
+3 ADDR http://www.ancestris.org
+1 DEST ANY
+1 DATE 1 APR 2013
+2 TIME 15:42:47
+1 SUBM @B1@
+1 FILE kennedy-mini5.ged
+1 GEDC
+2 VERS 5.5.1
+2 FORM Lineage-Linked
+1 CHAR UTF-8
+1 LANG English
+1 PLAC
+2 FORM Hamlet, City, , Zip_Code, County, State, Country
+0 @R1@ INDI
+1 NAME Joseph Patrick /Kennedy/
+1 SEX M
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 14:58:13
+1 BIRT
+2 DATE 6 SEP 1888
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 18 NOV 1969
+2 PLAC , Hyannis Port, , , Barnstable Co, MA, USA
+1 CHR
+2 DATE 9 SEP 1888
+2 PLAC , East Boston, , , Suffolk Co, MA, USA
+1 BURI
+2 DATE AFT 18 NOV 1969
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 OCCU Ambassador
+1 FAMS @F0@
+0 @R2@ INDI
+1 NAME Rose Elizabeth /Fitzgerald/
+1 SEX F
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:01:54
+1 BIRT
+2 DATE 22 JUL 1890
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 DEAT
+2 DATE 22 JAN 1995
+2 PLAC , Hyannis, , , , MA, USA
+1 RESI
+2 PLAC , Hyannis Port, , , Barnstable Co, MA, USA
+1 FAMS @F0@
+0 @R4@ INDI
+1 NAME John Fitzgerald /Kennedy/
+1 SEX M
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:15:50
+1 BIRT
+2 DATE 29 MAY 1917
+2 PLAC , Brookline, , , Norfolk Co, MA, USA
+1 DEAT
+2 DATE 22 NOV 1963
+2 PLAC , Dallas, , , Dallas Co, TX, USA
+1 BURI
+2 DATE 25 NOV 1963
+2 PLAC , Arlington, , 22209, Arlington Co, VA, USA
+1 OCCU US President #35
+1 FAMC @F0@
+1 FAMS @F8@
+0 @R37@ INDI
+1 NAME Jacqueline Lee /Bouvier/
+1 SEX F
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 13:54:21
+1 BIRT
+2 DATE 28 JUL 1929
+2 PLAC , Southampton, , , Long Island, NY, USA
+1 OCCU Editor
+1 FAMS @F8@
+1 FAMC @F62@
+0 @R39@ INDI
+1 NAME Caroline Bouvier /Kennedy/
+1 SEX F
+1 CHAN
+2 DATE 1 APR 2013
+3 TIME 13:42:20
+1 BIRT
+2 DATE 27 NOV 1957
+2 PLAC , New York City, , , , NY, USA
+1 FAMC @F8@
+0 @R171@ INDI
+1 NAME John Vernou /Bouvier/ III
+1 SEX M
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:05:00
+1 BIRT
+2 DATE 19 MAY 1891
+2 PLAC , Easthampton, , , Hampshire Co, MA, USA
+1 DEAT
+2 DATE 2 AUG 1957
+2 PLAC , New York City, , , , NY, USA
+1 BURI
+2 PLAC , Easthampton, , , Hampshire Co, MA, USA
+1 FAMS @F62@
+0 @R179@ INDI
+1 NAME Janet Norton /Lee/
+1 SEX F
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 15:05:53
+1 BIRT
+2 DATE 3 DEC 1907
+1 DEAT
+2 DATE 22 JUL 1989
+2 PLAC
+1 FAMS @F62@
+0 @F0@ FAM
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:39:32
+1 MARR
+2 DATE 7 OCT 1914
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 ENGA
+2 DATE 1914
+2 PLAC , Boston, , , Suffolk Co, MA, USA
+1 HUSB @R1@
+1 WIFE @R2@
+1 CHIL @R4@
+0 @F8@ FAM
+1 CHAN
+2 DATE 18 SEP 2011
+3 TIME 13:48:04
+1 MARR
+2 DATE 12 SEP 1953
+2 PLAC , Newport, , , Newport Co, RI, USA
+1 HUSB @R4@
+1 WIFE @R37@
+1 CHIL @R39@
+0 @F62@ FAM
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 14:40:43
+1 MARR
+2 DATE 7 JUL 1928
+2 PLAC , Easthampton, , , Long Island, NY, USA
+1 DIV
+2 DATE 1938
+1 HUSB @R171@
+1 WIFE @R179@
+1 CHIL @R37@
+0 @B1@ SUBM
+1 NAME Ancestris
+1 CHAN
+2 DATE 9 SEP 2011
+3 TIME 13:32:30
+0 TRLR
