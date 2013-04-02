@@ -1,0 +1,5 @@
+[ (?indi p:id "@R4@") -> (?indi foaf:isPrimaryTopicOf <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=royals&id=I31879>) ]
+[ (?indi p:id "@R4@") -> (?indi foaf:isPrimaryTopicOf <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=dowfam3&id=I40658>) ]
+[ (?indi p:id "@R4@") -> (?indi foaf:isPrimaryTopicOf <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=glencoe&id=I50505>) ]
+[ (?indi p:id "@R4@") -> (?indi foaf:isPrimaryTopicOf <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=kingharry&id=I04771>) ]
+[ (?indi p:id "@R4@") -> (?indi foaf:isPrimaryTopicOf <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=flager&id=I80344>) ]
