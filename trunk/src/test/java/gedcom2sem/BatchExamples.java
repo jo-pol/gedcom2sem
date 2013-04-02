@@ -68,19 +68,25 @@ public class BatchExamples
         // TODO fix blind nodes caused by INDI records not in a FAM record
         // these are typically authors of the gedcom or SOUR entities
         // TODO multiply birth/marriage for other event types (after review)
+        
         Transform.main(//
+                // input
+                TEST + "kennedy.ged", //
                 MAIN + "prefixes.ttl", //
+                // do not merge rule files that depend on one another
                 TEST + "geoMashup.rules", // causes blind nodes for not handled types of events
                 MAIN + "rules/foaf.rules", //
                 MAIN + "rules/bio/child.rules",//
                 MAIN + "rules/bio/birth.rules", //
                 MAIN + "rules/bio/marriage.rules", //
-                // Provenance:
+                // Provenance need the results of primaryTopicOf):
                 TEST + "primaryTopicOf.rules", //
                 MAIN + "rules/provenance/publisher.rules", //
                 MAIN + "rules/provenance/modified.rules", //
-                // I/O
-                TEST + "kennedy.ged", //
+                // integration after provenance to avoid false credits
+                // it would be great to have pages with RDFa
+                TEST + "integration.rules", //
+                // output
                 "target/kennedy2.ttl");
     }
 
@@ -104,7 +110,7 @@ public class BatchExamples
                 MAIN + "rules/bio/child.rules",//
                 MAIN + "rules/bio/birth.rules", //
                 MAIN + "rules/bio/marriage.rules", //
-                // Provenance:
+                // Provenance need the results of primaryTopicOf):
                 TEST + "primaryTopicOf.rules", //
                 MAIN + "rules/provenance/publisher.rules", //
                 MAIN + "rules/provenance/modified.rules", //
