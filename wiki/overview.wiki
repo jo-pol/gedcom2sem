@@ -21,11 +21,13 @@ http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview.png
 = https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg Configuration =
 The .arq files contain queries to generate reports.
 
-The .rules and .arq files depicted on the right side can be used with the commands on the left side, but not the other way around.
+The .rules depicted for `convert` cannot be used for `transform`. When customizing the other rules, it can be convenient to test them first with `convert`.
 
-.html as output makes .xsl mandatory, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
+The kml-xxx.arq files can also be used with the `select` command, while customizing the output it can be convenient to first test the results of the query.
 
-The diagram shows how the `KmlGenerator` executes a query and formats the results in one go. While customizing the details it can be convenient to first test the results of the query. Note that you may also host a kml map on you own website, search the web for how-to's.
+.html as output makes .xsl mandatory input, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
+
+Note that you may also host a kml map on you own website, search the web for how-to's.
 
 = https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/semweb.jpg Semantic web =
 
