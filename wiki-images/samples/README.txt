@@ -1,4 +1,4 @@
-../samples.png is an export from samples.xcf
+../samples.png is an export at 70% from samples.xcf
 
 The xcf file is maintaned with www.gimp.org
 
