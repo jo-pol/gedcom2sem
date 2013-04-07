@@ -121,14 +121,17 @@ nt/n3/ttl/rdf/owl</y:NodeLabel>
     <node id="n9">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.cloud">
-          <y:Geometry height="100.0" width="169.81403551603614" x="384.60242958022155" y="783.8094177246094"/>
+          <y:Geometry height="116.68543451652386" width="186.49947003256" x="376.2597123219596" y="780.9166843409638"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="65.2548828125" modelName="custom" textColor="#000000" visible="true" width="120.728515625" x="24.54275994551807" y="17.37255859375">upload
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="89.7568359375" modelName="custom" textColor="#000000" visible="true" width="120.728515625" x="32.88547720378" y="13.464299289511928">upload
 
 put URL in searchbox 
 of maps.google.com
-or maps.burningsilicon.net<y:LabelModel>
+or maps.burningsilicon.net
+
+
+<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -338,10 +341,11 @@ nt/n3/ttl/rdf/owl</y:NodeLabel>
     <node id="n27">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.cloud">
-          <y:Geometry height="100.0" width="169.81403551603614" x="-37.7330136246606" y="783.8094177246094"/>
+          <y:Geometry height="116.68543451652386" width="186.49947003256" x="-46.07573088292253" y="780.9166843409638"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="83.2548828125" horizontalTextPosition="center" iconTextGap="4" image="6" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="116.83203125" x="26.49100213301807" y="8.37255859375">upload
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="95.505859375" horizontalTextPosition="center" iconTextGap="4" image="6" modelName="custom" textColor="#000000" verticalTextPosition="top" visible="true" width="143.55078125" x="21.47434439128" y="10.589787570761928">upload
+and provide content negotiation
 
 submit to foaf-search.net 
 view with en.LodLive.it
@@ -358,7 +362,7 @@ or whatever<y:LabelModel>
     <node id="n28">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.flowchart.process">
-          <y:Geometry height="56.0" width="105.0" x="-35.92104049178346" y="428.92529811415534"/>
+          <y:Geometry height="55.5" width="104.5" x="-35.67104049178346" y="426.09252981141555"/>
           <y:Fill color="#EBF6CB" color2="#99CC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="4.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="40.7529296875" horizontalTextPosition="right" iconTextGap="4" image="2" modelName="internal" modelPosition="tl" textColor="#000000" verticalTextPosition="bottom" visible="true" width="76.1474609375" x="4.0" y="4.0">I123.rdf
