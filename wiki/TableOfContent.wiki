@@ -1,12 +1,5 @@
-Usage
-
   * [overview Overview]
   * [OntologiesAndRules Ontologies and rules]
   * [commands Command lines]
-
-Contribute
-
   * [Localizing]
-  * [plugin Plugin]
-
-[FAQ]
+  * [FAQ]
