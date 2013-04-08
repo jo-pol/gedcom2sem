@@ -22,9 +22,9 @@ The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources
 
 = Customization =
 
-Ontologies give you leeway to model your data to your own taste or for some practical purpose. For example if a parent is male you don't need to specify it is a father. On the other hand, if someone is a father, you don't need to specify he is male. With a proper ontology reasoners can deduce the same information in both cases. So the rules supplied in this project are just examples. However some of the supplied queries rely on some of the rules, their comment headers tells if and which.
+Ontologies give you leeway to model your data to your own taste or for some practical purpose. For example you may but need not store both of inverse relations. However some of the supplied queries rely on some specific rules, their comment headers tells if and which.
 
-Other details depend on what you do with and in your gedcom. The examples below should help you to construct additional rule files.
+Other details depend on what you do with and in your gedcom. For example a note may be about an event but also a reminder for further research. The examples below should help you to construct additional rule files.
 
 == Published gedcom ==
 
