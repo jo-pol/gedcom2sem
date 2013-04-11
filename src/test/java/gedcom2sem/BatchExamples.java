@@ -116,7 +116,7 @@ public class BatchExamples
                 MAIN + "rules/provenance/modified.rules", //
                 // I/O
                 TEST + "kennedy-mini.ged", //
-                "target/mini.rdf");
+                "target/mini.ttl");
     }
 
     @Test
