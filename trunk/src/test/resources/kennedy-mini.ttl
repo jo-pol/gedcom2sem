@@ -20,137 +20,78 @@ _:b1  <http://purl.org/dc/terms/modified>
       bio:event _:b2 ;
       bio:father _:b3 ;
       bio:mother _:b4 ;
-      rel:ancestorOf _:b5 ;
-      rel:childOf _:b4 , _:b3 ;
-      rel:descendantOf _:b4 , _:b3 ;
-      rel:parentOf _:b5 ;
-      rel:spouseOf _:b6 ;
+      bio:relationship _:b5 ;
+      rel:ancestorOf _:b6 ;
+      rel:childOf _:b3 , _:b4 ;
+      rel:descendantOf _:b3 , _:b4 ;
+      rel:parentOf _:b6 ;
+      rel:spouseOf _:b7 ;
       foaf:familyName "Bouvier" ;
       foaf:gender "F" ;
       foaf:givenName "Jacqueline Lee " ;
       foaf:isPrimaryTopicOf
               <http://demo.domain.com/INDI/R37.html> .
 
-<http://demo.domain.com/INDI/R179.html>
-      <http://purl.org/dc/terms/license>
-              <http://creativecommons.org/licenses/by-nc/3.0/> ;
-      <http://purl.org/dc/terms/publisher>
-              _:b7 .
-
-_:b2  a       bio:Marriage ;
-      dc:date "1953-09-12Z"^^xsd:date ;
-      bio:partner _:b1 , _:b6 ;
-      bio:place <http://sws.geonames.org/5223593/> , ", Newport, , , Newport Co, RI, USA" .
-
 _:b8  a       bio:Marriage ;
       dc:date "1914-10-07Z"^^xsd:date ;
       bio:partner _:b9 , _:b10 ;
       bio:place ", Boston, , , Suffolk Co, MA, USA" , <http://sws.geonames.org/4930956/> .
 
-_:b11
-      a       bio:Marriage ;
-      dc:date "1928-07-07Z"^^xsd:date ;
-      bio:partner _:b4 , _:b3 ;
-      bio:place ", Easthampton, , , Long Island, NY, USA" .
-
-<http://demo.domain.com/INDI/R37.html>
+<http://demo.domain.com/INDI/R179.html>
       <http://purl.org/dc/terms/license>
               <http://creativecommons.org/licenses/by-nc/3.0/> ;
       <http://purl.org/dc/terms/publisher>
-              _:b7 .
+              _:b11 .
 
-_:b5  <http://purl.org/dc/terms/modified>
-              "2013-04-01Z"^^xsd:date ;
-      bio:birth
-              [ a       bio:Birth ;
-                dc:date "1957-11-27Z"^^xsd:date ;
-                bio:place <http://sws.geonames.org/5128581/> , ", New York City, , , , NY, USA" ;
-                bio:principal _:b5
-              ] ;
-      bio:father _:b6 ;
-      bio:mother _:b1 ;
-      rel:childOf _:b1 , _:b6 ;
-      rel:descendantOf _:b1 , _:b6 ;
-      foaf:familyName "Kennedy" ;
-      foaf:gender "F" ;
-      foaf:givenName "Caroline Bouvier " ;
-      foaf:isPrimaryTopicOf
-              <http://demo.domain.com/INDI/R39.html> .
+_:b12
+      a       bio:Relatioship ;
+      bio:initiatingEvent _:b13 ;
+      bio:participant _:b3 , _:b4 .
 
-<http://demo.domain.com/INDI/R171.html>
-      <http://purl.org/dc/terms/license>
-              <http://creativecommons.org/licenses/by-nc/3.0/> ;
-      <http://purl.org/dc/terms/publisher>
-              _:b7 .
-
-_:b4  <http://purl.org/dc/terms/modified>
-              "2011-09-18Z"^^xsd:date ;
-      bio:birth
-              [ a       bio:Birth ;
-                dc:date "1907-12-03Z"^^xsd:date ;
-                bio:principal _:b4
-              ] ;
-      bio:event _:b11 ;
-      rel:ancestorOf _:b1 ;
-      rel:parentOf _:b1 ;
-      rel:spouseOf _:b3 ;
-      foaf:familyName "Lee" ;
-      foaf:gender "F" ;
-      foaf:givenName "Janet Norton " ;
-      foaf:isPrimaryTopicOf
-              <http://demo.domain.com/INDI/R179.html> .
-
-_:b6  <http://purl.org/dc/terms/modified>
+_:b7  <http://purl.org/dc/terms/modified>
               "2011-09-18Z"^^xsd:date ;
       bio:birth
               [ a       bio:Birth ;
                 dc:date "1917-05-29Z"^^xsd:date ;
                 bio:place ", Brookline, , , Norfolk Co, MA, USA" , <http://sws.geonames.org/4931482/> ;
-                bio:principal _:b6
+                bio:principal _:b7
               ] ;
       bio:event _:b2 ;
       bio:father _:b10 ;
       bio:mother _:b9 ;
-      rel:ancestorOf _:b5 ;
+      bio:relationship _:b5 ;
+      rel:ancestorOf _:b6 ;
       rel:childOf _:b9 , _:b10 ;
       rel:descendantOf _:b9 , _:b10 ;
-      rel:parentOf _:b5 ;
+      rel:parentOf _:b6 ;
       rel:spouseOf _:b1 ;
       foaf:familyName "Kennedy" ;
       foaf:gender "M" ;
       foaf:givenName "John Fitzgerald " ;
       foaf:isPrimaryTopicOf
-              <http://www.foaf-search.net/Profile?personid=29796> , <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=dowfam3&id=I40658> , <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=glencoe&id=I50505> , <lod.openlinksw.com/describe/?uri=http://yago-knowledge.org/resource/John_F._Kennedy> , <http://d-nb.info/gnd/118561383/about/html> , <http://wifo5-03.informatik.uni-mannheim.de/gutendata/page/people/Kennedy_John_F_%28John_Fitzgerald%29_1917-1963> , <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=royals&id=I31879> , <http://demo.domain.com/INDI/R4.html> , <http://www.freebase.com/m/0d3k14> , <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=kingharry&id=I04771> , <http://viaf.org/viaf/68910251/#foaf:Person> , <http://wc.rootsweb.ancestry.com/cgi-bin/igm.cgi?op=GET&db=flager&id=I80344> , <http://data.nytimes.com/N17859914264955912453> , <http://dbpedia.org/page/John_F._Kennedy> .
+              <http://demo.domain.com/INDI/R4.html> .
 
-<http://demo.domain.com/INDI/R39.html>
-      <http://purl.org/dc/terms/license>
-              <http://creativecommons.org/licenses/by-nc/3.0/> ;
-      <http://purl.org/dc/terms/publisher>
-              _:b7 .
-
-_:b3  <http://purl.org/dc/terms/modified>
+_:b9  <http://purl.org/dc/terms/modified>
               "2011-09-18Z"^^xsd:date ;
       bio:birth
               [ a       bio:Birth ;
-                dc:date "1891-05-19Z"^^xsd:date ;
-                bio:place <http://sws.geonames.org/4935582/> , ", Easthampton, , , Hampshire Co, MA, USA" ;
-                bio:principal _:b3
+                dc:date "1890-07-22Z"^^xsd:date ;
+                bio:place ", Boston, , , Suffolk Co, MA, USA" , <http://sws.geonames.org/4930956/> ;
+                bio:principal _:b9
               ] ;
-      bio:event _:b11 ;
-      rel:ancestorOf _:b1 ;
-      rel:parentOf _:b1 ;
-      rel:spouseOf _:b4 ;
-      foaf:familyName "Bouvier" ;
-      foaf:gender "M" ;
-      foaf:givenName "John Vernou " ;
+      bio:event _:b8 ;
+      bio:relationship _:b14 ;
+      rel:ancestorOf _:b7 ;
+      rel:parentOf _:b7 ;
+      rel:spouseOf _:b10 ;
+      foaf:familyName "Fitzgerald" ;
+      foaf:gender "F" ;
+      foaf:givenName "Rose Elizabeth " ;
       foaf:isPrimaryTopicOf
-              <http://demo.domain.com/INDI/R171.html> .
+              <http://demo.domain.com/INDI/R2.html> .
 
-<http://demo.domain.com/INDI/R4.html>
-      <http://purl.org/dc/terms/license>
-              <http://creativecommons.org/licenses/by-nc/3.0/> ;
-      <http://purl.org/dc/terms/publisher>
-              _:b7 .
+_:b11
+      foaf:givenName "Ancestris" .
 
 _:b10
       <http://purl.org/dc/terms/modified>
@@ -162,8 +103,9 @@ _:b10
                 bio:principal _:b10
               ] ;
       bio:event _:b8 ;
-      rel:ancestorOf _:b6 ;
-      rel:parentOf _:b6 ;
+      bio:relationship _:b14 ;
+      rel:ancestorOf _:b7 ;
+      rel:parentOf _:b7 ;
       rel:spouseOf _:b9 ;
       foaf:familyName "Kennedy" ;
       foaf:gender "M" ;
@@ -171,34 +113,113 @@ _:b10
       foaf:isPrimaryTopicOf
               <http://demo.domain.com/INDI/R1.html> .
 
-_:b9  <http://purl.org/dc/terms/modified>
+<http://demo.domain.com/INDI/R37.html>
+      <http://purl.org/dc/terms/license>
+              <http://creativecommons.org/licenses/by-nc/3.0/> ;
+      <http://purl.org/dc/terms/publisher>
+              _:b11 .
+
+_:b5  a       bio:Relatioship ;
+      bio:initiatingEvent _:b2 ;
+      bio:participant _:b1 , _:b7 .
+
+_:b3  <http://purl.org/dc/terms/modified>
               "2011-09-18Z"^^xsd:date ;
       bio:birth
               [ a       bio:Birth ;
-                dc:date "1890-07-22Z"^^xsd:date ;
-                bio:place ", Boston, , , Suffolk Co, MA, USA" , <http://sws.geonames.org/4930956/> ;
-                bio:principal _:b9
+                dc:date "1891-05-19Z"^^xsd:date ;
+                bio:place <http://sws.geonames.org/4935582/> , ", Easthampton, , , Hampshire Co, MA, USA" ;
+                bio:principal _:b3
               ] ;
-      bio:event _:b8 ;
-      rel:ancestorOf _:b6 ;
-      rel:parentOf _:b6 ;
-      rel:spouseOf _:b10 ;
-      foaf:familyName "Fitzgerald" ;
-      foaf:gender "F" ;
-      foaf:givenName "Rose Elizabeth " ;
+      bio:event _:b13 ;
+      bio:relationship _:b12 ;
+      rel:ancestorOf _:b1 ;
+      rel:parentOf _:b1 ;
+      rel:spouseOf _:b4 ;
+      foaf:familyName "Bouvier" ;
+      foaf:gender "M" ;
+      foaf:givenName "John Vernou " ;
       foaf:isPrimaryTopicOf
-              <http://demo.domain.com/INDI/R2.html> .
+              <http://demo.domain.com/INDI/R171.html> .
+
+<http://demo.domain.com/INDI/R171.html>
+      <http://purl.org/dc/terms/license>
+              <http://creativecommons.org/licenses/by-nc/3.0/> ;
+      <http://purl.org/dc/terms/publisher>
+              _:b11 .
+
+_:b6  <http://purl.org/dc/terms/modified>
+              "2013-04-01Z"^^xsd:date ;
+      bio:birth
+              [ a       bio:Birth ;
+                dc:date "1957-11-27Z"^^xsd:date ;
+                bio:place <http://sws.geonames.org/5128581/> , ", New York City, , , , NY, USA" ;
+                bio:principal _:b6
+              ] ;
+      bio:father _:b7 ;
+      bio:mother _:b1 ;
+      rel:childOf _:b1 , _:b7 ;
+      rel:descendantOf _:b1 , _:b7 ;
+      foaf:familyName "Kennedy" ;
+      foaf:gender "F" ;
+      foaf:givenName "Caroline Bouvier " ;
+      foaf:isPrimaryTopicOf
+              <http://demo.domain.com/INDI/R39.html> .
+
+<http://demo.domain.com/INDI/R39.html>
+      <http://purl.org/dc/terms/license>
+              <http://creativecommons.org/licenses/by-nc/3.0/> ;
+      <http://purl.org/dc/terms/publisher>
+              _:b11 .
+
+<http://demo.domain.com/INDI/R4.html>
+      <http://purl.org/dc/terms/license>
+              <http://creativecommons.org/licenses/by-nc/3.0/> ;
+      <http://purl.org/dc/terms/publisher>
+              _:b11 .
 
 <http://demo.domain.com/INDI/R2.html>
       <http://purl.org/dc/terms/license>
               <http://creativecommons.org/licenses/by-nc/3.0/> ;
       <http://purl.org/dc/terms/publisher>
-              _:b7 .
+              _:b11 .
+
+_:b2  a       bio:Marriage ;
+      dc:date "1953-09-12Z"^^xsd:date ;
+      bio:partner _:b1 , _:b7 ;
+      bio:place <http://sws.geonames.org/5223593/> , ", Newport, , , Newport Co, RI, USA" .
+
+_:b4  <http://purl.org/dc/terms/modified>
+              "2011-09-18Z"^^xsd:date ;
+      bio:birth
+              [ a       bio:Birth ;
+                dc:date "1907-12-03Z"^^xsd:date ;
+                bio:principal _:b4
+              ] ;
+      bio:event _:b13 ;
+      bio:relationship _:b12 ;
+      rel:ancestorOf _:b1 ;
+      rel:parentOf _:b1 ;
+      rel:spouseOf _:b3 ;
+      foaf:familyName "Lee" ;
+      foaf:gender "F" ;
+      foaf:givenName "Janet Norton " ;
+      foaf:isPrimaryTopicOf
+              <http://demo.domain.com/INDI/R179.html> .
 
 <http://demo.domain.com/INDI/R1.html>
       <http://purl.org/dc/terms/license>
               <http://creativecommons.org/licenses/by-nc/3.0/> ;
       <http://purl.org/dc/terms/publisher>
-              _:b7 .
+              _:b11 .
 
-_:b7  foaf:givenName "Ancestris" .
+_:b13
+      a       bio:Marriage ;
+      dc:date "1928-07-07Z"^^xsd:date ;
+      bio:partner _:b3 , _:b4 ;
+      bio:place ", Easthampton, , , Long Island, NY, USA" .
+
+_:b14
+      a       bio:Relatioship ;
+      bio:initiatingEvent _:b8 ;
+      bio:participant _:b9 , _:b10 .
