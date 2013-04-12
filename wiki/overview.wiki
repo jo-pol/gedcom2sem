@@ -11,8 +11,8 @@ The library contains 2x2 main classes (executable with a command line) that prod
 
 || ovals || [commands] ||
 || bold elements || output ||
-|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg || _configuration_<br> xamples available in the conf folder of the downlload or in the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources resources];<br>[#Configuration more...] ||
-|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/data.jpg || _your data_<br> a set of example files is available in the test folder of the download or in the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources test resources] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg || configuration<br> examples available in the conf folder of the download or in the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources resources];<br>[#Configuration more...] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/data.jpg || your data<br> examples available in the test folder of the download or in the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources test resources] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/semweb.jpg || data from the semantic web, [#Configuration more...] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/foafTiny.gif || LOD data using foaf/bio/relation ontologies ||
 || - - - || optional ||
