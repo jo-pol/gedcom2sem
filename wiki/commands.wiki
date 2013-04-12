@@ -3,11 +3,9 @@
 The library might or might not be plugged into your favorite genealogical-application. But as long as you have your family data available in a 
 [http://en.wikipedia.org/wiki/GEDCOM gedcom]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 file, you can always use the library on a command line. 
+
 Get the latest version from the download section and unpack it. The contents of the zip and the tar.gz are identical. 
-
-
-
-Below a partial command line example. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. Put the output file last; the order of rules files is significant: they may need the results of a previous one. 
+Below a partial example to execute a command. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. Put the output file last; the order of rules files is significant: they may need the results of a previous one. 
 {{{
 java -Xmx1024M -cp unzipped/gedcom2sem-XXX.jar gedcom2sem.semweb.Select ...
 }}}
@@ -15,5 +13,3 @@ java -Xmx1024M -cp unzipped/gedcom2sem-XXX.jar gedcom2sem.semweb.Select ...
 _Note_: on windows the slash should be in the other direction.
 
 _Hint_: for quick and easy execution you can put the desired commands in a file. On Windows in a <a href="http://en.wikipedia.org/wiki/Batch_file">.bat http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file, on Mac/Unix in a <a href="http://en.wikipedia.org/wiki/Shell_script">.sh http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file ._
-
-The configuration files are self documenting and available in the conf directory of the zip and the latest version in the source section of this project. Download the <em>raw files</em> from the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Fmain%2Fresources resources], or extract the files from an unzipped version of the .jar file. Sample data files are available as [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources test resources]
