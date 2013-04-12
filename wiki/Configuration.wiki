@@ -1,0 +1,9 @@
+The .arq files contain queries to generate reports.
+
+The .rules depicted for `convert` cannot be used for `transform`. When customizing the other rules, it can be convenient to test them first with `convert`.
+
+The kml-xxx.arq files can also be used with the `select` command, while customizing the output it can be convenient to first test the results of the query.
+
+.html as output makes .xsl mandatory input, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
+
+Note that you may also host a kml map on you own website, search the web for how-to's.
