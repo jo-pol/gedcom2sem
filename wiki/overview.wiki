@@ -1,7 +1,7 @@
 #labels Featured
 #sidebar TableOfContent
 
-The library contains 2x2 main classes (executable with a command line) that produce output. The diagram shows the files to specify as arguments.  Customize them to your wishes.
+The library contains 2x2 main classes (executable with a command line) that produce output. The diagram shows the files to specify as arguments.  Customize them for your own purposes.
 
 || ovals || [commands] ||
 || bold elements || output ||
