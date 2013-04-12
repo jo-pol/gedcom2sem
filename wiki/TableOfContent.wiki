@@ -3,7 +3,7 @@
     * [https://code.google.com/p/gedcom2sem/wiki/OntologiesAndRules#Introduction Introduction]
     * [https://code.google.com/p/gedcom2sem/wiki/OntologiesAndRules#Status Status]
     * [https://code.google.com/p/gedcom2sem/wiki/OntologiesAndRules#Customization Customization]
-  * [Semantic Web SemanticWeb]
+  * [SemanticWeb Semantic Web]
     * [https://code.google.com/p/gedcom2sem/wiki/SemanticWeb#GeoNames_versus_DbPedia GeoNames versus DbPedia]
     * [https://code.google.com/p/gedcom2sem/wiki/SemanticWeb#GeoNames_downloads GeoNames downloads]
   * [commands Command lines]
