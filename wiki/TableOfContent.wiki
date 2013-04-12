@@ -7,5 +7,6 @@
     * [https://code.google.com/p/gedcom2sem/wiki/SemanticWeb#GeoNames_versus_DbPedia GeoNames versus DbPedia]
     * [https://code.google.com/p/gedcom2sem/wiki/SemanticWeb#GeoNames_downloads GeoNames downloads]
   * [commands Command lines]
+  * [Configuration]
   * [Localizing]
   * [FAQ]
