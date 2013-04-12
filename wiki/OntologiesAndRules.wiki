@@ -2,8 +2,6 @@
 <wiki:toc/>
 <h1>Ontologies and rules</h1>
 
-=Introduction=
-
 Like HTML tells to browsers how to present your text and images, ontologies tell semantic tools like search engines how to reason with your data.
 
 The first conversion step by this library ignores ontologies: it just turns gedcom tags into predicates and object classes. This approach results into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. 
