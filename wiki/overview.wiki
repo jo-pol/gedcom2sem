@@ -1,32 +1,19 @@
 #labels Featured
 #sidebar TableOfContent
-<wiki:toc>
-=Introduction=
+
 The core of this library is a transformation of [http://en.wikipedia.org/wiki/GEDCOM gedcom]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png databases into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or statements]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. That allows flexible queries and reports. Various examples show various possibilities and techniques. Customize them to your wishes.
 
 The fun part is to integrate your data with the [http://richard.cyganiak.de/2007/10/lod/ semantic web]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. 
 The first that springs to mind is the results or sources of family research by others. Dates and places are obvious entry points for other types of data: `GeoNames` for maps and `dbPedia` for an almanak. 
 
-=Diagram=
 The library contains 2x2 main classes (executable with a command line) that produce output. The diagram shows the files to specify as arguments. 
 
 || ovals || [commands] ||
 || bold elements || output ||
-|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg || configuration<br> examples available in the conf folder of the download or in the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources resources];<br>[#Configuration more...] ||
-|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/data.jpg || your data<br> examples available in the test folder of the download or in the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources test resources] ||
-|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/semweb.jpg || data from the semantic web, [SemanticWeb more...] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg || [Configuration configuration]<br> examples available in the conf folder of the download.<br> To get the latest versions download raw files from the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources resources] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/data.jpg || your data<br> examples available in the test folder of the download.<br> To get the latest versions download raw files from the [https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources test resources] ||
+|| https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/semweb.jpg || data from the [SemanticWeb Semantic Web] ||
 || https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/foafTiny.gif || LOD data using foaf/bio/relation ontologies ||
 || - - - || optional ||
 
 http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview.png
-
-= https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg Configuration =
-The .arq files contain queries to generate reports.
-
-The .rules depicted for `convert` cannot be used for `transform`. When customizing the other rules, it can be convenient to test them first with `convert`.
-
-The kml-xxx.arq files can also be used with the `select` command, while customizing the output it can be convenient to first test the results of the query.
-
-.html as output makes .xsl mandatory input, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
-
-Note that you may also host a kml map on you own website, search the web for how-to's.
