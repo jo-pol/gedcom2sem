@@ -1,8 +1,15 @@
 #sidebar TableOfContent
+
+A toddler version of the LOD-cloud : "Linking Open Data cloud diagram, by Richard Cyganiak and Anja Jentzsch." The fragment highlights some data that might be related to genealogy.
+
+https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/samples/lod-cloud.png
+
 The following lists show resources you can cross-query directly together with your own data. 
 
   * http://www.w3.org/wiki/SparqlEndpoints  http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
   * http://labs.mondeca.com/sparqlEndpointsStatus/ http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+
+Places and dates are some obvious entry points to relate your family tree with other data on the web. `DbPedia` is not not only useful for places but can also be used as an almanac. 
 
 =`GeoNames` versus `DbPedia`=
 
