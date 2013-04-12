@@ -6,7 +6,7 @@
 
 Like HTML tells to browsers how to present your text and images, ontologies tell semantic tools like search engines how to reason with your data.
 
-The first conversion step ignores ontologies: it just turns gedcom tags into predicates and object classes. This approach results into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. 
+The first conversion step by this library ignores ontologies: it just turns gedcom tags into predicates and object classes. This approach results into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. 
 However, with [http://jena.apache.org/documentation/inference/index.html#rules jena's rules]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png 
 you can derive new statements that respect an ontology of your choice. Drop the original statements for a valid semantic document. Thus you can model the data any way you want. Some ontologies that surfaced from a quick survey:
   * http://www.daml.org/2001/01/gedcom/gedcom is simple but uses only a fraction of the information that can be stored in a gedcom. It has an apparently abandoned [http://web.archive.org/web/20041214001231/http://orlando.drc.com/daml/Ontology/Genealogy/3.1/Gentology-ont.daml variant]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. More background on http://jay.askren.net/Projects/SemWeb/
