@@ -1,7 +1,9 @@
 #labels Phase-Deploy
 #sidebar TableOfContent
-Whether the library is or is not plugged into your favorite gedcom-application, you can allways use the library on a command line. 
-Get the latest version from the download section and unpack it. The contents of the tar.gz and zip are identical. 
+The library might or might not be plugged into your favorite genealogical-application. But as long as you have your family data available in a 
+[http://en.wikipedia.org/wiki/GEDCOM gedcom]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+file, you can always use the library on a command line. 
+Get the latest version from the download section and unpack it. The contents of the zip and the tar.gz are identical. 
 
 
 
