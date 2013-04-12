@@ -1,12 +1,7 @@
 #labels Featured
 #sidebar TableOfContent
 
-The core of this library is a transformation of [http://en.wikipedia.org/wiki/GEDCOM gedcom]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png databases into [http://en.wikipedia.org/wiki/Resource_Description_Framework triples or statements]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. That allows flexible queries and reports. Various examples show various possibilities and techniques. Customize them to your wishes.
-
-The fun part is to integrate your data with the [http://richard.cyganiak.de/2007/10/lod/ semantic web]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. 
-The first that springs to mind is the results or sources of family research by others. Dates and places are obvious entry points for other types of data: `GeoNames` for maps and `dbPedia` for an almanak. 
-
-The library contains 2x2 main classes (executable with a command line) that produce output. The diagram shows the files to specify as arguments. 
+The library contains 2x2 main classes (executable with a command line) that produce output. The diagram shows the files to specify as arguments.  Customize them to your wishes.
 
 || ovals || [commands] ||
 || bold elements || output ||
