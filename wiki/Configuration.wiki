@@ -1,3 +1,4 @@
+#sidebar TableOfContent
 The .arq files contain queries to generate reports.
 
 The .rules depicted for `convert` cannot be used for `transform`. When customizing the other rules, it can be convenient to test them first with `convert`.
