@@ -4,17 +4,26 @@
 
 Like HTML tells to browsers how to present your text and images, ontologies tell semantic tools like search engines how to reason with your data.
 
-The first conversion step by this library ignores ontologies: it just turns gedcom tags into predicates and object classes. This approach results into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. 
+The first conversion step by this library ignores ontologies: it just turns gedcom tags into predicates and object classes. 
+The result is similar to the input, just an other syntax and multiple formats to choose from.
+On the other hand leads this approach into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. 
+
 However, with [http://jena.apache.org/documentation/inference/index.html#rules jena's rules]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png 
 you can derive new statements that respect an ontology of your choice. Drop the original statements for a valid semantic document. Thus you can model the data any way you want. Some ontologies that surfaced from a quick survey:
   * http://www.daml.org/2001/01/gedcom/gedcom is simple but uses only a fraction of the information that can be stored in a gedcom. It has an apparently abandoned [http://web.archive.org/web/20041214001231/http://orlando.drc.com/daml/Ontology/Genealogy/3.1/Gentology-ont.daml variant]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png. More background on http://jay.askren.net/Projects/SemWeb/
-  * http://purl.org/vocab/bio together with [http://www.xml.com/pub/a/2004/02/04/foaf.html foaf]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png seems to pretty much cover most of a gedcom file.
+  * http://purl.org/vocab/bio together with [http://www.xml.com/pub/a/2004/02/04/foaf.html foaf]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png seems to pretty much cover the core objects of a gedcom file.
   * [http://protege.cim3.net/file/pub/ontologies/generations/generations.owl generations.owl]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png , [http://protege.cim3.net/file/pub/ontologies/family.swrl.owl/family.swrl.owl family.swrl.owl]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png or [http://vocab.org/relationship/ vocab/relationship]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png for additional relations
 
 =Status=
 
-The convert command does not drop the original statements, the transform command does. The built-in mapping to foaf/bio statements needs a review: issue 16. See the [http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/BatchExamples.java transform] example for the actual set of rule files. For more tricks see jena's built in [http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
-and [http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html regular expressions]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+The convert command does not drop the original statements, the transform command does. The built-in mapping to foaf/bio statements needs a review: issue 16. 
+See the 
+[http://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/BatchExamples.java transform] 
+example for the actual set of rule files. 
+For more tricks see jena's built in 
+[http://jena.apache.org/documentation/inference/index.html#RULEbuiltins primitives]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+and java's 
+[http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html regular expressions]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 
 The [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/BasicRules.txt basic rules] and [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/rules/AdditionalRules.txt additional rules] were designed to simplify writing reports without any consideration about ontologies. Do not drop the original statements in this case. NB: apply the additional rules after the basic rules.
 
