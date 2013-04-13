@@ -1,7 +1,17 @@
 #sidebar TableOfContent
-The .arq files contain queries to generate reports.
+=Notes on the configuration files=
+The configuration files are depicted with 
+https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg
+on the [overview].
+Examples are available in the conf folder of the download.
+To get the latest versions download raw files from the 
+[https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources resources]
 
-The .rules depicted for `convert` cannot be used for `transform`. When customizing the other rules, it can be convenient to test them first with `convert`.
+The .arq files contain 
+[http://en.wikipedia.org/wiki/SPARQL SPARQL]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+queries to generate reports.
+
+The .rules depicted for `convert` don't produce sensible output with  `transform`. The result of `convert` is not intended for publication on the web. When [OntologiesAndRules customizing] rules for `transform`, it can be convenient to test them with `convert`.
 
 The kml-xxx.arq files can also be used with the `select` command, while customizing the output it can be convenient to first test the results of the query.
 
