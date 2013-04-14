@@ -10,8 +10,14 @@ To get the latest versions download raw files from the
 The .arq files contain 
 [http://en.wikipedia.org/wiki/SPARQL SPARQL]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 queries to generate reports.
+Some of these files contain placeholders: `'%s'`. 
+The placeholders should be replaced with the ID of an entity, for example `'@I123@'`. The original plugins for [http://genj.sourceforge.net/ GenJ]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+and 
+[http://www.ancestris.org/ Ancestris]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+perform the replacements on the flight when a report is launched from the context of an entity. 
+The library needs clones of these files with hard coded IDs.
 
-The .rules depicted in the [overview] for `convert` don't produce sensible output with  `transform`. The result of `convert` is not intended for publication on the web. When [OntologiesAndRules customizing] rules for `transform`, it can be convenient to test them with `convert`.
+The .rules depicted for `convert` don't produce sensible output with  `transform`. The result of `convert` is not intended for publication on the web. When [OntologiesAndRules customizing] rules for `transform`, it can be convenient to test them with `convert`.
 
 The kml-xxx.arq files can also be used with the `select` command, while customizing the output it can be convenient to first test the results of the query.
 
