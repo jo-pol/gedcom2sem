@@ -4,8 +4,13 @@ The library might or might not be plugged into your favorite genealogical-applic
 [http://en.wikipedia.org/wiki/GEDCOM gedcom]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 file, you can always use the library on a command line. 
 
-Get the latest version from the download section and unpack it. The contents of the zip and the tar.gz are identical. 
-Below a partial example to execute a command. The ovals in the diagram on the [overview] page represent such commands. Replace the dots (...) with the  files from the same diagram. Put the output file last; the order of rules files is significant: they may need the results of a previous one. 
+Get the latest version from the download section and unpack it. 
+The contents of the zip and the tar.gz are identical. 
+Below a partial example to execute a command. 
+The ovals in the diagram on the [overview] page represent such commands. 
+Replace the dots (...) with the  files from the same diagram. 
+Put the output file last; the order of rules files is significant: they may need the results of a previous one. 
+See these [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/BatchExamples.java examples] expressed in java `JUnit` tests. See also the [Configuration notes] on the configuration files.
 {{{
 java -Xmx1024M -cp unzipped/gedcom2sem-XXX.jar gedcom2sem.semweb.Select ...
 }}}
@@ -13,5 +18,3 @@ java -Xmx1024M -cp unzipped/gedcom2sem-XXX.jar gedcom2sem.semweb.Select ...
 _Note_: on windows the slash should be in the other direction.
 
 _Hint_: for quick and easy execution you can put the desired commands in a file. On Windows in a <a href="http://en.wikipedia.org/wiki/Batch_file">.bat http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file, on Mac/Unix in a <a href="http://en.wikipedia.org/wiki/Shell_script">.sh http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file ._
-
-See these [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/BatchExamples.java examples] expressed in java `JUnit` tests. See also the [Configuration notes] on the configuration files.
