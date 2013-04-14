@@ -13,3 +13,5 @@ java -Xmx1024M -cp unzipped/gedcom2sem-XXX.jar gedcom2sem.semweb.Select ...
 _Note_: on windows the slash should be in the other direction.
 
 _Hint_: for quick and easy execution you can put the desired commands in a file. On Windows in a <a href="http://en.wikipedia.org/wiki/Batch_file">.bat http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file, on Mac/Unix in a <a href="http://en.wikipedia.org/wiki/Shell_script">.sh http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png</a> file ._
+
+See also these [https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/gedcom2sem/BatchExamples.java examples] expressed in java `JUnit` tests.
