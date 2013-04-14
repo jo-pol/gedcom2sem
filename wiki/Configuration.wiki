@@ -11,7 +11,7 @@ The .arq files contain
 [http://en.wikipedia.org/wiki/SPARQL SPARQL]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 queries to generate reports.
 
-The .rules depicted for `convert` don't produce sensible output with  `transform`. The result of `convert` is not intended for publication on the web. When [OntologiesAndRules customizing] rules for `transform`, it can be convenient to test them with `convert`.
+The .rules depicted in the [overview] for `convert` don't produce sensible output with  `transform`. The result of `convert` is not intended for publication on the web. When [OntologiesAndRules customizing] rules for `transform`, it can be convenient to test them with `convert`.
 
 The kml-xxx.arq files can also be used with the `select` command, while customizing the output it can be convenient to first test the results of the query.
 
