@@ -2,7 +2,7 @@
 ]
 [(?fam p:MARR ?event)(?event p:PLAC ?p)(?p rdfs:label ?label)->(?event bio:place ?label  )
 ]
-[(?fam p:MARR ?event)                        ->(?fam     rdf:type bio:Relatioship)
+[(?fam p:MARR ?event)                        ->(?fam     rdf:type bio:Relationship)
                                                (?event   rdf:type bio:Marriage)
                                                (?fam     bio:initiatingEvent  ?event)
 ]
