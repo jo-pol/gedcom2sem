@@ -35,6 +35,11 @@
 				<include>*.txt</include>
 			</includes>
 		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/src/main/scripts/</directory>
+			<outputDirectory>/</outputDirectory>
+			<filtered>true<!-- fill in the proper jar name --></filtered>
+		</fileSet>
 		<!-- adds jar package to the root directory of zip package -->
 		<fileSet>
 			<directory>${project.build.directory}</directory>
