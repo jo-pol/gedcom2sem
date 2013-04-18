@@ -1,0 +1,2 @@
+java -Xmx1024M -cp ${project.build.finalName}.jar gedcom2sem.gedsem.Transform conf\prefixes.ttl conf\rules\foaf.rules conf\rules\bio test\primaryTopicOf.rules conf\rules\provenance test\geoMashup.rules test\integration.rules test\kennedy-mini.ged kennedy-mini.rdf
+pause

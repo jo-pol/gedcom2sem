@@ -5,10 +5,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gedcom2sem</groupId>
 	<artifactId>gedcom2sem</artifactId>
-	<version>0.2.3-SNAPSHOT</version>
+	<version>0.2.4-SNAPSHOT</version>
 	<name>gedcom2sem</name>
 	<url>http://gedcom2sem.googlecode.com/</url>
 	<description>links gedcom databases with the semantic web</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<licenses>
 		<license>
 			<name>GNU General Public License</name>
