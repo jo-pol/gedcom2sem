@@ -20,11 +20,13 @@ but maybe also siblings, grandparents and grandchildren.
 However, these indirect relations produce a mess when shown in a graph,
 even with just three generations.
 
-https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/Goodwin50percent.png
+The original text 
+[http://gothwin.data.seme4.com/id/person/I0265.html page]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
+of the screenshots below, the full size 
+[https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/GoodwinFullSize.png graph]
+and the interactive [http://en.lodlive.it/?http://gothwin.data.seme4.com/id/person/I0243 graph]
 
-as [http://gothwin.data.seme4.com/id/person/I0265.html text]
-the full size [https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/GoodwinFullSize.png graph]
-the interactive [http://en.lodlive.it/?http://gothwin.data.seme4.com/id/person/I0243 graph]
+https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/Goodwin50percent.png
 
 
 =Inverse relations=
@@ -33,3 +35,8 @@ When presenting your data with a SPARQL endpoint for querying,
 you could decide to store the spouse relation with just one of both involved persons.
 But when crawling the web (as for example with the LodLive graph), 
 it is usefull to have all indirect relations at hand.
+
+
+=Ancestors and/or Descendants=
+
+The person to person relation will produce a proper pedigree graph, but a graph that shows descendant shows crossing lines unless you omit spouses. Replacing the person to person relations by family nodes might even solve the crossing lines in a mixed graph, but makes the data less recognizable for foaf tools emerging from social media.
