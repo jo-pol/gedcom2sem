@@ -1,4 +1,3 @@
-#sidebar TableOfContent
 <wiki:toc/>
 = The wiki pages =
 

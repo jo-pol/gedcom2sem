@@ -1,5 +1,3 @@
-#sidebar TableOfContent
-
 The library contains 2x2 main classes that produce output. The diagram shows the files to specify as arguments. The main classes are executable from a command line. To plug the library  into a genealogical application and/or service, the main classes are a good starting point for export functions.
 
 || ovals || [commands]<br> examples available in the root of the download ||

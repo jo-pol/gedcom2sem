@@ -1,15 +1,17 @@
-#sidebar TableOfContent
 =Notes on the configuration files=
 The configuration files are depicted with 
 https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/overview/config.jpg
 on the [overview].
 Examples are available in the conf folder of the download.
 To get the latest versions download raw files from the 
-[https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources resources]
+[https://code.google.com/p/gedcom2sem/source/browse/#svn%2Ftrunk%2Fsrc%2Ftest%2Fresources resources].
 
+=.arq=
 The .arq files contain 
 [http://en.wikipedia.org/wiki/SPARQL SPARQL]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 queries to generate reports.
+Currently the queries need output of the convert command. The comment headers specify the details.
+
 Some of these files contain placeholders: `'%s'`. 
 The placeholders should be replaced with the ID of an entity, for example `'@I123@'`. The original plugins for [http://genj.sourceforge.net/ GenJ]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png
 and 
@@ -17,10 +19,25 @@ and
 perform the replacements on the flight when a report is launched from the context of an entity. 
 The library needs clones of these files with hard coded IDs.
 
+=.rules=
+The library provides two sets of rule files. 
+The rules enhance the initial conversion of 
+[http://en.wikipedia.org/wiki/GEDCOM gedcom]
+tags that are turned into predicates and classes.
 The .rules depicted for `convert` don't produce sensible output with  `transform`. The result of `convert` is not intended for publication on the web. When [OntologiesAndRules customizing] rules for `transform`, it can be convenient to test them with `convert`.
+
+Some rules need the result of others what makes the order of these files significant.
+
+Some rules files are not depicted as configuration files, they are bound by the data in the gedcom file.
+
+=.html .xsl=
+.html as output makes .xsl mandatory input, the provided 
+[https://code.google.com/p/gedcom2sem/source/browse/trunk/src/main/resources/result-to-html.xsl example] 
+creates a straightforward table. 
+
+=.kml .properties=
+KML output contains HTML snippets. These snippets are configured in properties files. Placeholders in the snippets are replaced with query results.
 
 The kml-xxx.arq files can also be used with the `select` command, while customizing the output it can be convenient to first test the results of the query.
 
-.html as output makes .xsl mandatory input, the example mentioned in [https://code.google.com/p/gedcom2sem/wiki/Localizing#Headers Localize] creates a straightforward table. 
-
-Note that you may also host a kml map on you own website, search the web for how-to's.
+Note that you may also host a KML map on you own website, search the web for how-to's.

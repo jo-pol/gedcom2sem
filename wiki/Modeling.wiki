@@ -1,0 +1,35 @@
+<wiki:toc/>
+<h1>Modeling your data</h1>
+
+When preparing your data for the semantic web, the first step is choose or create an ontology.
+However, that is not the last choice to make. 
+The set of rules provided for the transform command is just one possible outcome of the proces.
+
+=Ontologies or RDF schemas=
+
+Some ontologies that surfaced from a quick survey:
+  * [http://www.daml.org/2001/01/gedcom/gedcom daml/gedcom]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png is simple but uses only a fraction of the information that can be stored in a gedcom. It has an apparently abandoned [http://web.archive.org/web/20041214001231/http://orlando.drc.com/daml/Ontology/Genealogy/3.1/Gentology-ont.daml variant]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png More background on http://jay.askren.net/Projects/SemWeb/
+  * [http://www.xml.com/pub/a/2004/02/04/foaf.html foaf]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png together with [http://purl.org/vocab/bio vocab/bio]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png seems to pretty much cover the core objects of a gedcom file.
+  * [http://protege.cim3.net/file/pub/ontologies/generations/generations.owl generations.owl]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png , [http://protege.cim3.net/file/pub/ontologies/family.swrl.owl/family.swrl.owl family.swrl.owl]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png or [http://vocab.org/relationship/ vocab/relationship]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png for additional relations
+
+=Indirect relations=
+
+A resource describing a person in a family tree 
+will usually contain children, spouses and parents, 
+but maybe also siblings, grandparents and grandchildren. 
+However, these indirect relations produce a mess when shown in a graph,
+even with just three generations.
+
+https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/Goodwin50percent.png
+
+as [http://gothwin.data.seme4.com/id/person/I0265.html text]
+the full size [https://gedcom2sem.googlecode.com/svn/trunk/wiki-images/GoodwinFullSize.png graph]
+the interactive [http://en.lodlive.it/?http://gothwin.data.seme4.com/id/person/I0243 graph]
+
+
+=Inverse relations=
+
+When presenting your data with a SPARQL endpoint for querying, 
+you could decide to store the spouse relation with just one of both involved persons.
+But when crawling the web (as for example with the LodLive graph), 
+it is usefull to have all indirect relations at hand.
