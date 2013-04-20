@@ -6,7 +6,7 @@ Like HTML tells to browsers how to present your text and images, ontologies tell
 
 The first conversion step by this library ignores ontologies: it just turns gedcom tags into predicates and object classes. 
 The result is similar to the input, just an other syntax and multiple formats to choose from.
-On the other hand leads this approach into conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. 
+On the other hand does this approach lead to conflicts, for example the title of a person is another concept (social rank: Mrs., Dr., Sir) than the title of a multimedia object which is rather a catchy phrase. 
 
 However, with [http://jena.apache.org/documentation/inference/index.html#rules jena's rules]http://gedcom2sem.googlecode.com/svn/trunk/wiki-images/icon_external_link_blue.png 
 you can derive new statements that respect an ontology of your choice. Drop the original statements for a valid semantic document. Thus you can model the data any way you want. 
@@ -31,7 +31,8 @@ The rules provided for the transform command are not complete
 because some details depend on what you do with and in your gedcom. 
 For example a note may be about an event but also a reminder for further research. 
 The examples below should help you to construct additional rule files.
-You might also want to make other changes as explained in [Modeling].
+You might also want to make other changes as explained by [Modeling].
+
 
 == Published gedcom ==
 
@@ -67,7 +68,7 @@ See "identifying marks" in this [http://www.xml.com/pub/a/2004/02/04/foaf.html I
 
 == Sources ==
 
-The meaning of the gedcom properties/entities notes, sources and multimedia objects may vary with individual or project conventions. So no default rules can be specified to model them. 
+The meaning of the gedcom properties/entities notes, sources and multimedia objects may vary with individual or project conventions. So no default rules can be specified to model these properties . 
 
 Let us assume a convention to put URLs in a source property of the gedcom whenever possible. At least in some cases and not start with an URL if it comes with ordinary text. For example https://familysearch.org/pal:/MM9.3.1/TH-1-11324-36479-63 
 has birth certificates. Early adopters of this service might also have something starting with das.familysearch.org
