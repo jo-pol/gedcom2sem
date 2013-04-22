@@ -39,14 +39,13 @@ PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#>
 
 ###############################################
 SELECT DISTINCT 
-  (str(?alive) as ?central_person_alive_at_event)
-  (str(?age)   as ?age_of_central_person_at_event)
-  (fn:substring(str(?eventDate),0,10) as ?date)
+#  (str(?alive) as ?central_person_alive_at_event)   # these LET assignments seems to be broken
+#  (str(?age)   as ?age_of_central_person_at_event)  # these LET assignments seems to be broken
+  (fn:substring(str(?eventDate),0,11) as ?date)
   (?eventType as ?event)
   ?name
 {
   ### for which individual do you want the close relatives?
-
   LET (?indiID := '%s')
 
   ### select data that is allways available
@@ -55,6 +54,7 @@ SELECT DISTINCT
    p:id ?indiID;
    p:BIRT [p:DATE [rdfs:label ?birthDate]];
    p:DEAT [p:DATE [rdfs:label ?deathDate]].
+
   {?indi                              p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "born").}UNION
   {?indi                              p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "died").}UNION
   {?indi r:parent  ?parent.   ?parent p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "parent born").}UNION
@@ -71,7 +71,6 @@ SELECT DISTINCT
                                                          ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "child married").}UNION
   {?indi r:sibling  ?sibling. ?sibling p:FAMS ?fam; p:NAME [rdfs:label ?name]. 
                                                          ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "sibling married").}
-
   ### computations
 
   LET(?eventYear := fn:substring(str(?eventDate),1,4))
@@ -79,9 +78,5 @@ SELECT DISTINCT
   LET(?deathYear := fn:substring(str(?deathDate),1,4))
   LET(?age := xsd:int(?eventYear) - xsd:int(?birthYear))
   LET(?alive := ?birthYear <= ?eventYear && ?eventYear <= ?deathYear)
-
-
-  ### switch of if you don't store GIVN and SURN separately
-  FILTER( fn:contains(?name,'/') )
 }
 ORDER BY ?eventDate
