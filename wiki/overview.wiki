@@ -1,4 +1,7 @@
-The library contains 2x2 main classes that produce output. The diagram shows the files to specify as arguments. The main classes are executable from a command line. To plug the library  into a genealogical application and/or service, the main classes are a good starting point for export functions.
+The library contains 2x2 main classes that produce output. The diagram shows the files to specify as arguments. The main classes are executable from a command line. 
+Plugin developers of genealogical applications and/or services should rather examine the 
+[https://code.google.com/p/gedcom2sem/source/browse/trunk/src/test/java/plugin/ plugin tests] 
+than the main methods. The methods of these JUnit tests provide code snippets for dialogs and other GUI controls.
 
 || ovals || [commands]<br> examples available in the root of the download ||
 || bold elements || output<br> should be the last argument||
