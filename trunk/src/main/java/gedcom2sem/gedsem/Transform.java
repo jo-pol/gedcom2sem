@@ -18,6 +18,7 @@ import gedcom2sem.io.FileNameArguments;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.Map;
 import java.util.Set;
 
@@ -39,11 +40,17 @@ public class Transform
      */
     public static void main(final String... files) throws FileNotFoundException, IOException, GedcomParserException 
     {
+        final Model modelOut = transform(files);
+        new FileNameArguments(files).write(modelOut);
+        System.err.println("written: " + modelOut.listStatements().toList().size());
+    }
+
+    public static Model transform(final String... files) throws IOException, FileNotFoundException, MalformedURLException, GedcomParserException
+    {
         final Set<Statement> inferredStatements = Convert.execute(files);
         final Model modelOut = createModel(extractNsPrefixes(inferredStatements));
         copy(inferredStatements, modelOut);
-        new FileNameArguments(files).write(modelOut);
-        System.err.println("written: " + modelOut.listStatements().toList().size());
+        return modelOut;
     }
 
     private static Model createModel(Map<String, String> extractNsPrefixes)
