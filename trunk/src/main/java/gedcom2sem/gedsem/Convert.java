@@ -81,13 +81,13 @@ public class Convert
         return statements;
     }
 
-    private static void preparePrefixes(final Model model)
+    public static void preparePrefixes(final Model model)
     {
         for (final String key:model.getNsPrefixMap().keySet())
             PrintUtil.registerPrefix(key, model.getNsPrefixMap().get(key));
     }
 
-    private static InfModel applyRules(final String rules, final Model model)
+    public static InfModel applyRules(final String rules, final Model model)
     {
         final GenericRuleReasoner reasoner = new GenericRuleReasoner(Rule.parseRules(rules));
         reasoner.setMode(GenericRuleReasoner.FORWARD);

@@ -20,7 +20,9 @@ import gedcom2sem.io.FileUtil;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.MessageFormat;
 import java.util.Arrays;
@@ -102,14 +104,14 @@ public class KmlGenerator
         }
     }
 
-    private void create(final File kmlFile) throws IOException, FileNotFoundException
+    public void create(final OutputStream output) throws IOException, FileNotFoundException
     {
         final Kml kml = KmlFactory.createKml();
         final Document document = kml.createAndSetDocument();
         addLineStyles(document);
         buildProbandParentsMarker(document.createAndAddFolder());
         buildMigrationLines(document.createAndAddFolder());
-        kml.marshal(kmlFile);
+        kml.marshal(output);
     }
 
     /**
@@ -221,6 +223,6 @@ public class KmlGenerator
         final File kmlFile = arguments.getOutput();
         if(!kmlFile.getName().toLowerCase().endsWith(".kml"))
             throw new IllegalArgumentException("wrong type of output: "+kmlFile);
-        new KmlGenerator(model, properties, queryStr).create(kmlFile);
+        new KmlGenerator(model, properties, queryStr).create(new FileOutputStream(kmlFile));
     }
 }
