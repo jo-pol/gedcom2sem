@@ -44,10 +44,13 @@ import com.hp.hpl.jena.shared.PrefixMapping.Factory;
 import com.hp.hpl.jena.sparql.core.Prologue;
 
 /**
- * From a testing point of view, this are just smoke tests. The methods are rather snippets of code to
+ * From a testing point of view, these are just smoke tests. The methods are rather snippets of code to
  * connect to dialogs and menu commands. Methods annotated with "Test" format the result of a report
- * query. These test methods are executed for each query returned by methods annotated with "Parameters".
- * These parameter methods live in implementing subclasses.
+ * query. The test framework runs the test methods for each query returned by the method annotated with
+ * "Parameters". Users might develop their own sets of rule files for their own queries. Some portions 
+ * may take long to load and/or require much memory. Choose between loading on an as needed basis to 
+ * avoid spilling memory, or let a save action of the gedcom trigger loading at low priority in the 
+ * background so things are ready when needed.
  */
 @RunWith(Parameterized.class)
 public class ReportDemo
@@ -72,13 +75,8 @@ public class ReportDemo
     /**
      * The enum allows to pick a model in the method annotated with "Parameters", and initialize the
      * models later with a method annotated with "BeforeClass". Do not store models in a top level enum
-     * in your application as it allows models for only one gedcom at any given time. <br>
-     * <br>
-     * The methods load the delivered test data with one set of the delivered rule files. Users might
-     * develop their own rules for their own queries. Some portions may take long to load and/or require
-     * much memory. Choose between loading on an as needed basis to avoid spilling memory, or let a save
-     * action of the gedcom trigger loading at low priority in the background so things are ready when
-     * needed.
+     * in your application as it allows models for only one gedcom at any given time.
+     * The methods load the delivered test data with one set of the delivered rule files.
      */
     private enum GedcomModel
     {
@@ -170,7 +168,7 @@ public class ReportDemo
     /**
      * Constructs the models required for the queries. Escpecially the additional rules may take (too)
      * long. An application should apply rules in the background and allow abort. Saving the gedcom could
-     * be a trigger, like an explicit user request or a request to run a query after the gedcom changed
+     * be a trigger, or an explicit user request or a request to run a query after the gedcom changed
      * since the last conversion.
      * 
      * @throws GedcomParserException
