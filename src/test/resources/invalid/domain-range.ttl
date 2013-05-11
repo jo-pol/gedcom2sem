@@ -1,0 +1,17 @@
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix bio:     <http://purl.org/vocab/bio/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rel:     <http://purl.org/vocab/relationship/> .
+
+_:b1  bio:relationship
+              [ a       bio:Birth ;
+                bio:principal _:b2
+              ] ;
+      bio:father "1929-07-28Z"^^xsd:date ;
+      bio:mother _:b1 ;
+      rel:ancestorOf _:b2 .
+
+_:b2  a       bio:Relatioship .
+_:b3  a       bio:Marriage .
+

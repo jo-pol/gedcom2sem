@@ -1,0 +1,21 @@
+<rdf:RDF
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:rel="http://purl.org/vocab/relationship/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <bio:Marriage/>
+  <rdf:Description rdf:nodeID="A0">
+    <rel:ancestorOf>
+      <bio:Relatioship rdf:nodeID="A1"/>
+    </rel:ancestorOf>
+    <bio:mother rdf:nodeID="A0"/>
+    <bio:father rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >1929-07-28Z</bio:father>
+    <bio:relationship>
+      <bio:Birth>
+        <bio:principal rdf:nodeID="A1"/>
+      </bio:Birth>
+    </bio:relationship>
+  </rdf:Description>
+</rdf:RDF>
