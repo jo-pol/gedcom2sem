@@ -141,7 +141,8 @@ public class HebrewCalendar extends Calendar {
   // *      Conversion algorithm from Scott E. Lee - see notice above      * 
   // =======================================================================
   
-  private final static int
+  @SuppressWarnings("unused")
+private final static int
    HALAKIM_PER_HOUR = 1080,
    HALAKIM_PER_DAY = 25920,
    HALAKIM_PER_LUNAR_CYCLE = ((29 * HALAKIM_PER_DAY) + 13753),
