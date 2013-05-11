@@ -56,7 +56,9 @@ public class DirectAccessTokenizer {
   /**
    * Tokens
    */
-  public String[] getTokens(boolean trim) {
+  @SuppressWarnings("unchecked")
+public String[] getTokens(boolean trim) {
+    @SuppressWarnings("rawtypes")
     ArrayList result = new ArrayList();
     for (int i=0;;i++) {
       String token = get(i, trim);

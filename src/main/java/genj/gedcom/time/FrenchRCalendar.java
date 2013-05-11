@@ -36,6 +36,7 @@ public class FrenchRCalendar extends Calendar {
   private static final String WEEKDAYS[] 
    = { "PRI", "DUO", "TRI", "QUA", "QUI", "SEX", "SEP", "OCT", "NON", "DEC", "VER", "GEN", "TRA", "OPI", "REC", "REV" };
    
+  @SuppressWarnings("unused")
   private static final int[] LEAP_YEARS
    = { 3,7,11 };
    
