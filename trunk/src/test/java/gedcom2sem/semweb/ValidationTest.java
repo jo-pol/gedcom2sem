@@ -2,12 +2,10 @@ package gedcom2sem.semweb;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 
 import org.junit.BeforeClass;
@@ -21,7 +19,6 @@ import com.hp.hpl.jena.reasoner.ValidityReport;
 
 public class ValidationTest
 {
-    private static final String BIO_SCHEMA = "http://vocab.org/bio/0.1/.rdf";
     private static Reasoner reasoner;
 
     @BeforeClass
@@ -32,53 +29,28 @@ public class ValidationTest
         schemaModel.read("http://www.w3.org/2002/07/owl");
         schemaModel.read("http://vocab.org/relationship/.rdf");
         schemaModel.read("http://xmlns.com/foaf/spec/20100809.rdf");
-        schemaModel.read(BIO_SCHEMA);
+        schemaModel.read("http://vocab.org/bio/0.1/.rdf");
         reasoner = ReasonerRegistry.getOWLReasoner();
         reasoner.bindSchema(schemaModel);
     }
 
-    // @BeforeClass
-    public static void bio2rdf() throws Exception
-    {
-        final Model model = ModelFactory.createDefaultModel();
-        final File data = new File("src/test/resources/invalid/bio.rdf");
-        data.mkdirs();
-        model.read(BIO_SCHEMA, null, "RDF/XML");
-        model.write(new FileOutputStream("target/data/bio.rdf"), "RDF/XML-ABBREV");
-    }
-
-    // @BeforeClass
-    public static void ttl2rdf() throws Exception
-    {
-        final Model model = ModelFactory.createDefaultModel();
-        final File data = new File("src/test/resources/invalid/domain-range.ttl");
-        data.mkdirs();
-        model.read(new FileInputStream(data), null, "Turtle");
-        model.write(new FileOutputStream("target/data/domain-range.rdf"), "RDF/XML-ABBREV");
-    }
-
     @Test
-    public void test() throws Exception
-    {
-        final Model model = ModelFactory.createDefaultModel();
-        final File data = new File("src/test/resources/kennedy-mini.ttl");
-        model.read(new FileInputStream(data), null, "Turtle");
-        final ValidityReport validity = ModelFactory.createInfModel(reasoner, model).validate();
-        assertTrue(validity.isValid());
-    }
-
-    @Test
-    public void domainRange() throws Exception
+    public void motherDifferentFrom() throws Exception
     {
         // http://jena.apache.org/documentation/inference/#validation
 
         final Model model = ModelFactory.createDefaultModel();
-        final File data = new File("src/test/resources/invalid/domain-range.rdf");
-        model.read(new FileInputStream(data), null, "RDF/XML");
+        final InputStream input = new ByteArrayInputStream("_:p <http://purl.org/vocab/bio/0.1/mother> _:p".getBytes());
+        model.read(input, null, "Turtle");
         final ValidityReport validity = ModelFactory.createInfModel(reasoner, model).validate();
-        assertThat(validity.isValid(), is(true)); // FIXME there a obvious errors
-        assertThat(validity.getReports().hasNext(), is(false)); // FIXME there a obvious errors
+        // FIXME violates http://vocab.org/bio/0.1/.html#mother being a sub property of
+        // http://www.w3.org/2002/07/owl#differentFrom
+        assertThat(validity.isValid(), is(true));
+        assertThat(validity.getReports().hasNext(), is(false));
+    }
 
+    void cimValidate() throws Exception
+    {
         // http://www.langdale.com.au/validate/
         // FIXME the tool has trouble reading BIO and FOAF
         // String dataURL = data.toURI().toURL().toString();
