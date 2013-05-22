@@ -40,22 +40,13 @@ public class ValidationTest
         // http://jena.apache.org/documentation/inference/#validation
 
         final Model model = ModelFactory.createDefaultModel();
-        final InputStream input = new ByteArrayInputStream("_:p <http://purl.org/vocab/bio/0.1/mother> _:p".getBytes());
-        model.read(input, null, "Turtle");
+        final byte[] bytes = "_:p <http://purl.org/vocab/bio/0.1/mother> _:p".getBytes();
+        model.read(new ByteArrayInputStream(bytes), null, "Turtle");
         final ValidityReport validity = ModelFactory.createInfModel(reasoner, model).validate();
         // FIXME violates http://vocab.org/bio/0.1/.html#mother being a sub property of
         // http://www.w3.org/2002/07/owl#differentFrom
         assertThat(validity.isValid(), is(true));
         assertThat(validity.getReports().hasNext(), is(false));
-    }
-
-    void cimValidate() throws Exception
-    {
-        // http://www.langdale.com.au/validate/
-        // FIXME the tool has trouble reading BIO and FOAF
-        // String dataURL = data.toURI().toURL().toString();
-        // String[] args = new String[] {dataURL, RDF_SCHEMA, BIO_SCHEMA, FOAF_SCHEMA};
-        // org.iec.tc57.cimrdf.Main.main(args);
     }
 
     void pelletValidation()
