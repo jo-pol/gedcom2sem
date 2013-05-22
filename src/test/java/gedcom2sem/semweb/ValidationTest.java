@@ -35,9 +35,7 @@ public class ValidationTest
         schemaModel.read(REL_SCHEMA);
         schemaModel.read(FOAF_SCHEMA);
         schemaModel.read(BIO_SCHEMA);
-        // URL localBIO = new File("src/test/resources/invalid/bio.rdf").toURI().toURL();
-        // schemaModel.read(localBIO.openStream(), null, "RDF/XML-ABBREV");
-        reasoner = ReasonerRegistry.getRDFSReasoner();
+        reasoner = ReasonerRegistry.getOWLReasoner();
         reasoner.bindSchema(schemaModel);
     }
 
@@ -77,7 +75,7 @@ public class ValidationTest
         // http://jena.apache.org/documentation/inference/#validation
 
         final Model model = ModelFactory.createDefaultModel();
-        final File data = new File("target/domain-range.rdf");
+        final File data = new File("src/test/resources/invalid/domain-range.rdf");
         model.read(new FileInputStream(data), null, "RDF/XML");
         final ValidityReport validity = ModelFactory.createInfModel(reasoner, model).validate();
         assertThat(validity.isValid(), is(true)); // FIXME there a obvious errors
