@@ -22,18 +22,16 @@ import com.hp.hpl.jena.reasoner.ValidityReport;
 public class ValidationTest
 {
     private static final String BIO_SCHEMA = "http://vocab.org/bio/0.1/.rdf";
-    private static final String FOAF_SCHEMA = "http://xmlns.com/foaf/spec/20100809.rdf";
-    private static final String REL_SCHEMA = "http://vocab.org/relationship/.rdf";
-    private static final String RDF_SCHEMA = "http://www.w3.org/2000/01/rdf-schema";
     private static Reasoner reasoner;
 
     @BeforeClass
     public static void createValidator() throws MalformedURLException, IOException
     {
         final Model schemaModel = ModelFactory.createDefaultModel();
-        schemaModel.read(RDF_SCHEMA);
-        schemaModel.read(REL_SCHEMA);
-        schemaModel.read(FOAF_SCHEMA);
+        schemaModel.read("http://www.w3.org/2000/01/rdf-schema");
+        schemaModel.read("http://www.w3.org/2002/07/owl");
+        schemaModel.read("http://vocab.org/relationship/.rdf");
+        schemaModel.read("http://xmlns.com/foaf/spec/20100809.rdf");
         schemaModel.read(BIO_SCHEMA);
         reasoner = ReasonerRegistry.getOWLReasoner();
         reasoner.bindSchema(schemaModel);
