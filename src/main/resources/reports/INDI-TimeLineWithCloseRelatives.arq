@@ -5,14 +5,12 @@
 # See the GNU General Public License for more details. A copy of the GNU General Public License is available at <http://www.gnu.org/licenses/>.
 ##################################################################################################
 #
-# timeline with siblings, parents and spouses
+# timeline with parents, spouses, siblings, children and in laws.
 #
-# replace the value for the famID
+# replace the value for "?principal p:ID"
 # or launch from a family context
 #
 # Apply basic rules, don't drop original statements.
-#
-# see also comments on GIVN/SURN
 #
 ###############################################
 
@@ -20,12 +18,6 @@
 PREFIX rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
 PREFIX rdfs:         <http://www.w3.org/2000/01/rdf-schema#> 
 PREFIX xsd:          <http://www.w3.org/2001/XMLSchema#> 
-PREFIX wgs84_pos:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
-PREFIX gn:           <http://www.geonames.org/ontology#>
-PREFIX dbpedia-owl:  <http://dbpedia.org/ontology/>
-PREFIX dbpedia-prop: <http://dbpedia.org/property/>
-PREFIX dbpr:         <http://dbpedia.org/resource/>
-PREFIX foaf:         <http://xmlns.com/foaf/0.1/>
 
 ### converted gedcom
 PREFIX t: <http://purl.org/vocab/vnd/gedcom2sem.googlecode.com/2013-01-13/GedcomTags/type#> 
@@ -39,44 +31,63 @@ PREFIX apf: <http://jena.hpl.hp.com/ARQ/property#>
 
 ###############################################
 SELECT DISTINCT 
-#  (str(?alive) as ?central_person_alive_at_event)   # these LET assignments seems to be broken
-#  (str(?age)   as ?age_of_central_person_at_event)  # these LET assignments seems to be broken
-  (fn:substring(str(?eventDate),0,11) as ?date)
-  (?eventType as ?event)
+  (str(xsd:int(fn:substring(str(?eventDate),1,4)) - xsd:int(?birthYear))  as ?age)
+  (fn:substring(str(?eventDate),1,10) as ?date)
+  ?sex
+  ?relation
+  ?event
   ?name
 {
   ### for which individual do you want the close relatives?
-  LET (?indiID := '%s')
 
-  ### select data that is allways available
+  ?principal p:id '%s'.
 
-  ?indi 
-   p:id ?indiID;
-   p:BIRT [p:DATE [rdfs:label ?birthDate]];
-   p:DEAT [p:DATE [rdfs:label ?deathDate]].
+  ### required for age computation
 
-  {?indi                              p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "born").}UNION
-  {?indi                              p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "died").}UNION
-  {?indi r:parent  ?parent.   ?parent p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "parent born").}UNION
-  {?indi r:parent  ?parent.   ?parent p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "parent died").}UNION
-  {?indi r:child   ?child.     ?child p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "child born").}UNION
-  {?indi r:child   ?child.     ?child p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "child died").}UNION
-  {?indi r:sibling ?sibling. ?sibling p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "sibling born").}UNION
-  {?indi r:sibling ?sibling. ?sibling p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "sibling died").}UNION
-  {?indi r:spouse  ?spouse.   ?spouse p:NAME [rdfs:label ?name]; p:BIRT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "spouse born").}UNION
-  {?indi r:spouse  ?spouse.   ?spouse p:NAME [rdfs:label ?name]; p:DEAT [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "spouse died").}UNION
-  {?indi r:spouse  ?spouse.   ?spouse p:NAME [rdfs:label ?name]. 
-                 ?indi p:FAMS ?fam. ?spouse p:FAMS ?fam. ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "married").}UNION
-  {?indi r:child  ?child. ?child p:FAMS ?fam; p:NAME [rdfs:label ?name]. 
-                                                         ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "child married").}UNION
-  {?indi r:sibling  ?sibling. ?sibling p:FAMS ?fam; p:NAME [rdfs:label ?name]. 
-                                                         ?fam p:MARR [p:DATE [rdfs:label ?eventDate]]. LET (?eventType := "sibling married").}
-  ### computations
+  OPTIONAL
+  {
+    ?principal p:BIRT [p:DATE [rdfs:label ?birthDate]].
+    LET(?birthYear := fn:substring(str(?birthDate),1,4) ).
+  }
 
-  LET(?eventYear := fn:substring(str(?eventDate),1,4))
-  LET(?birthYear := fn:substring(str(?birthDate),1,4))
-  LET(?deathYear := fn:substring(str(?deathDate),1,4))
-  LET(?age := xsd:int(?eventYear) - xsd:int(?birthYear))
-  LET(?alive := ?birthYear <= ?eventYear && ?eventYear <= ?deathYear)
+  ### the persons related to the principal
+  {
+    {
+      {LET (?relation := 'parent'        ) ?principal r:parent                  ?relative.}UNION
+      {LET (?relation := 'parent in law' ) ?principal r:spouse  ?s. ?s r:parent ?relative.}UNION
+      {LET (?relation := 'child'         ) ?principal r:child                   ?relative.}UNION
+      {LET (?relation := 'child in law'  ) ?principal r:child   ?c. ?c r:spouse ?relative.}UNION
+      {LET (?relation := 'sibling'       ) ?principal r:sibling                 ?relative.}UNION
+      {LET (?relation := 'sibling in law') ?principal r:sibling ?s. ?s r:spouse ?relative.}UNION
+      {LET (?relation := 'spouse'        ) ?principal r:spouse                  ?relative.}UNION
+      {LET (?relation := ' '             ). LET (?relative := ?principal)                 } 
+    } 
+    {
+      {LET (?event := 'birth') ?relative p:BIRT [p:DATE [rdfs:label ?eventDate]].}UNION
+      {LET (?event := 'death') ?relative p:DEAT [p:DATE [rdfs:label ?eventDate]].}
+    }
+    ?relative p:SEX  [rdfs:label ?sex];
+              p:NAME [rdfs:label ?name].
+  } UNION
+
+  ### the couples related to the principal
+  {
+    {
+      {LET (?relation := 'parents'       ) ?principal r:parent  ?p. ?p p:FAMS ?relative.}UNION
+      {LET (?relation := 'parents in law') ?principal r:spouse  ?s.
+                                                   ?s r:parent  ?p. ?p p:FAMS ?relative.}UNION
+      {LET (?relation := 'sibling'       ) ?principal r:sibling ?p. ?p p:FAMS ?relative.}UNION
+      {LET (?relation := 'child'         ) ?principal r:child   ?c. ?c p:FAMS ?relative.}UNION
+      {LET (?relation := ' '             ) ?principal                  p:FAMS ?relative.}
+    }
+    {
+      {LET (?event := 'mariage') ?relative p:MARR [p:DATE [rdfs:label ?eventDate]].}UNION
+      {LET (?event := 'divorce') ?relative p:DIV  [p:DATE [rdfs:label ?eventDate]].}
+    }
+    ?relative p:HUSB [p:NAME [rdfs:label ?nameHusband] ];
+              p:WIFE [p:NAME [rdfs:label ?nameWife   ] ].
+    LET (?sex := ' ')
+    LET (?name := fn:concat(?nameHusband," --- ",?nameWife))
+  }
 }
 ORDER BY ?eventDate
