@@ -151,7 +151,7 @@ public class ReportDemo
 
     /**
      * Typically at most once per session or when the loaded file changes. Maintain a pool as users might
-     * create variants. See also https://code.google.com/p/gedcom2sem/wiki/Localizing
+     * create variants. See also https://github.com/jo-pol/gedcom2sem/wiki/Localizing
      * 
      * @throws MalformedURLException
      * @throws IOException

@@ -1,2 +1,2 @@
 source code and user guide (wiki) available on
-http://gedcom2sem.googlecode.com/
+https://github.com/jo-pol/gedcom2sem/wiki/
