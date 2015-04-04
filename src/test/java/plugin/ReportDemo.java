@@ -1,16 +1,21 @@
 package plugin;
 
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.hamcrest.core.StringStartsWith.startsWith;
 import gedcom2sem.gedsem.Convert;
 import gedcom2sem.gedsem.Parser;
 import gedcom2sem.io.FileUtil;
 import gedcom2sem.semweb.KmlGenerator;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -26,13 +31,13 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.gedcom4j.parser.GedcomParserException;
+import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolutionMap;
@@ -47,15 +52,20 @@ import com.hp.hpl.jena.sparql.core.Prologue;
  * From a testing point of view, these are just smoke tests. The methods are rather snippets of code to
  * connect to dialogs and menu commands. Methods annotated with "Test" format the result of a report
  * query. The test framework runs the test methods for each query returned by the method annotated with
- * "Parameters". Users might develop their own sets of rule files for their own queries. Some portions 
- * may take long to load and/or require much memory. Choose between loading on an as needed basis to 
- * avoid spilling memory, or let a save action of the gedcom trigger loading at low priority in the 
+ * "Parameters". Users might develop their own sets of rule files for their own queries. Some portions
+ * may take long to load and/or require much memory. Choose between loading on an as needed basis to
+ * avoid spilling memory, or let a save action of the gedcom trigger loading at low priority in the
  * background so things are ready when needed.
  */
 @RunWith(Parameterized.class)
 public class ReportDemo
+// As the name does not end or start with test, maven does not execute this class as a test.
+//
+// Note that some reports were developed with a gedcom using special conventions
+// and remain empty for the Kennedy family.
+// Comment headers may be oriented to GenJ or Ancestris, the birth place of this library.
 {
-    private static final Logger logger = LoggerFactory.getLogger(ReportDemo.class);
+    private static final String OUT_DIR = "target/plugin-demo/ReportDemo/";
 
     /** The folder stored as conf in the download. */
     private static final String CONF = "src/main/resources/";
@@ -63,10 +73,14 @@ public class ReportDemo
     /** The folder stored as test in the download. */
     private static final String TEST = "src/test/resources/";
 
+    private static final String GEDCOM = System.getProperty("gedcom.file", TEST + "kennedy.ged");
+    private static final String PROBAND = System.getProperty("proband.id",  "@R4@");
+    private static final String CLOSE_RELATIVES = System.getProperty("close.relatives.id", "@R4@");
+    private static final String PATCHWORK_FAMILY = System.getProperty("patchwork.family.id", "@F0@");
+
     private static Transformer xslTransformer;
     private static Collection<Object[]> constructorParameters = new ArrayList<Object[]>();
 
-    private final ByteArrayOutputStream outputStream;
     private final String queryString;
     private final Model model;
 
@@ -75,8 +89,8 @@ public class ReportDemo
     /**
      * The enum allows to pick a model in the method annotated with "Parameters", and initialize the
      * models later with a method annotated with "BeforeClass". Do not store models in a top level enum
-     * in your application as it allows models for only one gedcom at any given time.
-     * The methods load the delivered test data with one set of the delivered rule files.
+     * in your application as it allows models for only one gedcom at any given time. The methods load
+     * the delivered test data with one set of the delivered rule files.
      */
     private enum GedcomModel
     {
@@ -102,7 +116,7 @@ public class ReportDemo
 
         static void loadModels() throws IOException, GedcomParserException
         {
-            withoutRules.readGedcom(TEST + "kennedy.ged");
+            withoutRules.readGedcom(GEDCOM);
             withBasicRules.applyRules(CONF + "rules/Basic.rules", withoutRules.model);
             withBasicGeoRules.applyRules(TEST + "geoMashup.rules", withBasicRules.model);
             withEveryting.applyRules(CONF + "rules/Additional.rules", withBasicGeoRules.model);
@@ -131,9 +145,9 @@ public class ReportDemo
         add("dbpediaLanguages.arq", GedcomModel.withBasicGeoRules);
         add("dbpediaProperties.arq", GedcomModel.withBasicGeoRules);
         add("dbpediaRelatedEntities.arq", GedcomModel.withBasicGeoRules);
-        add("FAM-PatchworkFamily.arq", GedcomModel.withBasicRules, "@F0@");
-        add("INDI-RootAncestors.arq", GedcomModel.withEveryting, "@R4@");
-        add("INDI-TimeLineWithCloseRelatives.arq", GedcomModel.withBasicRules, "@R4@");
+        add("FAM-PatchworkFamily.arq", GedcomModel.withBasicRules, PATCHWORK_FAMILY);
+        add("INDI-RootAncestors.arq", GedcomModel.withEveryting, PROBAND);
+        add("INDI-TimeLineWithCloseRelatives.arq", GedcomModel.withBasicRules, CLOSE_RELATIVES);
         add("SOSA-EventDocuments.arq", GedcomModel.withoutRules);
         add("SOSA-InbredStatistics.arq", GedcomModel.withoutRules);
         add("SOSA-MultiMedia.arq", GedcomModel.withoutRules);
@@ -163,6 +177,7 @@ public class ReportDemo
     {
         final StreamSource xslSS = new StreamSource(new File(CONF + "result-to-html.xsl").toURI().toURL().openStream());
         xslTransformer = TransformerFactory.newInstance().newTransformer(xslSS);
+        new File(OUT_DIR).mkdirs();
     }
 
     /**
@@ -196,8 +211,6 @@ public class ReportDemo
     public ReportDemo(final String queryFileName, final GedcomModel gedcomModel, final String... entityID) throws IOException
     {
         this.queryFileName = queryFileName;
-        logger.info(gedcomModel.name() + " " + queryFileName + " entity=" + (entityID==null||entityID.length==0?"":entityID[0]));
-        outputStream = new ByteArrayOutputStream();
         model = gedcomModel.model;
         // Read the query and replace the placeholder %s
         queryString = String.format(FileUtil.read(new File(CONF + "reports/" + queryFileName)), (Object[]) entityID);
@@ -207,52 +220,94 @@ public class ReportDemo
     }
 
     @Test
-    public void asTSV()
+    public void asTSV() throws Exception
     {
-        ResultSetFormatter.outputAsTSV(outputStream, runQuery());
+        String fileName = OUT_DIR + queryFileName.replace(".arq", "") + ".tsv";
+        FileOutputStream outputStream = new FileOutputStream(fileName);
+        try
+        {
+            ResultSetFormatter.outputAsTSV(outputStream, runQuery());
+        }
+        finally
+        {
+            outputStream.close();
+        }
+        assertMoreThanOneLine(fileName);
     }
 
     @Test
-    public void asCSV()
+    public void asCSV() throws Exception
     {
-        ResultSetFormatter.outputAsCSV(outputStream, runQuery());
+        FileOutputStream outputStream = new FileOutputStream(OUT_DIR + queryFileName.replace(".arq", "") + ".csv");
+        try
+        {
+            ResultSetFormatter.outputAsCSV(outputStream, runQuery());
+        }
+        finally
+        {
+            outputStream.close();
+        }
     }
 
     @Test
-    public void asXML()
+    public void asXML() throws Exception
     {
-        ResultSetFormatter.outputAsXML(outputStream, runQuery());
+        FileOutputStream outputStream = new FileOutputStream(OUT_DIR + queryFileName.replace(".arq", "") + ".xml");
+        try
+        {
+            ResultSetFormatter.outputAsXML(outputStream, runQuery());
+        }
+        finally
+        {
+            outputStream.close();
+        }
     }
 
     @Test
-    public void asJSON()
+    public void asJSON() throws Exception
     {
-        ResultSetFormatter.outputAsJSON(outputStream, runQuery());
+        FileOutputStream outputStream = new FileOutputStream(OUT_DIR + queryFileName.replace(".arq", "") + ".json");
+        try
+        {
+            ResultSetFormatter.outputAsJSON(outputStream, runQuery());
+        }
+        finally
+        {
+            outputStream.close();
+        }
     }
 
     @Test
     public void asTXT() throws IOException
     {
-        final Prologue prologue = new Prologue(Factory.create().setNsPrefixes(model.getNsPrefixMap()));
-        outputStream.write(ResultSetFormatter.asText(runQuery(), prologue).getBytes());
-
-        // for a visual check of the result
-        // note that some reports were developed with a gedcom using other conventions
-        // TODO rather 10 lines than a number of characters, but don't clutter the demo code
-        String result = outputStream.toString("UTF-8");
-        logger.info(System.getProperty("line.separator")+result.substring(0, (result.length()<2000?result.length():2000)));
+        FileOutputStream outputStream = new FileOutputStream(OUT_DIR + queryFileName.replace(".arq", "") + ".txt");
+        try
+        {
+            final Prologue prologue = new Prologue(Factory.create().setNsPrefixes(model.getNsPrefixMap()));
+            outputStream.write(ResultSetFormatter.asText(runQuery(), prologue).getBytes());
+        }
+        finally
+        {
+            outputStream.close();
+        }
     }
 
     @Test
-    public void asKML() throws FileNotFoundException, IOException
+    public void asKML() throws Exception
     {
-        // guard clause to avoid splitting or duplicating this test class
-        if (!queryFileName.toLowerCase().startsWith("kml"))
-            return;
+        Assume.assumeThat(queryFileName, startsWith("places"));
 
-        final String propertiesFileName = CONF + queryFileName.replace(".arq", ".properties");
+        final String propertiesFileName = CONF + queryFileName.replace(".arq", ".properties").replace("places-", "kml-");
         final ResourceBundle properties = new PropertyResourceBundle(new FileInputStream(propertiesFileName));
-        new KmlGenerator(model, properties, queryString).create(outputStream);
+        FileOutputStream outputStream = new FileOutputStream(OUT_DIR + queryFileName.replace(".arq", "") + ".kml");
+        try
+        {
+            new KmlGenerator(model, properties, queryString).create(outputStream);
+        }
+        finally
+        {
+            outputStream.close();
+        }
     }
 
     @Test
@@ -261,12 +316,34 @@ public class ReportDemo
         final ByteArrayOutputStream xml = new ByteArrayOutputStream();
         ResultSetFormatter.outputAsXML(xml, runQuery());
         final StreamSource xmlSS = new StreamSource(new ByteArrayInputStream(xml.toByteArray()));
-        xslTransformer.transform(xmlSS, new StreamResult(outputStream));
+        FileOutputStream outputStream = new FileOutputStream(OUT_DIR + queryFileName.replace(".arq", "") + ".html");
+        try
+        {
+            xslTransformer.transform(xmlSS, new StreamResult(outputStream));
+        }
+        finally
+        {
+            outputStream.close();
+        }
     }
 
     private ResultSet runQuery()
     {
         final QuerySolutionMap qsm = new QuerySolutionMap();
         return QueryExecutionFactory.create(queryString, Syntax.syntaxARQ, model, qsm).execSelect();
+    }
+
+    private void assertMoreThanOneLine(String fileName) throws FileNotFoundException, IOException
+    {
+        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        try
+        {
+            reader.readLine();
+            Assert.assertThat(fileName + " should have more than a header line", reader.readLine(), notNullValue());
+        }
+        finally
+        {
+            reader.close();
+        }
     }
 }

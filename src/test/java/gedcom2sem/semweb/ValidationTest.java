@@ -5,7 +5,6 @@ import static org.junit.Assert.assertThat;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 
 import org.junit.BeforeClass;

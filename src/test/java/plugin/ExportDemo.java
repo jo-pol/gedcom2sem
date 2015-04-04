@@ -2,10 +2,10 @@ package plugin;
 
 import gedcom2sem.gedsem.Transform;
 
-import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 
 import org.gedcom4j.parser.GedcomParserException;
@@ -13,14 +13,12 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.rdf.model.Model;
 
 public class ExportDemo
 {
-    private static final Logger logger = LoggerFactory.getLogger(ReportDemo.class);
+    private static final String OUT_DIR = "target/plugin-demo/ExportDemo/";
 
     /** The folder stored as conf in the download. */
     private static final String CONF = "src/main/resources/";
@@ -28,9 +26,8 @@ public class ExportDemo
     /** The folder stored as test in the download. */
     private static final String TEST = "src/test/resources/";
 
-    private final ByteArrayOutputStream outputStream;
+    private FileOutputStream outputStream;
 
-    private String lang;
     private static Model model;
 
     /**
@@ -45,6 +42,7 @@ public class ExportDemo
     @BeforeClass
     public static void transform() throws FileNotFoundException, MalformedURLException, IOException, GedcomParserException
     {
+        new File(OUT_DIR).mkdirs();
         model = Transform.transform(//
                 TEST + "kennedy.ged", //
                 CONF + "prefixes.ttl", //
@@ -55,75 +53,68 @@ public class ExportDemo
                 CONF + "rules/provenance", //
                 TEST + "/geoMashup.rules", //
                 TEST + "/integration.rules",//
-                "dummy.ttl");
-        // NOTE: the output file dummy.ttl is not actually used
+                OUT_DIR + "out.ttl");
+        // NOTE: the out.ttl is not actually used
         // but stubbornly full command line validation is applied
         // TODO fix with or after issue 15 (split output per individual)
     }
 
-    public ExportDemo()
+    @Ignore
+    @Test
+    public void asJSON() throws Exception
     {
-        outputStream = new ByteArrayOutputStream();
+        // TODO upgrade to http://jena.apache.org/documentation/io/index.html
+        outputStream = new FileOutputStream(OUT_DIR + "json.txt");
+        model.write(outputStream, "RDF/JSON");
     }
 
     @Ignore
     @Test
-    public void asJSON()
+    public void asTRIG() throws Exception
     {
         // TODO upgrade to http://jena.apache.org/documentation/io/index.html
-        lang = "RDF/JSON";
-        model.write(outputStream, lang);
-    }
-
-    @Ignore
-    @Test
-    public void asTRIG()
-    {
-        // TODO upgrade to http://jena.apache.org/documentation/io/index.html
-        lang = "TriG";
-        model.write(outputStream, lang);
+        outputStream = new FileOutputStream(OUT_DIR + "trig.txt");
+        model.write(outputStream, "TriG");
     }
 
     @Test
-    public void asTTL()
+    public void asTTL() throws Exception
     {
-        lang = "TURTLE";
-        model.write(outputStream, lang);
+        outputStream = new FileOutputStream(OUT_DIR + "turtle.txt");
+        model.write(outputStream, "TURTLE");
     }
 
     @Test
-    public void asRDF()
+    public void asRDF() throws Exception
     {
-        lang = "RDF/XML";
-        model.write(outputStream, lang);
+        outputStream = new FileOutputStream(OUT_DIR + "xml.rdf");
+        model.write(outputStream, "RDF/XML");
     }
 
     @Test
-    public void asN3()
+    public void asN3() throws Exception
     {
-        lang = "N3";
-        model.write(outputStream, lang);
+        outputStream = new FileOutputStream(OUT_DIR + "n3.txt");
+        model.write(outputStream, "N3");
     }
 
     @Test
-    public void asNT()
+    public void asNT() throws Exception
     {
-        lang = "N-TRIPLE";
-        model.write(outputStream, lang);
+        outputStream = new FileOutputStream(OUT_DIR + "n-tripple.txt");
+        model.write(outputStream, "N-TRIPLE");
     }
 
     @Test
-    public void asSlowRDF()
+    public void asSlowRDF() throws Exception
     {
-        lang = "RDF/XML-ABBREV";
-        model.write(outputStream, lang);
+        outputStream = new FileOutputStream(OUT_DIR + "xml-abbrev.rdf");
+        model.write(outputStream, "RDF/XML-ABBREV");
     }
 
     @After
-    public void logResult() throws UnsupportedEncodingException
+    public void logResult() throws Exception
     {
-        String result = outputStream.toString("UTF-8");
-        int loggedLength = result.length() < 2000 ? result.length() : 2000;
-        logger.info(lang+"=============="+System.getProperty("line.separator") + result.substring(0, loggedLength));
+        outputStream.close();
     }
 }
