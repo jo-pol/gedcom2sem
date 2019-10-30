@@ -23,10 +23,10 @@ even with just three generations.
 The original text
 [page](http://gothwin.data.seme4.com/id/person/I0265.html)
 of the screenshots below, the full size
-[graph](https://cdn.rawgit.com/wiki/jo-pol/gedcom2sem/wiki-images/GoodwinFullSize.png)
+[graph](images/GoodwinFullSize.png)
 and the interactive [graph](http://en.lodlive.it/?http://gothwin.data.seme4.com/id/person/I0243)
 
-![](https://cdn.rawgit.com/wiki/jo-pol/gedcom2sem/wiki-images/Goodwin50percent.png)
+![](images/Goodwin50percent.png)
 
 
 # Inverse relations #

@@ -10,4 +10,4 @@ demonstration: start with a French page on
 [JFK](http://en.lodlive.it/?http://fr.dbpedia.org/resource/John_Fitzgerald_Kennedy),
 follow the link to the same page in the English dbpedia (read: another family tree) and subsequently follow spouse and children.
 
-![](https://cdn.rawgit.com/wiki/jo-pol/gedcom2sem/wiki-images/samples.png)
+![](images/samples.png)

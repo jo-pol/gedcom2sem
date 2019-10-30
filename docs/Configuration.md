@@ -1,6 +1,6 @@
 # Notes on the configuration files #
 The configuration files are depicted with
-![](https://cdn.rawgit.com/wiki/jo-pol/gedcom2sem/wiki-images/overview/config.jpg)
+![](images/overview/config.jpg)
 on the [overview](overview).
 Examples are available in the conf folder of the download.
 To get the latest versions download raw files from the

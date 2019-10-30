@@ -2,7 +2,7 @@ The library might or might not be plugged into your favorite genealogical-applic
 But as long as you have your family data available in a [gedcom](http://en.wikipedia.org/wiki/GEDCOM) file,
 you can always use the library on a command line.
 
-The ovals in the diagram on the [overview](overview.md) page represent the main classes of the library that can be executed form a command line.
+The ovals in the diagram on the [overview](Overview.md) page represent the main classes of the library that can be executed from a command line.
 Below a partial example of such a command line.
 Replace the dots (...) with the  files from the same diagram.
 Put the output file last; the order of rule files is significant: they may need the results of a previous one.

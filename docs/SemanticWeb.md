@@ -3,7 +3,7 @@ A toddler version of the
 : "Linking Open Data cloud diagram, by Richard Cyganiak and Anja Jentzsch."
 The fragment highlights some data that might be interesting for genealogy.
 
-![lod-cloud](https://cdn.rawgit.com/wiki/jo-pol/gedcom2sem/wiki-images/samples/lod-cloud.png)
+![lod-cloud](images/samples/lod-cloud.png)
 
 The datahub has a list of datsets tagged with [genealogy](http://datahub.io/tag/genealogy)
 
@@ -41,4 +41,4 @@ The screenshot below shows the download link. The query
 [mashup.arq](https://github.com/jo-pol/gedcom2sem/tree/master/src/test/resources/reports/mashup/mashup.arq)
 helps to check completeness of geoMashup.rules.
 
-![](https://cdn.rawgit.com/wiki/jo-pol/gedcom2sem/wiki-images//downloadGeoNames.png)
+![](images/downloadGeoNames.png)
