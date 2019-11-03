@@ -1,7 +1,6 @@
 The library contains 2x2 main classes (oval symbols) that produce output (bold symbols). The diagram shows the files (green symbols) to specify as arguments. The main classes are executable from a command line, see legend for details.
 
-[full size diagram](images/overview.png)
-![](images/overview.png)
+[![](images/overview.png)](images/overview.png)
 
 | symbol | meaning |
 |-------|----------------------------------------------------------------------------|

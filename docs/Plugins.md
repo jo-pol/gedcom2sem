@@ -9,7 +9,8 @@ The original plug-in just provides customizable reports, without KML capabilitie
 To simplify usage of the current library,
 it could be plugged back into both applications and into other gedcom supporting applications and web services.
 Plugin developers of genealogical applications and/or services can get started with the
-[plugin tests](https://github.com/jo-pol/gedcom2sem/tree/master/src/test/java/plugin).
+[plugin tests](https://github.com/jo-pol/gedcom2sem/tree/master/src/test/java/plugin)
+or [BatchExamples](https://github.com/jo-pol/gedcom2sem/tree/master/src/test/java/gedcom2sem.BatchExamples).
 The methods of these JUnit tests provide code snippets for dialogs and other GUI controls.
 See also the [overview](overview).
 
