@@ -29,7 +29,7 @@ Get started:
   * delete `-SNAPSHOT` from `-cp gedcom2sem-0.2.3-SNAPSHOT.jar`
   * otherwise the same story as with the `*.bat` files on windows
 
-Replace the GedCom files in these single line command files with your own files.
+Replace the `.ged` files in these single line command files with your own files.
 Examine the developers overview, [BatchExamples] and other documentation for further possibilities.
 
 [BatchExamples]: https://github.com/jo-pol/gedcom2sem/blob/83711b81/src/test/java/gedcom2sem/BatchExamples.java
