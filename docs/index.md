@@ -6,27 +6,30 @@ At the right bottom sits a toddler version of the [LOD-cloud](http://lod-cloud.n
 The fragment highlights some interesting data to combine with your family tree,
 a filtered list is available at the [datahub](http://datahub.io/tag/genealogy)
 
-The left bottom shows the result of a short [LodLive](http://en.lodlive.it)
-demonstration: start with a French page on
+At the left bottom a short [LodLive](http://en.lodlive.it) demonstration.
+It illustrates the possibility to traverse through different family trees
+(and thus generate a single report) without merging GedCom files. 
+Start with a French page on
 [JFK](http://en.lodlive.it/?http://fr.dbpedia.org/resource/John_Fitzgerald_Kennedy),
-follow the link to the same page in the English dbpedia (read: another family tree) and subsequently follow spouse and children.
+follow the link to the same page in the English dbpedia (read: another family tree) 
+and subsequently follow spouse and children.
 
 ![](images/samples.png)
 
-Try for your self:
+Get started:
 * download the last [release](https://github.com/jo-pol/gedcom2sem/releases)
 * unzip
 * on windows 
   * open a command prompt
   * go into the unzipped directory
-  * run `convert.bat`
-  * this results in the file `kennedy.ttl`, it is needed by the next commands
-  * run `kml.bat`, this results in the file `kennedy.kml`, show it with a kml-viewer
-  * `html-repot.bat` results in a file `kennedy-age-diffs.html` which you can view with a browser
+  * run `convert.bat` to create the file `kennedy.ttl`, it is needed by the next commands
+  * `kml.bat` creates `kennedy.kml`, show it with a kml-viewer
+  * `html-repot.bat` creates `kennedy-age-diffs.html` which you can view with a browser
 * Mac/*nix users need to bypass a bug in the `*.sh` files:
   * delete `-SNAPSHOT` from `-cp gedcom2sem-0.2.3-SNAPSHOT.jar`
   * otherwise the same story as with the `*.bat` files on windows
 
-Examine the developers overview,
-[BatchExamples](https://github.com/jo-pol/gedcom2sem/blob/master/src/test/java/gedcom2sem/BatchExamples.java)
-and other documentation for further possibilities.
+Replace the GedCom files in these single line command files with your own files.
+Examine the developers overview, [BatchExamples] and other documentation for further possibilities.
+
+[BatchExamples]: https://github.com/jo-pol/gedcom2sem/blob/83711b81/src/test/java/gedcom2sem/BatchExamples.java
