@@ -17,11 +17,11 @@ and subsequently follow spouse and children.
 ![](images/samples.png)
 
 Get started:
-* download the last [release](https://github.com/jo-pol/gedcom2sem/releases)
-* unzip
+* prerequisites: _java_, for example from [AdoptOpenJDK](https://adoptopenjdk.net)
+* download the last [gedcom2sem release](https://github.com/jo-pol/gedcom2sem/releases) an unzip
 * on windows 
   * open a command prompt
-  * go into the unzipped directory
+  * `cd` into the unzipped directory
   * run `convert.bat` to create the file `kennedy.ttl`, it is needed by the next commands
   * `kml.bat` creates `kennedy.kml`, show it with a kml-viewer
   * `html-repot.bat` creates `kennedy-age-diffs.html` which you can view with a browser
@@ -29,7 +29,7 @@ Get started:
   * delete `-SNAPSHOT` from `-cp gedcom2sem-0.2.3-SNAPSHOT.jar`
   * otherwise the same story as with the `*.bat` files on windows
 
-Replace the `.ged` files in these single line command files with your own files.
-Examine the developers overview, [BatchExamples] and other documentation for further possibilities.
+Replace the `*.ged` files in these single line command files with your own files.
+Examine the developers overview, [BatchExamples] and other documentation in the sidebar links for further possibilities or [build from source](https://github.com/jo-pol/gedcom2sem).
 
 [BatchExamples]: https://github.com/jo-pol/gedcom2sem/blob/83711b81/src/test/java/gedcom2sem/BatchExamples.java
